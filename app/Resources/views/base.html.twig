@@ -19,9 +19,6 @@
           {% block header %}
               <!--header start-->
               <header class="header black-bg">
-                <div class="sidebar-toggle-box">
-                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-                </div>
                     <!--logo start-->
                     <a href="index.html" class="logo"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo de vellesa" /></a>
                     <!--logo end-->
@@ -41,9 +38,7 @@
             <aside>
                 <div id="sidebar"  class="nav-collapse ">
                   <!-- sidebar menu start-->
-                  <ul class="sidebar-menu" id="nav-accordion">
                     {% block asideContent %}{% endblock %}
-                  </ul>
                 </div>
             </aside>
             <!--sidebar end-->
