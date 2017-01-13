@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Tú Decides | Tu Testamento Vital{% endblock %}</title>
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+      {% block body %}
+        <section id="container" >
+
+          {% block header %}
+              <!--header start-->
+              <header class="header black-bg">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                    <!--logo start-->
+                    <a href="index.html" class="logo"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo de vellesa" /></a>
+                    <!--logo end-->
+
+                    <div class="top-menu pull-right center">
+                        <img id="avatar" src="{{ asset('img/avatar.png') }}" alt="figura de usuario"/>
+                        <span class="text-center">Usuario</span>
+                    </div>
+                </header>
+              <!--header end-->
+          {% endblock %}
+
+
+
+          {% block aside %}
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse ">
+                  <!-- sidebar menu start-->
+                  <ul class="sidebar-menu" id="nav-accordion">
+                    {% block asideContent %}{% endblock %}
+                  </ul>
+                </div>
+            </aside>
+            <!--sidebar end-->
+          {% endblock %}
+
+
+
+          {% block main %}
+            <section id="main-content">
+                <section class="wrapper">
+                    {% block mainContent %}{% endblock %}
+                </section>
+            </section>
+            <!--main content end-->
+          {% endblock %}
+
+
+        </section>
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-1.8.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" class="include" type="text/javascript" src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.nicescroll.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.sparkline.js') }}"></script>
+        <!--common script for all pages-->
+        <script src="{{ asset('js/common-scripts.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+
+      {% endblock %}
+    </body>
+</html>
