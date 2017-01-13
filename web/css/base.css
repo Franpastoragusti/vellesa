@@ -25,3 +25,9 @@ ul.sidebar-menu {
 #sidebar{
   background: rgba(248, 182, 103, 0.5);
 }
+
+#principal{
+  padding-top: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
