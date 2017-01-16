@@ -1,45 +1,85 @@
 {% extends '::base.html.twig' %}
 {% block mainContent %}
-      <nav style="top:50px;" class="navbar navbar-default col-md-12">
-        <!-- Nav tabs -->
-          <ul class="nav nav-tabs col-md-12" role="tablist">
-              <li role="presentation" class="active col-md-offset-4">
-                  <a href="#testigo1" aria-controls="testigo1" role="tab" data-toggle="tab">Testigo 1</a>
-              </li>
-              <li role="presentation">
-                  <a href="#testigo2" aria-controls="testigo2" role="tab" data-toggle="tab">Testigo 2</a>
-              </li>
-              <li role="presentation">
-                  <a href="#testigo3" aria-controls="testigo3" role="tab" data-toggle="tab">Testigo 3</a>
-              </li>
-          </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active fade in active" id="testigo1">
-              <h1>Testigo 1</h1>
-              <p>dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute
-              aliquando ius ex. Ea aperiri sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id. His audiam deserunt in, eum ubique voluptatibus
-              te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur te eos, ea pri dico munere propriae. Vel ferri facilis ut, qui paulo ridens praesent ad. Possim alterum qui cu.
-              Accusamus consulatu ius te, cu decore soleat appareat usu. Est ei erat mucius quaeque. Ei his quas phaedrum, efficiantur mediocritatem ne sed, hinc oratio blandit ei sed. Blandit gloriatur eam et. Brute noluisse per et, verear disputando neglegentur
-              </p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="testigo2">
-              <h1>Testigo 2</h1>
-              <p>dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute
-              aliquando ius ex. Ea aperiri sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id. His audiam deserunt in, eum ubique voluptatibus
-              te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur te eos, ea pri dico munere propriae. Vel ferri facilis ut, qui paulo ridens praesent ad. Possim alterum qui cu.
-              Accusamus consulatu ius te, cu decore soleat appareat usu. Est ei erat mucius quaeque. Ei his quas phaedrum, efficiantur mediocritatem ne sed, hinc oratio blandit ei sed. Blandit gloriatur eam et. Brute noluisse per et, verear disputando neglegentur
-              </p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="testigo3">
-              <h1>Testigo 3</h1>
-              <p>dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute
-              aliquando ius ex. Ea aperiri sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id. His audiam deserunt in, eum ubique voluptatibus
-              te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur te eos, ea pri dico munere propriae. Vel ferri facilis ut, qui paulo ridens praesent ad. Possim alterum qui cu.
-              Accusamus consulatu ius te, cu decore soleat appareat usu. Est ei erat mucius quaeque. Ei his quas phaedrum, efficiantur mediocritatem ne sed, hinc oratio blandit ei sed. Blandit gloriatur eam et. Brute noluisse per et, verear disputando neglegentur
-              </p>
-            </div>
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active col-md-offset-4">
+                                <a href="#testigo1" data-toggle="tab">Testigo 1</a>
+                            </li>
+                            <li>
+                                <a href="#testigo2" data-toggle="tab">Testigo 2</a>
+                            </li>
+                            <li>
+                                <a href="#testigo3" data-toggle="tab">Testigo 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="testigo1">
+                                <form class="form-horizontal col-md-6 col-md-offset-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Apellidos">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <label for="exampleInputFile">Suba su DNI por favor</label>
+                                            <input type="file" id="exampleInputFile">
+                                            <p class="help-block">Texto de ayuda aqui</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-warning col-md-2 col-md-offset-10">Siguiente</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="testigo2">
+                                <form class="form-horizontal col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Apellidos">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <label for="exampleInputFile">Suba su DNI por favor</label>
+                                        <input type="file" id="exampleInputFile">
+                                        <p class="help-block">Texto de ayuda aqui</p>
+                                    </div>
+                                    <button type="button" class="btn btn-warning col-md-2 col-md-offset-10">Siguiente</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="testigo3">
+                                <form class="form-horizontal col-md-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Apellidos">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <label for="exampleInputFile">Suba su DNI por favor</label>
+                                        <input type="file" id="exampleInputFile">
+                                        <p class="help-block">Texto de ayuda aqui</p>
+                                    </div>
+                                    <button type="button" class="btn btn-warning col-md-2 col-md-offset-10">Siguiente</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
-    </nav>
+    </div>
 {% endblock %}
