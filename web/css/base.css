@@ -31,3 +31,29 @@ ul.sidebar-menu {
   margin-left: 40px;
   margin-right: 40px;
 }
+
+/****SCROLL*****/
+.nicescroll-rails > *{
+  background: rgb(248, 182, 103) !important;
+}
+
+/*******STEPS******/
+#wizard_verticle{
+  margin-top: 120px;
+  margin-left: 0px;
+}
+.step-title{
+  position:absolute;
+  left:45px;
+  top: 10px;
+  width: 130px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+}
+.wizard_verticle ul.wizard_steps li a {
+  height: 100px;
+}
+.wizard_verticle ul.wizard_steps li a.selected:before, .step_no{
+  background: rgb(248, 182, 103);
+}

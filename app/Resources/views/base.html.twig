@@ -6,9 +6,12 @@
         <title>{% block title %}Tú Decides | Tu Testamento Vital{% endblock %}</title>
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+        <!-- Custom Theme Style -->
+        <link href="{{ asset('css/panel/custom.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
+
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -36,7 +39,7 @@
           {% block aside %}
             <!--sidebar start-->
             <aside>
-                <div id="sidebar"  class="nav-collapse ">
+                <div id="sidebar"  class="nav-collapse col-md-3">
                   <!-- sidebar menu start-->
                     {% block asideContent %}{% endblock %}
                 </div>
