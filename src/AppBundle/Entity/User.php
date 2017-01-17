@@ -17,7 +17,16 @@ use Doctrine\ORM\Mapping as ORM;
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+
     protected $id;
+
+        /**
+         * @ORM\OneToMany(targetEntity="Witness", mappedBy="users")
+         * 
+         */
+
+        private $witnesses;
+
 
     public function __construct()
     {
