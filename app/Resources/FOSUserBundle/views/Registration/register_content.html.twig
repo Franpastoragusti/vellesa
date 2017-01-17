@@ -1,8 +1,22 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
-{{ form_end(form) }}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+<div class="container">
+  <div class="row col-md-6 col-md-push-3">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h1 class="text-center">Registro</h1>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content col-md-12">
+              {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                  {{ form_widget(form) }}
+                  <div>
+                      <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                  </div>
+              {{ form_end(form) }}
+          </div>
+        </div>
+      </div>
+  </div><!-- /.row -->
+</div>
