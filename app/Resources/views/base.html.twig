@@ -42,11 +42,15 @@
               </aside>
             {% endblock %}
             <!-- page content -->
-            {% block main %}
-              <section class="right_col" role="main">
-                  {% block mainContent %}{% endblock %}
-              </section>
-            {% endblock %}
+
+            <section class="full_container">
+              {% block main %}
+                <div class="right_col" role="main">
+                    {% block mainContent %}{% endblock %}
+                </div>
+              {% endblock %}
+            </section>
+
           </div>
         </div>
 

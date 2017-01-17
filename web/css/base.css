@@ -1,5 +1,6 @@
 body{
   background: #FFFFFF;
+  font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
 /*****HEADER*****/
 .black-bg {
@@ -35,12 +36,10 @@ header div.top-menu span{
   margin-top: 10px;
   min-height: 600px;
 }
-.main_container{
 
-}
 /***PAGINA PRINCIPAL*******/
-#principal{
-  padding-top: 100px;
+.full_container{
+  padding-top: 5px;
   margin-left: 40px;
   margin-right: 40px;
 }
