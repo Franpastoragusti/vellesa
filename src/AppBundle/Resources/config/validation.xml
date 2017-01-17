@@ -75,12 +75,14 @@
             </constraint>
             <constraint name="Regex">
                 <option name="pattern">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/</option>
-                <option name="match">false</option>
-                <option name="minMessage">fos_user.password.short</option>
+                <option name="htmlPattern">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/</option>
+                <option name="message">La contraseña debe contener mucha mierda</option>
+                <option name="groups">
                 <value>Registration</value>
                 <value>Profile</value>
                 <value>ResetPassword</value>
                 <value>ChangePassword</value>
+                </option>
             </constraint>
         </property>
     </class>
