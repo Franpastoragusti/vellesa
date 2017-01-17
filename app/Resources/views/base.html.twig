@@ -1,76 +1,62 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Tú Decides | Tu Testamento Vital{% endblock %}</title>
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-        <!-- Custom Theme Style -->
-        <link href="{{ asset('css/panel/custom.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-        <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-      {% block body %}
-        <section id="container" >
+    <title>{% block title %}Tú Decides | Panel{% endblock %}</title>
 
-          {% block header %}
-              <!--header start-->
-              <header class="header black-bg">
-                    <!--logo start-->
-                    <a href="index.html" class="logo"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo de vellesa" /></a>
-                    <!--logo end-->
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
+    {% block stylesheets %}{% endblock %}
+  </head>
 
-                    <div class="top-menu pull-right center">
-                        <img id="avatar" src="{{ asset('img/avatar.png') }}" alt="figura de usuario"/>
-                        <span class="text-center">Usuario</span>
-                    </div>
-                </header>
-              <!--header end-->
-          {% endblock %}
+  <body class="nav-md">
+    {% block body %}
+        <div class="container body">
+          <div class="main_container">
+            {% block header %}
+                <!--header start-->
+                <header class="header black-bg">
+                      <!--logo start-->
+                      <a href="index.html" class="logo"><img id="logo" src="{{ asset('img/logo.png') }}" alt="logo de vellesa" /></a>
+                      <!--logo end-->
 
-
-
-          {% block aside %}
-            <!--sidebar start-->
-            <aside>
-                <div id="sidebar"  class="nav-collapse col-md-3">
-                  <!-- sidebar menu start-->
+                      <div class="top-menu pull-right center">
+                          <img id="avatar" src="{{ asset('img/avatar.png') }}" alt="figura de usuario"/>
+                          <span class="text-center">Usuario</span>
+                      </div>
+                  </header>
+                <!--header end-->
+            {% endblock %}
+            {% block aside %}
+              <aside class="col-md-3 left_col">
                     {% block asideContent %}{% endblock %}
-                </div>
-            </aside>
-            <!--sidebar end-->
-          {% endblock %}
+              </aside>
+            {% endblock %}
+            <!-- page content -->
+            {% block main %}
+              <section class="right_col" role="main">
+                  {% block mainContent %}{% endblock %}
+              </section>
+            {% endblock %}
+          </div>
+        </div>
 
-
-
-          {% block main %}
-            <section id="main-content">
-                <section class="wrapper">
-                    {% block mainContent %}{% endblock %}
-                </section>
-            </section>
-            <!--main content end-->
-          {% endblock %}
-
-
-        </section>
+        <!-- jQuery -->
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" class="include" type="text/javascript" src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.nicescroll.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.sparkline.js') }}"></script>
-        <!--common script for all pages-->
-        <script src="{{ asset('js/common-scripts.js') }}"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="{{ asset('/js/custom.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
 
-      {% endblock %}
-    </body>
+    {% endblock %}
+  </body>
 </html>

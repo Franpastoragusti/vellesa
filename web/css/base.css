@@ -1,3 +1,7 @@
+body{
+  background: #FFFFFF;
+}
+/*****HEADER*****/
 .black-bg {
     background: rgb(248, 182, 103);
     border-bottom: 1px solid #c9aa5f;
@@ -6,6 +10,8 @@
 #logo{
   width: 130px;
   padding-bottom: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 #avatar{
   margin: 0 auto;
@@ -19,13 +25,20 @@
 header div.top-menu span{
   font-size: 16px;
 }
-ul.sidebar-menu {
-    margin-top: 100px;
-}
-#sidebar{
+/****ASIDE******/
+.left_col {
   background: rgba(248, 182, 103, 0.5);
+  min-height: 600px;
 }
+/*****CONTENT*****/
+.right_col{
+  margin-top: 10px;
+  min-height: 600px;
+}
+.main_container{
 
+}
+/***PAGINA PRINCIPAL*******/
 #principal{
   padding-top: 100px;
   margin-left: 40px;
@@ -39,8 +52,12 @@ ul.sidebar-menu {
 
 /*******STEPS******/
 #wizard_verticle{
-  margin-top: 120px;
-  margin-left: 0px;
+  margin-top: 60px;
+  margin-left: 10px;
+}
+
+.wizard_steps li {
+  position: relative;
 }
 .step-title{
   position:absolute;
@@ -50,6 +67,12 @@ ul.sidebar-menu {
   text-align: left;
   font-weight: bold;
   font-size: 16px;
+  opacity: 0.8;
+  color: #666;
+}
+.step-title:hover{
+  opacity: 1;
+  color: #666;
 }
 .wizard_verticle ul.wizard_steps li a {
   height: 100px;

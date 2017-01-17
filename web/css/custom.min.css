@@ -310,9 +310,6 @@ body .container.body .right_col {
     width: 100%;
     margin: 0; }
 
-  .nav-md .container.body .col-md-3.left_col {
-    display: none; }
-
   .nav-md .container.body .right_col {
     width: 100%;
     padding-right: 0; }
@@ -330,8 +327,6 @@ body .container.body .right_col {
 @media (max-width: 1270px) and (min-width: 192px) {
   .x_title h2 small {
     display: none; } }
-.left_col .mCSB_scrollTools {
-  width: 6px; }
 
 .left_col .mCSB_dragger {
   max-height: 400px !important; }
