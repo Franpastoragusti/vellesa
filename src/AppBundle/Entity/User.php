@@ -22,12 +22,14 @@ use Doctrine\ORM\Mapping as ORM;
 
         /**
          * @ORM\OneToMany(targetEntity="Witness", mappedBy="users")
-         * 
+         *
          */
 
         private $witnesses;
 
-
+        public  function getWitness(){
+            return $this->witnesses;
+        }
     public function __construct()
     {
         parent::__construct();
