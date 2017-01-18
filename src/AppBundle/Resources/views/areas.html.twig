@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/sbimenu.css') }}"/>{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/style10.css') }}" />{% endblock %}
 {% block asideContent %}
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
@@ -25,40 +25,50 @@
       </div>
   </div>
   <div class="row">
-    <div id="sbi_container" class="sbi_container">
-      <div class="sbi_panel" data-bg="{{ asset('img/1.jpg') }}">
-        <a href="#" class="sbi_label">ASPECTOS PERSONALES</a>
-      </div>
-      <div class="sbi_panel" data-bg="{{ asset('img/2.jpg') }}">
-        <a href="#" class="sbi_label">ASUNTOS PENDIENTES</a>
-      </div>
-      <div class="sbi_panel" data-bg="{{ asset('img/3.jpg') }}">
-        <a href="#" class="sbi_label">ATENCIÓN Y ENTORNO</a>
-      </div>
-      <div class="sbi_panel" data-bg="{{ asset('img/4.jpg') }}">
-        <a href="#" class="sbi_label">SALUD</a>
-      </div>
-      <div class="sbi_panel completed" data-bg="{{ asset('img/5.jpg') }}">
-        <a href="#" class="sbi_label" >FAMILIA Y SERES QUERIDOS</a>
-      </div>
-    </div>
+    <ul class="ca-menu">
+        <li id="circle_1">
+            <a href="#">
+                <div class="ca-content text-center">
+                    <h2 class="ca-main">ASPECTOS PERSONALES</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_2">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">ASUNTOS PENDIENTES</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_3">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">ATENCIÓN Y ENTORNO</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_4">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">SALUD</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_5">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">FAMILIA Y SERES QUERIDOS</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_6">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">TERMINAR</h2>
+                </div>
+            </a>
+        </li>
+    </ul>
   </div>
-{% endblock %}
-{% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.bgImageMenu.js') }}"></script>
-    <script type="text/javascript">
-    $(function() {
-      $('#sbi_container').bgImageMenu({
-        defaultBg	: 'img/default.jpg',
-        menuSpeed	: 300,
-        type		: {
-          mode		: 'verticalSlide',
-          speed		: 250,
-          easing		: 'jswing',
-          seqfactor	: 100
-        }
-      });
-    });
-    </script>
+
 {% endblock %}
