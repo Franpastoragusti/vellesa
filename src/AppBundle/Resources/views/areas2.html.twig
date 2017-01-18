@@ -1,0 +1,74 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/style10.css') }}" />{% endblock %}
+{% block asideContent %}
+    {% include 'templates/steps.vertical.html.twig' only %}
+{% endblock %}
+{% block mainContent %}
+  <div class="row">
+      <div class="panel panel-warning">
+          <div class="panel-heading">
+              <h1 class="text-center">Áreas</h1>
+          </div>
+          <div class="panel-body">
+            <div class="tab-content text-center">
+              <p>
+                A partir de este momento vas a comenzar a detallar y a planificar los aspectos a tener en cuenta sobre ti mismo/a.
+              </p>
+              <p>
+                Lo hemos dividido por temas con el propósito de hacerlo más sencillo y ágil. Puedes elegir por el que comenzar y podrás ir viendo a modo de resumen la información que vallas completando.
+              </p>
+              <p>
+                Siempre hay opciones y alternativas, ahora es el momento de dejar claras cuales son las tuyas.
+              </p>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <ul class="ca-menu">
+        <li id="circle_1">
+            <a href="#">
+                <div class="ca-content text-center">
+                    <h2 class="ca-main">ASPECTOS PERSONALES</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_2">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">ASUNTOS PENDIENTES</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_3">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">ATENCIÓN Y ENTORNO</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_4">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">SALUD</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_5">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">FAMILIA Y SERES QUERIDOS</h2>
+                </div>
+            </a>
+        </li>
+        <li id="circle_6">
+            <a href="#">
+                <div class="ca-content">
+                    <h2 class="ca-main">TERMINAR</h2>
+                </div>
+            </a>
+        </li>
+    </ul>
+  </div>
+
+{% endblock %}
