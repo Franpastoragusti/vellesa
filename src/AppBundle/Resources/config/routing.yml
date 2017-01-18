@@ -4,5 +4,5 @@ app_homepage:
 
 form_witness:
     path:     /witness/form
-    defaults: { _controller: AppBundle:Default:new }
+    defaults: { _controller: AppBundle:Faseuno:new }
 
