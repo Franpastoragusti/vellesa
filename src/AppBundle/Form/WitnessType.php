@@ -20,7 +20,7 @@ class WitnessType extends AbstractType
             ->add('cp')
             ->add('city')
             ->add('number')
-            ->add('representative')
+            ->add('representant')
             ->add('phone')
             ->add('urldnifront')
             ->add('urldnibehind')

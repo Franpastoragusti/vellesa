@@ -7,7 +7,7 @@ use AppBundle\Form\WitnessType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class FaseunoController extends Controller
+class FirstFaseController extends Controller
 {
     public function newAction(Request $request)
     {
@@ -30,33 +30,33 @@ class FaseunoController extends Controller
         return $this->render('AppBundle:Default:witness.html.twig', array('form' => $form->createView()));
     }
 
-    public function testigosAction()
+    public function witnessAction()
     {
-      return $this->render('AppBundle:Faseuno:testigos.html.twig');
+      return $this->render('AppBundle:FirstFase:witness.html.twig');
     }
 
-    public function principalAction()
+    public function indexAction()
     {
-      return $this->render('AppBundle:Faseuno:principal.html.twig');
+      return $this->render('AppBundle:FirstFase:index.html.twig');
     }
 
-    public function representanteAction()
+    public function representantAction()
     {
-      return $this->render('AppBundle:Faseuno:representante.html.twig');
+      return $this->render('AppBundle:FirstFase:representant.html.twig');
     }
 
-    public function instancia_regAction()
+    public function instanceAction()
     {
-      return $this->render('AppBundle:Faseuno:instancia_registro.html.twig');
+      return $this->render('AppBundle:FirstFase:instance.html.twig');
     }
 
-    public function datos_persAction()
+    public function personalAction()
     {
-      return $this->render('AppBundle:Faseuno:datos_personales.html.twig');
+      return $this->render('AppBundle:FirstFase:personal.html.twig');
     }
 
     public function areasAction()
     {
-      return $this->render('AppBundle:Faseuno:areas.html.twig');
+      return $this->render('AppBundle:FirstFase:areas.html.twig');
     }
 }
