@@ -1,8 +1,27 @@
-app_homepage:
+Faseuno_principal:
     path:     /
-    defaults: { _controller: AppBundle:Default:index }
+    defaults: { _controller: AppBundle:Faseuno:principal }
 
 form_witness:
     path:     /witness/form
     defaults: { _controller: AppBundle:Faseuno:new }
 
+Faseuno_testigos:
+    path:     /testigos
+    defaults: { _controller: AppBundle:Faseuno:testigos }
+
+Faseuno_representante:
+    path:     /representante
+    defaults: { _controller: AppBundle:Faseuno:representante }
+
+Fasedos_areas:
+    path:     /areas
+    defaults: { _controller: AppBundle:Faseuno:areas }
+
+Faseuno_instancia_registro:
+    path:     /instancia_registro
+    defaults: { _controller: AppBundle:Faseuno:instancia_reg }
+
+Faseuno_datos_personales:
+    path:     /datos_personales
+    defaults: { _controller: AppBundle:Faseuno:datos_pers }
