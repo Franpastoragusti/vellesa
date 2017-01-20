@@ -1,4 +1,8 @@
 FirstFase_index:
+    path:     /testRoom
+    defaults: { _controller: AppBundle:Default:index }
+
+FirstFase_index:
     path:     /
     defaults: { _controller: AppBundle:FirstFase:index }
 
