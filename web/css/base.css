@@ -243,4 +243,14 @@ nav .toggle{
   nav .toggle{
     display:inline-block;
   }
+  .step-title{
+    display: none;
+  }
+  body{
+    overflow-x: hidden;
+  }
+  .page{
+    padding-left: 0px;
+  }
+
 }
