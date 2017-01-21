@@ -3,14 +3,13 @@
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
 {% block mainContent %}
-    <section id="explicacion_instancia">
-
         <div class="container-fluid">
             <div class="row">
+              <div class="col-md-10">
+                <div>
+                  <h2>Datos personales</h2>
+                </div>
                 <div class="panel panel-warning">
-                    <div class="panel-title">
-                      <h2>Solicitud de registro</h2>
-                    </div>
                     <div class="panel-body">
                           <form class="form-horizontal col-md-10 col-md-offset-1">
                                 <div class="form-group">
@@ -47,13 +46,12 @@
                             </form>
                         </div>
                     </div>
+                  </div>
                 </div>
             </div>
-
-    </section>
 {% endblock %}
 {% block javascripts %}
-  <script type="text/javascript" src="{{ asset('js/classes.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
   <script type="text/javascript">
 
     $(document).ready(function(){
