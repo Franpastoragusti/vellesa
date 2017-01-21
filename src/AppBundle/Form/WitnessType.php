@@ -25,7 +25,7 @@ class WitnessType extends AbstractType
             ->add('urldnifront')
             ->add('urldnibehind')
             ->add('users')
-            ->add('save', SubmitType::class, array('label' => 'Create Post'))
+            ->add('save', SubmitType::class, array('label' => 'Siguiente'))
         ;
     }
 

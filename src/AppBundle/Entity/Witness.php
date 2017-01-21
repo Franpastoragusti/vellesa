@@ -353,5 +353,5 @@ class Witness
     {
         return $this->urldnibehind;
     }
-}
 
+}

@@ -9,30 +9,24 @@ use Symfony\Component\HttpFoundation\Request;
 
 class FirstFaseController extends Controller
 {
-    public function newAction(Request $request)
+    public function witnessAction(Request $request)
     {
-        $post = new Witness();
-        $form = $this->createForm(WitnessType::class, $post);
+      $witness = new Witness();
+      $form = $this->createForm(WitnessType::class, $witness);
+      $form->handleRequest($request);
 
-        $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($witness);
+          $em->flush();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($post);
-            $em->flush();
+          return $this->redirect($this->generateUrl(
+              'admin_post_show',
+              array('id' => $witness->getId())
+          ));
+      }
 
-            return $this->redirect($this->generateUrl(
-                'admin_post_show',
-                array('id' => $post->getId())
-            ));
-        }
-
-        return $this->render('AppBundle:Default:witness.html.twig', array('form' => $form->createView()));
-    }
-
-    public function witnessAction()
-    {
-      return $this->render('AppBundle:FirstFase:witness.html.twig');
+      return $this->render('AppBundle:FirstFase:witness.html.twig', array('form' => $form->createView()));
     }
 
     public function indexAction()

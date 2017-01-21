@@ -14,13 +14,13 @@
                           <li class="active">
                               <a href="#info" data-toggle="tab">Información</a>
                           </li>
-                          <li>
+                          <li id="witness1">
                               <a href="#testigo1" data-toggle="tab">Testigo 1</a>
                           </li>
-                          <li>
+                          <li id="witness2">
                               <a href="#testigo2" data-toggle="tab">Testigo 2</a>
                           </li>
-                          <li>
+                          <li id="witness3">
                               <a href="#testigo3" data-toggle="tab">Testigo 3</a>
                           </li>
                       </ul>
@@ -35,22 +35,13 @@
                                 Una vez tengas claro quiénes son, rellena sus datos personales</p>
                         </div>
                         <div class="tab-panel fade" id="testigo1">
-                            Testigo1
-                            <!--form class="form-horizontal col-md-10 col-md-offset-1">
-
-                            </form-->
+                            {% include './templates/witness/form.html.twig' with {'form': form} %}
                         </div>
                         <div class="tab-panel fade" id="testigo2">
-                            Testigo2
-                            <!--form class="form-horizontal col-md-10 col-md-offset-1">
 
-                            </form-->
                         </div>
                         <div class="tab-pane fade" id="testigo3">
-                            Testigo3
-                            <!--form class="form-horizontal col-md-10 col-md-offset-1">
 
-                            </form-->
                         </div>
                       </div>
                     </div>
@@ -60,10 +51,14 @@
 {% endblock %}
 {% block javascripts %}
   <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/witness.js') }}"></script>
   <script type="text/javascript">
-  $(document).ready(function(){
-    var steps = new Steps(3);
-    steps.stepAnimation()
-  });
+    $(document).ready(function(){
+      var steps = new Steps(3);
+      steps.stepAnimation();
+    });
+  </script>
+  <script type="text/javascript">
+      /***TODO****/
   </script>
 {% endblock %}

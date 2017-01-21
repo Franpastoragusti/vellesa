@@ -1,0 +1,71 @@
+{{ form_start(form, {'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.surname) }}
+        {{ form_widget(form.surname, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.surname) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.addres) }}
+        {{ form_widget(form.addres, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.addres) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.cp) }}
+        {{ form_widget(form.cp, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.cp) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.city) }}
+        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.city) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.number) }}
+        {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.number) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.phone) }}
+        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.phone) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.urldnifront) }}
+        {{ form_widget(form.urldnifront, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.urldnifront) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.urldnibehind) }}
+        {{ form_widget(form.urldnibehind, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.urldnibehind) }}
+    </div>
+
+    <div id="ocultos" class="hidden">
+        {{ form_label(form.representant) }}
+        {{ form_widget(form.representant, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.representant) }}
+
+        {{ form_label(form.users) }}
+        {{ form_widget(form.users, {'attr': {'class': 'form-control'}}) }}
+
+        {{ form_errors(form.users) }}
+    </div>
+    <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
+      {{ form_widget(form.save, {'attr': {'class': 'btn btn-warning start'}}) }}
+    </div>
+<!--input type="submit" value="Create"
+       class="btn btn-default pull-right" /-->
+{{ form_end(form) }}
