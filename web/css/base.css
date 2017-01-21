@@ -239,9 +239,37 @@ button.warning{
 nav .toggle{
   display: none;
 }
+
+
+/*******RESPONSIVE*******/
 @media (max-width: 992px) {
   nav .toggle{
     display:inline-block;
+    width: 30px;
+  }
+  #logo{
+    margin-left: 10px;
+  }
+  #avatar{
+    width: 40px;
+    height: 40px;
+  }
+  .top_nav .navbar-right{
+    width: 170px;
+    font-size: 12px;
+    padding-top: 0px
+  }
+  h1.title2 {
+    font-size: 30px;
+  }
+  nav > div.col-md-2{
+    width: 150px;
+  }
+  .user-profile .dropdown-toggle{
+    padding-top: 0px;
+  }
+  .top_nav .navbar-right .fa-angle-down{
+
   }
   .step-title{
     display: none;
@@ -251,6 +279,19 @@ nav .toggle{
   }
   .page{
     padding-left: 0px;
+  }
+  .responsiveButton{
+    margin-left: 25%;
+    margin-top: 10px;
+  }
+  div.col-md-4.responsiveButton{
+    margin-left: 15%;
+  }
+  ul.nav-tabs li{
+    font-size: 12px;
+  }
+  div.row.col-md-10.areas{
+    margin-left: 15%;
   }
 
 }

@@ -29,9 +29,11 @@
                     <div class="nav_menu black-bg">
                       <nav>
                         <div class="col-md-2">
-                          <div class="nav toggle">
-                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                          </div>
+                          {% block toggle %}
+                              <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                              </div>
+                          {% endblock %}
                           <a href="/app"><img id="logo" src="{{ asset('img/logo.png') }}"></a>
                         </div>
                         <div class="col-md-8">
