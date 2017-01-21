@@ -225,6 +225,10 @@ h1:hover {
   background: rgb(248, 182, 103);
 }
 
+/*******TABS*********/
+.panel-body{
+  height: 300px;
+}
 /*******BUTTONS******/
 button.warning{
   background: rgb(248, 182, 103);
