@@ -10,11 +10,14 @@ body{
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.55);
 }
 #logo{
-  width: 130px;
+  max-width: 130px;
+  width: 60%;
   padding-bottom: 10px;
-  margin-left: 0.2em;
+  padding-top: 10px;
 }
-
+.col-sm-2{
+  width: auto;
+}
 #avatar{
   width: 60px;
   height: 60px;
@@ -42,6 +45,18 @@ nav > ul > li > a:hover{
 }
 .top_nav .nav > li > a:focus, .top_nav .nav > li > a:hover, .top_nav .nav .open > a, .top_nav .nav .open > a:focus, .top_nav .nav .open > a:hover {
   background: transparent; }
+.toggle a{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.toggle{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+header h1{
+font-size: 8vh
+}
 /*************************************ASIDE*************************************/
 .left_col {
   background: rgba(248, 182, 103, 0.5);
@@ -62,14 +77,23 @@ section.page{
 }
 
 /***PAGINA PRINCIPAL*******/
+section div.col-md-8 > button{
+  margin-bottom: 20px
+}
 .full_container{
   padding-top: 5px;
   margin-left: 40px;
   margin-right: 40px;
 }
-#start{
-  font-size: 1.5em;
-  margin-bottom: 10px;
+
+button.start{
+  font-size: 1.3em;
+  width: 100%;
+  color: white;
+  min-width: 230px;
+}
+button.start a{
+  color: white;
 }
 .embed-responsive-16by9{
   padding-bottom: 46.25%;
@@ -78,28 +102,66 @@ section.page{
 .embed-responsive-16by9 iframe{
   max-height: 530px;
   box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
-
+}
+h2{
+  font-size: 30px;
+  margin-top: 0px;
+  padding: 16px;
+  background: rgba(248, 182, 103, 0.5);
+  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
+}
+h1.title2{
+  color:#FFFFFF;
+  font-size: 4vw;
+   text-shadow: 0 1px 0 #ccc,
+   0 2px 0 #c9c9c9,
+   0 3px 0 #bbb,
+   0 4px 0 #b9b9b9,
+   0 5px 0 #aaa,
+   0 6px 1px rgba(0,0,0,.1),
+   0 0 5px rgba(0,0,0,.1),
+   0 1px 3px rgba(0,0,0,.3),
+   0 3px 5px rgba(0,0,0,.2),
+   0 5px 10px rgba(0,0,0,.25),
+   0 10px 10px rgba(0,0,0,.2),
+   0 20px 20px rgba(0,0,0,.15);
+}
+h1.title2:hover{
+  color:#FFFFFF;
+  text-shadow: 0 1px 0 #ccc,
+   0 2px 0 #c9c9c9,
+   0 3px 0 #bbb,
+   0 4px 0 #b9b9b9,
+   0 5px 0 #aaa,
+   0 6px 1px rgba(0,0,0,.1),
+   0 0 5px rgba(0,0,0,.1),
+   0 1px 3px rgba(0,0,0,.3),
+   0 3px 5px rgba(0,0,0,.2),
+   0 5px 10px rgba(0,0,0,.25),
+   0 10px 10px rgba(0,0,0,.2),
+   0 20px 20px rgba(0,0,0,.15);
 }
 h1{
     box-sizing: content-box;
-    font-size: 14vh;
+    font-size: 7vw;
     cursor: pointer;
     border: none;
     color: rgba(237,168,94,1);
     text-align: center;
     text-overflow: clip;
-    text-shadow:  0 1px 0 rgba(135,132,132,1) ,
-                  0 2px 0 rgba(140,138,138,1) ,
-                  0 3px 0 rgba(147,146,146,1) ,
-                  0 4px 0 rgba(142,142,142,1) ,
-                  0 5px 0 rgba(114,114,114,1) ,
-                  0 6px 1px rgba(0,0,0,0.0980392) ,
-                  0 0 5px rgba(0,0,0,0.0980392) ,
-                  0 1px 3px rgba(0,0,0,0.298039) ,
-                  0 3px 5px rgba(0,0,0,0.2) ,
-                  0 5px 10px rgba(0,0,0,0.247059) ,
-                  0 10px 10px rgba(0,0,0,0.2) ,
-                  0 20px 20px rgba(0,0,0,0.14902) ;
+    text-shadow:
+      0 1px 0 rgba(135,132,132,1) ,
+      0 2px 0 rgba(140,138,138,1) ,
+      0 3px 0 rgba(147,146,146,1) ,
+      0 4px 0 rgba(142,142,142,1) ,
+      0 5px 0 rgba(114,114,114,1) ,
+      0 6px 1px rgba(0,0,0,0.0980392) ,
+      0 0 5px rgba(0,0,0,0.0980392) ,
+      0 1px 3px rgba(0,0,0,0.298039) ,
+      0 3px 5px rgba(0,0,0,0.2) ,
+      0 5px 10px rgba(0,0,0,0.247059) ,
+      0 10px 10px rgba(0,0,0,0.2) ,
+      0 20px 20px rgba(0,0,0,0.14902) ;
 
     transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -118,9 +180,6 @@ h1:hover {
                   0 -7px 10px rgba(0,0,0,0.2) ,
                   0 -15px 20px rgba(0,0,0,0.14902) ;
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-}
-div.presentation div.panel{
-  padding: 10px;
 }
 /*******STEPS******/
 #wizard_verticle{

@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block headerTitle %}
+      <h1 class="title2">TÚ DECIDES</h1>
+{% endblock %}
 {% block asideContent %}
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
@@ -6,30 +9,30 @@
     <section id="explicacion_instancia">
         <div class="container-fluid">
             <div class="row">
+              <div class="col-md-10">
                 <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <h1>Solicitud de registro</h1>
+                  <div class="panel-title">
+                    <h2>Solicitud de registro</h2>
+                  </div>
+                  <div class="panel-body">
+                    <p>Tal como explicamos en la presentación del servicio, el testamento vital es un documento con plena validez, por ello, en el momento de presentarlo en el organismo oportuno debe ir acompañado de la solicitud para su registro. Es un modelo general,
+                        puedes descargarlo para rellenar y firmar ahora o una vez finalices todo el proceso.
+                    </p>
+                    <div class="col-md-3">
+                      <button type="button" class="btn btn-warning start"><a href="../pdfs/guia.pdf" download="Instancia" style="text-decoration:none;color:white;"/>Descargar PDF
+                          <span class="glyphicon glyphicon-download-alt"></span>
+                      </button>
                     </div>
-                    <div class="panel-body">
-                        <div class="tab-content">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="embed-responsive embed-responsive-16by9">
 
-                                    <p>Tal como explicamos en la presentación del servicio, el testamento vital es un documento con plena validez, por ello, en el momento de presentarlo en el organismo oportuno debe ir acompañado de la solicitud para su registro. Es un modelo general,
-                                        puedes descargarlo para rellenar y firmar ahora o una vez finalices todo el proceso.
-                                    </p>
-                                    <button type="button" class="btn btn-warning"><a href="../pdfs/guia.pdf" download="Instancia" style="text-decoration:none;color:white;"/>Descargar PDF
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-warning">Continuar
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-3">
+                      <button type="button" class="btn btn-warning start">Continuar
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                      </button>
                     </div>
+
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
     </section>
