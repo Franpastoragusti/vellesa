@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block asideContent %}
+    {% include 'templates/steps.vertical.html.twig' only %}
+{% endblock %}
 {% block mainContent %}
     <div class="container">
         <div class="row">
@@ -33,4 +36,13 @@
                 </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript" src="{{ asset('js/classes.js') }}"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var steps = new Steps(4);
+    steps.stepAnimation()
+  });
+  </script>
 {% endblock %}

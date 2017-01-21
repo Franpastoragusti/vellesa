@@ -24,7 +24,6 @@
 
             {% block header %}
                 <!--header start-->
-
                 <header>
                   <div class="top_nav">
                     <div class="nav_menu black-bg">
@@ -33,7 +32,9 @@
                           <a href="index"><img id="logo" src="{{ asset('img/logo.png') }}"></a>
                         </div>
                         <div class="col-md-8">
-                          {% block headerTitle %}{% endblock %}
+                          {% block headerTitle %}
+                                <h1 class="title2">TÚ DECIDES</h1>
+                          {% endblock %}
                         </div>
                         <div class="col-md-2">
                           <ul class="nav navbar-nav navbar-right">

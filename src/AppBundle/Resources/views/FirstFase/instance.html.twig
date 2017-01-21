@@ -1,7 +1,4 @@
 {% extends '::base.html.twig' %}
-{% block headerTitle %}
-      <h1 class="title2">TÚ DECIDES</h1>
-{% endblock %}
 {% block asideContent %}
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
@@ -18,16 +15,21 @@
                     <p>Tal como explicamos en la presentación del servicio, el testamento vital es un documento con plena validez, por ello, en el momento de presentarlo en el organismo oportuno debe ir acompañado de la solicitud para su registro. Es un modelo general,
                         puedes descargarlo para rellenar y firmar ahora o una vez finalices todo el proceso.
                     </p>
-                    <div class="col-md-3">
-                      <button type="button" class="btn btn-warning start"><a href="../pdfs/guia.pdf" download="Instancia" style="text-decoration:none;color:white;"/>Descargar PDF
-                          <span class="glyphicon glyphicon-download-alt"></span>
-                      </button>
-                    </div>
-
-                    <div class="col-md-3">
-                      <button type="button" class="btn btn-warning start">Continuar
-                          <span class="glyphicon glyphicon-chevron-right"></span>
-                      </button>
+                    <div class="col-md-12">
+                      <div class="col-md-4 col-md-offset-2">
+                        <a href="../pdfs/modelo_general.pdf" download="Instancia"/>
+                            <button type="button" class="btn btn-warning start">Descargar PDF
+                              <span class="glyphicon glyphicon-download-alt"> </span>
+                            </button>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a href="personal"/>
+                            <button type="button" class="btn btn-warning start buttonNext">Continuar
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </button>
+                        </a>
+                      </div>
                     </div>
 
                   </div>

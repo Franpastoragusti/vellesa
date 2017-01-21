@@ -63,6 +63,9 @@ font-size: 8vh
   box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
   min-height: 600px;
 }
+.nav_menu{
+  margin-bottom: 2px;
+}
 /*************************************CONTENT******************************/
 body .container.body .right_col{
   margin-top: 10px;
@@ -74,6 +77,8 @@ body .container.body .right_col{
 }
 section.page{
   margin-top: -7px;
+  margin: 0 auto;
+  min-width: 100px;
 }
 
 /***PAGINA PRINCIPAL*******/
@@ -91,6 +96,7 @@ button.start{
   width: 100%;
   color: white;
   min-width: 230px;
+
 }
 button.start a{
   color: white;
@@ -189,6 +195,13 @@ h1:hover {
 
 .wizard_steps li {
   position: relative;
+}
+#wizard_verticle a.done:before, .step_no{
+  ;
+}
+#wizard_verticle ul.wizard_steps li a.done:before, .wizard_verticle ul.wizard_steps li a.done .step_no {
+  background: rgb(128,185,82);
+  color: #fff;
 }
 .step-title{
   position:absolute;

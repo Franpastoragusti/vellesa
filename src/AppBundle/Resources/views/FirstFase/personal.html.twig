@@ -4,49 +4,62 @@
 {% endblock %}
 {% block mainContent %}
     <section id="explicacion_instancia">
+
         <div class="container-fluid">
             <div class="row">
                 <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <h1>Solicitud de registro</h1>
+                    <div class="panel-title">
+                      <h2>Solicitud de registro</h2>
                     </div>
-                    <div class="panel-body" heigth="70%">
-                        <div class="tab-content">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                  <p>En este momento, como persona interesada en hacer tu testamento vital debes de rellenar tus datos personales.</p>
-                                  <form class="form-horizontal col-md-8 col-md-offset-2">
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" id="" placeholder="Nombre">
-                                      </div>
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" id="" placeholder="Apellidos">
-                                      </div>
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" id="" placeholder="Nº SIP">
-                                      </div>
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" id="" placeholder="Teléfono">
-                                      </div>
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" id="" placeholder="DNI/NIF/NIE">
-                                      </div>
-                                      <div class="form-group">
-                                          <div class="col-md-8 col-md-offset-2">
-                                              <label for="exampleInputFile">Subir mi DNI</label>
-                                              <input type="file" id="exampleInputFile">
-                                              <p class="help-block">Si no tienes posibilidad de subir el documento, no te preocupes, ten disponible una fotocopia.</p>
-                                          </div>
-                                      </div>
-                                      <button type="button" class="btn btn-warning col-md-2 col-md-offset-10">Siguiente</button>
-                                  </form>
-
+                    <div class="panel-body">
+                          <form class="form-horizontal col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Nombre">
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Apellidos">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Nº SIP">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="DNI/NIF/NIE">
+                                </div>
+                                <!--div class="form-group">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <label for="exampleInputFile">Subir mi DNI</label>
+                                        <input type="file" id="exampleInputFile">
+                                        <p class="help-block">Si no tienes posibilidad de subir el documento, no te preocupes, ten disponible una fotocopia.</p>
+                                    </div>
+                                </div-->
+                                <div class="form-group">
+                                  <div class="col-md-6 col-md-offset-2">
+                                    <a href="witness">
+                                      <button type="button" class="btn btn-warning start">Continuar
+                                          <span class="glyphicon glyphicon-chevron-right"></span>
+                                      </button>
+                                    </a>
+                                  </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
     </section>
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript" src="{{ asset('js/classes.js') }}"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      var steps = new Steps(2);
+      steps.stepAnimation()
+    });
+  </script>
+
 {% endblock %}

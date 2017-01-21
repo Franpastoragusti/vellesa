@@ -15,8 +15,8 @@ FirstFase_witness:
     defaults: { _controller: AppBundle:FirstFase:witness }
 
 FirstFase_represesentant:
-    path:     /represesentant
-    defaults: { _controller: AppBundle:FirstFase:represesentant }
+    path:     /representant
+    defaults: { _controller: AppBundle:FirstFase:representant }
 
 Fasedos_areas:
     path:     /areas
