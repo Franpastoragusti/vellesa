@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+{% block asideContent %}
+    {% include 'templates/steps.vertical.html.twig' only %}
+{% endblock %}
+{% block mainContent %}
+        <div class="container-fluid">
+            <div class="row col-md-10">
+                <div>
+                  <h2>Datos personales</h2>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-body">
+                          <!--form class="form-horizontal col-md-10 col-md-offset-1">
+
+                          </form-->
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      var steps = new Steps(2);
+      steps.stepAnimation()
+    });
+  </script>
+
+{% endblock %}

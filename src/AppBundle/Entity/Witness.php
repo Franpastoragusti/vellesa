@@ -78,9 +78,9 @@ class Witness
     /**
      * @var bool
      *
-     * @ORM\Column(name="representative", type="boolean")
+     * @ORM\Column(name="representant", type="boolean")
      */
-    private $representative;
+    private $representant;
 
     /**
      * @var int
@@ -259,27 +259,27 @@ class Witness
     }
 
     /**
-     * Set representative
+     * Set representant
      *
-     * @param boolean $representative
+     * @param boolean $representant
      *
      * @return Witness
      */
-    public function setRepresentative($representative)
+    public function setrepresentant($representant)
     {
-        $this->representative = $representative;
+        $this->representant = $representant;
 
         return $this;
     }
 
     /**
-     * Get representative
+     * Get representant
      *
      * @return bool
      */
-    public function getRepresentative()
+    public function getrepresentant()
     {
-        return $this->representative;
+        return $this->representant;
     }
 
     /**
@@ -353,5 +353,5 @@ class Witness
     {
         return $this->urldnibehind;
     }
-}
 
+}

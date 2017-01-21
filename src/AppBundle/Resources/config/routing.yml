@@ -1,27 +1,31 @@
-Faseuno_principal:
+test_room:
+    path:     /testRoom
+    defaults: { _controller: AppBundle:Default:index }
+
+FirstFase_index:
     path:     /
-    defaults: { _controller: AppBundle:Faseuno:principal }
+    defaults: { _controller: AppBundle:FirstFase:index }
 
 form_witness:
     path:     /witness/form
-    defaults: { _controller: AppBundle:Faseuno:new }
+    defaults: { _controller: AppBundle:FirstFase:new }
 
-Faseuno_testigos:
-    path:     /testigos
-    defaults: { _controller: AppBundle:Faseuno:testigos }
+FirstFase_witness:
+    path:     /witness
+    defaults: { _controller: AppBundle:FirstFase:witness }
 
-Faseuno_representante:
-    path:     /representante
-    defaults: { _controller: AppBundle:Faseuno:representante }
+FirstFase_represesentant:
+    path:     /representant
+    defaults: { _controller: AppBundle:FirstFase:representant }
 
 Fasedos_areas:
     path:     /areas
-    defaults: { _controller: AppBundle:Faseuno:areas }
+    defaults: { _controller: AppBundle:FirstFase:areas }
 
-Faseuno_instancia_registro:
-    path:     /instancia_registro
-    defaults: { _controller: AppBundle:Faseuno:instancia_reg }
+FirstFase_instance:
+    path:     /instance
+    defaults: { _controller: AppBundle:FirstFase:instance }
 
-Faseuno_datos_personales:
-    path:     /datos_personales
-    defaults: { _controller: AppBundle:Faseuno:datos_pers }
+FirstFase_personal:
+    path:     /personal
+    defaults: { _controller: AppBundle:FirstFase:personal }
