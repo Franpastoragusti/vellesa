@@ -225,12 +225,22 @@ h1:hover {
   background: rgb(248, 182, 103);
 }
 
-/*******TABS*********/
+/*******PANELS*********/
 .panel-body{
-  height: 300px;
+  height: auto;
 }
 /*******BUTTONS******/
 button.warning{
   background: rgb(248, 182, 103);
 
+}
+
+/*****MENU TOGGLE******/
+nav .toggle{
+  display: none;
+}
+@media (max-width: 992px) {
+  nav .toggle{
+    display:inline-block;
+  }
 }
