@@ -6,12 +6,13 @@ FirstFase_index:
     path:     /
     defaults: { _controller: AppBundle:FirstFase:index }
 
-form_witness:
+FirstFase_witness_form:
     path:     /witness/form
-    defaults: { _controller: AppBundle:FirstFase:new }
+    defaults: { _controller: AppBundle:FirstFase:newWitness }
+    methods: [POST]
 
 FirstFase_witness:
-    path:     /witness
+    path:  /witness
     defaults: { _controller: AppBundle:FirstFase:witness }
 
 FirstFase_represesentant:
