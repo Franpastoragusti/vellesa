@@ -64,7 +64,7 @@
         {{ form_errors(form.users) }}
     </div>
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
-      {{ form_widget(form.save, {'attr': {'class': 'btn btn-warning start'}}) }}
+      {{ form_widget(form.save, {'attr': {'class': 'btn btn-warning start', 'onclick':'sendByAJAX(event)'}}) }}
     </div>
 <!--input type="submit" value="Create"
        class="btn btn-default pull-right" /-->

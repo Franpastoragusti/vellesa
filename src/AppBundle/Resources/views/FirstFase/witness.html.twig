@@ -59,6 +59,34 @@
     });
   </script>
   <script type="text/javascript">
-      /***TODO****/
+      function sendByAJAX(event){
+            event.preventDefault();
+            var name = $('#appbundle_witness_name').val();
+            var surname = $('#appbundle_witness_surname').val();
+            var addres = $('#appbundle_witness_addres').val();
+            var cp = $('#appbundle_witness_cp').val();
+            var city = $('#appbundle_witness_city').val();
+            var number = $('#appbundle_witness_number').val();
+            var phone = $('#appbundle_witness_phone').val();
+            var representant = "0";
+            var urldnifront = $('#appbundle_witness_urldnifront').val();
+            var urldnibehind = $('#appbundle_witness_urldnibehind').val();
+
+            $.ajax({
+              url: "{{ path('FirstFase_witness_form') }}",
+              type: 'POST',
+              data: 'name='+name+'&surname='+surname+'&addres='+addres+'&cp='+cp+'&city='+city+'&number='+number+'&representant='+representant+'&phone='+phone+'&urldnifront='+urldnifront+'&urldnibehind='+urldnibehind,
+            })
+            .done(function(response) {
+              $("#respuesta").text(response);
+            })
+            .fail(function() {
+              console.log("error");
+            })
+            .always(function() {
+              console.log("complete");
+            });
+
+    };
   </script>
 {% endblock %}
