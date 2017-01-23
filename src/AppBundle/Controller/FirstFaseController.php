@@ -13,9 +13,13 @@ class FirstFaseController extends Controller
     public function witnessAction(Request $request)
     {
       $witness = new Witness();
-      $form = $this->createForm(WitnessType::class, $witness);
-      $form->handleRequest($request);
-      return $this->render('AppBundle:FirstFase:witness.html.twig', array('form' => $form->createView()));
+      $form1 = $this->createForm(WitnessType::class, $witness);
+      $form2 = $this->createForm(WitnessType::class, $witness);
+      $form3 = $this->createForm(WitnessType::class, $witness);
+      $form1->handleRequest($request);
+      $form2->handleRequest($request);
+      $form3->handleRequest($request);
+      return $this->render('AppBundle:FirstFase:witness.html.twig', array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()));
 
     }
 
