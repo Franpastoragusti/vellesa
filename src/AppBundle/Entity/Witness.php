@@ -354,4 +354,19 @@ class Witness
         return $this->urldnibehind;
     }
 
+    public function deserialize($data, $witness)
+    {
+      $witness->setName($data->name);
+      $witness->setSurname($data->surname);
+      $witness->setAddres($data->addres);
+      $witness->setCp($data->cp);
+      $witness->setCity($data->city);
+      $witness->setNumber($data->number);
+      $witness->setrepresentant($data->representant);
+      $witness->setPhone($data->phone);
+      $witness->setUrldnifront($data->urldnifront);
+      $witness->setUrldnibehind($data->urldnibehind);
+      return $witness;
+    }
+
 }

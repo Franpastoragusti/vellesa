@@ -42,7 +42,7 @@ class FirstFaseController extends Controller
       $connection = $this->getDoctrine()->getManager();
       $content = $request->getContent();
       $data = json_decode($content);
-      $witness = $this->deserialize($data, $witness);
+      $witness = $witness->deserialize($data, $witness);
       $connection->persist($witness);
       $connection->flush();
       if ($witness->getId() > 0) {
@@ -55,21 +55,7 @@ class FirstFaseController extends Controller
     }
 
 
-    public function deserialize($data, $witness)
-    {
-      $witness->setName($data->name);
-      $witness->setSurname($data->surname);
-      $witness->setAddres($data->addres);
-      $witness->setCp($data->cp);
-      $witness->setCity($data->city);
-      $witness->setNumber($data->number);
-      $witness->setrepresentant($data->representant);
-      $witness->setPhone($data->phone);
-      $witness->setUrldnifront($data->urldnifront);
-      $witness->setUrldnibehind($data->urldnibehind);
 
-      return $witness;
-    }
 
     public function indexAction()
     {
