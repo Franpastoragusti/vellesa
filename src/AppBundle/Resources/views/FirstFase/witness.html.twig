@@ -60,7 +60,7 @@
   </script>
   <script type="text/javascript">
       function sendByAJAX(event,numForm){
-            console.log(numForm);
+
             event.preventDefault();
             var name = $('#appbundle_witness_name'+numForm).val();
             var surname = $('#appbundle_witness_surname'+numForm).val();
@@ -80,15 +80,12 @@
               data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+'}'
             })
             .done(function(response) {
-              $("#respuesta").text(response);
+              changeTabWitness(numForm);
+              console.log("correcto");
             })
             .fail(function() {
               console.log("error");
             })
-            .always(function() {
-              console.log("complete");
-            });
-            changeTabWitness(numForm)
 
     };
   </script>
