@@ -76,6 +76,7 @@
             $.ajax({
               url: "{{ path('FirstFase_witness_form') }}",
               type: 'POST',
+              dataType: 'text',
               data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+'}'
             })
             .done(function(response) {
@@ -87,7 +88,7 @@
             .always(function() {
               console.log("complete");
             });
-
+            changeTabWitness(numForm)
 
     };
   </script>
