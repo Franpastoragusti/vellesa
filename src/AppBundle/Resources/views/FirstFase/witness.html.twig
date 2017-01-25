@@ -35,13 +35,13 @@
                                 Una vez tengas claro quiénes son, rellena sus datos personales</p>
                         </div>
                         <div class="tab-panel fade" id="testigo1">
-                            {% include './templates/witness/form.html.twig' with {'form': form} %}
+                            {% include './templates/witness/form1.html.twig' with {'form': form1} %}
                         </div>
                         <div class="tab-panel fade" id="testigo2">
-
+                            {% include './templates/witness/form2.html.twig' with {'form1': form2} %}
                         </div>
                         <div class="tab-pane fade" id="testigo3">
-
+                            {% include './templates/witness/form3.html.twig' with {'form2': form3} %}
                         </div>
                       </div>
                     </div>
@@ -59,6 +59,34 @@
     });
   </script>
   <script type="text/javascript">
-      /***TODO****/
+      function sendByAJAX(event,numForm){
+
+            event.preventDefault();
+            var name = $('#appbundle_witness_name'+numForm).val();
+            var surname = $('#appbundle_witness_surname'+numForm).val();
+            var addres = $('#appbundle_witness_addres'+numForm).val();
+            var cp = $('#appbundle_witness_cp'+numForm).val();
+            var city = $('#appbundle_witness_city'+numForm).val();
+            var number = $('#appbundle_witness_number'+numForm).val();
+            var phone = $('#appbundle_witness_phone'+numForm).val();
+            var representant = "0";
+            var urldnifront = $('#appbundle_witness_urldnifront'+numForm).val();
+            var urldnibehind = $('#appbundle_witness_urldnibehind'+numForm).val();
+
+            $.ajax({
+              url: "{{ path('FirstFase_witness_form') }}",
+              type: 'POST',
+              dataType: 'text',
+              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+'}'
+            })
+            .done(function(response) {
+              changeTabWitness(numForm);
+              console.log("correcto");
+            })
+            .fail(function() {
+              console.log("error");
+            })
+
+    };
   </script>
 {% endblock %}
