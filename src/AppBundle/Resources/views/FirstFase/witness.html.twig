@@ -69,6 +69,7 @@
             var city = $('#appbundle_witness_city'+numForm).val();
             var number = $('#appbundle_witness_number'+numForm).val();
             var phone = $('#appbundle_witness_phone'+numForm).val();
+            var province = $('#appbundle_witness_province'+numForm).val();
             var representant = "0";
             var urldnifront = $('#appbundle_witness_urldnifront'+numForm).val();
             var urldnibehind = $('#appbundle_witness_urldnibehind'+numForm).val();
@@ -77,7 +78,7 @@
               url: "{{ path('FirstFase_witness_form') }}",
               type: 'POST',
               dataType: 'text',
-              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+'}'
+              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+', "province": '+province+'}'
             })
             .done(function(response) {
               changeTabWitness(numForm);

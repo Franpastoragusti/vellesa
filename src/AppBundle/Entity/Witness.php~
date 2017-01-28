@@ -102,7 +102,7 @@ class Witness
      * @ORM\Column(name="urldnibehind", type="string", length=255)
      */
     private $urldnibehind;
-
+    
     /**
      * @var string
      *
@@ -373,46 +373,7 @@ class Witness
       $witness->setPhone($data->phone);
       $witness->setUrldnifront($data->urldnifront);
       $witness->setUrldnibehind($data->urldnibehind);
-      $witness->setProvince($data->province);
       return $witness;
     }
 
-
-    /**
-     * Set province
-     *
-     * @param string $province
-     *
-     * @return Witness
-     */
-    public function setProvince($province)
-    {
-        $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get province
-     *
-     * @return string
-     */
-    public function getProvince()
-    {
-        return $this->province;
-    }
-
-    /**
-     * Set users
-     *
-     * @param \AppBundle\Entity\User $users
-     *
-     * @return Witness
-     */
-    public function setUsers(\AppBundle\Entity\User $users = null)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
 }

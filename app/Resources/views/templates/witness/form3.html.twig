@@ -30,6 +30,12 @@
     </div>
 
     <div class="form-group">
+        {{ form_label(form3.province) }}
+        {{ form_widget(form3.province, {'id': "appbundle_witness_province3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.province) }}
+    </div>
+
+    <div class="form-group">
         {{ form_label(form3.number) }}
         {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form3.number) }}
