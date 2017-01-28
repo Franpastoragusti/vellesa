@@ -67,7 +67,7 @@
             var addres = $('#appbundle_witness_addres'+numForm).val();
             var cp = $('#appbundle_witness_cp'+numForm).val();
             var city = $('#appbundle_witness_city'+numForm).val();
-            var number = $('#appbundle_witness_number'+numForm).val();
+            var number = JSON.parse(JSON.stringify(numForm));
             var phone = $('#appbundle_witness_phone'+numForm).val();
             var province = $('#appbundle_witness_province'+numForm).val();
             var representant = "0";

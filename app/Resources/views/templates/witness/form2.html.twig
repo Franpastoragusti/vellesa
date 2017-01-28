@@ -36,12 +36,6 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(form2.number) }}
-        {{ form_widget(form2.number, {'id': "appbundle_witness_number2",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form2.number) }}
-    </div>
-
-    <div class="form-group">
         {{ form_label(form2.phone) }}
         {{ form_widget(form2.phone, {'id': "appbundle_witness_phone2",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form2.phone) }}
@@ -63,11 +57,12 @@
         {{ form_label(form2.representant) }}
         {{ form_widget(form2.representant, {'id': "appbundle_witness_representant2",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form2.representant) }}
-
         {{ form_label(form2.users) }}
         {{ form_widget(form2.users, {'id': "appbundle_witness_users2",'attr': {'class': 'form-control'}}) }}
-
         {{ form_errors(form2.users) }}
+        {{ form_label(form2.number) }}
+        {{ form_widget(form2.number, {'id': "appbundle_witness_number2",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form2.number) }}
     </div>
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
       {{ form_widget(form2.save, {'id': "appbundle_witness_save2",'attr': {'class': 'btn btn-warning start', 'onclick':'sendByAJAX(event,2)'}}) }}
