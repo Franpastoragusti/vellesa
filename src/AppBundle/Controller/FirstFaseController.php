@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Witness;
 use AppBundle\Form\WitnessType;
+use AppBundle\Entity\Applicant;
+use AppBundle\Form\ApplicantType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -24,7 +26,7 @@ class FirstFaseController extends Controller
 
           // but, the original `$task` variable has also been updated
           $witness = $form3->getData();
-            
+
           // ... perform some action, such as saving the task to the database
           // for example, if Task is a Doctrine entity, save it!
           $em = $this->getDoctrine()->getManager();
@@ -73,9 +75,28 @@ class FirstFaseController extends Controller
       return $this->render('AppBundle:FirstFase:instance.html.twig');
     }
 
-    public function personalAction()
+    public function personalAction(Request $request)
     {
-      return $this->render('AppBundle:FirstFase:personal.html.twig');
+
+      $applicant = new Applicant();
+      $form = $this->createForm(ApplicantType::class, $applicant);
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+          // $form->getData() holds the submitted values
+
+          // but, the original `$task` variable has also been updated
+          $applicant = $form->getData();
+
+          // ... perform some action, such as saving the task to the database
+          // for example, if Task is a Doctrine entity, save it!
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($applicant);
+          $em->flush();
+
+          return $this->redirectToRoute('FirstFase_witness');
+      }
+
+      return $this->render('AppBundle:FirstFase:personal.html.twig', array('form' => $form->createView()));
     }
 
     public function areasAction()

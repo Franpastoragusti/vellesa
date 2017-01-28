@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Witness
+ * Applicant
  *
- * @ORM\Table(name="witness")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\WitnessRepository")
+ * @ORM\Table(name="applicant")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ApplicantRepository")
  */
-class Witness
+class Applicant
 {
     /**
      * @var int
@@ -18,20 +18,8 @@ class Witness
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     *
      */
     private $id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="witnesses")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-
-    private $users;
-
-    public  function getUsers(){
-        return $this->users;
-    }
 
     /**
      * @var string
@@ -50,9 +38,9 @@ class Witness
     /**
      * @var string
      *
-     * @ORM\Column(name="addres", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
-    private $addres;
+    private $address;
 
     /**
      * @var int
@@ -71,20 +59,6 @@ class Witness
     /**
      * @var int
      *
-     * @ORM\Column(name="number", type="integer")
-     */
-    private $number;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="representant", type="boolean")
-     */
-    private $representant;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="phone", type="integer")
      */
     private $phone;
@@ -92,17 +66,17 @@ class Witness
     /**
      * @var string
      *
-     * @ORM\Column(name="urldnifront", type="string", length=255)
+     * @ORM\Column(name="urldnifront", type="string", length=255, unique=true)
      */
     private $urldnifront;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="urldnibehind", type="string", length=255)
+     * @ORM\Column(name="urldnibehind", type="string", length=255, unique=true)
      */
     private $urldnibehind;
-    
+
     /**
      * @var string
      *
@@ -126,7 +100,7 @@ class Witness
      *
      * @param string $name
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setName($name)
     {
@@ -150,7 +124,7 @@ class Witness
      *
      * @param string $surname
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setSurname($surname)
     {
@@ -170,27 +144,27 @@ class Witness
     }
 
     /**
-     * Set addres
+     * Set address
      *
-     * @param string $addres
+     * @param string $address
      *
-     * @return Witness
+     * @return Applicant
      */
-    public function setAddres($addres)
+    public function setAddress($address)
     {
-        $this->addres = $addres;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get addres
+     * Get address
      *
      * @return string
      */
-    public function getAddres()
+    public function getAddress()
     {
-        return $this->addres;
+        return $this->address;
     }
 
     /**
@@ -198,7 +172,7 @@ class Witness
      *
      * @param integer $cp
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setCp($cp)
     {
@@ -222,7 +196,7 @@ class Witness
      *
      * @param string $city
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setCity($city)
     {
@@ -242,59 +216,11 @@ class Witness
     }
 
     /**
-     * Set number
-     *
-     * @param integer $number
-     *
-     * @return Witness
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * Get number
-     *
-     * @return int
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * Set representant
-     *
-     * @param boolean $representant
-     *
-     * @return Witness
-     */
-    public function setrepresentant($representant)
-    {
-        $this->representant = $representant;
-
-        return $this;
-    }
-
-    /**
-     * Get representant
-     *
-     * @return bool
-     */
-    public function getrepresentant()
-    {
-        return $this->representant;
-    }
-
-    /**
      * Set phone
      *
      * @param integer $phone
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setPhone($phone)
     {
@@ -318,7 +244,7 @@ class Witness
      *
      * @param string $urldnifront
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setUrldnifront($urldnifront)
     {
@@ -342,7 +268,7 @@ class Witness
      *
      * @param string $urldnibehind
      *
-     * @return Witness
+     * @return Applicant
      */
     public function setUrldnibehind($urldnibehind)
     {
@@ -361,19 +287,28 @@ class Witness
         return $this->urldnibehind;
     }
 
-    public function deserialize($data, $witness)
+    /**
+     * Set province
+     *
+     * @param string $province
+     *
+     * @return Applicant
+     */
+    public function setProvince($province)
     {
-      $witness->setName($data->name);
-      $witness->setSurname($data->surname);
-      $witness->setAddres($data->addres);
-      $witness->setCp($data->cp);
-      $witness->setCity($data->city);
-      $witness->setNumber($data->number);
-      $witness->setrepresentant($data->representant);
-      $witness->setPhone($data->phone);
-      $witness->setUrldnifront($data->urldnifront);
-      $witness->setUrldnibehind($data->urldnibehind);
-      return $witness;
+        $this->province = $province;
+
+        return $this;
     }
 
+    /**
+     * Get province
+     *
+     * @return string
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
 }
+

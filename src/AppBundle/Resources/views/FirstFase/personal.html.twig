@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block asideContent %}
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
@@ -10,9 +11,8 @@
                 </div>
                 <div class="panel panel-warning">
                     <div class="panel-body">
-                          <!--form class="form-horizontal col-md-10 col-md-offset-1">
-
-                          </form-->
+                      {{ form_start(form, {'id': "applicant_form",'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
+                      {{ form_end(form) }}
                     </div>
                 </div>
             </div>
