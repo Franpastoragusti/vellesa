@@ -22,7 +22,7 @@ class WitnessType extends AbstractType
             ->add('surname', TextType::class, array('label'=>'Apellidos'))
             ->add('addres', TextType::class, array('label'=>'Dirección'))
             ->add('cp', IntegerType::class, array('label' => 'Código Postal','attr' => array('max' => 99999)))
-            ->add('city', TextType::class, array('label'=>'Ciudad'))
+            ->add('city', TextType::class, array('label'=>'Población'))
             ->add('province',ChoiceType::class, array('label'=>'Provincia','choices'  => array(
              'Álava' => 'Álava',
              'Albacete' => 'Albacete',
