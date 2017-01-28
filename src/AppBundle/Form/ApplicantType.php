@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ApplicantType extends AbstractType
 {
@@ -78,8 +79,8 @@ class ApplicantType extends AbstractType
                       )
                     ))
                  ->add('phone', IntegerType::class, array('label' => 'Teléfono','attr' => array('max' => 999999999)))
-                 ->add('urldnifront', TextType::class, array('label'=>'DNI Delante'))
-                 ->add('urldnibehind', TextType::class, array('label'=>'DNI Detrás'))
+                 ->add('urldnifront', FileType::class, array('label'=>'DNI Delante'))
+                 ->add('urldnibehind', FileType::class, array('label'=>'DNI Detrás'))
                  ->add('save', SubmitType::class, array('label' => 'Siguiente','attr' => array('class' => 'btn btn-warning start')));
 
 
