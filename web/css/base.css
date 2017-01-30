@@ -82,9 +82,7 @@ section.page{
 }
 
 /***PAGINA PRINCIPAL*******/
-section div.col-md-8 > button{
-  margin-bottom: 20px
-}
+
 .full_container{
   padding-top: 5px;
   margin-left: 40px;
@@ -96,7 +94,8 @@ button.start{
   width: 100%;
   color: white;
   min-width: 230px;
-  margin-top: 20px;
+
+  margin-bottom: 25px;
 }
 button.start a{
   color: white;
