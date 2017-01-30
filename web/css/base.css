@@ -1,27 +1,259 @@
+body{
+  background: #F7F7F7;
+  font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  color: #696666;
+}
+/*****HEADER*****/
 .black-bg {
     background: rgb(248, 182, 103);
     border-bottom: 1px solid #c9aa5f;
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.55);
 }
 #logo{
-  width: 130px;
+  max-width: 130px;
+  width: 60%;
   padding-bottom: 10px;
+  padding-top: 10px;
+}
+.col-sm-2{
+  width: auto;
 }
 #avatar{
-  margin: 0 auto;
-  width: 45px;
-  display: block;
+  width: 60px;
+  height: 60px;
 }
-.top-menu{
-  margin-top: 15px;
-  margin-right: 10px;
+ul.nav{
+  padding-top: 12px;
 }
-header div.top-menu span{
-  font-size: 16px;
+#userOptions{
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.55);
+  background-color: rgba(248, 182, 103, 0.5);
+  border: none;
 }
-ul.sidebar-menu {
-    margin-top: 100px;
+#userOptions > li > a:hover{
+  background-color: rgb(248, 182, 103);
 }
-#sidebar{
+#userOptions > li{
+  font-size: 1.5em;
+  padding: 4px 0px;
+}
+.top_nav .navbar-right{
+  width: 200px;
+}
+nav > ul > li > a:hover{
+  background-color: transparent;
+}
+.top_nav .nav > li > a:focus, .top_nav .nav > li > a:hover, .top_nav .nav .open > a, .top_nav .nav .open > a:focus, .top_nav .nav .open > a:hover {
+  background: transparent; }
+.toggle a{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.toggle{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+header h1{
+font-size: 8vh
+}
+/*************************************ASIDE*************************************/
+.left_col {
   background: rgba(248, 182, 103, 0.5);
+  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
+  min-height: 600px;
+}
+.nav_menu{
+  margin-bottom: 2px;
+}
+/*************************************CONTENT******************************/
+body .container.body .right_col{
+  margin-top: 10px;
+  min-height: 600px;
+  background-color: transparent;
+}
+.left_col{
+  left: 0px;
+}
+section.page{
+  margin-top: -7px;
+  margin: 0 auto;
+  min-width: 100px;
+}
+
+/***PAGINA PRINCIPAL*******/
+
+.full_container{
+  padding-top: 5px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+button.start{
+  font-size: 1.3em;
+  width: 100%;
+  color: white;
+  min-width: 230px;
+
+  margin-bottom: 25px;
+}
+button.start a{
+  color: white;
+}
+.embed-responsive-16by9{
+  padding-bottom: 46.25%;
+
+}
+.embed-responsive-16by9 iframe{
+  max-height: 530px;
+  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
+}
+h2{
+  font-size: 30px;
+  margin-top: 0px;
+  padding: 16px;
+  background: rgba(248, 182, 103, 0.5);
+  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
+}
+h1.title2{
+  color:#FFFFFF;
+  font-size: 4vw;
+   text-shadow: 0 1px 0 #ccc,
+   0 2px 0 #c9c9c9,
+   0 3px 0 #bbb,
+   0 4px 0 #b9b9b9,
+   0 5px 0 #aaa,
+   0 6px 1px rgba(0,0,0,.1),
+   0 0 5px rgba(0,0,0,.1),
+   0 1px 3px rgba(0,0,0,.3),
+   0 3px 5px rgba(0,0,0,.2),
+   0 5px 10px rgba(0,0,0,.25),
+   0 10px 10px rgba(0,0,0,.2),
+   0 20px 20px rgba(0,0,0,.15);
+}
+h1.title2:hover{
+  color:#FFFFFF;
+  text-shadow: 0 1px 0 #ccc,
+   0 2px 0 #c9c9c9,
+   0 3px 0 #bbb,
+   0 4px 0 #b9b9b9,
+   0 5px 0 #aaa,
+   0 6px 1px rgba(0,0,0,.1),
+   0 0 5px rgba(0,0,0,.1),
+   0 1px 3px rgba(0,0,0,.3),
+   0 3px 5px rgba(0,0,0,.2),
+   0 5px 10px rgba(0,0,0,.25),
+   0 10px 10px rgba(0,0,0,.2),
+   0 20px 20px rgba(0,0,0,.15);
+}
+h1{
+    box-sizing: content-box;
+    font-size: 7vw;
+    cursor: pointer;
+    border: none;
+    color: rgba(237,168,94,1);
+    text-align: center;
+}
+
+/*******STEPS******/
+#wizard_verticle{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.wizard_steps li {
+  position: relative;
+}
+#wizard_verticle a.done:before, .step_no{
+  ;
+}
+#wizard_verticle ul.wizard_steps li a.done:before, .wizard_verticle ul.wizard_steps li a.done .step_no {
+  background: rgb(128,185,82);
+  color: #fff;
+}
+.step-title{
+  position:absolute;
+  left:45px;
+  top: 10px;
+  width: 130px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0.8;
+  color: #666;
+}
+.step-title:hover{
+  opacity: 1;
+  color: #666;
+}
+.wizard_verticle ul.wizard_steps li a {
+  height: 100px;
+}
+.wizard_verticle ul.wizard_steps li a.selected:before, .step_no{
+  background: rgb(248, 182, 103);
+}
+
+/*******PANELS*********/
+.panel-body{
+  height: auto;
+}
+/*******BUTTONS******/
+button.warning{
+  background: rgb(248, 182, 103);
+
+}
+
+/*****MENU TOGGLE******/
+nav .toggle{
+  display: none;
+}
+
+
+/*******RESPONSIVE*******/
+@media (max-width: 992px) {
+  nav .toggle{
+    display:inline-block;
+    width: 30px;
+  }
+  #logo{
+    margin-left: 10px;
+  }
+  #avatar{
+    width: 40px;
+    height: 40px;
+  }
+  .top_nav .navbar-right{
+    width: 170px;
+    font-size: 12px;
+    padding-top: 0px
+  }
+  h1.title2 {
+    font-size: 30px;
+  }
+  nav > div.col-md-2{
+    width: 150px;
+  }
+  .user-profile .dropdown-toggle{
+    padding-top: 0px;
+  }
+  .top_nav .navbar-right .fa-angle-down{
+
+  }
+  .step-title{
+    display: none;
+  }
+  body{
+    overflow-x: hidden;
+  }
+  .page{
+    padding-left: 0px;
+  }
+
+  ul.nav-tabs li{
+    font-size: 12px;
+  }
+  div.row.col-md-10.areas{
+    margin-left: 15%;
+  }
+
 }

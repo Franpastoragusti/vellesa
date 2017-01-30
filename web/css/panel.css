@@ -1,0 +1,17 @@
+#logo{
+  width: 60px;
+  padding-bottom: 10px;
+}
+.nav_title{
+  background-color: #EDEDED;
+
+}
+.site_title{
+    color: #2A3F54 !important;
+    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+}
+.site_title span{
+  padding-left: 30px;
+  font-size: 35px;
+  letter-spacing: 4px;
+}

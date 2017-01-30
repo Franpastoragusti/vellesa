@@ -1,0 +1,70 @@
+{{ form_start(form3, {'id': "witness_form3",'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
+    <div class="form-group">
+        {{ form_label(form3.name) }}
+        {{ form_widget(form3.name, {'id': "appbundle_witness_name3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.name) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.surname) }}
+        {{ form_widget(form3.surname, {'id': "appbundle_witness_surname3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.surname) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.addres) }}
+        {{ form_widget(form3.addres, {'id': "appbundle_witness_addres3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.addres) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.cp) }}
+        {{ form_widget(form3.cp, {'id': "appbundle_witness_cp3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.cp) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.city) }}
+        {{ form_widget(form3.city, {'id': "appbundle_witness_city3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.city) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.province) }}
+        {{ form_widget(form3.province, {'id': "appbundle_witness_province3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.province) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.phone) }}
+        {{ form_widget(form3.phone, {'id': "appbundle_witness_phone3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.phone) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.urldnifront) }}
+        {{ form_widget(form3.urldnifront, {'id': "appbundle_witness_urldnifront3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.urldnifront) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form3.urldnibehind) }}
+        {{ form_widget(form3.urldnibehind, {'id': "appbundle_witness_urldnibehind3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.urldnibehind) }}
+    </div>
+
+    <div id="ocultos" class="hidden">
+        {{ form_label(form3.representant) }}
+        {{ form_widget(form3.representant, {'id': "appbundle_witness_representant3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.representant) }}
+        {{ form_label(form3.users) }}
+        {{ form_widget(form3.users, {'id': "appbundle_witness_users3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.users) }}
+        {{ form_label(form3.number) }}
+        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value': 3, 'class': 'form-control'}}) }}
+        {{ form_errors(form3.number) }}
+    </div>
+    <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
+      {{ form_widget(form3.save, {'id': "appbundle_witness_save3",'attr': {'class': 'btn btn-warning start'}}) }}
+    </div>
+{{ form_end(form3) }}

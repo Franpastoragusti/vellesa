@@ -1,3 +1,11 @@
-app:
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /panel
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /user
+
+apps:
     resource: "@AppBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix: /app

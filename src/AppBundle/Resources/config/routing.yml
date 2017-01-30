@@ -1,3 +1,32 @@
-app_homepage:
-    path:     /
+test_room:
+    path:     /testRoom
     defaults: { _controller: AppBundle:Default:index }
+
+FirstFase_index:
+    path:     /
+    defaults: { _controller: AppBundle:FirstFase:index }
+
+FirstFase_witness_form:
+    path:     /witness/form
+    defaults: { _controller: AppBundle:FirstFase:newWitness }
+    methods: [POST]
+
+FirstFase_witness:
+    path:  /witness
+    defaults: { _controller: AppBundle:FirstFase:witness }
+
+FirstFase_representant:
+    path:     /representant
+    defaults: { _controller: AppBundle:FirstFase:representant }
+
+Fasedos_areas:
+    path:     /areas
+    defaults: { _controller: AppBundle:FirstFase:areas }
+
+FirstFase_instance:
+    path:     /instance
+    defaults: { _controller: AppBundle:FirstFase:instance }
+
+FirstFase_personal:
+    path:     /personal
+    defaults: { _controller: AppBundle:FirstFase:personal }
