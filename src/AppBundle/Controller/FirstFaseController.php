@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Witness;
 use AppBundle\Form\WitnessType;
+use AppBundle\Entity\Applicant;
+use AppBundle\Form\ApplicantType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -21,6 +23,7 @@ class FirstFaseController extends Controller
       $form3->handleRequest($request);
       if ($form3->isSubmitted() && $form3->isValid()) {
           // $form->getData() holds the submitted values
+
           // but, the original `$task` variable has also been updated
           $witness = $form3->getData();
 
@@ -30,7 +33,7 @@ class FirstFaseController extends Controller
           $em->persist($witness);
           $em->flush();
 
-          return $this->redirectToRoute('FirstFase_representant', array('status'=>'OK'));
+
       }
 
       return $this->render('AppBundle:FirstFase:witness.html.twig', array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()));
@@ -72,9 +75,39 @@ class FirstFaseController extends Controller
       return $this->render('AppBundle:FirstFase:instance.html.twig');
     }
 
-    public function personalAction()
+    public function personalAction(Request $request)
     {
-      return $this->render('AppBundle:FirstFase:personal.html.twig');
+
+      $applicant = new Applicant();
+      $form = $this->createForm(ApplicantType::class, $applicant);
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+
+          $file = $applicant->getUrldnifront();
+          $file2 = $applicant->getUrldnibehind();
+          $fileName = md5(uniqid()).'.'.$file->guessExtension();
+          $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
+          $file->move(
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
+          $file2->move(
+                $this->getParameter('dni_directory'),
+                $fileName2
+            );
+          $applicant->setUrldnifront($fileName);
+          $applicant->setUrldnibehind($fileName);
+          $applicant = $form->getData();
+          // ... perform some action, such as saving the task to the database
+          // for example, if Task is a Doctrine entity, save it!
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($applicant);
+          $em->flush();
+
+          return $this->redirectToRoute('FirstFase_witness');
+      }
+
+      return $this->render('AppBundle:FirstFase:personal.html.twig', array('form' => $form->createView()));
     }
 
     public function areasAction()

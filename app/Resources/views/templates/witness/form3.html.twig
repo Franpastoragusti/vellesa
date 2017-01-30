@@ -30,9 +30,9 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(form3.number) }}
-        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form3.number) }}
+        {{ form_label(form3.province) }}
+        {{ form_widget(form3.province, {'id': "appbundle_witness_province3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.province) }}
     </div>
 
     <div class="form-group">
@@ -57,11 +57,12 @@
         {{ form_label(form3.representant) }}
         {{ form_widget(form3.representant, {'id': "appbundle_witness_representant3",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form3.representant) }}
-
         {{ form_label(form3.users) }}
         {{ form_widget(form3.users, {'id': "appbundle_witness_users3",'attr': {'class': 'form-control'}}) }}
-
         {{ form_errors(form3.users) }}
+        {{ form_label(form3.number) }}
+        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value': 3, 'class': 'form-control'}}) }}
+        {{ form_errors(form3.number) }}
     </div>
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
       {{ form_widget(form3.save, {'id': "appbundle_witness_save3",'attr': {'class': 'btn btn-warning start'}}) }}

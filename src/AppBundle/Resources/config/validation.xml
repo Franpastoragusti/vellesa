@@ -63,7 +63,7 @@
                 </option>
             </constraint>
             <constraint name="Length">
-                <option name="min">2</option>
+                <option name="min">8</option>
                 <option name="max">4096</option>
                 <option name="minMessage">fos_user.password.short</option>
                 <option name="groups">
@@ -76,7 +76,7 @@
             <constraint name="Regex">
                 <option name="pattern">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/</option>
                 <option name="htmlPattern">/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/</option>
-                <option name="message">La contraseña debe contener mucha mierda</option>
+                <option name="message">La contraseña debe incluir numeros, carácteres, mayúsculas y minúsculas</option>
                 <option name="groups">
                 <value>Registration</value>
                 <value>Profile</value>
