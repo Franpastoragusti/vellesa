@@ -9,9 +9,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
-class WitnessType extends AbstractType
+class PersonalDataType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -20,7 +21,7 @@ class WitnessType extends AbstractType
     {
         $builder->add('name', TextType::class, array('label'=>'Nombre'))
             ->add('surname', TextType::class, array('label'=>'Apellidos'))
-            ->add('addres', TextType::class, array('label'=>'Dirección'))
+            ->add('address', TextType::class, array('label'=>'Dirección'))
             ->add('cp', IntegerType::class, array('label' => 'Código Postal','attr' => array('max' => 99999)))
             ->add('city', TextType::class, array('label'=>'Población'))
             ->add('province',ChoiceType::class, array('label'=>'Provincia','choices'  => array(
@@ -78,12 +79,12 @@ class WitnessType extends AbstractType
              'Zaragoza' => 'Zaragoza'
                  )
                ))
-            ->add('number')
-            ->add('representant')
+            ->add('type', TextType::class)
             ->add('phone', IntegerType::class, array('label' => 'Teléfono','attr' => array('max' => 999999999)))
-            ->add('urldnifront', TextType::class, array('label'=>'DNI Delante'))
-            ->add('urldnibehind', TextType::class, array('label'=>'DNI Detrás'))
+            ->add('dnifront', FileType::class, array('label'=>'DNI Delante'))
+            ->add('dnibehind', FileType::class, array('label'=>'DNI Detrás'))
             ->add('users')
+            ->add('number',IntegerType::class)
             ->add('save', SubmitType::class, array('label' => 'Siguiente'))
         ;
     }
@@ -94,7 +95,7 @@ class WitnessType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Witness'
+            'data_class' => 'AppBundle\Entity\PersonalData'
         ));
     }
 
@@ -104,7 +105,7 @@ class WitnessType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_witness';
+        return 'appbundle_personalData';
     }
 
 

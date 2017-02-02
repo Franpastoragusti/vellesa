@@ -2,10 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Witness;
-use AppBundle\Form\WitnessType;
-use AppBundle\Entity\Applicant;
-use AppBundle\Form\ApplicantType;
+use AppBundle\Entity\PersonalData;
+use AppBundle\Form\PersonalDataType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,10 +12,10 @@ class FirstFaseController extends Controller
 {
     public function witnessAction(Request $request)
     {
-      $witness = new Witness();
-      $form1 = $this->createForm(WitnessType::class, $witness);
-      $form2 = $this->createForm(WitnessType::class, $witness);
-      $form3 = $this->createForm(WitnessType::class, $witness);
+      $witness = new PersonalData();
+      $form1 = $this->createForm(PersonalDataType::class, $witness);
+      $form2 = $this->createForm(PersonalDataType::class, $witness);
+      $form3 = $this->createForm(PersonalDataType::class, $witness);
       $form1->handleRequest($request);
       $form2->handleRequest($request);
       $form3->handleRequest($request);
@@ -41,7 +39,7 @@ class FirstFaseController extends Controller
     }
 
     public function newWitnessAction(Request $request){
-      $witness = new Witness();
+      $witness = new PersonalData();
       $connection = $this->getDoctrine()->getManager();
       $content = $request->getContent();
       $data = json_decode($content);
@@ -78,13 +76,13 @@ class FirstFaseController extends Controller
     public function personalAction(Request $request)
     {
 
-      $applicant = new Applicant();
-      $form = $this->createForm(ApplicantType::class, $applicant);
+      $applicant = new PersonalData();
+      $form = $this->createForm(PersonalDataType::class, $applicant);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
 
-          $file = $applicant->getUrldnifront();
-          $file2 = $applicant->getUrldnibehind();
+          $file = $applicant->getDnifront();
+          $file2 = $applicant->getDnibehind();
           $fileName = md5(uniqid()).'.'.$file->guessExtension();
           $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
           $file->move(
@@ -95,8 +93,8 @@ class FirstFaseController extends Controller
                 $this->getParameter('dni_directory'),
                 $fileName2
             );
-          $applicant->setUrldnifront($fileName);
-          $applicant->setUrldnibehind($fileName);
+          $applicant->setDnifront($fileName);
+          $applicant->setDnibehind($fileName);
           $applicant = $form->getData();
           // ... perform some action, such as saving the task to the database
           // for example, if Task is a Doctrine entity, save it!
