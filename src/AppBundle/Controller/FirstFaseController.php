@@ -7,6 +7,8 @@ use AppBundle\Form\PersonalDataType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class FirstFaseController extends Controller
 {
@@ -21,7 +23,20 @@ class FirstFaseController extends Controller
       $form3->handleRequest($request);
       if ($form3->isSubmitted() && $form3->isValid()) {
           // $form->getData() holds the submitted values
-
+          $file = $witness->getDnifront();
+          $file2 = $witness->getDnibehind();
+          $fileName = md5(uniqid()).'.'.$file->guessExtension();
+          $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
+          $file->move(
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
+          $file2->move(
+                $this->getParameter('dni_directory'),
+                $fileName2
+            );
+          $witness->setDnifront($fileName);
+          $witness->setDnibehind($fileName);
           // but, the original `$task` variable has also been updated
           $witness = $form3->getData();
 
@@ -30,8 +45,12 @@ class FirstFaseController extends Controller
           $em = $this->getDoctrine()->getManager();
           $em->persist($witness);
           $em->flush();
-
-
+          if ($witness->getId() > 0) {
+              $response = new JsonResponse(array('status' => 'ok'), 200);
+          }else {
+              $response = new JsonResponse(array('status' => 'ko'), 200);
+          }
+          return $response;
       }
 
       return $this->render('AppBundle:FirstFase:witness.html.twig', array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()));

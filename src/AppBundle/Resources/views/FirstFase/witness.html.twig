@@ -60,7 +60,6 @@
   </script>
   <script type="text/javascript">
       function sendByAJAX(event,numForm){
-
             event.preventDefault();
             var name = $('#appbundle_witness_name'+numForm).val();
             var surname = $('#appbundle_witness_surname'+numForm).val();
@@ -69,16 +68,15 @@
             var city = $('#appbundle_witness_city'+numForm).val();
             var number = JSON.parse(JSON.stringify(numForm));
             var phone = $('#appbundle_witness_phone'+numForm).val();
-            var province = '5';/**TODO**/
-            var representant = "0";
-            var urldnifront = $('#appbundle_witness_urldnifront'+numForm).val();
-            var urldnibehind = $('#appbundle_witness_urldnibehind'+numForm).val();
+            var province = $('#appbundle_witness_province'+numForm).val();
+            var dnifront = $('#appbundle_witness_dnifront'+numForm).val();
+            var dnibehind = $('#appbundle_witness_dnibehind'+numForm).val();
 
             $.ajax({
               url: "{{ path('FirstFase_witness_form') }}",
               type: 'POST',
               dataType: 'text',
-              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "representant": '+representant+', "phone":'+phone+', "urldnifront": '+urldnifront+', "urldnibehind": '+urldnibehind+', "province": '+province+'}'
+              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "type": "Witness", "phone":'+phone+', "dnifront": '+dnifront+', "dnibehind": '+dnibehind+', "province": '+province+'}'
             })
             .done(function(response) {
               changeTabWitness(numForm);
