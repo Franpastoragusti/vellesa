@@ -24,8 +24,12 @@
         </div>
 
 {% endblock %}
+{% block assistantContent %}
+  {% include './templates/assistant.html.twig'%}
+{% endblock %}
 {% block javascripts %}
   <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/assistant.js') }}"></script>
   <script type="text/javascript">
   $(document).ready(function(){
     var steps = new Steps(4);
