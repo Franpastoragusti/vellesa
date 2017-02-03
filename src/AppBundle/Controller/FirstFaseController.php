@@ -44,7 +44,7 @@ class FirstFaseController extends Controller
           $em = $this->getDoctrine()->getManager();
           $em->persist($witness);
           $em->flush();
-          return $this->redirectToRoute('FirstFase_witness');
+          return $this->redirectToRoute('FirstFase_representant');
       }
 
       return $this->render('AppBundle:FirstFase:witness.html.twig', array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()));
@@ -56,32 +56,35 @@ class FirstFaseController extends Controller
       $form1 = $this->createForm(PersonalDataType::class, $witness);
       $form1->handleRequest($request);
 
-        $witness->setType(000);
-        $witness->setNumber(1400);
 
       if ($form1->isValid()) {
 
         if ($request->isXmlHttpRequest()) {
 
-          /**TODO**/
           $connection = $this->getDoctrine()->getManager();
 
-            /*
-          $content = $request->getContent();
-          $data = json_decode($content);
-          $witness = $witness->deserialize($data, $witness);
-             */
-
-            // Al emplear el objeto FormData Utiliza la codificación establecida  a "multipart/form-data".
-
-            $connection->persist($witness);
+          /*$file = $connection->getDnifront();
+          $file2 = $connection->getDnibehind();
+          $fileName = md5(uniqid()).'.'.$file->guessExtension();
+          $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
+          $file->move(
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
+          $file2->move(
+                $this->getParameter('dni_directory'),
+                $fileName2
+            );
+          $witness->setDnifront($fileName);
+          $witness->setDnibehind($fileName);*/
+          $connection->persist($witness);
           $connection->flush();
           if ($witness->getId() > 0) {
               $response = new JsonResponse(array('status' => 'true'), 200);
           }else {
               $response = new JsonResponse(array('status' => 'false'), 404);
           }
-          echo $witness->getId();
+
           return $response;
         }
       }

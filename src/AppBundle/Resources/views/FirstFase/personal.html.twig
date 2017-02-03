@@ -12,10 +12,11 @@
                 <div class="panel panel-warning">
                     <div class="panel-body">
                       {{ form_start(form, {'id': "applicant_form",'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
-                        {{ form_widget(form.number, {'attr': {'value':0,'disabled':'disabled','class': 'form-control hidden'}}) }}
-                        {{ form_widget(form.type, {'attr': {'value':"Applicant",'disabled':'disabled','class': 'form-control hidden'}}) }}
+                        {{ form_widget(form.number, {'attr': {'value':0,'class':'form-control hidden'}}) }}
+                        {{ form_widget(form.type, {'attr': {'value':"Applicant",'class': 'form-control hidden'}}) }}
                         {#TODO falta setear el user_id#}
                       {{ form_end(form) }}
+
                     </div>
                 </div>
             </div>

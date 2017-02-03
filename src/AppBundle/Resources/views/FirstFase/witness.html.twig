@@ -63,12 +63,8 @@
 
       $("#witness_form1").submit(function(e){
 
-          var formSerialize = "{{ path('FirstFase_witness_form') }}";
-          var formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
-
-
-
-          console.log(formSerialize);
+          let formSerialize = "{{ path('FirstFase_witness_form') }}";
+          let formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
 
           $.ajax({
               url:formSerialize ,
@@ -80,7 +76,7 @@
               processData:false,
               success: function(){
                   console.log("Añadido correctamente en base de datos");
-
+                  changeTabWitness(1);
               },
               error: function(XMLHttpRequest, textStatus, errorThrown) {
                   console.log("error añadir en base de datos: " + errorThrown);
@@ -92,17 +88,33 @@
 
       });
 
-
-
       $("#witness_form2").submit(function(e){
-          e.preventDefault();
-          var formSerialize2 = $(this).serialize();
-          $.post("/app/witness/form", formSerialize2, function(response){
-         //your callback here
-         alert(response);
 
-         },'JSON');
+          let formSerialize = "{{ path('FirstFase_witness_form') }}";
+          let formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
+
+          $.ajax({
+              url:formSerialize ,
+              type: 'POST',
+              data: formData,
+              mimeType:"multipart/form-data",
+              contentType: false,
+              cache: false,
+              processData:false,
+              success: function(){
+                  console.log("Añadido correctamente en base de datos");
+                  changeTabWitness(2);
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                  console.log("error añadir en base de datos: " + errorThrown);
+              }
+
+            });
+
+          e.preventDefault(); //Prevent Default action.
+
       });
+
 
   </script>
 {% endblock %}

@@ -85,7 +85,7 @@ class PersonalDataType extends AbstractType
             ->add('dnibehind', FileType::class, array('label'=>'DNI Detrás'))
             ->add('users')
             ->add('number',IntegerType::class)
-            ->add('save', SubmitType::class, array('label' => 'Siguiente'))
+            ->add('save', SubmitType::class, array('label' => 'Siguiente','attr' => array('class'=> 'btn btn-warning start')))
         ;
     }
 
