@@ -1,4 +1,4 @@
-{{ form_start(form3, {'id': "witness_form3",'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
+{{ form_start(form3, {'name': "witness_form3",'attr': {'id': "witness_form3",'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
     <div class="form-group">
         {{ form_label(form3.name) }}
         {{ form_widget(form3.name, {'id': "appbundle_witness_name3",'attr': {'class': 'form-control'}}) }}
@@ -12,9 +12,9 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(form3.addres) }}
-        {{ form_widget(form3.addres, {'id': "appbundle_witness_addres3",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form3.addres) }}
+        {{ form_label(form3.address) }}
+        {{ form_widget(form3.address, {'id': "appbundle_witness_addres3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.address) }}
     </div>
 
     <div class="form-group">
@@ -42,28 +42,25 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(form3.urldnifront) }}
-        {{ form_widget(form3.urldnifront, {'id': "appbundle_witness_urldnifront3",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form3.urldnifront) }}
+        {{ form_label(form3.dnifront) }}
+        {{ form_widget(form3.dnifront, {'id': "appbundle_witness_dnifront3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.dnifront) }}
     </div>
 
     <div class="form-group">
-        {{ form_label(form3.urldnibehind) }}
-        {{ form_widget(form3.urldnibehind, {'id': "appbundle_witness_urldnibehind3",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form3.urldnibehind) }}
+        {{ form_label(form3.dnibehind) }}
+        {{ form_widget(form3.dnibehind, {'id': "appbundle_witness_dnibehind3",'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form3.dnibehind) }}
     </div>
 
-    <div id="ocultos" class="hidden">
-        {{ form_label(form3.representant) }}
-        {{ form_widget(form3.representant, {'id': "appbundle_witness_representant3",'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form3.representant) }}
+    <div class="form-group">
         {{ form_label(form3.users) }}
         {{ form_widget(form3.users, {'id': "appbundle_witness_users3",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form3.users) }}
-        {{ form_label(form3.number) }}
-        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value': 3, 'class': 'form-control'}}) }}
-        {{ form_errors(form3.number) }}
     </div>
+        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value':3,'disabled':'disabled','class': 'form-control hidden'}}) }}
+        {{ form_widget(form3.type, {'id': "appbundle_witness_type3",'attr': {'value':'Witness','disabled':'disabled','class': 'form-control hidden'}}) }}
+        {#TODO falta setear el user_id#}
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
       {{ form_widget(form3.save, {'id': "appbundle_witness_save3",'attr': {'class': 'btn btn-warning start'}}) }}
     </div>
