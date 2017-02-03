@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\PersonalData;
 use AppBundle\Form\PersonalDataType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -54,19 +55,31 @@ class FirstFaseController extends Controller
       $witness = new PersonalData();
       $form1 = $this->createForm(PersonalDataType::class, $witness);
       $form1->handleRequest($request);
+
+        $witness->setType(000);
+        $witness->setNumber(1400);
+
       if ($form1->isValid()) {
+
         if ($request->isXmlHttpRequest()) {
+
           /**TODO**/
           $connection = $this->getDoctrine()->getManager();
+
+            /*
           $content = $request->getContent();
           $data = json_decode($content);
           $witness = $witness->deserialize($data, $witness);
-          $connection->persist($witness);
+             */
+
+            // Al emplear el objeto FormData Utiliza la codificación establecida  a "multipart/form-data".
+
+            $connection->persist($witness);
           $connection->flush();
           if ($witness->getId() > 0) {
-              $response = new JsonResponse(array('status' => 'ok'), 200);
+              $response = new JsonResponse(array('status' => 'true'), 200);
           }else {
-              $response = new JsonResponse(array('status' => 'ko'), 200);
+              $response = new JsonResponse(array('status' => 'false'), 404);
           }
           echo $witness->getId();
           return $response;

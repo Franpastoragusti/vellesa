@@ -62,22 +62,37 @@
 
 
       $("#witness_form1").submit(function(e){
-          e.preventDefault();
-          var formSerialize = $(this).serialize();
-          console.log(formSerialize)
-          $.ajax({
-              url: "{{ path('FirstFase_witness_form') }}",
-              type: 'POST',
-              data: formSerialize
-            })
-            .done(function(response) {
 
-              console.log("correcto");
-            })
-            .fail(function() {
-              console.log("error");
+          var formSerialize = "{{ path('FirstFase_witness_form') }}";
+          var formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
+
+
+
+          console.log(formSerialize);
+
+          $.ajax({
+              url:formSerialize ,
+              type: 'POST',
+              data: formData,
+              mimeType:"multipart/form-data",
+              contentType: false,
+              cache: false,
+              processData:false,
+              success: function(){
+                  console.log("Añadido correctamente en base de datos");
+
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                  console.log("error añadir en base de datos: " + errorThrown);
+              }
+
             });
+
+          e.preventDefault(); //Prevent Default action.
+
       });
+
+
 
       $("#witness_form2").submit(function(e){
           e.preventDefault();
