@@ -59,33 +59,35 @@
     });
   </script>
   <script type="text/javascript">
-      function sendByAJAX(event,numForm){
-            event.preventDefault();
-            var name = $('#appbundle_witness_name'+numForm).val();
-            var surname = $('#appbundle_witness_surname'+numForm).val();
-            var addres = $('#appbundle_witness_addres'+numForm).val();
-            var cp = $('#appbundle_witness_cp'+numForm).val();
-            var city = $('#appbundle_witness_city'+numForm).val();
-            var number = JSON.parse(JSON.stringify(numForm));
-            var phone = $('#appbundle_witness_phone'+numForm).val();
-            var province = $('#appbundle_witness_province'+numForm).val();
-            var dnifront = $('#appbundle_witness_dnifront'+numForm).val();
-            var dnibehind = $('#appbundle_witness_dnibehind'+numForm).val();
 
-            $.ajax({
+
+      $("#witness_form1").submit(function(e){
+          e.preventDefault();
+          var formSerialize = $(this).serialize();
+          console.log(formSerialize)
+          $.ajax({
               url: "{{ path('FirstFase_witness_form') }}",
               type: 'POST',
-              dataType: 'text',
-              data: '{"name":'+name+', "surname": '+surname+', "addres": '+addres+', "cp": '+cp+', "city": '+city+', "number": '+number+', "type": "Witness", "phone":'+phone+', "dnifront": '+dnifront+', "dnibehind": '+dnibehind+', "province": '+province+'}'
+              data: formSerialize
             })
             .done(function(response) {
-              changeTabWitness(numForm);
+
               console.log("correcto");
             })
             .fail(function() {
               console.log("error");
-            })
+            });
+      });
 
-    };
+      $("#witness_form2").submit(function(e){
+          e.preventDefault();
+          var formSerialize2 = $(this).serialize();
+          $.post("/app/witness/form", formSerialize2, function(response){
+         //your callback here
+         alert(response);
+
+         },'JSON');
+      });
+
   </script>
 {% endblock %}

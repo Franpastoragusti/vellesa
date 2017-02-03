@@ -6,9 +6,7 @@ use AppBundle\Entity\PersonalData;
 use AppBundle\Form\PersonalDataType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class FirstFaseController extends Controller
 {
@@ -45,12 +43,7 @@ class FirstFaseController extends Controller
           $em = $this->getDoctrine()->getManager();
           $em->persist($witness);
           $em->flush();
-          if ($witness->getId() > 0) {
-              $response = new JsonResponse(array('status' => 'ok'), 200);
-          }else {
-              $response = new JsonResponse(array('status' => 'ko'), 200);
-          }
-          return $response;
+          return $this->redirectToRoute('FirstFase_witness');
       }
 
       return $this->render('AppBundle:FirstFase:witness.html.twig', array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()));
@@ -59,19 +52,26 @@ class FirstFaseController extends Controller
 
     public function newWitnessAction(Request $request){
       $witness = new PersonalData();
-      $connection = $this->getDoctrine()->getManager();
-      $content = $request->getContent();
-      $data = json_decode($content);
-      $witness = $witness->deserialize($data, $witness);
-      $connection->persist($witness);
-      $connection->flush();
-      if ($witness->getId() > 0) {
-          $response = new JsonResponse(array('status' => 'ok'), 200);
-      }else {
-          $response = new JsonResponse(array('status' => 'ko'), 200);
+      $form1 = $this->createForm(PersonalDataType::class, $witness);
+      $form1->handleRequest($request);
+      if ($form1->isValid()) {
+        if ($request->isXmlHttpRequest()) {
+          /**TODO**/
+          $connection = $this->getDoctrine()->getManager();
+          $content = $request->getContent();
+          $data = json_decode($content);
+          $witness = $witness->deserialize($data, $witness);
+          $connection->persist($witness);
+          $connection->flush();
+          if ($witness->getId() > 0) {
+              $response = new JsonResponse(array('status' => 'ok'), 200);
+          }else {
+              $response = new JsonResponse(array('status' => 'ko'), 200);
+          }
+          echo $witness->getId();
+          return $response;
+        }
       }
-      echo $witness->getId();
-      return $response;
     }
 
 

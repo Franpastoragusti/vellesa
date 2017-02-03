@@ -415,4 +415,21 @@ class PersonalData
     {
         return $this->number;
     }
+
+    public function deserialize($data, $witness)
+    {
+      $witness->setName($data->name);
+      $witness->setSurname($data->surname);
+      $witness->setAddress($data->addres);
+      $witness->setCp($data->cp);
+      $witness->setCity($data->city);
+      $witness->setNumber($data->number);
+      $witness->setPhone($data->phone);
+      $witness->setUsers($data->users);
+      $witness->setType($data->type);
+      $witness->setDnifront($data->dnifront);
+      $witness->setDnibehind($data->dnibehind);
+      $witness->setProvince($data->province);
+      return $witness;
+    }
 }

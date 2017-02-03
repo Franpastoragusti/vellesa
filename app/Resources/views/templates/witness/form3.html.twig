@@ -1,4 +1,4 @@
-{{ form_start(form3, {'id': "witness_form3",'name': "witness_form3",'attr': {'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
+{{ form_start(form3, {'name': "witness_form3",'attr': {'id': "witness_form3",'class': 'form-horizontal col-md-8 col-md-offset-2'}}) }}
     <div class="form-group">
         {{ form_label(form3.name) }}
         {{ form_widget(form3.name, {'id': "appbundle_witness_name3",'attr': {'class': 'form-control'}}) }}
@@ -58,8 +58,9 @@
         {{ form_widget(form3.users, {'id': "appbundle_witness_users3",'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form3.users) }}
     </div>
-        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value':3,'class': 'form-control hidden'}}) }}
-        {{ form_widget(form3.type, {'id': "appbundle_witness_type3",'attr': {'value':'Witness','class': 'form-control hidden'}}) }}
+        {{ form_widget(form3.number, {'id': "appbundle_witness_number3",'attr': {'value':3,'disabled':'disabled','class': 'form-control hidden'}}) }}
+        {{ form_widget(form3.type, {'id': "appbundle_witness_type3",'attr': {'value':'Witness','disabled':'disabled','class': 'form-control hidden'}}) }}
+        {#TODO falta setear el user_id#}
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
       {{ form_widget(form3.save, {'id': "appbundle_witness_save3",'attr': {'class': 'btn btn-warning start'}}) }}
     </div>
