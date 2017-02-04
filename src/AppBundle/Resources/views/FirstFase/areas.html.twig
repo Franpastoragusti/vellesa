@@ -4,13 +4,13 @@
       {% include 'templates/steps.vertical.html.twig' only %}
   {% endblock %}
   {% block mainContent %}
-  <div class="container-fluid">
+  <div class="container-fluid col-md-10">
       <div class="row col-md-10">
             <div>
               <h2>Areas</h2>
             </div>
             <div class="panel panel-warning">
-              <div class="panel-body">
+              <div class="panel-body text-justify">
                   <p>
                     A partir de este momento vas a comenzar a detallar y a planificar los aspectos a tener en cuenta sobre ti mismo/a.
                   </p>
@@ -20,9 +20,6 @@
                   <p>
                     Siempre hay opciones y alternativas, ahora es el momento de dejar claras cuales son las tuyas.
                   </p>
-                  <div class="">
-
-                  </div>
               </div>
           </div>
     </div>
@@ -70,8 +67,11 @@
             </li>
         </ul>
     </div>
-  </div
+  </div>
 
+  {% endblock %}
+  {% block assistantContent %}
+    {% include './templates/assistant.html.twig' %}
   {% endblock %}
   {% block javascripts %}
     <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>

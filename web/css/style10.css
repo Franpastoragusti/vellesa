@@ -14,7 +14,7 @@
 
 }
 .ca-menu li{
-    z-index: 999;
+    z-index: 800;
     width: 200px;
     height: 200px;
     border: 10px solid #ccc;
@@ -66,12 +66,13 @@
 }
 .ca-menu li:hover{
     border-color: rgb(248, 182, 103);
-    z-index: 999;
+    z-index: 800;
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    filter:saturate() !important;
 }
 .ca-menu li:hover .ca-icon{
     color: #000;
@@ -89,26 +90,38 @@
 }
 #circle_4{
   background-image: url('../img/salud.jpg');
+  filter: grayscale();
 }
 #circle_5{
   background-image: url('../img/familia.jpg');
+  filter: grayscale();
 }
 #circle_3{
   background-image: url('../img/entorno.jpg');
+  filter: grayscale();
 }
 #circle_1{
   background-image: url('../img/personal.jpg');
+  filter: grayscale();
 }
 #circle_2{
   background-image: url('../img/libreta.jpg');
+  filter: grayscale();
 }
 #circle_6{
-  background-image: url('../img/check.png');
+  background-image: url('../img/avatar.png');
+  background-size: cover;
   filter: grayscale();
 }
 #circle_6:hover{
-  background-image: url('../img/check.png');
-  filter:saturate();
+  background-image: url('../img/avatar.png');
+  border: 10px solid #ccc;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  filter: grayscale() !important;
 }
 ul.ca-menu li{
   margin: 0px;
@@ -125,26 +138,27 @@ ul.ca-menu li{
   }
   #circle_4{
     top: 180px;
-    left: 82px;
+    left: 32px;
   }
 
   #circle_6{
-    right: 200px;
+    right: 240px;
   }
   #circle_5{
     top: 180px;
-    left: 130px;
+    left: 90px;
   }
   #circle_3{
     top: 160px;
-    left: 10px;
+    right: 30px;
   }
   #circle_1{
     top: 160px;
-    right: 10px;
+    right: 50px;
   }
   #circle_2{
     bottom: 10px;
+    right: 40px;
   }
   .ca-menu li{
       float:left;

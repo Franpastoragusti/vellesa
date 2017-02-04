@@ -4,7 +4,7 @@
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
 {% block mainContent %}
-        <div class="container-fluid">
+        <div class="container-fluid col-md-10">
             <div class="row col-md-10">
                 <div>
                   <h2>Datos personales</h2>
@@ -21,6 +21,9 @@
                 </div>
             </div>
         </div>
+{% endblock %}
+{% block assistantContent %}
+  {% include './templates/assistant.html.twig'%}
 {% endblock %}
 {% block javascripts %}
   <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
