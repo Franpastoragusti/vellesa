@@ -14,6 +14,7 @@
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <!-- Custom Theme Style -->
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/assistant.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
     {% block stylesheets %}{% endblock %}
   </head>
@@ -81,7 +82,13 @@
                 {% endblock %}
                 <div class="right_col" role="main">
                     {% block mainContent %}{% endblock %}
+                    {% block assistant %}
+                      <div id="assistant_body">
+                        {% block assistantContent %}{% endblock %}
+                      </div>
+                    {% endblock %}
                 </div>
+
               {% endblock %}
             </section>
 
@@ -91,6 +98,7 @@
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <!-- Custom Theme Scripts -->
+        <script type="text/javascript" src="{{ asset('js/assistant.js') }}"></script>
         <script src="{{ asset('/js/custom.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
 

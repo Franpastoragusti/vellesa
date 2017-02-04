@@ -3,7 +3,7 @@
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
 {% block mainContent %}
-        <div class="container-fluid">
+        <div class="container-fluid col-md-10">
             <div class="row col-md-10">
                 <div>
                   <h2>Datos del representante</h2>
@@ -12,9 +12,10 @@
 
                     <div class="panel-body">
 
-                          <p>El representant será la persona que tú eliges para que sea tu voz en el caso  de que no puedas hacerlo.
+                          <p>El representante será la persona que tú elijas para que sea tu voz en el caso  de que no puedas hacerlo.
                           Velará por el respeto y cumplimiento de tus decisiones.</p>
                           <p>Debe de ser mayor de edad y con plena capacidad de obrar.</p>
+                          <p>Mi representante será:</p>
                           <!--form class="form-horizontal col-md-10 col-md-offset-1">
                           </form-->
 
@@ -23,6 +24,9 @@
             </div>
         </div>
 
+{% endblock %}
+{% block assistantContent %}
+  {% include './templates/assistant.html.twig'%}
 {% endblock %}
 {% block javascripts %}
   <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
