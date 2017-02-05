@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PersonalData
@@ -30,6 +31,11 @@ class PersonalData
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern = "/([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]{2,15}[\s]?)/",
+     *     message = "EL nombre que ha escrito tiene menos de 4 caracteres"
+     * )
      */
     private $name;
 
@@ -37,6 +43,11 @@ class PersonalData
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern = "/([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]{2,15}[\s]?)/",
+     *     message = "EL apellido que ha escrito tiene menos de 4 caracteres"
+     * )
      */
     private $surname;
 
@@ -44,6 +55,7 @@ class PersonalData
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $address;
 
@@ -51,6 +63,11 @@ class PersonalData
      * @var int
      *
      * @ORM\Column(name="cp", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern = "/^\d{4,5}$/",
+     *     message = "l código postal introducido no es correcto"
+     * )
      */
     private $cp;
 
@@ -58,6 +75,7 @@ class PersonalData
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $city;
 
@@ -72,6 +90,11 @@ class PersonalData
      * @var int
      *
      * @ORM\Column(name="phone", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/",
+     *     message = "El teléfono introducido no es válido"
+     * )
      */
     private $phone;
 
@@ -79,6 +102,7 @@ class PersonalData
      * @var int
      *
      * @ORM\Column(name="number", type="integer")
+     * @Assert\NotBlank()
      */
     private $number;
 
@@ -100,6 +124,7 @@ class PersonalData
      * @var string
      *
      * @ORM\Column(name="province", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $province;
 
