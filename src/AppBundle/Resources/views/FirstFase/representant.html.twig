@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block asideContent %}
     {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
@@ -11,14 +12,15 @@
                 <div class="panel panel-warning">
 
                     <div class="panel-body">
-
                           <p>El representante será la persona que tú elijas para que sea tu voz en el caso  de que no puedas hacerlo.
                           Velará por el respeto y cumplimiento de tus decisiones.</p>
                           <p>Debe de ser mayor de edad y con plena capacidad de obrar.</p>
                           <p>Mi representante será:</p>
-                          <!--form class="form-horizontal col-md-10 col-md-offset-1">
-                          </form-->
-
+                          {{ form_start(form, {'id': "applicant_form",'attr': {'class': 'form-horizontal col-md-10 col-md-offset-1'}}) }}
+                            {{ form_widget(form.number, {'attr': {'value':0,'class':'form-control hidden'}}) }}
+                            {{ form_widget(form.type, {'attr': {'value':"Applicant",'class': 'form-control hidden'}}) }}
+                            {#TODO falta setear el user_id#}
+                          {{ form_end(form) }}
                     </div>
                 </div>
             </div>

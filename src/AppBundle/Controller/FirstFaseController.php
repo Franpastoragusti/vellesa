@@ -98,9 +98,38 @@ class FirstFaseController extends Controller
       return $this->render('AppBundle:FirstFase:index.html.twig');
     }
 
-    public function representantAction()
+    public function representantAction(Request $request)
     {
-      return $this->render('AppBundle:FirstFase:representant.html.twig');
+        $applicant = new PersonalData();
+        $form = $this->createForm(PersonalDataType::class, $applicant);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $applicant->getDnifront();
+            $file2 = $applicant->getDnibehind();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
+            $file->move(
+                  $this->getParameter('dni_directory'),
+                  $fileName
+              );
+            $file2->move(
+                  $this->getParameter('dni_directory'),
+                  $fileName2
+              );
+            $applicant->setDnifront($fileName);
+            $applicant->setDnibehind($fileName);
+            $applicant = $form->getData();
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($applicant);
+            $em->flush();
+
+            return $this->redirectToRoute('FirstFase_witness');
+        }
+
+        return $this->render('AppBundle:FirstFase:representant.html.twig', array('form' => $form->createView()));
     }
 
     public function instanceAction()
