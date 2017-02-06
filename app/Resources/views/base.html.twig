@@ -75,20 +75,12 @@
 
             <section class="col-md-12 page">
               {% block main %}
-                {% block aside %}
-                  <aside class="col-md-3 left_col">
-                        {% block asideContent %}{% endblock %}
-                  </aside>
-                {% endblock %}
-                <div class="right_col" role="main">
-                    {% block mainContent %}{% endblock %}
-                    {% block assistant %}
-                      <div id="assistant_body">
-                        {% block assistantContent %}{% endblock %}
-                      </div>
-                    {% endblock %}
-                </div>
-
+                  {% block mainContent %}{% endblock %}
+                  {% block assistant %}
+                    <div id="assistant_body">
+                      {% block assistantContent %}{% endblock %}
+                    </div>
+                  {% endblock %}
               {% endblock %}
             </section>
 

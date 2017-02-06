@@ -57,28 +57,18 @@ nav > ul > li > a:hover{
 header h1{
 font-size: 8vh
 }
-/*************************************ASIDE*************************************/
-.left_col {
-  background: rgba(248, 182, 103, 0.5);
-  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
-  min-height: 600px;
+h1.title2{
+  color:#FFFFFF;
+  font-size: 4vw;
 }
-.nav_menu{
-  margin-bottom: 2px;
-}
-/*************************************CONTENT******************************/
-body .container.body .right_col{
-  margin-top: 10px;
-  min-height: 600px;
-  background-color: transparent;
-}
-.left_col{
-  left: 0px;
-}
-section.page{
-  margin-top: -7px;
-  margin: 0 auto;
-  min-width: 100px;
+
+h1{
+    box-sizing: content-box;
+    font-size: 7vw;
+    cursor: pointer;
+    border: none;
+    color: rgba(237,168,94,1);
+    text-align: center;
 }
 
 /***PAGINA PRINCIPAL*******/
@@ -109,51 +99,15 @@ button.start a{
   box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
 }
 h2{
-  font-size: 30px;
-  margin-top: 0px;
-  padding: 16px;
-  background: rgba(248, 182, 103, 0.5);
-  box-shadow: 0px 3px 10px -1px rgba(0,0,0,0.55);
+  box-sizing: content-box;
+  font-size: 3vw;
+  cursor: pointer;
+  border: none;
+  color: rgba(237,168,94,1);
+  text-align: center;
+
 }
-h1.title2{
-  color:#FFFFFF;
-  font-size: 4vw;
-   text-shadow: 0 1px 0 #ccc,
-   0 2px 0 #c9c9c9,
-   0 3px 0 #bbb,
-   0 4px 0 #b9b9b9,
-   0 5px 0 #aaa,
-   0 6px 1px rgba(0,0,0,.1),
-   0 0 5px rgba(0,0,0,.1),
-   0 1px 3px rgba(0,0,0,.3),
-   0 3px 5px rgba(0,0,0,.2),
-   0 5px 10px rgba(0,0,0,.25),
-   0 10px 10px rgba(0,0,0,.2),
-   0 20px 20px rgba(0,0,0,.15);
-}
-h1.title2:hover{
-  color:#FFFFFF;
-  text-shadow: 0 1px 0 #ccc,
-   0 2px 0 #c9c9c9,
-   0 3px 0 #bbb,
-   0 4px 0 #b9b9b9,
-   0 5px 0 #aaa,
-   0 6px 1px rgba(0,0,0,.1),
-   0 0 5px rgba(0,0,0,.1),
-   0 1px 3px rgba(0,0,0,.3),
-   0 3px 5px rgba(0,0,0,.2),
-   0 5px 10px rgba(0,0,0,.25),
-   0 10px 10px rgba(0,0,0,.2),
-   0 20px 20px rgba(0,0,0,.15);
-}
-h1{
-    box-sizing: content-box;
-    font-size: 7vw;
-    cursor: pointer;
-    border: none;
-    color: rgba(237,168,94,1);
-    text-align: center;
-}
+
 
 /*******STEPS******/
 #wizard_verticle{
