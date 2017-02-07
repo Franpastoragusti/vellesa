@@ -98,15 +98,7 @@ class PersonalData
      * @ORM\Column(name="dnifront", type="string", length=255)
      */
     private $dnifront;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="dnibehind", type="string", length=255)
-     */
-    private $dnibehind;
-
-
+    
 
     /**
      * Get id
@@ -310,29 +302,6 @@ class PersonalData
         return $this->dnifront;
     }
 
-    /**
-     * Set dnibehind
-     *
-     * @param string $dnibehind
-     *
-     * @return PersonalData
-     */
-    public function setDnibehind($dnibehind)
-    {
-        $this->dnibehind = $dnibehind;
-
-        return $this;
-    }
-
-    /**
-     * Get dnibehind
-     *
-     * @return string
-     */
-    public function getDnibehind()
-    {
-        return $this->dnibehind;
-    }
 
     /**
      * Set province

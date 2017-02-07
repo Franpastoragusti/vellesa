@@ -25,13 +25,23 @@ class Direction
      * @var int
      *
      * @ORM\Column(name="cp", type="integer")
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 5,
+     *      minMessage = "El codigo postal debe tener una longitud de  {{ limit }} números",
+     *      maxMessage = "El codigo postal debe contener un máximo de  {{ limit }} números"
+     * )
      */
+
     private $cp;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $city;
 
@@ -39,6 +49,7 @@ class Direction
      * @var string
      *
      * @ORM\Column(name="province", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $province;
 
