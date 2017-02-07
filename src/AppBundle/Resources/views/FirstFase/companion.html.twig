@@ -80,7 +80,7 @@
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('js/jquery.path.js') }}"></script>
     <script type="text/javascript">
-        var ancho = $(window).width() - ($(window).width() * 25 / 100);
+        var ancho = $(window).width() - ($(window).width() * 15 / 100);
         var alto = $(window).height();
         //Posiciones finales img Merce
         var finMerceX = ancho - ((ancho * 25) / 100);
@@ -120,8 +120,8 @@
         $(document).ready(function() {
             $(".div_eli").animate({path: new $.path.bezier(eli_params),opacity: "1"}, 2000);
             $(".div_eli h3").animate({hidden: ""}, 2500);
-            $(".div_merce").animate({path: new $.path.bezier(merce_params),opacity: "1"}, 4000);
-            $(".div_merce h3").animate({hidden: ""}, 4500);
+            $(".div_merce").animate({path: new $.path.bezier(merce_params),opacity: "1"}, 2000);
+            $(".div_merce h3").animate({hidden: ""}, 2500);
         });
     </script>
 {% endblock %}
