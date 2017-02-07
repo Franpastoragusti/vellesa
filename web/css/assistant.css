@@ -2,6 +2,7 @@
   position: fixed;
   right: 3%;
   bottom: 3%;
+  z-index: 999;
 }
 
 .assistant_img{
