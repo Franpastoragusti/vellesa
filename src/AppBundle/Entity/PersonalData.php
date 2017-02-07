@@ -90,20 +90,21 @@ class PersonalData
      * @ORM\Column(name="number", type="integer")
      * @Assert\NotBlank()
      */
+
     private $number;
 
     /**
      * @var string
      *
      * @ORM\Column(name="dni", type="string", length=255)
-     *
+     * @Assert\NotBlank()
      * @Assert\Length(
-     *  min = 8
+     *  min = 8,
      *  max = 9,
      *      minMessage = "El dni debe contener un mínimo de  {{ limit }} entre carácteres y números",
      *      maxMessage = "El dni de contener un máximo de {{ limit }} entre carácteres y  números"
-     * )
-     * @Assert\NotBlank()
+     *)
+     *
      */
     private $dni;
 
@@ -294,7 +295,7 @@ class PersonalData
      *
      * @return PersonalData
      */
-    public function setDnifront($dni)
+    public function setDni($dni)
     {
         $this->dni = $dni;
 
@@ -306,7 +307,7 @@ class PersonalData
      *
      * @return string
      */
-    public function getDnifront()
+    public function getDni()
     {
         return $this->dni;
     }
@@ -409,8 +410,7 @@ class PersonalData
       $witness->setPhone($data->phone);
       $witness->setUsers($data->users);
       $witness->setType($data->type);
-      $witness->setDnifront($data->dnifront);
-      $witness->setDnibehind($data->dnibehind);
+      $witness->setDni($data->dni);
       $witness->setProvince($data->province);
       return $witness;
     }
