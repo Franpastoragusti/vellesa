@@ -28,6 +28,18 @@ class PersonalData
     private $users;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Direction")
+     * @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
+     */
+    private $direction;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PersonClass")
+     * @ORM\JoinColumn(name="personclass_id", referencedColumnName="id")
+     */
+    private $class;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -59,32 +71,6 @@ class PersonalData
      */
     private $address;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="cp", type="integer")
-     * @Assert\NotBlank()
-     * @Assert\Regex(
-     *     pattern = "/^\d{4,5}$/",
-     *     message = "l código postal introducido no es correcto"
-     * )
-     */
-    private $cp;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
-     */
-    private $type;
 
     /**
      * @var int
@@ -120,13 +106,6 @@ class PersonalData
      */
     private $dnibehind;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="province", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $province;
 
 
     /**
@@ -456,5 +435,53 @@ class PersonalData
       $witness->setDnibehind($data->dnibehind);
       $witness->setProvince($data->province);
       return $witness;
+    }
+
+    /**
+     * Set direction
+     *
+     * @param \AppBundle\Entity\Direction $direction
+     *
+     * @return PersonalData
+     */
+    public function setDirection(\AppBundle\Entity\Direction $direction = null)
+    {
+        $this->direction = $direction;
+
+        return $this;
+    }
+
+    /**
+     * Get direction
+     *
+     * @return \AppBundle\Entity\Direction
+     */
+    public function getDirection()
+    {
+        return $this->direction;
+    }
+
+    /**
+     * Set class
+     *
+     * @param \AppBundle\Entity\PersonClass $class
+     *
+     * @return PersonalData
+     */
+    public function setClass(\AppBundle\Entity\PersonClass $class = null)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return \AppBundle\Entity\PersonClass
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 }

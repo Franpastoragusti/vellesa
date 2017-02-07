@@ -125,4 +125,3 @@ class Direction
         return $this->province;
     }
 }
-
