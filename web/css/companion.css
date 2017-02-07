@@ -1,0 +1,26 @@
+.img_merce{
+    background-image: url('/img/merce.jpg');
+}
+.img_eli, .img_merce{
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 18vw;
+    width: 18vw;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+        background-repeat: no-repeat;
+}
+.img_eli{
+    background-image: url('/img/eli.jpg');
+}
+
+.div_eli{
+  position: absolute;
+  opacity: 0;
+}
+
+.div_merce{
+  position: absolute;
+  opacity: 0;
+}
