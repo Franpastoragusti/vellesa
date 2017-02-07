@@ -25,6 +25,7 @@ class Representant
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -32,6 +33,7 @@ class Representant
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $surname;
 
@@ -39,6 +41,12 @@ class Representant
      * @var int
      *
      * @ORM\Column(name="phone", type="integer")
+     *
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/",
+     *     message = "El teléfono introducido no es válido"
+     * )
      */
     private $phone;
 

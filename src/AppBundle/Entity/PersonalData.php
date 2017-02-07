@@ -95,10 +95,18 @@ class PersonalData
     /**
      * @var string
      *
-     * @ORM\Column(name="dnifront", type="string", length=255)
+     * @ORM\Column(name="dni", type="string", length=255)
+     *
+     * @Assert\Length(
+     *  min = 8
+     *  max = 9,
+     *      minMessage = "El dni debe contener un mínimo de  {{ limit }} entre carácteres y números",
+     *      maxMessage = "El dni de contener un máximo de {{ limit }} entre carácteres y  números"
+     * )
+     * @Assert\NotBlank()
      */
-    private $dnifront;
-    
+    private $dni;
+
 
     /**
      * Get id
@@ -116,6 +124,7 @@ class PersonalData
      * @param string $name
      *
      * @return PersonalData
+     *
      */
     public function setName($name)
     {
@@ -279,27 +288,27 @@ class PersonalData
     }
 
     /**
-     * Set dnifront
+     * Set dni
      *
-     * @param string $dnifront
+     * @param string $dni
      *
      * @return PersonalData
      */
-    public function setDnifront($dnifront)
+    public function setDnifront($dni)
     {
-        $this->dnifront = $dnifront;
+        $this->dni = $dni;
 
         return $this;
     }
 
     /**
-     * Get dnifront
+     * Get dni
      *
      * @return string
      */
     public function getDnifront()
     {
-        return $this->dnifront;
+        return $this->dni;
     }
 
 
