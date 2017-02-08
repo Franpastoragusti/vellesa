@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/companion.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block main %}
+<script src="https://apis.google.com/js/platform.js" async defer>
+</script>
+  <g:hangout render="createhangout"
+        invites="[{ id : 'sergioparau26@gmail.com', invite_type : 'EMAIL' }]">
+    </g:hangout>
+{% endblock %}
