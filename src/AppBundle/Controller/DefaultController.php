@@ -11,6 +11,8 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:testRoom.html.twig');
     }
 
-
-
+    public function chatAction()
+    {
+        return $this->render('AppBundle:Default:chatRoom.html.twig');
+    }
 }

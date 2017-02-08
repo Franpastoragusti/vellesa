@@ -2,6 +2,10 @@ test_room:
     path:     /testRoom
     defaults: { _controller: AppBundle:Default:index }
 
+chat_room:
+    path:     /chatRoom
+    defaults: { _controller: AppBundle:Default:chat }
+
 FirstFase_index:
     path:     /
     defaults: { _controller: AppBundle:FirstFase:index }
