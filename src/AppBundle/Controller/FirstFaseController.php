@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Direction;
 use AppBundle\Entity\PersonalData;
+use AppBundle\Form\DirectionType;
 use AppBundle\Form\PersonalDataType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -141,8 +143,15 @@ class FirstFaseController extends Controller
     {
 
       $applicant = new PersonalData();
+        $direction = new Direction();
+
+
       $form = $this->createForm(PersonalDataType::class, $applicant);
       $form->handleRequest($request);
+
+        $formDir =  $this->createForm(DirectionType::class, $direction);
+        $formDir->handleRequest($request);
+
       if ($form->isSubmitted() && $form->isValid()) {
 
           $file = $applicant->getDnifront();
@@ -169,7 +178,10 @@ class FirstFaseController extends Controller
           return $this->redirectToRoute('FirstFase_witness');
       }
 
-      return $this->render('AppBundle:FirstFase:personal.html.twig', array('form' => $form->createView()));
+      return $this->render('AppBundle:Default:testRoom.html.twig', array(
+          'form' => $form->createView(),
+          'formDir' => $formDir->createView()
+          ));
     }
 
     public function areasAction()
