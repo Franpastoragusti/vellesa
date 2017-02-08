@@ -95,7 +95,7 @@ class FirstFaseController extends Controller
 
     public function indexAction()
     {
-      return $this->render('AppBundle:FirstFase:index.html.twig');
+      return $this->render('AppBundle:FirstFase:companion.html.twig');
     }
 
     public function representantAction(Request $request)
@@ -174,6 +174,6 @@ class FirstFaseController extends Controller
 
     public function areasAction()
     {
-      return $this->render('AppBundle:FirstFase:areas.html.twig');
+
     }
 }

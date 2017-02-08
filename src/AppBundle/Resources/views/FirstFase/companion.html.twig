@@ -4,23 +4,25 @@
   <link href="{{ asset('css/companion.css') }}" rel="stylesheet" />
 {% endblock %}
 {% block main %}
-    <div class="text-center">
-        <h3>Ahora pasarás a elegir quien quieres que sea tu acompañante durante éste viaje</h3>
+
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>ELIGE ACOMPAÑANTE</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
     </div>
 
     <div class="div_eli">
       <a href="#" data-toggle="modal" data-target="#modal_eli">
           <div class="img_eli">
+              <h3 class="text-center" hidden="hidden">Eli</h3>
           </div>
-          <h3 class="text-center" hidden="hidden">Yo soy Eli</h3>
+
       </a>
     </div>
 
     <div class="div_merce">
       <a href="#" data-toggle="modal" data-target="#modal_merce">
           <div class="img_merce">
+              <h3 class="text-center" hidden="hidden">Merce</h3>
           </div>
-          <h3 class="text-center" hidden="hidden">Yo soy Merce</h3>
       </a>
     </div>
 
@@ -33,7 +35,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Eli</h4>
+                    <h4>Eli</h4>
                 </div>
                 <div class="modal-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -41,7 +43,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Atras</button>
-                    <button type="button" class="btn btn-primary btn-lg">Continuar</button>
+                    <button type="button" class="btn btn-warning btn-lg">Elegir</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -67,7 +69,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Atras</button>
                     <a href="#">
-                        <button type="button" class="btn btn-primary btn-lg">Continuar</button>
+                        <button type="button" class="btn btn-warning btn-lg">Elegir</button>
                     </a>
                 </div>
             </div>
@@ -120,8 +122,8 @@
         $(document).ready(function() {
             $(".div_eli").animate({path: new $.path.bezier(eli_params),opacity: "1"}, 2000);
             $(".div_eli h3").animate({hidden: ""}, 2500);
-            $(".div_merce").animate({path: new $.path.bezier(merce_params),opacity: "1"}, 4000);
-            $(".div_merce h3").animate({hidden: ""}, 4500);
+            $(".div_merce").animate({path: new $.path.bezier(merce_params),opacity: "1"}, 2000);
+            $(".div_merce h3").animate({hidden: ""}, 2500);
         });
     </script>
 {% endblock %}

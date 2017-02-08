@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block main %}
+    {% include './templates/steps.horizontal.html.twig'%}
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>SALUD</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
+    </div>
+    <div>
+        {#formulario  de area#}
+    </div>
+
+{% endblock %}
+{% block assistantContent %}
+    {% include './templates/assistant.html.twig'%}
+{% endblock %}

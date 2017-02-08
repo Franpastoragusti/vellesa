@@ -15,9 +15,7 @@ body{
   padding-bottom: 10px;
   padding-top: 10px;
 }
-.col-sm-2{
-  width: auto;
-}
+
 #avatar{
   width: 50px;
   height: 60px;
@@ -217,11 +215,17 @@ nav .toggle{
     font-size: 12px;
   }
   h2{
-    box-sizing: content-box;
-    font-size: 8vw;
-    cursor: pointer;
-    border: none;
-    color: rgba(237,168,94,1);
-    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+
+  .apartado >h2{
+    font-size: 0.9em;
+  }
+
+  .modal{
+    width: 99%;
   }
 }
