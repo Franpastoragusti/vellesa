@@ -2,7 +2,7 @@
 
 test_room:
     path:     /testRoom
-    defaults: { _controller: AppBundle:FirstFase:personal }
+    defaults: { _controller: AppBundle:Default:index }
 
 chat_room:
     path:     /chatRoom
@@ -21,6 +21,13 @@ Intro_index:
 Intro_companion:
     path:     /companion
     defaults: { _controller: AppBundle:Intro:companion }
+
+Intro_instance:
+    path:     /intro/payment
+    defaults: { _controller: AppBundle:Intro:payment }
+
+
+
 
 #Areas
 
@@ -50,17 +57,17 @@ Areas_pendient_issues:
 #Bureaucracy
 
 Bureaucracy_witness:
-    path:  /witness
+    path:  /bureaucracy/witness
     defaults: { _controller: AppBundle:Bureaucracy:witness }
 
 Bureaucracy_representant:
-    path:     /representant
+    path:     /bureaucracy/representant
     defaults: { _controller: AppBundle:Bureaucracy:representant }
 
 Bureaucracy_instance:
-    path:     /instance
+    path:     /bureaucracy/instance
     defaults: { _controller: AppBundle:Bureaucracy:instance }
 
 Bureaucracy_personal:
-    path:     /personal
+    path:     /bureaucracy/personal
     defaults: { _controller: AppBundle:Bureaucracy:personal }

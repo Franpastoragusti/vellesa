@@ -15,4 +15,10 @@ class IntroController extends Controller
     {
         return $this->render('AppBundle:Intro:companion.html.twig');
     }
+
+
+    public function paymentAction()
+    {
+        return $this->render('AppBundle:Intro:payment.html.twig');
+    }
 }

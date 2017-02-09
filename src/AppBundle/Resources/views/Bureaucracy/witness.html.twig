@@ -1,51 +1,16 @@
 {% extends '::base.html.twig' %}
 {% block asideContent %}
-    {% include 'templates/steps.vertical.html.twig' only %}
+    {% include 'templates/steps.horizontal.html.twig' only %}
 {% endblock %}
-{% block mainContent %}
+{% block main %}
+    <h2>testigos</h2>
     <div class="container col-md-10">
         <div class="row col-md-8">
-              <div>
-                <h2>Datos de los testigos</h2>
-              </div>
-              <div class="panel panel-warning">
-                    <div class="panel-heading">
-                      <ul class="nav nav-tabs">
-                          <li class="active">
-                              <a href="#info" data-toggle="tab">Información</a>
-                          </li>
-                          <li id="witness1">
-                              <a href="#testigo1" data-toggle="tab">Testigo 1</a>
-                          </li>
-                          <li id="witness2">
-                              <a href="#testigo2" data-toggle="tab">Testigo 2</a>
-                          </li>
-                          <li id="witness3">
-                              <a href="#testigo3" data-toggle="tab">Testigo 3</a>
-                          </li>
-                      </ul>
-                    </div>
-                    <div class="panel-body">
-                      <div class="tab-content">
-                        <div class="tab-panel fade in active text-justify" id="info">
-                                <p>Para su validez debes de contar con el soporte de tres personas que puedan reafirmar todos tus deseos y decisiones.
-                                Estas tres personas deben ser mayores de edad, con plena capacidad de obrar. <br>Con dos de ellos/as no podrá haber relación matrimonial,
-                                pareja de hecho, parentescos de segundo grado de consanginidad o afinidad o relación patrimonial alguna.<br>
-                                EJ.(abuelos/as, hermanos/as, nietos/as, abuelos/as de cónyuge, hermanos/as de cónyuge). <br>
-                                Una vez tengas claro quiénes son, rellena sus datos personales</p>
-                        </div>
-                        <div class="tab-panel fade" id="testigo1">
-                            {% include './templates/witness/form1.html.twig' with {'form': form1} %}
-                        </div>
-                        <div class="tab-panel fade" id="testigo2">
-                            {% include './templates/witness/form2.html.twig' with {'form1': form2} %}
-                        </div>
-                        <div class="tab-panel fade" id="testigo3">
-                            {% include './templates/witness/form3.html.twig' with {'form2': form3} %}
-                        </div>
-                      </div>
-                    </div>
-                </div>
+            <p>Para su validez debes de contar con el soporte de tres personas que puedan reafirmar todos tus deseos y decisiones.
+                Estas tres personas deben ser mayores de edad, con plena capacidad de obrar. <br>Con dos de ellos/as no podrá haber relación matrimonial,
+                pareja de hecho, parentescos de segundo grado de consanginidad o afinidad o relación patrimonial alguna.<br>
+                EJ.(abuelos/as, hermanos/as, nietos/as, abuelos/as de cónyuge, hermanos/as de cónyuge). <br>
+                Una vez tengas claro quiénes son, rellena sus datos personales</p>
         </div>
     </div>
 {% endblock %}
@@ -61,63 +26,5 @@
       steps.stepAnimation();
     });
   </script>
-  <script type="text/javascript">
 
-
-      $("#witness_form1").submit(function(e){
-
-          let formSerialize = "{{ path('FirstFase_witness_form') }}";
-          let formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
-
-          $.ajax({
-              url:formSerialize ,
-              type: 'POST',
-              data: formData,
-              mimeType:"multipart/form-data",
-              contentType: false,
-              cache: false,
-              processData:false,
-              success: function(){
-                  console.log("Añadido correctamente en base de datos");
-                  changeTabWitness(1);
-              },
-              error: function(XMLHttpRequest, textStatus, errorThrown) {
-                  console.log("error añadir en base de datos: " + errorThrown);
-              }
-
-            });
-
-          e.preventDefault(); //Prevent Default action.
-
-      });
-
-      $("#witness_form2").submit(function(e){
-
-          let formSerialize = "{{ path('FirstFase_witness_form') }}";
-          let formData = new FormData(this); // proporcion una forma para construir los pares llaves/valor para enviarse fácilmente utilizando el método send() del Objeto XMLHttpRequest.
-
-          $.ajax({
-              url:formSerialize ,
-              type: 'POST',
-              data: formData,
-              mimeType:"multipart/form-data",
-              contentType: false,
-              cache: false,
-              processData:false,
-              success: function(){
-                  console.log("Añadido correctamente en base de datos");
-                  changeTabWitness(2);
-              },
-              error: function(XMLHttpRequest, textStatus, errorThrown) {
-                  console.log("error añadir en base de datos: " + errorThrown);
-              }
-
-            });
-
-          e.preventDefault(); //Prevent Default action.
-
-      });
-
-
-  </script>
 {% endblock %}
