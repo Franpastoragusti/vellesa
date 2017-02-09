@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class FirstFaseController extends Controller
+class BureaucracyController extends Controller
 {
     public function witnessAction(Request $request)
     {
@@ -53,51 +53,10 @@ class FirstFaseController extends Controller
 
     }
 
-    public function newWitnessAction(Request $request){
-      $witness = new PersonalData();
-      $form1 = $this->createForm(PersonalDataType::class, $witness);
-      $form1->handleRequest($request);
-
-
-      if ($form1->isValid()) {
-
-        if ($request->isXmlHttpRequest()) {
-
-          $connection = $this->getDoctrine()->getManager();
-
-          /*$file = $connection->getDnifront();
-          $file2 = $connection->getDnibehind();
-          $fileName = md5(uniqid()).'.'.$file->guessExtension();
-          $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
-          $file->move(
-                $this->getParameter('dni_directory'),
-                $fileName
-            );
-          $file2->move(
-                $this->getParameter('dni_directory'),
-                $fileName2
-            );
-          $witness->setDnifront($fileName);
-          $witness->setDnibehind($fileName);*/
-          $connection->persist($witness);
-          $connection->flush();
-          if ($witness->getId() > 0) {
-              $response = new JsonResponse(array('status' => 'true'), 200);
-          }else {
-              $response = new JsonResponse(array('status' => 'false'), 404);
-          }
-
-          return $response;
-        }
-      }
-    }
-
-
-
 
     public function indexAction()
     {
-      return $this->render('AppBundle:FirstFase:companion.html.twig');
+      return $this->render('AppBundle:Bureaucracy:index.html.twig');
     }
 
     public function representantAction(Request $request)
@@ -131,12 +90,12 @@ class FirstFaseController extends Controller
             return $this->redirectToRoute('FirstFase_witness');
         }
 
-        return $this->render('AppBundle:FirstFase:representant.html.twig', array('form' => $form->createView()));
+        return $this->render('AppBundle:Bureaucracy:representant.html.twig', array('form' => $form->createView()));
     }
 
     public function instanceAction()
     {
-      return $this->render('AppBundle:FirstFase:instance.html.twig');
+      return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
 
     public function personalAction(Request $request)
@@ -178,7 +137,7 @@ class FirstFaseController extends Controller
           return $this->redirectToRoute('FirstFase_witness');
       }
 
-      return $this->render('AppBundle:Default:testRoom.html.twig', array(
+      return $this->render('AppBundle:Bureaucracy:testRoom.html.twig', array(
           'form' => $form->createView(),
           'formDir' => $formDir->createView()
           ));
