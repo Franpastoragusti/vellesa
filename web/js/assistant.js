@@ -15,20 +15,12 @@ var hora = tiempo.getHours();
 var minuto = tiempo.getMinutes();
 var hora_local = "" + hora + " : " + minuto
 
-var puedo_escribir = false;
-var pantalla = window.location.href.substring(22, 34);
+var pantalla = window.location.href.substring(22, 100);
 
 var textoApp = $("#texto_app");
 var textoUser = $("#texto_user");
-var textoRespuestaPuntos = $("#texto_respuesta_puntos");
 
 var popupUser = $("#popup_user").css("display", "none");
-var popupRespuestaPuntos = $("#respuesta_puntos").css("display", "none");
-
-/*function responderPuntos() {
-textoRespuestaPuntos.css("display", "block");
-textoUser.append("<p>...</p>");
-}*/
 
 function responder() {
   $("#textoEscritoUser").keypress(function(e) {
@@ -66,7 +58,7 @@ switch (pantalla) {
         cambiarHoraApp.append(hora_local);
         responder();
         break;
-    case "app/personal":
+    case "app/bureaucracy/instance":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estoy en instance</p>");
         cambiarHoraApp.append(hora_local);

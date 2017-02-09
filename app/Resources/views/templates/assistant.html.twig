@@ -37,44 +37,21 @@
             </div>
             <!-- /.direct-chat-msg -->
             <div class="direct-chat-messages" id="popup_user">
-                <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Merce</span>
-                </div>
                 <div class="direct-chat-text" id="texto_user">
-                    <!--Añadir texto con js-->
                 </div>
-                <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-timestamp pull-left" id="tiempo_user"></span>
+                <div class="direct-chat-info clearfix" id="div_tiempo_user">
+                    <span class="direct-chat-timestamp pull-right" id="tiempo_user"></span>
                 </div>
             </div>
-                <!-- /.direct-chat-msg -->
-                <div class="direct-chat-messages" id="respuesta_puntos">
-                    <div class="direct-chat-info clearfix">
-              <span class="direct-chat-name pull-left">Merce</span>
-</div>
-<!-- /.direct-chat-info -->
-<img alt="iamgurdeeposahan" src="/img/merce.jpg" class="direct-chat-img">
-<!-- /.direct-chat-img -->
-<div class="direct-chat-text" id="texto_respuesta_puntos">
-<!--Añadir texto con js-->
-</div>
-<div class="direct-chat-info clearfix">
-<span class="direct-chat-timestamp pull-right"></span>
-</div>
-
-</div>
         </div>
         <div class="popup-messages-footer">
             <textarea placeholder="Escribe tu mensaje" rows="20" cols="40" name="message" id="textoEscritoUser"></textarea>
             <div class="btn-footer text-center">
-                  <g:hangout render="createhangout"
-                        invites="[{ id : 'sergioparau26@gmail.com', invite_type : 'EMAIL' }]">
-                  </g:hangout>
+                <g:hangout render="createhangout" invites="[{ id : 'sergioparau26@gmail.com', invite_type : 'EMAIL' }]"></g:hangout>
             </div>
         </div>
     </div>
 
-{% block javascripts %}
-<script src="https://apis.google.com/js/platform.js" async defer>
-</script>
-{% endblock %}
+    {% block javascripts %}
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    {% endblock %}
