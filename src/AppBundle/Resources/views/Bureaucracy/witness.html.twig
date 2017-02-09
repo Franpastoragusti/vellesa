@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+{% block asideContent %}
+    {% include 'templates/steps.horizontal.html.twig' only %}
+{% endblock %}
+{% block main %}
+    <h2>testigos</h2>
+    <div class="container col-md-10">
+        <div class="row col-md-8">
+            <p>Para su validez debes de contar con el soporte de tres personas que puedan reafirmar todos tus deseos y decisiones.
+                Estas tres personas deben ser mayores de edad, con plena capacidad de obrar. <br>Con dos de ellos/as no podrá haber relación matrimonial,
+                pareja de hecho, parentescos de segundo grado de consanginidad o afinidad o relación patrimonial alguna.<br>
+                EJ.(abuelos/as, hermanos/as, nietos/as, abuelos/as de cónyuge, hermanos/as de cónyuge). <br>
+                Una vez tengas claro quiénes son, rellena sus datos personales</p>
+        </div>
+    </div>
+{% endblock %}
+{% block assistantContent %}
+  {% include './templates/assistant.html.twig'%}
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript" src="{{ asset('js/steps.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/witness.js') }}"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var steps = new Steps(3);
+      steps.stepAnimation();
+    });
+  </script>
+
+{% endblock %}

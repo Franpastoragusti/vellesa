@@ -1,36 +1,73 @@
+#Default
+
 test_room:
     path:     /testRoom
-    defaults: { _controller: AppBundle:FirstFase:personal }
+    defaults: { _controller: AppBundle:Default:index }
 
 chat_room:
     path:     /chatRoom
     defaults: { _controller: AppBundle:Default:chat }
 
-FirstFase_index:
+
+
+
+
+#Intro
+
+Intro_index:
     path:     /
-    defaults: { _controller: AppBundle:FirstFase:index }
+    defaults: { _controller: AppBundle:Intro:index }
 
-FirstFase_witness_form:
-    path:     /witness/form
-    defaults: { _controller: AppBundle:FirstFase:newWitness }
-    methods: [POST]
+Intro_companion:
+    path:     /companion
+    defaults: { _controller: AppBundle:Intro:companion }
 
-FirstFase_witness:
-    path:  /witness
-    defaults: { _controller: AppBundle:FirstFase:witness }
+Intro_instance:
+    path:     /intro/payment
+    defaults: { _controller: AppBundle:Intro:payment }
 
-FirstFase_representant:
-    path:     /representant
-    defaults: { _controller: AppBundle:FirstFase:representant }
 
-Fasedos_areas:
-    path:     /areas
-    defaults: { _controller: AppBundle:FirstFase:areas }
 
-FirstFase_instance:
-    path:     /instance
-    defaults: { _controller: AppBundle:FirstFase:instance }
 
-FirstFase_personal:
-    path:     /personal
-    defaults: { _controller: AppBundle:FirstFase:personal }
+#Areas
+
+Areas_health:
+    path:     /areas/health
+    defaults: { _controller: AppBundle:Areas:health }
+
+Areas_enviroment:
+    path:     /areas/enviroment
+    defaults: { _controller: AppBundle:Areas:enviroment }
+
+Areas_personal:
+    path:     /areas/personal
+    defaults: { _controller: AppBundle:Areas:personal }
+
+Areas_family:
+    path:     /areas/family
+    defaults: { _controller: AppBundle:Areas:family }
+
+Areas_pendient_issues:
+    path:     /areas/issues
+    defaults: { _controller: AppBundle:Areas:issues }
+
+
+
+
+#Bureaucracy
+
+Bureaucracy_witness:
+    path:  /bureaucracy/witness
+    defaults: { _controller: AppBundle:Bureaucracy:witness }
+
+Bureaucracy_representant:
+    path:     /bureaucracy/representant
+    defaults: { _controller: AppBundle:Bureaucracy:representant }
+
+Bureaucracy_instance:
+    path:     /bureaucracy/instance
+    defaults: { _controller: AppBundle:Bureaucracy:instance }
+
+Bureaucracy_personal:
+    path:     /bureaucracy/personal
+    defaults: { _controller: AppBundle:Bureaucracy:personal }
