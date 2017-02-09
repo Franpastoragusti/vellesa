@@ -1,7 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="pull-right">
-            <a href="#" id="addClass"><div class="assistant_img" style="background-image: url(/img/merce.jpg)"></div></a>
+            <a href="#" id="addClass">
+                <div class="assistant_img" style="background-image: url(/img/merce.jpg)"></div>
+            </a>
         </div>
     </div>
 </div>
@@ -19,38 +21,53 @@
     </div>
 
     <div class="popup-messages">
-			<div class="direct-chat-messages">
-					<!-- Message. Default to the left -->
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">Merce</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img alt="iamgurdeeposahan" src="/img/merce.jpg" class="direct-chat-img"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Hola! En que puedo ayudarte?
-                      </div>
-					            <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-timestamp pull-right">3.36 PM</span>
-                      </div>
-                    <!-- /.direct-chat-msg -->
-      <div class="direct-chat-messages">
-              					<!-- Message. Default to the left -->
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">Merce</span>
-                      </div>
-                                    <!-- /.direct-chat-info -->
-                      <img alt="iamgurdeeposahan" src="/img/merce.jpg" class="direct-chat-img"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                          Hola! En que puedo ayudarte?
-                      </div>
-              		    <div class="direct-chat-info clearfix">
-                          <span class="direct-chat-timestamp pull-right">3.36 PM</span>
-                      </div>
-                                  <!-- /.direct-chat-msg -->
-      </div>
-    </div>
-    <div class="popup-messages-footer">
-        <textarea placeholder="Escribe tu mensaje" rows="20" cols="40" name="message"></textarea>
-        <div class="btn-footer text-center"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
-    </div>
+        <div class="direct-chat-messages">
+            <!-- Message. Default to the left -->
+            <div class="direct-chat-info clearfix">
+                <span class="direct-chat-name pull-left">Merce</span>
+            </div>
+            <!-- /.direct-chat-info -->
+            <img alt="iamgurdeeposahan" src="/img/merce.jpg" class="direct-chat-img">
+            <!-- /.direct-chat-img -->
+            <div class="direct-chat-text" id="texto_app">
+                <!--Añadir texto con js-->
+            </div>
+            <div class="direct-chat-info clearfix">
+                <span class="direct-chat-timestamp pull-right" id="tiempo_app"></span>
+            </div>
+            <!-- /.direct-chat-msg -->
+            <div class="direct-chat-messages" id="popup_user">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">Merce</span>
+                </div>
+                <div class="direct-chat-text" id="texto_user">
+                    <!--Añadir texto con js-->
+                </div>
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-timestamp pull-left" id="tiempo_user"></span>
+                </div>
+            </div>
+                <!-- /.direct-chat-msg -->
+                <div class="direct-chat-messages" id="respuesta_puntos">
+                    <div class="direct-chat-info clearfix">
+              <span class="direct-chat-name pull-left">Merce</span>
 </div>
+<!-- /.direct-chat-info -->
+<img alt="iamgurdeeposahan" src="/img/merce.jpg" class="direct-chat-img">
+<!-- /.direct-chat-img -->
+<div class="direct-chat-text" id="texto_respuesta_puntos">
+<!--Añadir texto con js-->
+</div>
+<div class="direct-chat-info clearfix">
+<span class="direct-chat-timestamp pull-right"></span>
+</div>
+
+</div>
+        </div>
+        <div class="popup-messages-footer">
+            <textarea placeholder="Escribe tu mensaje" rows="20" cols="40" name="message" id="textoEscritoUser"></textarea>
+            <div class="btn-footer text-center">
+                <i class="fa fa-video-camera" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
