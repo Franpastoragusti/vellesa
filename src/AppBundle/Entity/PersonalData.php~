@@ -408,6 +408,21 @@ class PersonalData
         return $this->number;
     }
 
+    public function deserialize($data, $witness)
+    {
+      $witness->setName($data->name);
+      $witness->setSurname($data->surname);
+      $witness->setAddress($data->addres);
+      $witness->setCp($data->cp);
+      $witness->setCity($data->city);
+      $witness->setNumber($data->number);
+      $witness->setPhone($data->phone);
+      $witness->setUsers($data->users);
+      $witness->setType($data->type);
+      $witness->setDni($data->dni);
+      $witness->setProvince($data->province);
+      return $witness;
+    }
 
     /**
      * Set direction
@@ -455,29 +470,5 @@ class PersonalData
     public function getClass()
     {
         return $this->class;
-    }
-
-    /**
-     * Set houseNumber
-     *
-     * @param integer $houseNumber
-     *
-     * @return PersonalData
-     */
-    public function setHouseNumber($houseNumber)
-    {
-        $this->houseNumber = $houseNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get houseNumber
-     *
-     * @return integer
-     */
-    public function getHouseNumber()
-    {
-        return $this->houseNumber;
     }
 }

@@ -12,11 +12,11 @@
 
     function handler(){
         if(!open){
-            this.innerHTML = "Close";
+
             classie.add(wrapper, 'opened-nav');
         }
         else{
-            this.innerHTML = "Menu";
+
             classie.remove(wrapper, 'opened-nav');
         }
         open = !open;

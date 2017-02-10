@@ -15,8 +15,8 @@ Intro_instance:
 #Areas
 
 Areas_health:
-    path:     /areas/health/{companion}
-    defaults: { _controller: AppBundle:Areas:health, companion: null }
+    path:     /areas/health
+    defaults: { _controller: AppBundle:Areas:health }
 
 Areas_enviroment:
     path:     /areas/enviroment
@@ -37,9 +37,13 @@ Bureaucracy_instance:
     path:     /bureaucracy/instance
     defaults: { _controller: AppBundle:Bureaucracy:instance }
 
-Bureaucracy_personal:
-    path:     /bureaucracy/{id}
-    defaults: { _controller: AppBundle:Bureaucracy:officialData, id: null }
+Bureaucracy_menu:
+    path:     /bureaucracy/
+    defaults: { _controller: AppBundle:Bureaucracy:index }
+
+Bureaucracy_official_data:
+    path:     /bureaucracy/{number}
+    defaults: { _controller: AppBundle:Bureaucracy:officialData }
 
 
 #Default
