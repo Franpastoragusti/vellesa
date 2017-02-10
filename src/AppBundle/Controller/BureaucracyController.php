@@ -104,7 +104,7 @@ class BureaucracyController extends Controller
     public function personalAction(Request $request)
     {
 
-      /*$applicant = new PersonalData();
+      $applicant = new PersonalData();
         $direction = new Direction();
 
 
@@ -139,13 +139,12 @@ class BureaucracyController extends Controller
 
           return $this->redirectToRoute('FirstFase_witness');
       }
-        */
-      return $this->render('AppBundle:Bureaucracy:personal.html.twig');
-      /*, array(
+
+      return $this->render('AppBundle:Bureaucracy:personal.html.twig' , array(
           'form' => $form->createView(),
           'formDir' => $formDir->createView()
           ));
-      */
+
     }
 
     public function areasAction()

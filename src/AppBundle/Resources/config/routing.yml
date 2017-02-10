@@ -1,16 +1,3 @@
-#Default
-
-test_room:
-    path:     /testRoom
-    defaults: { _controller: AppBundle:Default:index }
-
-chat_room:
-    path:     /chatRoom
-    defaults: { _controller: AppBundle:Default:chat }
-
-
-
-
 
 #Intro
 
@@ -23,7 +10,7 @@ Intro_companion:
     defaults: { _controller: AppBundle:Intro:companion }
 
 Intro_instance:
-    path:     /intro/payment
+    path:     /payment
     defaults: { _controller: AppBundle:Intro:payment }
 
 
@@ -32,8 +19,8 @@ Intro_instance:
 #Areas
 
 Areas_health:
-    path:     /areas/health
-    defaults: { _controller: AppBundle:Areas:health }
+    path:     /areas/health/{companion}
+    defaults: { _controller: AppBundle:Areas:health, companion: null }
 
 Areas_enviroment:
     path:     /areas/enviroment
@@ -71,3 +58,14 @@ Bureaucracy_instance:
 Bureaucracy_personal:
     path:     /bureaucracy/personal
     defaults: { _controller: AppBundle:Bureaucracy:personal }
+
+
+#Default
+
+test_room:
+    path:     /testRoom
+    defaults: { _controller: AppBundle:Default:index }
+
+chat_room:
+    path:     /chatRoom
+    defaults: { _controller: AppBundle:Default:chat }

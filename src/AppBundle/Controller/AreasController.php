@@ -6,9 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AreasController extends Controller
 {
-    public function healthAction()
+    public function healthAction($companion)
     {
-        return $this->render('AppBundle:Areas:health.html.twig');
+
+
+        return $this->render('AppBundle:Areas:health.html.twig',array('companion' => $companion));
     }
 
     public function enviromentAction()

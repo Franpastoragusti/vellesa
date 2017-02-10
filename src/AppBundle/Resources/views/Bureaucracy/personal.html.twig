@@ -1,65 +1,55 @@
 {% extends '::base.html.twig' %}
-{#% form_theme form 'bootstrap_3_layout.html.twig' %#}
 
-
-
-{% block main %}
-<h2>Datos personales</h2>
-  {#% include 'templates/steps.horizontal.html.twig' only %}
-        <div class="container-fluid">
-            <div class="row">
-                <div>
-                  <h2>Datos personales</h2>
-                </div>
-                <div class=" col-md-8 col-md-offset-2">
-
-
-                    {{ form_start(form) }}
-
-                    {% block body  %}
-                        {{ form_widget(form.name, { 'attr': {'class': 'txt','placeholder': "Nombre "}  }) }}
-                        {{ form_widget(form.surname, { 'attr': {'class': 'txt','placeholder': "Apellidos"}  }) }}
-
-                        {{ form_widget(form.address, { 'id': "autocomplete",'attr': {'class': 'txt','placeholder': "Dirección ", "onfocus" : "geolocate()"}  }) }}
-                        {{ form_widget(form.phone, { 'attr': {'class': 'txt','placeholder': "Telefono"}  }) }}
-
-                        {{ form_widget(form.number, { 'attr': {'class': 'txt','placeholder': "Numero "}  }) }}
-                        {{ form_widget(form.dni, { 'attr': {'class': 'txt','placeholder': "DNI"}  }) }}
-
-                        {{ form_widget(form.users, { 'attr': {'class': 'txt','placeholder': "usuarios "}  }) }}
-                        {{ form_widget(form.direction, { 'attr': {'class': 'txt','placeholder': "Direction"}  }) }}
-
-                        {{ form_widget(form.class, { 'attr': {'class': 'txt','placeholder': "class "}  }) }}
-                        {{ form_widget(form.continuar, { 'attr': {'class': 'txt','placeholder': "continuar"}  }) }}
-                        {{ form_widget(form.vaciar, { 'attr': {'class': 'txt','placeholder': "vaciar campos"}  }) }}
-
-
-
-                        {{ form_end(form) }}
-
-
-                        {{ form_start(formDir) }}
-
-
-
-                        {{ form_widget(formDir.cp, {'id': "postal_code", 'attr': {'class': 'txt','placeholder': "codigo postal "} }) }}
-                        {{ form_widget(formDir.city, { 'id': "locality", 'attr': {'class': 'txt','placeholder': "ciudad"}  }) }}
-                        {{ form_widget(formDir.province, { 'id': "administrative_area_level_1",'attr': {'class': 'txt','placeholder': "provincia"}  }) }}
-
-
-                        {{ form_end(formDir) }}
-
-                    {% endblock  %}
-
-                </div>
-                </div>
-            </div>
-        </div>#}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% form_theme formDir 'bootstrap_3_layout.html.twig' %}
+{% block asideContent %}
+    {% include 'templates/steps.vertical.html.twig' only %}
 {% endblock %}
-{% block assistantContent %}
-  {% include './templates/assistant.html.twig'%}
-{% endblock %}
+{% block main  %}
+    {% include './templates/steps.horizontal.html.twig'%}
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>DATOS PERSONALES</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
+    </div>
+    <div class=" col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+        {{ form_start(form) }}
+
+        {{ form_widget(form.name, { 'attr': {'class': 'txt','placeholder': "Nombre "}  }) }}
+        {{ form_widget(form.surname, { 'attr': {'class': 'txt','placeholder': "Apellidos"}  }) }}
+
+        {{ form_widget(form.address, { 'id': "autocomplete",'attr': {'class': 'txt','placeholder': "Dirección ", "onfocus" : "geolocate()"}  }) }}
+        {{ form_widget(form.phone, { 'attr': {'class': 'txt','placeholder': "Telefono"}  }) }}
+
+        {{ form_widget(form.number, { 'attr': {'class': 'txt','placeholder': "Numero "}  }) }}
+        {{ form_widget(form.dni, { 'attr': {'class': 'txt','placeholder': "DNI"}  }) }}
+
+        {{ form_widget(form.users, { 'attr': {'class': 'txt','placeholder': "usuarios "}  }) }}
+        {{ form_widget(form.direction, { 'attr': {'class': 'txt','placeholder': "Direction"}  }) }}
+
+        {{ form_widget(form.class, { 'attr': {'class': 'txt','placeholder': "class "}  }) }}
+        {{ form_widget(form.continuar, { 'attr': {'class': 'txt','placeholder': "continuar"}  }) }}
+        {{ form_widget(form.vaciar, { 'attr': {'class': 'txt','placeholder': "vaciar campos"}  }) }}
+
+
+
+        {{ form_end(form) }}
+
+
+        {{ form_start(formDir) }}
+
+
+
+        {{ form_widget(formDir.cp, {'id': "postal_code", 'attr': {'class': 'txt','placeholder': "codigo postal "} }) }}
+        {{ form_widget(formDir.city, { 'id': "locality", 'attr': {'class': 'txt','placeholder': "ciudad"}  }) }}
+        {{ form_widget(formDir.province, { 'id': "administrative_area_level_1",'attr': {'class': 'txt','placeholder': "provincia"}  }) }}
+
+
+        {{ form_end(formDir) }}
+    </div>
+{% endblock  %}
+
 {% block javascripts %}
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <script>
 
@@ -126,9 +116,7 @@
         // [END region_geolocation]
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWynNJSeVOgUCHq-WlLGSdvhMRVzqb4dY&libraries=places&callback=initAutocomplete"
-            async defer></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWynNJSeVOgUCHq-WlLGSdvhMRVzqb4dY&libraries=places&callback=initAutocomplete" async defer></script>
 
 
 {% endblock %}

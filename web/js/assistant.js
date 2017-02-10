@@ -52,6 +52,18 @@ switch (pantalla) {
         cambiarHoraApp.append(hora_local);
         responder();
         break;
+    case "app/areas/health/merce":
+            //Escribir el texto de nuestro "bot"
+            textoApp.append("<p>Hola estoy en instance</p>");
+            cambiarHoraApp.append(hora_local);
+            responder();
+            break;
+    case "app/areas/health/eli":
+            //Escribir el texto de nuestro "bot"
+            textoApp.append("<p>Hola estoy en instance</p>");
+            cambiarHoraApp.append(hora_local);
+            responder();
+            break;
     case "app/areas":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estoy en instance</p>");
