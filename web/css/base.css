@@ -1,6 +1,6 @@
 body{
   background: #F7F7F7;
-  font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-family: Roboto, sans-serif !important;
   color: #696666;
 }
 /*****HEADER*****/

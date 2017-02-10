@@ -1,10 +1,6 @@
 
 #Intro
 
-Intro_index:
-    path:     /
-    defaults: { _controller: AppBundle:Intro:index }
-
 Intro_companion:
     path:     /companion
     defaults: { _controller: AppBundle:Intro:companion }
@@ -34,30 +30,16 @@ Areas_family:
     path:     /areas/family
     defaults: { _controller: AppBundle:Areas:family }
 
-Areas_pendient_issues:
-    path:     /areas/issues
-    defaults: { _controller: AppBundle:Areas:issues }
-
-
-
 
 #Bureaucracy
-
-Bureaucracy_witness:
-    path:  /bureaucracy/witness
-    defaults: { _controller: AppBundle:Bureaucracy:witness }
-
-Bureaucracy_representant:
-    path:     /bureaucracy/representant
-    defaults: { _controller: AppBundle:Bureaucracy:representant }
 
 Bureaucracy_instance:
     path:     /bureaucracy/instance
     defaults: { _controller: AppBundle:Bureaucracy:instance }
 
 Bureaucracy_personal:
-    path:     /bureaucracy/personal
-    defaults: { _controller: AppBundle:Bureaucracy:personal }
+    path:     /bureaucracy/{id}
+    defaults: { _controller: AppBundle:Bureaucracy:officialData, id: null }
 
 
 #Default

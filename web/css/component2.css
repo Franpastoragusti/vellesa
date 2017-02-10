@@ -7,22 +7,13 @@
 	list-style: none;
 }
 
-html,
-body {
-	height: 100%;
-}
 
-body {
-	background: #52be7f;
-	color: #fff;
-}
 
 .component {
 	position: relative;
-	margin-bottom: 3em;
 	height: 15em;
 	background: rgba(0,0,0,0.05);
-	font-family: 'Lato', Arial, sans-serif;
+	font-family: Roboto, sans-serif !important;
 }
 
 .component > h2 {
@@ -53,7 +44,7 @@ body {
 	border-radius: 50%;
 	background: none;
 	background-color: #fff;
-	color: #52be7f;
+	color: rgba(237,168,94,1);
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -70,7 +61,7 @@ body {
 	margin-top: -13em;
 	margin-left: -13.5em;
 	width: 27em;
-	height: 27em;
+	height: 23em;
 	border-radius: 50%;
 	background: transparent;
 	opacity: 0;
@@ -146,10 +137,10 @@ body {
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: #429a67;
-	background: -webkit-radial-gradient(transparent 35%, #429a67 35%);
-	background: -moz-radial-gradient(transparent 35%, #429a67 35%);
-	background: radial-gradient(transparent 35%, #429a67 35%);
+	background: rgba(237,168,94,1);
+	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -168,7 +159,7 @@ body {
 	position: relative;
 	top: 1.8em;
 	display: block;
-	font-size: .5em;
+	font-size: .4em;
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -176,9 +167,9 @@ body {
 .csstransforms .cn-wrapper li a:hover,
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, #449e6a 35%);
-	background: -moz-radial-gradient(transparent 35%, #449e6a 35%);
-	background: radial-gradient(transparent 35%, #449e6a 35%);
+	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
 }
 .csstransforms .cn-wrapper li a:focus {
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
@@ -191,52 +182,45 @@ body {
 }
 
 .csstransforms .opened-nav li:first-child {
-	-webkit-transform: rotate(-20deg) skew(60deg);
-	-moz-transform: rotate(-20deg) skew(60deg);
-	-ms-transform: rotate(-20deg) skew(60deg);
-	transform: rotate(-20deg) skew(60deg);
+	-webkit-transform: rotate(-5deg) skew(60deg);
+	-moz-transform: rotate(-5deg) skew(60deg);
+	-ms-transform: rotate(-5deg) skew(60deg);
+	transform: rotate(-5deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(2) {
-	-webkit-transform: rotate(12deg) skew(60deg);
-	-moz-transform: rotate(12deg) skew(60deg);
-	-ms-transform: rotate(12deg) skew(60deg);
-	transform: rotate(12deg) skew(60deg);
+	-webkit-transform: rotate(27deg) skew(60deg);
+	-moz-transform: rotate(27deg) skew(60deg);
+	-ms-transform: rotate(27deg) skew(60deg);
+	transform: rotate(27deg) skew(60deg);
 }
 
 .csstransforms .opened-nav  li:nth-child(3) {
-	-webkit-transform: rotate(44deg) skew(60deg);
-	-moz-transform: rotate(44deg) skew(60deg);
-	-ms-transform: rotate(44deg) skew(60deg);
-	transform: rotate(44deg) skew(60deg);
+	-webkit-transform: rotate(59deg) skew(60deg);
+	-moz-transform: rotate(59deg) skew(60deg);
+	-ms-transform: rotate(59deg) skew(60deg);
+	transform: rotate(59deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(4) {
-	-webkit-transform: rotate(76deg) skew(60deg);
-	-moz-transform: rotate(76deg) skew(60deg);
-	-ms-transform: rotate(76deg) skew(60deg);
-	transform: rotate(76deg) skew(60deg);
+	-webkit-transform: rotate(92deg) skew(60deg);
+	-moz-transform: rotate(92deg) skew(60deg);
+	-ms-transform: rotate(92deg) skew(60deg);
+	transform: rotate(92deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(5) {
-	-webkit-transform: rotate(108deg) skew(60deg);
-	-moz-transform: rotate(108deg) skew(60deg);
-	-ms-transform: rotate(108deg) skew(60deg);
-	transform: rotate(108deg) skew(60deg);
+	-webkit-transform: rotate(124deg) skew(60deg);
+	-moz-transform: rotate(124deg) skew(60deg);
+	-ms-transform: rotate(124deg) skew(60deg);
+	transform: rotate(124deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(6) {
-	-webkit-transform: rotate(140deg) skew(60deg);
-	-moz-transform: rotate(140deg) skew(60deg);
-	-ms-transform: rotate(140deg) skew(60deg);
-	transform: rotate(140deg) skew(60deg);
-}
-
-.csstransforms .opened-nav li:nth-child(7) {
-	-webkit-transform: rotate(172deg) skew(60deg);
-	-moz-transform: rotate(172deg) skew(60deg);
-	-ms-transform: rotate(172deg) skew(60deg);
-	transform: rotate(172deg) skew(60deg);
+	-webkit-transform: rotate(156deg) skew(60deg);
+	-moz-transform: rotate(156deg) skew(60deg);
+	-ms-transform: rotate(156deg) skew(60deg);
+	transform: rotate(156deg) skew(60deg);
 }
 
 .no-csstransforms .cn-wrapper {
@@ -281,6 +265,11 @@ body {
 
 .no-csstransforms .cn-button {
 	display: none;
+}
+
+#cn-wrapper > ul > li:nth-child(5) > a > span{
+	font-size: .35em;
+	top: 2em;
 }
 
 @media only screen and (max-width: 620px) {
