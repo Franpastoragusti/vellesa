@@ -1,8 +1,11 @@
+{% set companion = app.session.get('companion') %}
+{% set companion_name = companion['companion_name'] %}
+{% set companion_img = companion['companion_img'] %}
 <div class="container">
     <div class="row">
         <div class="pull-right">
             <a href="#" id="addClass">
-                <div class="assistant_img" style="background-image: url(/img/{{ companion }}.jpg)"></div>
+                <div class="assistant_img" style="background-image: url({{companion_img}})"></div>
             </a>
         </div>
     </div>
@@ -15,8 +18,8 @@
                 <i class="glyphicon glyphicon-remove"></i>
             </button>
         </div>
-        <div class="popup-head"><img src="/img/{{ companion }}.jpg" alt="iamgurdeeposahan"></div>
-        <span>{{ companion }}</span>
+        <div class="popup-head"><img src="{{ companion_img }}" alt="iamgurdeeposahan"></div>
+        <span>{{ companion_name }}</span>
 
     </div>
 
@@ -24,10 +27,10 @@
         <div class="direct-chat-messages">
             <!-- Message. Default to the left -->
             <div class="direct-chat-info clearfix">
-                <span class="direct-chat-name pull-left">{{ companion }}</span>
+                <span class="direct-chat-name pull-left">{{ companion_name }}</span>
             </div>
             <!-- /.direct-chat-info -->
-            <img alt="iamgurdeeposahan" src="/img/{{ companion }}.jpg" class="direct-chat-img">
+            <img alt="iamgurdeeposahan" src="{{ companion_img }}" class="direct-chat-img">
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text" id="texto_app">
                 <!--Añadir texto con js-->

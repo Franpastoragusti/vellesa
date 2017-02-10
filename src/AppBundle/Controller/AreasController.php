@@ -7,15 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AreasController extends Controller
 {
-    public function healthAction(Request $request, $companion)
+    public function healthAction()
     {
-      $companion_name = ucfirst($companion);
-
-      $session = $request -> getSession();
-      $session->set('companion_name', $companion_name);
-
-      $session_companion_name = $session->get('companion_name');
-      return $this->render('AppBundle:Areas:health.html.twig',array('companion' => $session_companion_name));
+      return $this->render('AppBundle:Areas:health.html.twig');
     }
 
     public function enviromentAction(Request $request)
