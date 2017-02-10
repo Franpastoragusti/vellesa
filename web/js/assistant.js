@@ -15,7 +15,10 @@ var hora = tiempo.getHours();
 var minuto = tiempo.getMinutes();
 var hora_local = "" + hora + " : " + minuto
 
-var pantalla = window.location.href.substring(22, 100);
+var posicion = window.location.href.indexOf("/app");
+var pantalla = window.location.href.substring(posicion);
+
+console.log(pantalla);
 
 var textoApp = $("#texto_app");
 var textoUser = $("#texto_user");
@@ -40,37 +43,37 @@ function responder() {
 }
 
 switch (pantalla) {
-    case "app/testRoom":
+    case "/app/testRoom":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estas en chatRoom</p>");
         cambiarHoraApp.append(hora_local);
         responder();
         break;
-    case "app/instance":
+    case "/app/instance":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estoy en instance</p>");
         cambiarHoraApp.append(hora_local);
         responder();
         break;
-    case "app/areas/health/merce":
+    case "/app/areas/health/merce":
+            //Escribir el texto de nuestro "bot"
+            textoApp.append("<p>Hola estoy en health</p>");
+            cambiarHoraApp.append(hora_local);
+            responder();
+            break;
+    case "/app/areas/health/eli":
             //Escribir el texto de nuestro "bot"
             textoApp.append("<p>Hola estoy en instance</p>");
             cambiarHoraApp.append(hora_local);
             responder();
             break;
-    case "app/areas/health/eli":
-            //Escribir el texto de nuestro "bot"
-            textoApp.append("<p>Hola estoy en instance</p>");
-            cambiarHoraApp.append(hora_local);
-            responder();
-            break;
-    case "app/areas":
+    case "/app/areas":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estoy en instance</p>");
         cambiarHoraApp.append(hora_local);
         responder();
         break;
-    case "app/bureaucracy/instance":
+    case "/app/bureaucracy/instance":
         //Escribir el texto de nuestro "bot"
         textoApp.append("<p>Hola estoy en instance</p>");
         cambiarHoraApp.append(hora_local);

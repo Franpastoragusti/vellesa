@@ -13,3 +13,6 @@ apps:
 home:
     path:     /
     defaults: { _controller: AppBundle:Intro:index }
+
+logout:
+    path:     /logout
