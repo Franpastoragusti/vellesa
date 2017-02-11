@@ -1,50 +1,65 @@
 {% extends '::base.html.twig' %}
-{% block user %}{% endblock %}
-{% block toggle %}{% endblock %}
-{% block aside %}{% endblock %}
-{% block headerTitle %}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/component2.css') }}" />
+{% endblock %}
+
+{% block javascriptsHeader %}
+
+    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7243260-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+{% endblock %}
+
 {% block main %}
-        <h1>TÚ DECIDES</h1>
-        <div class="row presentation">
-          <div class="col-md-8 col-md-offset-2 text-justify">
-            <div class="embed-responsive embed-responsive-16by9">
-              <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/V2BEcHJudB8" allowfullscreen></iframe>-->
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/aVKQQcaeGgo" frameborder="0" allowfullscreen></iframe>
+    {% include './templates/steps.horizontal.html.twig'%}
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>PAPELEO</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
+    </div>
+    <div class="container">
+        <div class="component">
+            <!-- Start Nav Structure -->
+            <button class="cn-button" id="cn-button">Menu</button>
+            <div class="cn-wrapper" id="cn-wrapper">
+                <ul>
+                    <li><a href="0"><span>Tus datos</span></a></li>
+                    <li><a href="1"><span>Testigo 1</span></a></li>
+                    <li><a href="2"><span>Testigo 2</span></a></li>
+                    <li><a href="3"><span>Testigo 3</span></a></li>
+                    <li><a href="4"><span>Representante</span></a></li>
+                    <li><a href="instance"><span>Instancia<br>General</span></a></li>
+                </ul>
             </div>
-            <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
-              <button type="button" class="btn btn-warning start"><a href="/app/instance">Empezar</a></button>
-            </div>
-            <div class="col-md-12">
-              <article class="panel panel-warning">
-                <div>
-                  <h2>Información de registro</h2>
-                </div>
-                <div class="panel-body">
-                  <p>
-                      A continuación comenzarás a rellenar todos los datos e información necesaria para tener hecho tu testamento vital, en todo momento se irán guardando los datos y en el caso de hacerlo en momentos diferentes no tienes que volver a empezar.
-                  </p>
-                  <p>
-                      Es cuestión de tomarse el tiempo necesario, tú conoces tus ritmos, surgirán dudas o indecisiones, de modo que no has de preocuparte por tenerlo todo claro desde el inicio.
-                  </p>
-                  <p>
-                      Cuentas en todo momento con el asistente para todo tipo de consultas.
-                  </p>
-                </div>
-              </article>
-              <article class="panel panel-warning">
-                <div>
-                  <h2>Protección de datos</h2>
-                </div>
-                <div class="panel-body">
-                  <p>
-                  Vellesa cumple con las directrices de la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, el Real Decreto 1720/2007 de 21 de diciembre por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica y demás normativa vigente en cada momento, y vela por garantizar un correcto uso y tratamiento de los datos personales del usuario. Para ello, junto a cada formulario de recabo de datos de carácter personal, en los servicios que el usuario pueda solicitar a xxx, hará saber al usuario de la existencia y aceptación de las condiciones particulares del tratamiento de sus datos en cada caso, informándole de la responsabilidad del fichero creado, la dirección del responsable, la posibilidad de ejercer sus derechos de acceso, rectificación, cancelación u oposición, la finalidad del tratamiento y las comunicaciones de datos a terceros en su caso. Asimismo, xxx informa que da cumplimiento a la Ley 34/2002 de 11 de julio, de Servicios de la Sociedad de la Información y el Comercio Electrónico y le solicitará su consentimiento al tratamiento de su correo electrónico con fines comerciales en cada momento.
-                  </p>
-                  <p>
-                      Tráfico de información cifrado, certificado de encriptado
-                  </p>
-                </div>
-              </article>
-            </div>
+            <!-- End of Nav Structure -->
         </div>
-      </div>
+
+    </div><!-- /container -->
+
+{% endblock %}
+
+{% block assistantContent %}
+
+    {% include './templates/assistant.html.twig' %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/polyfills.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".cn-wrapper").addClass('opened-nav');
+        });
+    </script>
 {% endblock %}

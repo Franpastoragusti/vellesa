@@ -12,24 +12,26 @@ class AreasController extends Controller
       return $this->render('AppBundle:Areas:health.html.twig');
     }
 
-    public function enviromentAction()
+    public function enviromentAction(Request $request)
     {
-        return $this->render('AppBundle:Areas:enviroment.html.twig');
+        $session = $request -> getSession();
+        $session_companion_name = $session->get('companion_name');
+        return $this->render('AppBundle:Areas:enviroment.html.twig',array('companion' => $session_companion_name));
     }
 
-    public function personalAction()
+    public function personalAction(Request $request)
     {
-        return $this->render('AppBundle:Areas:personal.html.twig');
+
+        $session = $request -> getSession();
+        $session_companion_name = $session->get('companion_name');
+        return $this->render('AppBundle:Areas:personal.html.twig',array('companion' => $session_companion_name));
     }
 
-    public function familyAction()
+    public function familyAction(Request $request)
     {
-        return $this->render('AppBundle:Areas:family.html.twig');
-    }
-
-    public function issuesAction()
-    {
-        return $this->render('AppBundle:Areas:issues.html.twig');
+        $session = $request -> getSession();
+        $session_companion_name = $session->get('companion_name');
+        return $this->render('AppBundle:Areas:family.html.twig',array('companion' => $session_companion_name));
     }
 
 }

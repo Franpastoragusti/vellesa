@@ -7,8 +7,12 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
+
 
 class PersonalDataType extends AbstractType
 {
@@ -18,23 +22,17 @@ class PersonalDataType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class)
-            ->add('surname',TextType::class)
-            ->add('address',TextType::class)
-            ->add('phone',IntegerType::class)
-            ->add('number',IntegerType::class)
-            ->add('dni',TextType::class)
-            ->add('users',TextType::class)
-            ->add('direction',TextType::class)
-            ->add('class',TextType::class)
-
-            ->add('continuar',SubmitType::class)
-            ->add('vaciar',ResetType::class);
-
-
-
-
-
+            ->add('name', TextType::class, array('label' => 'Nombre'))
+            ->add('surname', TextType::class, array('label' => 'Apellidos'))
+            ->add('phone', IntegerType::class, array('label' => 'Teléfono'))
+            ->add('number', IntegerType::class, array('label' => 'Numero'))
+            ->add('sip', TextType::class, array('label' => 'SIP'))
+            ->add('dni', TextType::class, array('label' => 'DNI/NIE'))
+            ->add('users')
+            ->add('direction', IntegerType::class, array('label' => 'DireccionId','required' => false))
+            ->add('class', IntegerType::class, array('label' => 'Clase','required' => false))
+            ->add('houseNumber', IntegerType::class, array('label' => 'Puerta'))
+        ;
     }
     
     /**

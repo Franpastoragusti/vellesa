@@ -6,149 +6,188 @@ use AppBundle\Entity\Direction;
 use AppBundle\Entity\PersonalData;
 use AppBundle\Form\DirectionType;
 use AppBundle\Form\PersonalDataType;
+use AppBundle\Form\PersonType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class BureaucracyController extends Controller
 {
-    public function witnessAction(Request $request)
-    {
-        /*$witness = new PersonalData();
-        $form1 = $this->createForm(PersonalDataType::class, $witness);
-        $form2 = $this->createForm(PersonalDataType::class, $witness);
-        $form3 = $this->createForm(PersonalDataType::class, $witness);
-        $form1->handleRequest($request);
-        $form2->handleRequest($request);
-        $form3->handleRequest($request);
-        if ($form3->isSubmitted() && $form3->isValid()) {
-            // $form->getData() holds the submitted values
-            $file = $witness->getDnifront();
-            $file2 = $witness->getDnibehind();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
-            $file->move(
-                  $this->getParameter('dni_directory'),
-                  $fileName
-              );
-            $file2->move(
-                  $this->getParameter('dni_directory'),
-                  $fileName2
-              );
-            $witness->setDnifront($fileName);
-            $witness->setDnibehind($fileName);
-            // but, the original `$task` variable has also been updated
-            $witness = $form3->getData();
 
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($witness);
-            $em->flush();
-            return $this->redirectToRoute('FirstFase_representant');
-        }
-          */
-      return $this->render('AppBundle:Bureaucracy/:witness.html.twig');
-      #array('form1' => $form1->createView(),'form2' => $form2->createView(),'form3' => $form3->createView()) TODO
-
-    }
 
 
     public function indexAction()
     {
-      return $this->render('AppBundle:Bureaucracy:index.html.twig');
+            return $this->render('AppBundle:Bureaucracy:index.html.twig');
     }
 
-    public function representantAction(Request $request)
-    {
-        /*$applicant = new PersonalData();
-        $form = $this->createForm(PersonalDataType::class, $applicant);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            $file = $applicant->getDnifront();
-            $file2 = $applicant->getDnibehind();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
-            $file->move(
-                  $this->getParameter('dni_directory'),
-                  $fileName
-              );
-            $file2->move(
-                  $this->getParameter('dni_directory'),
-                  $fileName2
-              );
-            $applicant->setDnifront($fileName);
-            $applicant->setDnibehind($fileName);
-            $applicant = $form->getData();
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($applicant);
-            $em->flush();
-
-            return $this->redirectToRoute('FirstFase_witness');
-        }
-        */
-        return $this->render('AppBundle:Bureaucracy:representant.html.twig');
-        #array('form' => $form->createView()) TODO
-
-    }
 
     public function instanceAction()
     {
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
 
-    public function personalAction(Request $request)
+
+
+    public function officialDataAction($number, Request $request)
     {
 
-      $applicant = new PersonalData();
+        $personData = new PersonalData();
         $direction = new Direction();
 
+        $mergedData = array(
+            'personData'    => $personData,
+            'direction' => $direction
+        );
 
-      $form = $this->createForm(PersonalDataType::class, $applicant);
-      $form->handleRequest($request);
+        $form = $this->createForm(PersonType::class, $mergedData);
 
-        $formDir =  $this->createForm(DirectionType::class, $direction);
-        $formDir->handleRequest($request);
+        switch ($number) {
+            case 0:
+                $title = "Tus Datos";
+                break;
+            case 1:
+                $title = "Primer Testigo";
+                break;
+            case 2:
+                $title = "Segundo Testigo";
+                break;
+            case 3:
+                $title = "Tercer Testigo";
+                break;
+            case 4:
+                $title = "Representante";
+                break;
+            default;
+                $title = "No hay";
+        }
 
-      if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
 
-          $file = $applicant->getDnifront();
-          $file2 = $applicant->getDnibehind();
-          $fileName = md5(uniqid()).'.'.$file->guessExtension();
-          $fileName2 = md5(uniqid()).'.'.$file2->guessExtension();
-          $file->move(
-                $this->getParameter('dni_directory'),
-                $fileName
-            );
-          $file2->move(
-                $this->getParameter('dni_directory'),
-                $fileName2
-            );
-          $applicant->setDnifront($fileName);
-          $applicant->setDnibehind($fileName);
-          $applicant = $form->getData();
-          // ... perform some action, such as saving the task to the database
-          // for example, if Task is a Doctrine entity, save it!
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($applicant);
-          $em->flush();
 
-          return $this->redirectToRoute('FirstFase_witness');
-      }
+
+            var_dump($form);
+
+
+            /***TODO setear number como classId('class') **/
+            /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
+            /***TODO setear nombre de imagen en BBDD ('dni'), archivar imagen en directorio **/
+            /***TODO setear resto de datos **/
+            /***TODO redirigir a 'Bureaucracy_menu' **/
+
+
+
+
+            /*#Guardar imagen
+                $file = $form['personalData']['dni']->getData();
+
+                $extension =  $file->guessExtension();
+
+                if (!$extension) {
+                    // extension cannot be guessed
+                    $extension = 'jpg';
+                }
+                $file->move('dni_directory', rand(1, 99999).'.'.$extension);
+            #Fin de guardado de imagen
+
+
+
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($personData);
+            $em->persist($direction);
+            $em->flush();
+            */
+            return $this->redirectToRoute('/app/bureaucracy/');
+        }
+
+
+        $form->handleRequest($request);
+
+
 
       return $this->render('AppBundle:Bureaucracy:personal.html.twig' , array(
           'form' => $form->createView(),
-          'formDir' => $formDir->createView()
+          'number' => $number,
+          'title' => $title
           ));
 
     }
 
-    public function areasAction()
+
+
+
+
+
+
+
+
+
+
+    public function testAction($number, Request $request)
     {
 
+        switch ($number) {
+            case 0:
+                $title = "Tus Datos";
+                break;
+            case 1:
+                $title = "Primer Testigo";
+                break;
+            case 2:
+                $title = "Segundo Testigo";
+                break;
+            case 3:
+                $title = "Tercer Testigo";
+                break;
+            case 4:
+                $title = "Representante";
+                break;
+        }
+
+        $personData = new PersonalData();
+        $direction = new Direction();
+        $form = $this->createForm(PersonalDataType::class, $personData);
+        $form->handleRequest($request);
+
+        $formDir = $this->createForm(DirectionType::class, $direction);
+        $formDir->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+
+            //setear (number,users,class,direction)
+
+            $file = $personData->getDnifront();
+            $file2 = $personData->getDnibehind();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $fileName2 = md5(uniqid()) . '.' . $file2->guessExtension();
+            $file->move(
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
+            $file2->move(
+                $this->getParameter('dni_directory'),
+                $fileName2
+            );
+            $personData->setDnifront($fileName);
+            $personData->setDnibehind($fileName);
+            $personData = $form->getData();
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($personData);
+            $em->flush();
+
+            return $this->redirectToRoute('');
+        }
     }
+
 }
