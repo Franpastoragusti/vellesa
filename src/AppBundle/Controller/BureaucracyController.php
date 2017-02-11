@@ -74,7 +74,11 @@ class BureaucracyController extends Controller
             var_dump($form);
 
 
-            /***TODO setear segun number el classid***/
+            /***TODO setear number como classId('class') **/
+            /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
+            /***TODO setear nombre de imagen en BBDD ('dni'), archivar imagen en directorio **/
+            /***TODO setear resto de datos **/
+            /***TODO redirigir a 'Bureaucracy_menu' **/
 
 
 
