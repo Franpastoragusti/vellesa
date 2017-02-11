@@ -9,10 +9,7 @@
     </div>
 
     <div class=" col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
-        {{ form_start(form) }}
-
-
-        {{ form_end(form) }}
+        {% include './templates/personData/personData.html.twig' %}
     </div>
 {% endblock  %}
 
@@ -36,7 +33,7 @@
             // Create the autocomplete object, restricting the search to geographical
             // location types.
             autocomplete = new google.maps.places.Autocomplete(
-                /** @type {!HTMLInputElement} */(document.getElementById('appbundle_personaldata_address')),
+                /** @type {!HTMLInputElement} */(document.getElementById('address')),
                 {types: ['geocode']});
 
             // When the user selects an address from the dropdown, populate the address

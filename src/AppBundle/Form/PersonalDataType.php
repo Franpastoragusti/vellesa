@@ -26,11 +26,11 @@ class PersonalDataType extends AbstractType
             ->add('address', TextType::class, array('label' => 'Dirección'))
             ->add('phone', IntegerType::class, array('label' => 'Teléfono'))
             ->add('number', IntegerType::class, array('label' => 'Numero'))
-            ->add('dni', IntegerType::class, array('label' => 'DNI/NIE'))
+            ->add('dni', FileType::class, array('label' => 'DNI/NIE'))
             ->add('users')
             ->add('direction', IntegerType::class, array('label' => 'DireccionId'))
             ->add('class', IntegerType::class, array('label' => 'Clase'))
-            ->add('houseNumber', IntegerType::class, array('label' => 'Piso'))
+            ->add('houseNumber', IntegerType::class, array('label' => 'Puerta'))
         ;
     }
     
