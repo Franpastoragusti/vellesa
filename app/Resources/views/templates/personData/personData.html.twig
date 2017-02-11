@@ -68,11 +68,13 @@
                 {{ form_widget(form.personalData.houseNumber, {'id': "street_number",'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(form.personalData.houseNumber) }}
             </div>
+            <div class="form-group col-md-4">
+              {{ form_widget(form.personalData.users, {value : app.user.id} ) }}
+            </div>
     </fieldset>
 
     <div class="form-group">
 
-        {{ form_widget(form.personalData.users, {'id': "users",'attr': {'class': 'form-control hidden', 'value':"toni2"}}) }}
         {{ form_widget(form.personalData.direction, {'id': "direction",'attr': {'class': 'form-control hidden'}}) }}
         {{ form_widget(form.personalData.class, {'id': "type",'attr': {'class': 'form-control hidden'}}) }}
         {{ form_widget(form.personalData.number, {'id': "number",'attr': { 'class': 'form-control hidden','value': number }}) }}

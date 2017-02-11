@@ -68,9 +68,9 @@ class BureaucracyController extends Controller
 
             $personData = $form["personalData"] -> getData();
             $direction = $form["direction"] -> getData();
-
-            var_dump($personData);
-            var_dump($direction);
+            // var_dump($personData);
+            // $user = $this->getUser();
+            // $personData -> setUsers($user);
 
             /***TODO setear number como classId('class') **/
             /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
@@ -90,8 +90,6 @@ class BureaucracyController extends Controller
                 $file->move('dni_directory', rand(1, 99999).'.'.$extension);
             #Fin de guardado de imagen*/
 
-            //... perform some action, such as saving the task to the database
-            //for example, if Task is a Doctrine entity, save it!
              $em = $this->getDoctrine()->getManager();
              $em->persist($personData);
              $em->persist($direction);
