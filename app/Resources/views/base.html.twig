@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <!-- Meta, title, CSS, favicons, etc. -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>{% block title %}Tú Decides | Panel{% endblock %}</title>
-      <!-- Bootstrap -->
-      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-      <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-      <!-- Custom Theme Style -->
-      <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('css/assistant.css') }}" rel="stylesheet" />
-      <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
-      {% block stylesheets %}{% endblock %}
-      {% block javascriptsHeader %}{% endblock %}
-
+      {% block head %}
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <!-- Meta, title, CSS, favicons, etc. -->
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>{% block title %}Tú Decides | Panel{% endblock %}</title>
+          <!-- Bootstrap -->
+          <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+          <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+          <!-- Custom Theme Style -->
+          <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+          <link href="{{ asset('css/assistant.css') }}" rel="stylesheet" />
+          <link href="{{ asset('css/base.css') }}" rel="stylesheet" />
+          {% block stylesheets %}{% endblock %}
+          {% block javascriptsHeader %}{% endblock %}
+      {% endblock %}
   </head>
 
+  {% block body %}
   <body class="nav-md">
-    {% block body %}
+
         <div class="container body">
 
             {% block header %}
@@ -94,6 +96,7 @@
         <script src="{{ asset('/js/custom.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
 
-    {% endblock %}
+
   </body>
+  {% endblock %}
 </html>
