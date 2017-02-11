@@ -36,16 +36,10 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-
         $personData = new PersonalData();
         $direction = new Direction();
 
-        $mergedData = array(
-            'personData'    => $personData,
-            'direction' => $direction
-        );
-
-        $form = $this->createForm(PersonType::class, $mergedData);
+        $form = $this->createForm(PersonType::class);
 
         switch ($number) {
             case 0:
@@ -67,21 +61,22 @@ class BureaucracyController extends Controller
                 $title = "No hay";
         }
 
-        if ($form->isSubmitted()) {
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
 
 
-
-            var_dump($form);
-
+            $personData = $form["personalData"] -> getData();
+            $direction = $form["direction"] -> getData();
+            // var_dump($personData);
+            // $user = $this->getUser();
+            // $personData -> setUsers($user);
 
             /***TODO setear number como classId('class') **/
             /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
             /***TODO setear nombre de imagen en BBDD ('dni'), archivar imagen en directorio **/
             /***TODO setear resto de datos **/
             /***TODO redirigir a 'Bureaucracy_menu' **/
-
-
-
 
             /*#Guardar imagen
                 $file = $form['personalData']['dni']->getData();
@@ -93,23 +88,15 @@ class BureaucracyController extends Controller
                     $extension = 'jpg';
                 }
                 $file->move('dni_directory', rand(1, 99999).'.'.$extension);
-            #Fin de guardado de imagen
+            #Fin de guardado de imagen*/
 
+             $em = $this->getDoctrine()->getManager();
+             $em->persist($personData);
+             $em->persist($direction);
+             $em->flush();
 
-
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($personData);
-            $em->persist($direction);
-            $em->flush();
-            */
-            return $this->redirectToRoute('/app/bureaucracy/');
+            return $this->render('AppBundle:Default:testRoom.html.twig');
         }
-
-
-        $form->handleRequest($request);
-
 
 
       return $this->render('AppBundle:Bureaucracy:personal.html.twig' , array(
