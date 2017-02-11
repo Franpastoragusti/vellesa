@@ -39,7 +39,9 @@
                     <ul class="nav side-menu">
                       <li><a><i class="fa fa-users"></i> Personal <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="#level1_1">Añadir administrador</a></li>
+                          {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="#level1_1">Añadir administrador</a></li>
+                          {% endif %}
                           <li><a href="#level1_2">Cambiar permisos</a>
                             </li>
                         </ul>
