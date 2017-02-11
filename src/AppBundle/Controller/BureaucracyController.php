@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class BureaucracyController extends Controller
 {
@@ -67,6 +67,41 @@ class BureaucracyController extends Controller
                 $title = "No hay";
         }
 
+        if ($form->isSubmitted()) {
+
+
+
+            var_dump($form);
+
+
+            /***TODO setear segun number el classid***/
+
+
+
+
+            /*#Guardar imagen
+                $file = $form['personalData']['dni']->getData();
+
+                $extension =  $file->guessExtension();
+
+                if (!$extension) {
+                    // extension cannot be guessed
+                    $extension = 'jpg';
+                }
+                $file->move('dni_directory', rand(1, 99999).'.'.$extension);
+            #Fin de guardado de imagen
+
+
+
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($personData);
+            $em->persist($direction);
+            $em->flush();
+            */
+            return $this->redirectToRoute('/app/bureaucracy/');
+        }
 
 
         $form->handleRequest($request);
@@ -121,6 +156,10 @@ class BureaucracyController extends Controller
         $formDir->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+
+            //setear (number,users,class,direction)
 
             $file = $personData->getDnifront();
             $file2 = $personData->getDnibehind();

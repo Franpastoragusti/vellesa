@@ -32,7 +32,7 @@ class PersonType extends AbstractType
                 'data_class' => Direction::class
             ))
             ->add('save', SubmitType::class, array(
-                'attr' => array('label' => 'save')
+                'attr' => array('label' => 'Enviar')
             ))
         ;
 

@@ -66,10 +66,10 @@ class PersonalData
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="sip", type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $address;
+    private $sip;
 
 
     /**
@@ -107,12 +107,6 @@ class PersonalData
      *
      * @ORM\Column(name="dni", type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Length(
-     *  min = 8,
-     *  max = 9,
-     *      minMessage = "El dni debe contener un mínimo de  {{ limit }} entre carácteres y números",
-     *      maxMessage = "El dni de contener un máximo de {{ limit }} entre carácteres y  números"
-     *)
      *
      */
     private $dni;
@@ -154,6 +148,31 @@ class PersonalData
     }
 
     /**
+     * Set sip
+     *
+     * @param string $sip
+     *
+     * @return PersonalData
+     *
+     */
+    public function setSip($sip)
+    {
+        $this->sip = $sip;
+
+        return $this;
+    }
+
+    /**
+     * Get sip
+     *
+     * @return string
+     */
+    public function getSip()
+    {
+        return $this->sip;
+    }
+
+    /**
      * Set surname
      *
      * @param string $surname
@@ -177,29 +196,6 @@ class PersonalData
         return $this->surname;
     }
 
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return PersonalData
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
 
     /**
      * Set cp
