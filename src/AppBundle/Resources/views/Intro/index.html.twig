@@ -1,8 +1,259 @@
 {% extends '::base.html.twig' %}
-{% block headerTitle %}{% endblock %}
+{% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="VellesaDaw">
 
+    <title>Vellesa - Tú decides</title>
 
-{% block main %}
-    PAGINA PRINCIPAL
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('css/landing/agency.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing/creative.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 {% endblock %}
+
+{% block body %}
+    <body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"> <img id="logo" src="{{ asset('img/landing/vellesa/logo.png') }}" alt="" /> </a>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <div class="fondoHeader">
+                    <h1 id="homeHeading">Tú decides</h1>
+                    <hr>
+                    <p>Un servicio online para hacer tu testamento vital, hazlo ahora y cuando no puedas decidirlo estará todo claro:</strong></p>
+                    <p class="min">Límites de los tratamientos médicos que deseas recibir.</p>
+                    <p class="min">Cómo y por quién quieres ser atendido/a.</p>
+                    <p class="min">Detalles personales de tu entorno, hábitos y gustos personales.</p>
+                    <!--<a href="#contact" class="btn btn-primary btn-xl page-scroll">Conócenos</a>-->
+                    <a href="/app/companion" class="btn btn-primary btn-xl page-scroll">Empieza ahora</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="testamento_vital" class="testamento_vital">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">DESCUBRE LAS VENTAJAS</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"> </i>
+                        <h3>Servicio online</h3>
+                        <p class="text-muted">Rápido y sencillo</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"> </i>
+                        <h3>Acompañamiento profesional</h3>
+                        <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"> </i>
+                        <h3>Entorno Humano</h3>
+                        <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>DECIDE CÓMO QUIERES ENVEJECER</h2>
+                <p>Dejar claros tus deseos será un gran alivio para ti y para los tuyos.</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- About Section -->
+    <section id="instructions" class="testamento_vital">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">CÓMO SE HACE</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"> </i>
+                        <h3>Servicio online</h3>
+                        <p class="text-muted">Rápido y sencillo</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"></i>
+                        <h3>Acompañamiento profesional</h3>
+                        <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"></i>
+                        <h3>Entorno Humano</h3>
+                        <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"></i>
+                        <h3>Servicio online</h3>
+                        <p class="text-muted">Rápido y sencillo</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"></i>
+                        <h3>Acompañamiento profesional</h3>
+                        <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"></i>
+                        <h3>Entorno Humano</h3>
+                        <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">PRECIOS</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+            <div class="row text-center ">
+                <div id="fdw-pricing-table">
+                    <div class="plan plan1">
+                        <div class="header">Enterprise</div>
+                        <div class="price">$59</div>
+                        <div class="monthly">per month</div>
+                        <ul>
+                            <li><b>10GB</b> Disk Space</li>
+                            <li><b>100GB</b> Monthly Bandwidth</li>
+                            <li><b>20</b> Email Accounts</li>
+                            <li><b>Unlimited</b> subdomains</li>
+                        </ul>
+                        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>
+                    </div>
+                    <div class="plan plan2">
+                        <div class="header">Standard</div>
+                        <div class="price">$19</div>
+                        <div class="monthly">per month</div>
+                        <ul>
+                            <li><b>3GB</b> Disk Space</li>
+                            <li><b>25GB</b> Monthly Bandwidth</li>
+                            <li><b>5</b> Email Accounts</li>
+                            <li><b>Unlimited</b> subdomains</li>
+                        </ul>
+                        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="aviso">
+        <p>© 2016 Vellesa.es Todos los derechos reservados /<a href="#portfolioModal4" id="avisoLegal" data-toggle="modal"> Política de Privacidad</a></p>
+    </footer>
+    <!-- Portfolio Modal 4 -->
+    <div class="modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Protección de datos</h2>
+                                <div class="text">
+                                    <p>Vellesa.es cumplen con las directrices de la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, el Real Decreto 1720/2007 de 21 de diciembre por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica y demás normativa vigente en cada momento, y vela por garantizar un correcto uso y tratamiento de los datos personales del usuario.</p>
+                                    <p>Para ello, junto a cada formulario de recabo de datos de carácter personal, en los servicios que el usuario pueda solicitar a vellesa.es, hará saber al usuario de la existencia y aceptación de las condiciones particulares del tratamiento de sus datos en cada caso, informándole de la responsabilidad del fichero creado, la dirección del responsable, la posibilidad de ejercer sus derechos de acceso, rectificación, cancelación u oposición, la finalidad del tratamiento y las comunicaciones de datos a terceros en su caso.</p>
+                                    <p>Asimismo, vellesa.es informa que da cumplimiento a la Ley 34/2002 de 11 de julio, de Servicios de la Sociedad de la Información y el Comercio Electrónico y le solicitará su consentimiento al tratamiento de su correo electrónico con fines comerciales en cada momento.</p>
+                                </div>
+                                <div class="boton">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}" > </script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('js/landing/scrollreveal.min.js') }}"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="{{ asset('js/landing/creative.min.js') }}"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('js/landing/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('js/landing/contact.js') }}"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="{{ asset('js/landing/agency.js') }}"></script>
+
+    </body>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

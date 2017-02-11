@@ -167,7 +167,7 @@ div.modal p{
 @media (min-width: 250px) {
 
     header {
-        background-image: url('../img/vellesa/cereales_vellesa480.jpg');
+        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
     }
     .timeline:before{
     	height: 700px;
@@ -187,7 +187,7 @@ div.modal p{
 }
 @media (min-width: 480px) {
     header {
-        background-image: url('../img/vellesa/cereales_vellesa480.jpg');
+        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
     }
     .timeline:before{
     	height: 400px;
@@ -200,7 +200,7 @@ div.modal p{
 /* Imagen utilizada en pantallas de anchura 768 px y superior */
 @media (min-width: 768px) {
     header {
-        background-image: url('../img/vellesa/cereales_vellesa768.jpg');
+        background-image: url('../../img/landing/vellesa/cereales_vellesa768.jpg');
     }
     .timeline:before{
     	height: 600px;
@@ -213,7 +213,7 @@ div.modal p{
 /* Imagen utilizada en pantallas de anchura 1200 px y superior */
 @media (min-width: 1200px) {
     header {
-        background-image: url('../img/vellesa/cereales_vellesa1200.jpg');
+        background-image: url('../../img/landing/vellesa/cereales_vellesa1200.jpg');
     }
 		.header-content-inner p{
 			font-size: 22px !important;
@@ -315,7 +315,7 @@ div.fondoHeader{
 		bottom: -8px; left: 0;
 		height: 3px; width: 100%;
 		content: '';
-		background-image: url(images/bar.png);
+
 	}
 
 	#fdw-pricing-table .popular-plan .header {
