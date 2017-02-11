@@ -37,7 +37,7 @@ class PersonType extends AbstractType
         ;
 
     }
-    
+
     /**
      * {@inheritdoc}
      */
