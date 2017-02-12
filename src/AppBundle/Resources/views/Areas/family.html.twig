@@ -1,13 +1,15 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
         <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>FAMILIA Y SERES QUERIDOS</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
     </div>
-    <div>
-      {#formulario  de area#}
-    </div>
+    <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+        {{ form_start(form) }}
 
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
