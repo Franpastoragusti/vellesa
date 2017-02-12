@@ -15,6 +15,14 @@ class EnvironmentAreaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+
+        /*
+           * En este apartado el usuario seleccionará una de las caracteristicas que deseé, si el usuario selecciona la segunda
+           * deberá rellenar tres campos
+           */
+
+
         $builder->add('placetobe', ChoiceType::class, array(
 
             'choices'   => array(
@@ -29,7 +37,16 @@ class EnvironmentAreaType extends AbstractType
         ))
 
 
+            /*
+            * En este apartado el usuario seleccionará el icono de un menú y le aparecerá un textarea donde dará una respuesta breve
+            */
+
             ->add('expressLikes' ,TextareaType::class)
+
+
+            /*
+             * En este apartado el usuario deberá seleccionar uno de los dos  checks que aparecen
+             */
 
 
             ->add('selfwill', ChoiceType::class, array(
@@ -42,9 +59,20 @@ class EnvironmentAreaType extends AbstractType
                 'multiple'  => true,
 
             ))
+
+
+
+            /*
+           * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
+           */
+
             ->add('farewell' ,TextareaType::class)
-            
+            /*
+            * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
+            */
+
             ->add('observations', TextareaType::class);
+
     }
     
     /**
