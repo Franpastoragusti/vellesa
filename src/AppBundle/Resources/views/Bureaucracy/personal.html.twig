@@ -55,7 +55,7 @@
             // and fill the corresponding field on the form.
             for (var i = 0; i < place.address_components.length; i++) {
                 var addressType = place.address_components[i].types[0];
-                console.log(addressType)
+                console.log(addressType);
                 if (componentForm[addressType]) {
                     var val = place.address_components[i][componentForm[addressType]];
                     document.getElementById(addressType).value = val;
@@ -66,7 +66,7 @@
 
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWynNJSeVOgUCHq-WlLGSdvhMRVzqb4dY&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCUgkeyQw5d8QRyHuZYClDpn81cQ6qLtE&libraries=places&callback=initAutocomplete" async defer></script>
 
 
 {% endblock %}
