@@ -1,0 +1,409 @@
+body{
+	font-family: Roboto, sans-serif !important;
+}
+
+/**************Navegación******************/
+.navbar-brand img{
+  width: 120px;
+}
+.navbar-brand{
+	height: 100px;
+}
+
+.navbar ul {
+	padding-top: 20px;
+}
+.navbar ul li>a{
+	font-size: 18px !important;
+	color: rgb(90, 90, 90) !important;
+}
+#mainNav{
+	border-bottom: none;
+}
+
+/**************Header*************************/
+
+div.header-content-inner{
+	text-align: center;
+	padding-left: 20%;
+	margin-bottom: 10%;
+
+}
+div.header-content-inner div.fondoHeader hr{
+	margin-top: 10px ;
+}
+#homeHeading{
+	padding-top: 10px;
+
+}
+div.header-content-inner p{
+	margin-bottom: 20px !important;
+	font-size: 20px;
+	color: rgb(90, 90, 90);
+
+}
+/*********Seccción testamento_vital*****/
+
+section.testamento_vital img{
+	width: 80px;
+}
+
+section.testamento_vital div#cta1{
+	text-align: center;
+	padding-top: 100px;
+}
+
+.bg-dark{
+	background-color: rgba(240,182,103, 0.5);
+}
+
+img#vellesa{
+	height: 150px !important;
+	width: 200px;
+}
+
+section.testamento_vital i{
+	height: 80px;
+}
+
+/******************Equipo*****************/
+
+#team img{
+	width: 300px;
+	height: 300px;
+}
+section#team ul{
+	padding-top: 10px;
+}
+
+section#team p.text-muted{
+	line-height: 0.7;
+}
+
+/***********Instrucciones*************/
+
+section#instructions h2.section-heading{
+	padding-bottom: 50px;
+}
+
+/**********Contacto*************/
+
+section#contact{
+	background-color: #F0B667;
+}
+#avisoLegal{
+	color: rgb(70, 70, 70);
+}
+.aviso{
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+/*******************Fuentes******************/
+h1, h2, h3, h4{
+	color: rgb(70, 70, 70) !important;
+	font-family: Roboto, sans-serif !important;
+}
+
+.header-content-inner p{
+	font-family: Roboto, sans-serif !important;
+	color: rgb(90, 90, 90) !important;
+	font-size: 1.5vw !important;
+	font-weight: 500 !important;
+}
+.timeline-panel .timeline-body p{
+	font-family: Roboto, sans-serif !important;
+	font-size: 18px !important;
+}
+p{
+	color: rgb(70, 70, 70) !important;
+	font-family: Roboto, sans-serif !important;
+	font-size: 18px !important;
+}
+button{
+	color: rgb(90, 90, 90) !important;
+}
+h2 + a{
+	color: rgb(90, 90, 90) !important;
+}
+div.header-content-inner p.min{
+	font-size: 18px !important;
+	font-style: italic;
+}
+h3{
+	line-height: 30px;
+	font-size: 22px !important;
+}
+
+
+h3.section-subheading.text-muted{
+	font-style: normal;
+
+}
+
+div.modal div.col-lg-10.col-lg-offset-2{
+	margin-left: 0px;
+}
+div.modal-dialog{
+	margin: 0 auto;
+	width: 98%;
+	max-width: 1000px;
+}
+
+div.modal h2{
+
+	text-align: center
+}
+
+div.modal p{
+	text-align: justify;
+
+}
+
+/*************Arreglos para responsive*************************/
+
+/* Imagen utilizada en pantallas de anchura 480 px y superior */
+@media (min-width: 250px) {
+
+    header {
+        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
+    }
+    .timeline:before{
+    	height: 700px;
+    }
+		.header-content-inner p{
+			font-size: 22px !important;
+		}
+}
+@media (min-width: 300px) {
+
+    .timeline:before{
+    	height: 450px;
+    }
+		.header-content-inner p{
+			font-size: 22px !important;
+		}
+}
+@media (min-width: 480px) {
+    header {
+        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
+    }
+    .timeline:before{
+    	height: 400px;
+    }
+		.header-content-inner p{
+			font-size: 22px !important;
+		}
+}
+
+/* Imagen utilizada en pantallas de anchura 768 px y superior */
+@media (min-width: 768px) {
+    header {
+        background-image: url('../../img/landing/vellesa/cereales_vellesa768.jpg');
+    }
+    .timeline:before{
+    	height: 600px;
+    }
+		.header-content-inner p{
+			font-size: 22px !important;
+		}
+}
+
+/* Imagen utilizada en pantallas de anchura 1200 px y superior */
+@media (min-width: 1200px) {
+    header {
+        background-image: url('../../img/landing/vellesa/cereales_vellesa1200.jpg');
+    }
+		.header-content-inner p{
+			font-size: 22px !important;
+		}
+
+}
+
+
+div.fondoHeader{
+	background-color: rgba(260,260,260,0.6);
+	height: 500px;
+	max-width: 600px;
+	font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	margin-top: 100px;
+	margin-left: 14vw;
+}
+
+/***********Tablas de precios************/
+
+#fdw-pricing-table {
+		margin:0 auto;
+		text-align: center;
+		margin-left: 34%;
+		zoom: 1;
+	}
+
+	#fdw-pricing-table:before, #fdw-pricing-table:after {
+	  content: "";
+	  display: table
+	}
+
+	#fdw-pricing-table:after {
+	  clear: both
+	}
+
+	/* --------------- */
+
+	#fdw-pricing-table .plan {
+		font: 13px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+		background: #fff;
+		border: 1px solid #ddd;
+		color: #333;
+		padding: 20px;
+		width: 180px;
+		float: left;
+		_display: inline; /* IE6 double margin fix */
+		position: relative;
+		margin: 5px 5px;
+		-moz-box-shadow: 0 2px 2px -1px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 2px 2px -1px rgba(0,0,0,.3);
+		box-shadow: 0 2px 2px -1px rgba(0,0,0,.3);
+	}
+
+	#fdw-pricing-table .plan:after {
+	  z-index: -1;
+	  position: absolute;
+	  content: "";
+	  bottom: 10px;
+	  right: 4px;
+	  width: 80%;
+	  top: 80%;
+	  -webkit-box-shadow: 0 12px 5px rgba(0, 0, 0, .3);
+	  -moz-box-shadow: 0 12px 5px rgba(0, 0, 0, .3);
+	  box-shadow: 0 12px 5px rgba(0, 0, 0, .3);
+	  -webkit-transform: rotate(3deg);
+	  -moz-transform: rotate(3deg);
+	  -o-transform: rotate(3deg);
+	  -ms-transform: rotate(3deg);
+	  transform: rotate(3deg);
+	}
+
+	#fdw-pricing-table .popular-plan {
+		top: -20px;
+		padding: 40px 20px;
+	}
+
+	/* --------------- */
+
+	#fdw-pricing-table .header {
+		position: relative;
+		font-size: 20px;
+		font-weight: normal;
+		text-transform: uppercase;
+		padding-top: 40px;
+		padding-top: 40px;
+		margin: -20px -20px 20px -20px;
+		border-bottom: 8px solid;
+		background-color: #eee;
+		background-image: -moz-linear-gradient(#fff,#eee);
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+		background-image: -webkit-linear-gradient(#fff, #eee);
+		background-image: -o-linear-gradient(#fff, #eee);
+		background-image: -ms-linear-gradient(#fff, #eee);
+		background-image: linear-gradient(#fff, #eee);
+	}
+
+	#fdw-pricing-table .header:after {
+		position: absolute;
+		bottom: -8px; left: 0;
+		height: 3px; width: 100%;
+		content: '';
+
+	}
+
+	#fdw-pricing-table .popular-plan .header {
+		margin-top: -40px;
+		padding-top: 60px;
+	}
+
+	#fdw-pricing-table .plan1 .header{
+		border-bottom-color: #B3E03F;
+	}
+
+	#fdw-pricing-table .plan2 .header{
+		border-bottom-color: #7BD553;
+	}
+
+	#fdw-pricing-table .plan3 .header{
+		border-bottom-color: #3AD5A0;
+	}
+
+	#fdw-pricing-table .plan4 .header{
+		border-bottom-color: #45D0DA;
+	}
+
+	/* --------------- */
+
+	#fdw-pricing-table .price{
+		font-size: 45px;
+	}
+
+	#fdw-pricing-table .monthly{
+		font-size: 13px;
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		color: #999;
+	}
+
+	/* --------------- */
+
+	#fdw-pricing-table ul {
+		margin: 20px 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	#fdw-pricing-table li {
+		padding: 10px 0;
+	}
+
+	/* --------------- */
+
+	#fdw-pricing-table .signup {
+		position: relative;
+		padding: 10px 20px;
+		color: #fff;
+		font: bold 14px Arial, Helvetica;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;
+		background-color: #72ce3f;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+		opacity: .9;
+	}
+
+	#fdw-pricing-table .signup:hover {
+		opacity: 1;
+	}
+
+	#fdw-pricing-table .signup:active {
+		-moz-box-shadow: 0 2px 2px rgba(0,0,0,.3) inset;
+		-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.3) inset;
+		box-shadow: 0 2px 2px rgba(0,0,0,.3) inset;
+	}
+
+	#fdw-pricing-table .plan1 .signup{
+		background: #B3E03F;
+	}
+
+	#fdw-pricing-table .plan2 .signup{
+		background: #7BD553;
+	}
+
+	#fdw-pricing-table .plan3 .signup{
+		background: #3AD5A0;
+	}
+
+	#fdw-pricing-table .plan4 .signup{
+		background: #45D0DA;
+	}

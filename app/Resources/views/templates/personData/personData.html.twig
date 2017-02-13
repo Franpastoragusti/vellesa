@@ -1,0 +1,102 @@
+{{ form_start(form, {'attr': {'id': "person_form",'class': 'form-horizontal col-md-10 col-md-offset-1'}}) }}
+
+    <fieldset>
+        <legend>Datos personales</legend>
+            <div class="form-group">
+                {{ form_label(form.personalData.name) }}
+                {{ form_widget(form.personalData.name, {'id': "name",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.name) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.personalData.surname) }}
+                {{ form_widget(form.personalData.surname, {'id': "surname",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.surname) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.personalData.phone) }}
+                {{ form_widget(form.personalData.phone, {'id': "phone",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.phone) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.personalData.sip) }}
+                {{ form_widget(form.personalData.sip, {'id': "sip",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.sip) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.personalData.dni) }}
+                {{ form_widget(form.personalData.dni, {'id': "dni",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.dni) }}
+            </div>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Dirección Postal</legend>
+
+            <div class="form-group">
+                <input type="search" id="address" class="form-control">
+            </div>
+
+            <div class="form-group col-md-6">
+                {{ form_label(form.direction.province) }}
+                {{ form_widget(form.direction.province, {'id': "administrative_area_level_1",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.direction.province) }}
+            </div>
+
+            <div class="form-group col-md-6">
+                {{ form_label(form.direction.cp) }}
+                {{ form_widget(form.direction.cp, {'id': "postal_code",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.direction.cp) }}
+            </div>
+
+            <div class="form-group col-md-4">
+                {{ form_label(form.direction.city) }}
+                {{ form_widget(form.direction.city, {'id': "locality",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.direction.city) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.direction.route) }}
+                {{ form_widget(form.direction.route, {'id': "route",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.direction.route) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.personalData.houseNumber) }}
+                {{ form_widget(form.personalData.houseNumber, {'id': "street_number",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.personalData.houseNumber) }}
+            </div>
+
+            <div class="form-group col-md-4">
+              {% set user_id = '' ~ app.user.id %}
+              {{ form_widget(form.personalData.users, {value : app.user.id, 'attr': {'class': 'form-control hidden'}} ) }}
+              <select id="person_form_personalData_users" name="person_form[personalData][users]" class="form-control hidden">
+                <option value="{{user_id}}" selected="true" class="hidden"></option>
+              </select>
+            </div>
+
+            <!-- <div class="form-group col-md-4">
+              {#{ form_widget(form.personalData.class, {'id': "type",'attr': {'class': 'form-control hidden'}}) }#}
+              <select id="class" name="person_form[personalData][class]" class="form-control hidden">
+                <option value=1 selected="true" class="hidden"></option>
+              </select>
+            </div> -->
+
+            <div class="form-group col-md-4">
+                {{ form_widget(form.personalData.class, {'id': "class",'attr': {'class': 'form-control hidden'}}) }}
+            </div>
+    </fieldset>
+
+    <div class="form-group">
+
+        {{ form_widget(form.personalData.direction, {'id': "direction",'attr': {'class': 'form-control hidden'}}) }}
+        {{ form_widget(form.personalData.number, {'id': "number",'attr': { 'class': 'form-control hidden','value': number }}) }}
+
+    </div>
+
+
+    <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
+      {{ form_widget(form.save, {'id': "save",'attr': {'class': 'btn btn-warning start'}}) }}
+    </div>
+{{ form_end(form) }}

@@ -35,113 +35,41 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                   <div class="menu_section">
-                    <h3>Tu decides</h3>
+                    <h3>VELLESA PANEL</h3>
                     <ul class="nav side-menu">
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                      <li><a><i class="fa fa-users"></i> Personal <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                </li>
-                                <li><a href="#level2_1">Level Two</a>
-                                </li>
-                                <li><a href="#level2_2">Level Two</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#level1_2">Level One</a>
-                            </li>
-                        </ul>
-                      </li>
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                </li>
-                                <li><a href="#level2_1">Level Two</a>
-                                </li>
-                                <li><a href="#level2_2">Level Two</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#level1_2">Level One</a>
-                            </li>
-                        </ul>
-                      </li>
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                </li>
-                                <li><a href="#level2_1">Level Two</a>
-                                </li>
-                                <li><a href="#level2_2">Level Two</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#level1_2">Level One</a>
+                          {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="#level1_1">Añadir administrador</a></li>
+                          {% endif %}
+                          <li><a href="#level1_2">Cambiar permisos</a>
                             </li>
                         </ul>
                       </li>
                     </ul>
                   </div>
                   <div class="menu_section">
-                    <h3>Live On</h3>
+                    <h3>TU DECIDES</h3>
                     <ul class="nav side-menu">
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                      <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                            <li><a>Documentación<span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                <li class="sub_menu"><a href="level2.html">Generar instancia</a>
                                 </li>
-                                <li><a href="#level2_1">Level Two</a>
+                                <li><a href="#level2_1">Generar áreas</a>
                                 </li>
-                                <li><a href="#level2_2">Level Two</a>
+                                <li><a href="#level2_2">Generar informe completo</a>
                                 </li>
                               </ul>
                             </li>
-                            <li><a href="#level1_2">Level One</a>
-                            </li>
+                            <li><a href="#level1_1">Listado</a></li>
+                            <li><a href="#level1_1">Datos de usuario</a></li>
                         </ul>
                       </li>
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                      <li><a><i class="fa fa-desktop"></i> Asistente <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                </li>
-                                <li><a href="#level2_1">Level Two</a>
-                                </li>
-                                <li><a href="#level2_2">Level Two</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#level1_2">Level One</a>
-                            </li>
-                        </ul>
-                      </li>
-                      <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#level1_1">Level One</a>
-                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu">
-                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                </li>
-                                <li><a href="#level2_1">Level Two</a>
-                                </li>
-                                <li><a href="#level2_2">Level Two</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#level1_2">Level One</a>
-                            </li>
+                          <li><a href="#level1_1">Conectar</a></li>
                         </ul>
                       </li>
                     </ul>

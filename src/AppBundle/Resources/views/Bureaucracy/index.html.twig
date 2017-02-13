@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/component2.css') }}" />
+{% endblock %}
+
+{% block javascriptsHeader %}
+
+    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7243260-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+{% endblock %}
+
+{% block main %}
+    {% include './templates/steps.horizontal.html.twig'%}
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>PAPELEO</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
+    </div>
+    <div class="container">
+        <div class="component">
+            <!-- Start Nav Structure -->
+            <button class="cn-button" id="cn-button">Menu</button>
+            <div class="cn-wrapper" id="cn-wrapper">
+                <ul>
+                    <li><a href="0"><span>Tus datos</span></a></li>
+                    <li><a href="1"><span>Testigo 1</span></a></li>
+                    <li><a href="2"><span>Testigo 2</span></a></li>
+                    <li><a href="3"><span>Testigo 3</span></a></li>
+                    <li><a href="4"><span>Representante</span></a></li>
+                    <li><a href="instance"><span>Instancia<br>General</span></a></li>
+                </ul>
+            </div>
+            <!-- End of Nav Structure -->
+        </div>
+
+    </div><!-- /container -->
+
+{% endblock %}
+
+{% block assistantContent %}
+
+    {% include './templates/assistant.html.twig' %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/polyfills.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".cn-wrapper").addClass('opened-nav');
+        });
+    </script>
+{% endblock %}

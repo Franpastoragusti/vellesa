@@ -15,21 +15,12 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="Representant")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
 
     protected $id;
 
-        /**
-         * @ORM\OneToMany(targetEntity="Witness", mappedBy="users")
-         *
-         */
-
-        private $witnesses;
-
-        public  function getWitness(){
-            return $this->witnesses;
-        }
     public function __construct()
     {
         parent::__construct();

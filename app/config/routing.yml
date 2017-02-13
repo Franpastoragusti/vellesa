@@ -9,3 +9,10 @@ fos_user:
 apps:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix: /app
+
+home:
+    path:     /
+    defaults: { _controller: AppBundle:Intro:index }
+
+logout:
+    path:     /logout

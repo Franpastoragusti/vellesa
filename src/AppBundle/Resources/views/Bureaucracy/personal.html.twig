@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block main  %}
+    {% include './templates/steps.horizontal.html.twig'%}
+    <div class="apartado text-center">
+        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>{{ title }}</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
+    </div>
+
+    <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+        {% include './templates/personData/personData.html.twig' %}
+    </div>
+{% endblock  %}
+{% block assistantContent %}
+    {% include './templates/assistant.html.twig'%}
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            postal_code: 'short_name',
+            route: 'short_name',
+            street_number: 'short_name'
+        };
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('address')),
+                {types: ['geocode']});
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        // [START region_fillform]
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                console.log(addressType);
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+        }
+        // [END region_fillform]
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCUgkeyQw5d8QRyHuZYClDpn81cQ6qLtE&libraries=places&callback=initAutocomplete" async defer></script>
+
+
+{% endblock %}

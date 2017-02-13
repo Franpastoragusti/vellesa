@@ -1,32 +1,62 @@
+
+#Intro
+
+Intro_companion:
+    path:     /companion
+    defaults: { _controller: AppBundle:Intro:companion }
+
+Intro_instance:
+    path:     /payment
+    defaults: { _controller: AppBundle:Intro:payment }
+
+
+
+
+#Areas
+
+Areas_health:
+    path:     /areas/health
+    defaults: { _controller: AppBundle:Areas:health }
+
+Areas_enviroment:
+    path:     /areas/enviroment
+    defaults: { _controller: AppBundle:Areas:enviroment }
+
+Areas_personal:
+    path:     /areas/personal
+    defaults: { _controller: AppBundle:Areas:personal }
+
+Areas_family:
+    path:     /areas/family
+    defaults: { _controller: AppBundle:Areas:family }
+
+
+#Bureaucracy
+
+Bureaucracy_instance:
+    path:     /bureaucracy/instance
+    defaults: { _controller: AppBundle:Bureaucracy:instance }
+
+Bureaucracy_menu:
+    path:     /bureaucracy/
+    defaults: { _controller: AppBundle:Bureaucracy:index }
+
+Bureaucracy_official_data:
+    path:     /bureaucracy/{number}
+    defaults: { _controller: AppBundle:Bureaucracy:officialData }
+
+
+#Default
+
 test_room:
     path:     /testRoom
     defaults: { _controller: AppBundle:Default:index }
 
-FirstFase_index:
-    path:     /
-    defaults: { _controller: AppBundle:FirstFase:index }
+chat_room:
+    path:     /chatRoom
+    defaults: { _controller: AppBundle:Default:chat }
 
-FirstFase_witness_form:
-    path:     /witness/form
-    defaults: { _controller: AppBundle:FirstFase:newWitness }
-    methods: [POST]
-
-FirstFase_witness:
-    path:  /witness
-    defaults: { _controller: AppBundle:FirstFase:witness }
-
-FirstFase_representant:
-    path:     /representant
-    defaults: { _controller: AppBundle:FirstFase:representant }
-
-Fasedos_areas:
-    path:     /areas
-    defaults: { _controller: AppBundle:FirstFase:areas }
-
-FirstFase_instance:
-    path:     /instance
-    defaults: { _controller: AppBundle:FirstFase:instance }
-
-FirstFase_personal:
-    path:     /personal
-    defaults: { _controller: AppBundle:FirstFase:personal }
+#Set variables in session
+setCookies:
+    path:     /setCookies/{companion}
+    defaults: { _controller: AppBundle:Default:setCookies }
