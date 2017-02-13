@@ -34,7 +34,7 @@ class PersonalDataType extends AbstractType
             ->add('houseNumber', IntegerType::class, array('label' => 'Puerta'))
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
