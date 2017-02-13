@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Direction;
 use AppBundle\Entity\PersonalData;
+use AppBundle\Entity\PersonClass;
 use AppBundle\Form\DirectionType;
 use AppBundle\Form\PersonalDataType;
 use AppBundle\Form\PersonType;
@@ -38,24 +39,30 @@ class BureaucracyController extends Controller
     {
         $personData = new PersonalData();
         $direction = new Direction();
+        $objeto_class = new PersonClass();
 
         $form = $this->createForm(PersonType::class);
 
         switch ($number) {
             case 0:
                 $title = "Tus Datos";
+                $class = 1;
                 break;
             case 1:
                 $title = "Primer Testigo";
+                $class = 2;
                 break;
             case 2:
                 $title = "Segundo Testigo";
+                $class = 2;
                 break;
             case 3:
                 $title = "Tercer Testigo";
+                $class = 2;
                 break;
             case 4:
                 $title = "Representante";
+                $class = 3;
                 break;
             default;
                 $title = "No hay";
@@ -66,8 +73,11 @@ class BureaucracyController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
 
-            $personData = $form["personalData"] -> getData();
-            $direction = $form["direction"] -> getData();
+            $personData2 = $form["personalData"] -> getData();
+            $direction2 = $form["direction"] -> getData();
+
+            //$personData -> setClass($class);
+
             // var_dump($personData);
             // $user = $this->getUser();
             // $personData -> setUsers($user);
@@ -91,8 +101,8 @@ class BureaucracyController extends Controller
             #Fin de guardado de imagen*/
 
              $em = $this->getDoctrine()->getManager();
-             $em->persist($personData);
-             $em->persist($direction);
+             $em->persist($personData2);
+             $em->persist($direction2);
              $em->flush();
 
             return $this->render('AppBundle:Default:testRoom.html.twig');

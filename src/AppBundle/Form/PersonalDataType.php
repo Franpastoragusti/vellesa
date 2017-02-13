@@ -30,7 +30,7 @@ class PersonalDataType extends AbstractType
             ->add('dni', TextType::class, array('label' => 'DNI/NIE'))
             ->add('users')
             ->add('direction', IntegerType::class, array('label' => 'DireccionId','required' => false))
-            ->add('class')
+            ->add('class', IntegerType::class, array('label' => 'Clase','required' => false))
             ->add('houseNumber', IntegerType::class, array('label' => 'Puerta'))
         ;
     }

@@ -436,7 +436,7 @@ class PersonalData
      *
      * @return PersonalData
      */
-    public function setClass(\AppBundle\Entity\PersonClass $class = null)
+    public function setClass(\AppBundle\Entity\PersonClass $class)
     {
         $this->class = $class;
 
