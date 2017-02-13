@@ -36,16 +36,7 @@ class FamilyAreaType extends AbstractType
 
                 )))
 
-            ->add('basicActivities', ChoiceType::class, array(
-
-                'choices'   => array(
-                    'Un familiar o ser querido. Mis preferencias son:'   => 'familiar',
-                    'Un profesional. Mis preferencias son:' => 'Profesional',
-                ),
-                'expanded' => true,
-                'multiple'  => false,
-
-            ))
+            ->add('basicActivities', MultipleTextType::class)
 
             ->add('instrumentActivities', ChoiceType::class, array(
 
