@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
@@ -26,7 +27,17 @@
         </div>
     </div>
     <div>
-      {#formulario  de area#}
+        <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+            {{ form_start(form) }}
+
+                {% set user_id = '' ~ app.user.id %}
+                {{ form_widget(form.user_id, {value : app.user.id,'attr': {'class': 'form-control hidden'}} ) }}
+                <select id="appbundle_healtharea_user_id" name="appbundle_healtharea[user_id]" class="form-control hidden">
+                    <option value="{{user_id}}" selected="true" class="hidden"></option>
+                </select>
+
+            {{ form_end(form) }}
+        </div>
     </div>
 
 {% endblock %}
