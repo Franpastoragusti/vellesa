@@ -7,10 +7,25 @@
     </div>
     <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
         {{ form_start(form) }}
-
         {{ form_end(form) }}
     </div>
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+        $(document).ready(function() {
+            $('#appbundle_familyarea_beloved').append('<button id="moreFamily" type="button" onclick="addFamily()">Añadir más</button>')
+            $('#appbundle_familyarea_beloved').append('<input type="text" id="appbundle_familyarea_beloved_1" name="appbundle_familyarea[beloved][]" required="required" class="form-control">')
+
+        });
+        function addFamily(){
+            $('#appbundle_familyarea_beloved').append('<input type="text" id="appbundle_familyarea_beloved_2" name="appbundle_familyarea[beloved][]" required="required" class="form-control">')
+        };
+
+    </script>
+
+
 {% endblock %}

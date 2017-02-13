@@ -26,7 +26,14 @@ class FamilyAreaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('beloved', TextType::class, array('label' => 'Mis seres queridos más cercanos son:'))
+            ->add('beloved', ChoiceType::class, array(
+                'label' => 'Mis seres queridos más cercanos son:',
+                'expanded' => true,
+                'multiple' => true,
+                'choices' => array(
+
+                )))
+
             ->add('basicActivities', TextType::class, array('label' => 'Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:'))/***TODO***/
             ->add('instrumentActivities', TextType::class, array('label' => 'Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:'))/***TODO***/
             ->add('mentalFaculty', TextType::class, array('label' => 'En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos'))/***TODO***/
