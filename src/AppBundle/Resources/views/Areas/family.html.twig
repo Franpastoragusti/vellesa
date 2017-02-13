@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
@@ -9,7 +10,7 @@
 		        <p></br>Cuando nuestra madre, padre, hermano, hijo o amigo padece una enfermedad grave o terminal se produce una situación de crisis. Emociones como el miedo, la tristeza, la ira, la culpa llenan todo el espacio y además es imprescindible tomar decisiones fundamentales sobre quién, cómo y dónde se va a atender a nuestro ser querido. Se trata de situaciones muy delicadas en las que muchas veces se producen tensiones y conflictos.</br>
 				</p>
 			</div>
-			
+
 			<div class="row col-md-4">
 		        <iframe width="375" height="235" src="https://www.youtube.com/embed/aVKQQcaeGgo" frameborder="0" allowfullscreen></iframe>
 			</div>
@@ -24,11 +25,28 @@
         </div>
 
     </div>
-    <div>
-      {#formulario  de area#}
+    <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+        {{ form_start(form) }}
+        
+        {{ form_end(form) }}
     </div>
-
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+        $(document).ready(function() {
+            $('#appbundle_familyarea_beloved').append('<button id="moreFamily" type="button" onclick="addFamily()">Añadir más</button>')
+            $('#appbundle_familyarea_beloved').append('<input type="text" id="appbundle_familyarea_beloved_1" name="appbundle_familyarea[beloved][]" required="required" class="form-control">')
+
+        });
+        function addFamily(){
+            $('#appbundle_familyarea_beloved').append('<input type="text" id="appbundle_familyarea_beloved_2" name="appbundle_familyarea[beloved][]" required="required" class="form-control">')
+        };
+
+    </script>
+
+
 {% endblock %}

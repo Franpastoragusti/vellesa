@@ -3,10 +3,21 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
+
+
 
 class FamilyAreaType extends AbstractType
 {
@@ -16,22 +27,14 @@ class FamilyAreaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        /*como hemos decidido que mejor hacerlo mediante jsonarray y no tablas aparte al ser datos unicos y
-        no compartidos por mas usuarios.
+        $builder
+            ->add('beloved', ChoiceType::class, array(
+                'label' => 'Mis seres queridos más cercanos son:',
+                'expanded' => true,
+                'multiple' => true,
+                'choices' => array(
 
-        Ocurre lo siguiente:
-
-        - Actuamos desde el form y no entities, por lo que cuando el usuario selecciona un familiar o profesional, deberá ser
-        mediante html donde aparezca tres inputs para que rellene y guardarlos en bbdd como jsonArray, si te parece bien todo correcto
-        sino podemos cambiarlo
-
-        - Montante lo que es el diseño y demás y mientras miro mientras symofony documentation si se puede dar valor a lo seleccionado
-            y etc.
-
-
-        */
-
-        $builder->add('beloved', TextareaType::class)
+                )))
 
             ->add('basicActivities', ChoiceType::class, array(
 
@@ -44,15 +47,6 @@ class FamilyAreaType extends AbstractType
 
             ))
 
-            /*
-             * En este apartado lo que ocurre es que un usario selecciona una de las dos y aparece tres inputs para escribir en
-             *  tres espacios, si elige la tercera aparecerá un input en el que escriba en un textArea
-             */
-
-
-
-
-
             ->add('instrumentActivities', ChoiceType::class, array(
 
                 'choices'   => array(
@@ -64,12 +58,18 @@ class FamilyAreaType extends AbstractType
                 'multiple'  => false,
             ))
 
-            /*
-            * En este apartado lo que ocurre es que un usario selecciona una de las dos y aparece tres inputs para escribir en
-            *  tres espacios, si elige la tercera aparecerá un input en el que escriba en un textArea
-            */
+            ->add('visits', ChoiceType::class, array(
+                'expanded' => true,
+                'multiple' => true,
+                'label' => 'En cuanto a las visitas que voy a recibir, quiero dejar claro:',
+                'choices' => array(
+                    'Agradezco todo tipo de visitas de forma libre.' => 0,
+                    'Todas las visitas deben avisar antes a las personas que me atienden o a mis seres queridos más cercanos, para asegurar que se cumplen mis deseos. Si no lo hacen, no deseo recibirlas.' => 1,
+                    'Deseo que se respete mi intimidad, no quiero tener visitas de ningún tipo mientras como, duermo o realizo tareas relacionadas con el aseo personal.' => 2,
+                    'No deseo recibir visitas más allá de mis seres queridos más cercanos.' => 3,
+                    'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.' => 4,
 
-
+                )))
 
             ->add('mentalFaculty', ChoiceType::class, array(
                 'choices'   => array(
@@ -80,36 +80,14 @@ class FamilyAreaType extends AbstractType
                 'expanded' => true,
                 'multiple'  => false,
             ))
-
-            /*
-            * En este apartado lo que ocurre es que si el usuario selecciona que si, aparecen otros tres text para escribir
-             * si seleciona que no se queda tal cual
-            */
-
-
-
-
-            ->add('visits' , ChoiceType::class, array(
-                'choices'   => array(
-                    'Agradezco todo tipo de visitas' => 'Todasvisitas',
-                    'Todas las visitias deben ser avisadas con antelación '   => 'AvisoVistas',
-                    'Deseo que se respete mi intimidad, no quiero tener visitas de ningun tipo mientras...'   => 'RespetoIntimidad',
-                    'No deseo recibir visitas más alla de mis seres queridos maás cercanos '   => 'NoRecibirVisitas',
-                    'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos'   => 'NodarInfo',
-                ),
-                'expanded' => true,
-                'multiple'  => true,
+            ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
+            ->add('save', SubmitType::class, array(
+                'attr' => array('label' => 'Enviar')
             ))
-
-            /*
-             * En ese apartado puede seleccionar las que quiera no tiene más complejidad
-             */
-
-
-            ->add('observations', TextareaType::class);
+        ;
 
     }
-    
+
     /**
      * {@inheritdoc}
      */
