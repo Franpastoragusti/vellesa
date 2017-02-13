@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -25,6 +27,7 @@ class FamilyAreaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('beloved', ChoiceType::class, array(
                 'label' => 'Mis seres queridos más cercanos son:',
@@ -34,9 +37,28 @@ class FamilyAreaType extends AbstractType
 
                 )))
 
-            ->add('basicActivities', TextType::class, array('label' => 'Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:'))/***TODO***/
-            ->add('instrumentActivities', TextType::class, array('label' => 'Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:'))/***TODO***/
-            ->add('mentalFaculty', TextType::class, array('label' => 'En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos'))/***TODO***/
+            ->add('basicActivities', ChoiceType::class, array(
+
+                'choices'   => array(
+                    'Un familiar o ser querido. Mis preferencias son:'   => 'familiar',
+                    'Un profesional. Mis preferencias son:' => 'Profesional',
+                ),
+                'expanded' => true,
+                'multiple'  => false,
+
+            ))
+
+            ->add('instrumentActivities', ChoiceType::class, array(
+
+                'choices'   => array(
+                    'Un familiar o ser querido. Mis preferencias son:'   => 'familiar',
+                    'Un profesional. Mis preferencias son:' => 'Profesional',
+                    'otros:' => 'otros',
+                ),
+                'expanded' => true,
+                'multiple'  => false,
+            ))
+            
             ->add('visits', ChoiceType::class, array(
                 'expanded' => true,
                 'multiple' => true,
@@ -49,11 +71,22 @@ class FamilyAreaType extends AbstractType
                     'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.' => 4,
 
                 )))
+
+            ->add('mentalFaculty', ChoiceType::class, array(
+                'choices'   => array(
+                    'Sí'   => 'si',
+                    'No' => 'no',
+
+                ),
+                'expanded' => true,
+                'multiple'  => false,
+            ))
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
             ->add('save', SubmitType::class, array(
                 'attr' => array('label' => 'Enviar')
             ))
         ;
+
     }
     
     /**

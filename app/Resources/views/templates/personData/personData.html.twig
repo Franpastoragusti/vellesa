@@ -67,15 +67,30 @@
                 {{ form_widget(form.personalData.houseNumber, {'id': "street_number",'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(form.personalData.houseNumber) }}
             </div>
+
             <div class="form-group col-md-4">
-              {{ form_widget(form.personalData.users, {value : app.user.id} ) }}
+              {% set user_id = '' ~ app.user.id %}
+              {{ form_widget(form.personalData.users, {value : app.user.id, 'attr': {'class': 'form-control hidden'}} ) }}
+              <select id="person_form_personalData_users" name="person_form[personalData][users]" class="form-control hidden">
+                <option value="{{user_id}}" selected="true" class="hidden"></option>
+              </select>
+            </div>
+
+            <!-- <div class="form-group col-md-4">
+              {#{ form_widget(form.personalData.class, {'id': "type",'attr': {'class': 'form-control hidden'}}) }#}
+              <select id="class" name="person_form[personalData][class]" class="form-control hidden">
+                <option value=1 selected="true" class="hidden"></option>
+              </select>
+            </div> -->
+
+            <div class="form-group col-md-4">
+                {{ form_widget(form.personalData.class, {'id': "class",'attr': {'class': 'form-control hidden'}}) }}
             </div>
     </fieldset>
 
     <div class="form-group">
 
         {{ form_widget(form.personalData.direction, {'id': "direction",'attr': {'class': 'form-control hidden'}}) }}
-        {{ form_widget(form.personalData.class, {'id': "type",'attr': {'class': 'form-control hidden'}}) }}
         {{ form_widget(form.personalData.number, {'id': "number",'attr': { 'class': 'form-control hidden','value': number }}) }}
 
     </div>
