@@ -80,15 +80,20 @@ class BureaucracyController extends Controller
 
 
            $em = $this->getDoctrine()->getManager();
-
+           //Obtenemos el usuario
+            $user = $this->getUser();
            //obtenemos la referencia de la clase
            $class = $em->getReference('AppBundle\Entity\PersonClass', $number);
+
            //Seteamos la clase
            $personData->setPersonclassId($class);
            //seteamos el nombre del DNI
             $personData->setDni($fileName);
-            //Seteamos el id_direccion de persona en la tabla PersonalData
+            //Seteamos el id_direccion
             $personData->setDirection($direction);
+            //Seteamos el user_id_direccion
+            $personData->setUsers($user);
+
 
            //Seteamos los nuevos datos en las tablas
            $em->persist($direction);

@@ -68,15 +68,6 @@
                 {{ form_errors(form.personalData.houseNumber) }}
             </div>
 
-            <div class="form-group col-md-4">
-              {% set user_id = '' ~ app.user.id %}
-              {{ form_widget(form.personalData.users, {value : app.user.id, 'attr': {'class': 'form-control hidden'}} ) }}
-              <select id="person_form_personalData_users" name="person_form[personalData][users]" class="form-control hidden">
-                <option value="{{user_id}}" selected="true" class="hidden"></option>
-              </select>
-            </div>
-
-
 
     </fieldset>
 
