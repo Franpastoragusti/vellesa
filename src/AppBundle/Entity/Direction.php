@@ -28,12 +28,6 @@ class Direction
      * @ORM\Column(name="cp", type="integer")
      *
      * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 5,
-     *      minMessage = "El codigo postal debe tener una longitud de  {{ limit }} números",
-     *      maxMessage = "El codigo postal debe contener un máximo de  {{ limit }} números"
-     * )
      */
 
     private $cp;

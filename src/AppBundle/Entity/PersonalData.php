@@ -34,20 +34,10 @@ class PersonalData
     private $direction;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PersonClass")
-     * @ORM\JoinColumn(name="personclass_id", referencedColumnName="id")
-     */
-    private $class;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Regex(
-     *     pattern = "/([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]{2,15}[\s]?)/",
-     *     message = "EL nombre que ha escrito tiene menos de 4 caracteres"
-     * )
      */
     private $name;
 
@@ -56,10 +46,6 @@ class PersonalData
      *
      * @ORM\Column(name="surname", type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Regex(
-     *     pattern = "/([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]{2,15}[\s]?)/",
-     *     message = "EL apellido que ha escrito tiene menos de 4 caracteres"
-     * )
      */
     private $surname;
 
@@ -85,13 +71,11 @@ class PersonalData
     private $phone;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="number", type="integer")
-     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="PersonClass")
+     * @ORM\JoinColumn(name="personclass_id", referencedColumnName="id")
      */
 
-    private $number;
+    private $personclass_id;
 
     /**
      * @var int
@@ -245,29 +229,6 @@ class PersonalData
         return $this->city;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return PersonalData
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * Set phone
@@ -380,30 +341,6 @@ class PersonalData
         return $this;
     }
 
-    /**
-     * Set number
-     *
-     * @param integer $number
-     *
-     * @return PersonalData
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * Get number
-     *
-     * @return integer
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
 
     /**
      * Set direction
@@ -429,29 +366,6 @@ class PersonalData
         return $this->direction;
     }
 
-    /**
-     * Set class
-     *
-     * @param \AppBundle\Entity\PersonClass $class
-     *
-     * @return PersonalData
-     */
-    public function setClass(\AppBundle\Entity\PersonClass $class)
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Get class
-     *
-     * @return \AppBundle\Entity\PersonClass
-     */
-    public function getClass()
-    {
-        return $this->class;
-    }
 
     /**
      * Set houseNumber
@@ -475,5 +389,29 @@ class PersonalData
     public function getHouseNumber()
     {
         return $this->houseNumber;
+    }
+
+    /**
+     * Set personclassId
+     *
+     * @param \AppBundle\Entity\PersonClass $personclassId
+     *
+     * @return PersonalData
+     */
+    public function setPersonclassId(\AppBundle\Entity\PersonClass $personclassId = null)
+    {
+        $this->personclass_id = $personclassId;
+
+        return $this;
+    }
+
+    /**
+     * Get personclassId
+     *
+     * @return \AppBundle\Entity\PersonClass
+     */
+    public function getPersonclassId()
+    {
+        return $this->personclass_id;
     }
 }

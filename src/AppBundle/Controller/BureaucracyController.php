@@ -37,32 +37,24 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-        $personData = new PersonalData();
-        $direction = new Direction();
-        $objeto_class = new PersonClass();
 
         $form = $this->createForm(PersonType::class);
 
         switch ($number) {
             case 0:
                 $title = "Tus Datos";
-                $class = 1;
                 break;
             case 1:
                 $title = "Primer Testigo";
-                $class = 2;
                 break;
             case 2:
                 $title = "Segundo Testigo";
-                $class = 2;
                 break;
             case 3:
                 $title = "Tercer Testigo";
-                $class = 2;
                 break;
             case 4:
                 $title = "Representante";
-                $class = 3;
                 break;
             default;
                 $title = "No hay";
@@ -72,48 +64,42 @@ class BureaucracyController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $personData2 = $form["personalData"] -> getData();
-            $direction2 = $form["direction"] -> getData();
+            //Obtenemos repositorios para los inserts
+            $repositoryClass = $this->getDoctrine()->getRepository('AppBundle:PersonClass');
 
-            //$personData -> setClass($class);
+            //Obtenemos los datos del formulario
+            $personData = $form["personalData"] -> getData();
+            $direction = $form["direction"] -> getData();
 
-            // var_dump($personData);
-            // $user = $this->getUser();
-            // $personData -> setUsers($user);
+            //Obtenemos la clase de persona en funcion del number de GET
+            $class = $repositoryClass->find($number);
 
-            /***TODO setear number como classId('class') **/
-            /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
-            /***TODO setear nombre de imagen en BBDD ('dni'), archivar imagen en directorio **/
-            /***TODO setear resto de datos **/
-            /***TODO redirigir a 'Bureaucracy_menu' **/
 
-            #Guardar imagen
-            $file = $form['personalData']['dni']->getData();
-
-            $extension =  $file->guessExtension();
-
-            if (!$extension) {
-                // extension cannot be guessed
-                $extension = 'jpg';
-            }
-
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //Guardamos el nombre de la iamgen en BBDD y la imagen en una carpeta
+            $file = $personData->getDni();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
             $file->move(
-                  $this->getParameter('dni_directory'),
-                  $fileName
-              );
-              //$form['personalData']['dni']->setData($fileName);
-              $personData->setDni($fileName);
-              $personData2 = $form["personalData"][$personData->getDni()];
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
 
-            #Fin de guardado de imagen
+            //seteamos el nombre del DNI
+            $personData->setDni($fileName);
 
-             $em = $this->getDoctrine()->getManager();
-             $em->persist($personData2);
-             $em->persist($direction2);
-             $em->flush();
+            //Seteamos la clase de persona en la tabla PersonalData
+            $personData->setPersonclassId($class);
 
-            return $this->render('AppBundle:Default:testRoom.html.twig');
+            //Seteamos el id_direccion de persona en la tabla PersonalData
+            $personData->setDirection($direction);
+
+
+           $em = $this->getDoctrine()->getManager();
+
+           //Seteamos los nuevos datos
+           $em->persist($direction);
+           $em->persist($personData);
+           $em->flush();
+          return $this->redirect("/app/bureaucracy/");
         }
 
 
