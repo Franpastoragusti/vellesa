@@ -22,12 +22,24 @@ class FamilyArea
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user_id;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="beloved", type="json_array")
      */
     private $beloved;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="profesionals", type="json_array")
+     */
+    private $profesionals;
 
     /**
      * @var int
@@ -217,6 +229,31 @@ class FamilyArea
     public function getObservations()
     {
         return $this->observations;
+    }
+
+
+    /**
+     * Set userId
+     *
+     * @param \AppBundle\Entity\User $userId
+     *
+     * @return FamilyArea
+     */
+    public function setUserId(\AppBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
     }
 
     /**

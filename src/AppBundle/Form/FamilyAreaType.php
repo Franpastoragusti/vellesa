@@ -32,8 +32,11 @@ class FamilyAreaType extends AbstractType
                 'label' => 'Mis seres queridos más cercanos son:(ordenalos por preferencia)'
             ))
 
+            ->add('profesionals', TextType::class)
+
             ->add('basicActivities', ChoiceType::class, array(
                 'label' => ' Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:',
+                'label_attr' => array('class' => 'addd'),
                 'choices'   => array(
                     'Un familiar o ser querido. Mis preferencias son:'   => 0,
                     'Un profesional. Mis preferencias son:' => 1,
@@ -78,7 +81,6 @@ class FamilyAreaType extends AbstractType
                     'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.' => 4,
 
                 )))
-
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
             ->add('save', SubmitType::class, array(
                 'attr' => array('label' => 'Enviar')
