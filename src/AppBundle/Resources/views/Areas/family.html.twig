@@ -26,7 +26,11 @@
     </div>
     <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
         {{ form_start(form) }}
-        
+            <div class="form-group" id="beloved">
+                {{ form_label(form.beloved) }}
+                {{ form_widget(form.beloved, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.beloved) }}
+            </div>
         {{ form_end(form) }}
     </div>
 {% endblock %}
@@ -36,7 +40,16 @@
 {% block javascripts %}
     <script>
 
-
+        var familiars = 0;
+        $(document).ready(function(){
+            $('#beloved input').remove()
+            $('#beloved').append('<button type="text" id="appbundle_familyarea_beloved_button" onclick="addMoreFamily()">Añadir mas</button>')
+            $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control'>")
+        })
+        function addMoreFamily(){
+            familiars++;
+            $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control'>")
+        }
 
     </script>
 

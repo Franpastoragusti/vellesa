@@ -36,12 +36,16 @@ class AreasController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
-            $empresa = $form->getData();
+            $familyData = $form->getData();
 
+
+
+
+            var_dump($familyData);
             // ... perform some action, such as saving the task to the database
             // for example, if Task is a Doctrine entity, save it!
             $em = $this->getDoctrine()->getManager();
-            $em->persist($empresa);
+            $em->persist($familyData);
             $em->flush();
 
             return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));

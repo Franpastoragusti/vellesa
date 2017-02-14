@@ -30,6 +30,13 @@ class FamilyArea
 
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="profesionals", type="json_array")
+     */
+    private $profesionals;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="basicActivities", type="integer")
@@ -218,28 +225,5 @@ class FamilyArea
     {
         return $this->observations;
     }
-
-    /**
-     * Set profesionals
-     *
-     * @param array $profesionals
-     *
-     * @return FamilyArea
-     */
-    public function setProfesionals($profesionals)
-    {
-        $this->profesionals = $profesionals;
-
-        return $this;
-    }
-
-    /**
-     * Get profesionals
-     *
-     * @return array
-     */
-    public function getProfesionals()
-    {
-        return $this->profesionals;
-    }
 }
+
