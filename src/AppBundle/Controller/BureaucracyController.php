@@ -72,7 +72,6 @@ class BureaucracyController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
             $personData2 = $form["personalData"] -> getData();
             $direction2 = $form["direction"] -> getData();
 
@@ -88,17 +87,26 @@ class BureaucracyController extends Controller
             /***TODO setear resto de datos **/
             /***TODO redirigir a 'Bureaucracy_menu' **/
 
-            /*#Guardar imagen
-                $file = $form['personalData']['dni']->getData();
+            #Guardar imagen
+            $file = $form['personalData']['dni']->getData();
 
-                $extension =  $file->guessExtension();
+            $extension =  $file->guessExtension();
 
-                if (!$extension) {
-                    // extension cannot be guessed
-                    $extension = 'jpg';
-                }
-                $file->move('dni_directory', rand(1, 99999).'.'.$extension);
-            #Fin de guardado de imagen*/
+            if (!$extension) {
+                // extension cannot be guessed
+                $extension = 'jpg';
+            }
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                  $this->getParameter('dni_directory'),
+                  $fileName
+              );
+              //$form['personalData']['dni']->setData($fileName);
+              $personData->setDni($fileName);
+              $personData2 = $form["personalData"][$personData->getDni()];
+
+            #Fin de guardado de imagen
 
              $em = $this->getDoctrine()->getManager();
              $em->persist($personData2);
