@@ -64,16 +64,9 @@ class BureaucracyController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //Obtenemos repositorios para los inserts
-            $repositoryClass = $this->getDoctrine()->getRepository('AppBundle:PersonClass');
-
             //Obtenemos los datos del formulario
             $personData = $form["personalData"] -> getData();
             $direction = $form["direction"] -> getData();
-
-            //Obtenemos la clase de persona en funcion del number de GET
-            $class = $repositoryClass->find($number);
-
 
             //Guardamos el nombre de la iamgen en BBDD y la imagen en una carpeta
             $file = $personData->getDni();
@@ -83,19 +76,21 @@ class BureaucracyController extends Controller
                 $fileName
             );
 
-            //seteamos el nombre del DNI
-            $personData->setDni($fileName);
 
-            //Seteamos la clase de persona en la tabla PersonalData
-            $personData->setPersonclassId($class);
-
-            //Seteamos el id_direccion de persona en la tabla PersonalData
-            $personData->setDirection($direction);
 
 
            $em = $this->getDoctrine()->getManager();
 
-           //Seteamos los nuevos datos
+           //obtenemos la referencia de la clase
+           $class = $em->getReference('AppBundle\Entity\PersonClass', $number);
+           //Seteamos la clase
+           $personData->setPersonclassId($class);
+           //seteamos el nombre del DNI
+            $personData->setDni($fileName);
+            //Seteamos el id_direccion de persona en la tabla PersonalData
+            $personData->setDirection($direction);
+
+           //Seteamos los nuevos datos en las tablas
            $em->persist($direction);
            $em->persist($personData);
            $em->flush();
@@ -111,6 +106,6 @@ class BureaucracyController extends Controller
 
     }
 
-    
+
 
 }
