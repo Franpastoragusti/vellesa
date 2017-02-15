@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
+{% endblock %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
@@ -42,6 +45,22 @@
 
 
     </div>
+    {% block javascripts %}
+
+
+        <script src="{{ asset('js/FormDecorator.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                FormDecorator.addIconForInfoLabels()
+                FormDecorator.setClassButtonSubmit()
+            })
+
+        </script>
+
+
+
+
+    {% endblock %}
 
 
 

@@ -23,7 +23,7 @@ class FormDecorator {
     static offerInfo(icon, event){
 
         if (!$('#info').length) {
-            $(icon).parent('div').prepend("<audio id='player' src='audio_directory/Heathens.m4a'> </audio>");
+            $(icon).parent('div').prepend("<audio id='player' src='http://upload.wikimedia.org/wikipedia/commons/f/f2/Median_test.ogg'> </audio>");
             $(icon).parent('div').prepend("<div id='info' class='panel panel-default'><div class='panel-body'>texto de ayuda<i id='audioController' class='fa fa-volume-up fa-2x pull-right' aria-hidden='true'></i></div></div>")
         }else{
             $('#info').remove();
@@ -32,22 +32,24 @@ class FormDecorator {
     }
 
 
+    static setClassButtonSubmit(){
+        $('button[type="submit"]').addClass('btn btn-warning start')
+    }
+
+
     static audioManager(){
 
         var playing = false;
 
         $('#audioController').click(function() {
-            $(this).toggleClass("down");
 
             if (playing == false) {
-                document.getElementById('player').play();
+                $('player').play();
                 playing = true;
-                $(this).text("Parar Sonido");
 
             } else {
-                document.getElementById('player').pause();
+                $('player').pause();
                 playing = false;
-                $(this).text("Reiniciar Sonido");
             }
 
         });

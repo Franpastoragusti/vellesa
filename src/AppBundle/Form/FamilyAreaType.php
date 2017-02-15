@@ -32,7 +32,7 @@ class FamilyAreaType extends AbstractType
                 'label' => 'Mis seres queridos más cercanos son:(ordenalos por preferencia)'
             ))
 
-            ->add('profesionals', TextType::class)
+            ->add('profesionals', HiddenType::class)
 
             ->add('basicActivities', ChoiceType::class, array(
                 'label' => ' Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:',

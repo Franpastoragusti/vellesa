@@ -64,6 +64,7 @@ class AreasController extends Controller
 
 
             $familyData = $form->getData();
+            $user = $this->getUser();
             $familyData->setUserId($user);
 
 

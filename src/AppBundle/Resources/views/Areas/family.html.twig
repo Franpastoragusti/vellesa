@@ -1,5 +1,8 @@
 {% extends '::base.html.twig' %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
+{% endblock %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
@@ -31,8 +34,6 @@
                 {{ form_widget(form.beloved, {'attr': {'class': 'form-control'}}) }}
                 {{ form_errors(form.beloved) }}
             </div>
-
-
 
         {{ form_end(form) }}
     </div>
@@ -74,6 +75,16 @@
 //
 
     </script>
+
+    <script src="{{ asset('js/FormDecorator.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            FormDecorator.addIconForInfoLabels()
+            FormDecorator.setClassButtonSubmit()
+        })
+
+    </script>
+
 
 
 {% endblock %}
