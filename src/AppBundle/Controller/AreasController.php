@@ -4,16 +4,36 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\FamilyArea;
 use AppBundle\Entity\Person;
+use AppBundle\Entity\HealthArea;
 use AppBundle\Form\FamilyAreaType;
+use AppBundle\Form\HealthAreaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class AreasController extends Controller
 {
-    public function healthAction()
+    public function healthAction(Request $request)
     {
-      return $this->render('AppBundle:Areas:health.html.twig');
+        $healthData = new HealthArea();
+
+        $form = $this->createForm(HealthAreaType::class,$healthData);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $healthData = $form->getData();
+
+            /***TODO Controlar error**/
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($healthData);
+            $em->flush();
+
+            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+
+        }
+
+        return $this->render('AppBundle:Areas:health.html.twig', array('form' => $form->createView()));
     }
 
     public function enviromentAction()
