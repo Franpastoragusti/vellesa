@@ -32,6 +32,7 @@
     </div>
     <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
         {{ form_start(form) }}
+
             <div class="form-group" id="beloved">
                 {{ form_label(form.beloved) }}
                 {{ form_widget(form.beloved, {'attr': {'class': 'form-control'}}) }}
@@ -43,6 +44,11 @@
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
+  <script type="text/javascript">
+  var texto = "Hola esto es una prueba de familia"
+    assistant.appAnswer(texto);
+    assistant.showAppLongMessage("Esto es un mensaje laaargo", 15);
+  </script>
 {% endblock %}
 {% block javascripts %}
     <script>
