@@ -9,6 +9,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: es
+    dni_directory: '%kernel.root_dir%/../app/dni'
+    audio_directory: '%kernel.root_dir%/../app/audio'
 
 framework:
     translator: { fallbacks: [es] }

@@ -1,7 +1,3 @@
-#texto_user{
-  margin: 5px 50px 0 0;
-}
-
 #div_tiempo_user{
   margin-right: 21%;
 }
@@ -11,6 +7,15 @@
   right: 3%;
   bottom: 3%;
   z-index: 999;
+}
+
+#imgPrueba{
+  border: 1px solid #fff;
+  background: #3f9684  none repeat scroll 0 0;
+  border-radius: 50%;
+  float: right;
+  height: 40px;
+  width: 40px;
 }
 
 .assistant_img{
@@ -146,17 +151,13 @@
     width: 21px;
 }
 
-
-
-
-
 .popup-messages {
     background: rgba(248, 182, 103, 0.6) none repeat scroll 0 0;
     height: 275px;
     overflow: auto;
 }
 .direct-chat-messages {
-    overflow: auto;
+    overflow: hidden;
     padding: 10px;
     transform: translate(0px, 0px);
 }
@@ -210,9 +211,7 @@
     position: relative;
     text-align: center;
 }
-.popup-messages .direct-chat-messages {
-    height: 100%;
-}
+
 .popup-messages .direct-chat-text {
     background: #dfece7 none repeat scroll 0 0;
     border: 1px solid #dfece7;

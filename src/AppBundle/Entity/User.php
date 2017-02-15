@@ -15,8 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\OneToOne(targetEntity="Representant")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToOne(targetEntity="HealthArea")
      */
 
     protected $id;

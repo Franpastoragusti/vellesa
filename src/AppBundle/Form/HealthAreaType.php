@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,7 +23,7 @@ class HealthAreaType extends AbstractType
              * El usuario deberá seleccionar lo que mas le interese
              */
             ->add('decideMyself', ChoiceType::class, array(
-
+                'label' => 'Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:',
                 'choices'   => array(
                     'Para mi es fundamental la calidad, la dignidad de mi vida y el confort'   => 'calidad',
                     'Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.' => 'soportevital',
@@ -34,8 +36,7 @@ class HealthAreaType extends AbstractType
 
                 ),
                 'expanded' => true,
-                'multiple'  => false,
-
+                'multiple'  => true,
             ))
 
             /*
@@ -43,10 +44,10 @@ class HealthAreaType extends AbstractType
              */
 
             ->add('knowAll', ChoiceType::class, array(
+                'label' => 'Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.',
                 'choices' => array(
                     'si' => true,
                     'no' => false,
-
                 ),
 
                 'expanded' => true,
@@ -59,14 +60,16 @@ class HealthAreaType extends AbstractType
                         return strtoupper($key);
                     }
 
-
-                },))
+                },
+            ))
 
 
             /*
             * El usuario deberá completar un campo de texto
             */
-            ->add('personInCharge', TextareaType::class)
+            ->add('personInCharge', TextType::class, array(
+                'label'=>'Quiero que la persona encargada de mis asuntos de salud sea:'
+            ))
 
 
 
@@ -75,6 +78,7 @@ class HealthAreaType extends AbstractType
             */
 
             ->add('beloved', ChoiceType::class, array(
+                'label' => 'Quiero que mis seres queridos más cercanos sepan todo sobre mi estado de salud y progreso.',
                 'choices' => array(
                     'si' => true,
                     'no' => false,
@@ -82,22 +86,19 @@ class HealthAreaType extends AbstractType
                 ),
 
                 'expanded' => true,
-                'multiple'  => false,
+                'multiple'  => false
 
-                'choice_label' => function ($value, $key, $index) {
-                    if ($value == true) {
-                        return strtoupper($key);
-                    }else{
-                        return strtoupper($key);
-                    }
-
-
-                },))
+            ))
 
             /*
             * El usuario deberá completar un campo de texto
             */
-            ->add('observations', TextareaType::class);
+            ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
+            ->add('save', SubmitType::class, array(
+                'attr' => array(
+                    'label' => 'Enviar'
+                )))
+            ;
     }
     
     /**

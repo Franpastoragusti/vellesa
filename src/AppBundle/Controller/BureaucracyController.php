@@ -37,75 +37,77 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-        $personData = new PersonalData();
-        $direction = new Direction();
-        $objeto_class = new PersonClass();
 
         $form = $this->createForm(PersonType::class);
 
+
         switch ($number) {
-            case 0:
-                $title = "Tus Datos";
-                $class = 1;
-                break;
             case 1:
-                $title = "Primer Testigo";
-                $class = 2;
+                $title = "Tus Datos";
                 break;
             case 2:
-                $title = "Segundo Testigo";
-                $class = 2;
+                $title = "Primer Testigo";
                 break;
             case 3:
-                $title = "Tercer Testigo";
-                $class = 2;
+                $title = "Segundo Testigo";
                 break;
             case 4:
+                $title = "Tercer Testigo";
+                break;
+            case 5:
                 $title = "Representante";
-                $class = 3;
                 break;
             default;
                 $title = "No hay";
         }
 
+        //Adaptamos number al tipo de persona
+        if ($number > 1 && $number < 5 )
+            $number = 2;
+
+        if ($number == 5 )
+            $number = 3;
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            //Obtenemos los datos del formulario
+            $personData = $form["personalData"] -> getData();
+            $direction = $form["direction"] -> getData();
 
-            $personData2 = $form["personalData"] -> getData();
-            $direction2 = $form["direction"] -> getData();
+            //Guardamos el nombre de la iamgen en BBDD y la imagen en una carpeta
+            $file = $personData->getDni();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move(
+                $this->getParameter('dni_directory'),
+                $fileName
+            );
 
-            //$personData -> setClass($class);
 
-            // var_dump($personData);
-            // $user = $this->getUser();
-            // $personData -> setUsers($user);
 
-            /***TODO setear number como classId('class') **/
-            /***TODO setear segun province,cp,city,route el directionId('direction') hacer si existe getID sino set de todos los campos de directionType **/
-            /***TODO setear nombre de imagen en BBDD ('dni'), archivar imagen en directorio **/
-            /***TODO setear resto de datos **/
-            /***TODO redirigir a 'Bureaucracy_menu' **/
 
-            /*#Guardar imagen
-                $file = $form['personalData']['dni']->getData();
+           $em = $this->getDoctrine()->getManager();
+           //Obtenemos el usuario
+            $user = $this->getUser();
+           //obtenemos la referencia de la clase
+           $class = $em->getReference('AppBundle\Entity\PersonClass', $number);
 
-                $extension =  $file->guessExtension();
+           //Seteamos la clase
+           $personData->setPersonclassId($class);
+           //seteamos el nombre del DNI
+            $personData->setDni($fileName);
+            //Seteamos el id_direccion
+            $personData->setDirection($direction);
+            //Seteamos el user_id_direccion
+            $personData->setUsers($user);
 
-                if (!$extension) {
-                    // extension cannot be guessed
-                    $extension = 'jpg';
-                }
-                $file->move('dni_directory', rand(1, 99999).'.'.$extension);
-            #Fin de guardado de imagen*/
 
-             $em = $this->getDoctrine()->getManager();
-             $em->persist($personData2);
-             $em->persist($direction2);
-             $em->flush();
-
-            return $this->render('AppBundle:Default:testRoom.html.twig');
+           //Seteamos los nuevos datos en las tablas
+           $em->persist($direction);
+           $em->persist($personData);
+           $em->flush();
+          return $this->redirect("/app/bureaucracy/");
         }
 
 
@@ -118,73 +120,5 @@ class BureaucracyController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-    public function testAction($number, Request $request)
-    {
-
-        switch ($number) {
-            case 0:
-                $title = "Tus Datos";
-                break;
-            case 1:
-                $title = "Primer Testigo";
-                break;
-            case 2:
-                $title = "Segundo Testigo";
-                break;
-            case 3:
-                $title = "Tercer Testigo";
-                break;
-            case 4:
-                $title = "Representante";
-                break;
-        }
-
-        $personData = new PersonalData();
-        $direction = new Direction();
-        $form = $this->createForm(PersonalDataType::class, $personData);
-        $form->handleRequest($request);
-
-        $formDir = $this->createForm(DirectionType::class, $direction);
-        $formDir->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-
-
-            //setear (number,users,class,direction)
-
-            $file = $personData->getDnifront();
-            $file2 = $personData->getDnibehind();
-            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-            $fileName2 = md5(uniqid()) . '.' . $file2->guessExtension();
-            $file->move(
-                $this->getParameter('dni_directory'),
-                $fileName
-            );
-            $file2->move(
-                $this->getParameter('dni_directory'),
-                $fileName2
-            );
-            $personData->setDnifront($fileName);
-            $personData->setDnibehind($fileName);
-            $personData = $form->getData();
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($personData);
-            $em->flush();
-
-            return $this->redirectToRoute('');
-        }
-    }
 
 }

@@ -255,28 +255,4 @@ class FamilyArea
     {
         return $this->user_id;
     }
-
-    /**
-     * Set profesionals
-     *
-     * @param array $profesionals
-     *
-     * @return FamilyArea
-     */
-    public function setProfesionals($profesionals)
-    {
-        $this->profesionals = $profesionals;
-
-        return $this;
-    }
-
-    /**
-     * Get profesionals
-     *
-     * @return array
-     */
-    public function getProfesionals()
-    {
-        return $this->profesionals;
-    }
 }

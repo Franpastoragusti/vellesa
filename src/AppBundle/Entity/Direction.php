@@ -28,12 +28,6 @@ class Direction
      * @ORM\Column(name="cp", type="integer")
      *
      * @Assert\NotBlank()
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 5,
-     *      minMessage = "El codigo postal debe tener una longitud de  {{ limit }} números",
-     *      maxMessage = "El codigo postal debe contener un máximo de  {{ limit }} números"
-     * )
      */
 
     private $cp;
@@ -62,6 +56,15 @@ class Direction
      */
     private $route;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="houseNumber", type="integer")
+     * @Assert\NotBlank()
+     */
+
+    private $houseNumber;
 
     /**
      * Get id
@@ -167,5 +170,29 @@ class Direction
     public function getRoute()
     {
         return $this->route;
+    }
+
+    /**
+     * Set houseNumber
+     *
+     * @param integer $houseNumber
+     *
+     * @return Direction
+     */
+    public function setHouseNumber($houseNumber)
+    {
+        $this->houseNumber = $houseNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get houseNumber
+     *
+     * @return integer
+     */
+    public function getHouseNumber()
+    {
+        return $this->houseNumber;
     }
 }
