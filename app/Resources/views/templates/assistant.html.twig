@@ -23,14 +23,22 @@
 
     </div>
 
+    <div class="direct-chat-messages" id="mensaje_user">
+        <div class="direct-chat-text" id="texto_user">
+        </div>
+        <div class="direct-chat-info clearfix" id="div_tiempo_user">
+          <span class="direct-chat-timestamp pull-right" id="tiempo_user"></span>
+        </div>
+    </div>
+
     <div class="popup-messages">
-        <div class="direct-chat-messages">
+        <div class="direct-chat-messages" id="mensajeApp1">
             <!-- Message. Default to the left -->
             <div class="direct-chat-info clearfix">
                 <span class="direct-chat-name pull-left">{{ companion_name }}</span>
             </div>
             <!-- /.direct-chat-info -->
-            <img alt="iamgurdeeposahan" src="{{ companion_img }}" class="direct-chat-img">
+            <img alt="" src="{{ companion_img }}" class="direct-chat-img">
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text" id="texto_app">
                 <!--Añadir texto con js-->
@@ -38,14 +46,12 @@
             <div class="direct-chat-info clearfix">
                 <span class="direct-chat-timestamp pull-right" id="tiempo_app"></span>
             </div>
+        </div>
             <!-- /.direct-chat-msg -->
-            <div class="direct-chat-messages" id="popup_user">
-                <div class="direct-chat-text" id="texto_user">
-                </div>
-                <div class="direct-chat-info clearfix" id="div_tiempo_user">
-                    <span class="direct-chat-timestamp pull-right" id="tiempo_user"></span>
-                </div>
-            </div>
+
+        <div id="respuestaPuntos" class="pull-right hidden">
+            <p class="col-md-3">...</p>
+            <img alt="" src="{{ companion_img }}" id="imgPrueba">
         </div>
         <div class="popup-messages-footer">
             <textarea placeholder="Escribe tu mensaje" rows="20" cols="40" name="message" id="textoEscritoUser"></textarea>
@@ -57,4 +63,12 @@
 
     {% block javascripts %}
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/js/class.assistant.js') }}"></script>
+        <script type="text/javascript">
+          var assistant = new Assistant();
+          assistant.showAssistant();
+          assistant.customAnswer();
+          //assistant.answerDots();
+        </script>
     {% endblock %}

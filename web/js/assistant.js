@@ -32,7 +32,7 @@ function responder() {
             popupUser.css("display", "block");
             textoUser.append("<p>" + textAreaUser + "</p>");
             $("#textoEscritoUser").val("");
-            //responderPuntos().delay(4000);
+            setTimeout(function(){ textoUser.append("<p>...</p>"); }, 3000);
             tiempo = new Date();
             hora = tiempo.getHours();
             minuto = tiempo.getMinutes();
