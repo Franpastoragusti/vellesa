@@ -26,8 +26,6 @@ class BureaucracyController extends Controller
             return $this->render('AppBundle:Bureaucracy:index.html.twig');
     }
 
-
-
     public function instanceAction()
     {
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
@@ -37,9 +35,13 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
+        $users = $this->getUser()->getId();
+        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneByusers($users);
 
-        $form = $this->createForm(PersonType::class);
-
+        //Si no encuentra registro de que el usuario ya ha hecho el formulario
+        if ($personalData == null) {
+            $form = $this->createForm(PersonType::class);
+         }
 
         switch ($number) {
             case 1:
@@ -84,26 +86,22 @@ class BureaucracyController extends Controller
                 $fileName
             );
 
-
-
-
            $em = $this->getDoctrine()->getManager();
            //Obtenemos el usuario
-            $user = $this->getUser();
+           $user = $this->getUser();
            //obtenemos la referencia de la clase
            $class = $em->getReference('AppBundle\Entity\PersonClass', $number);
 
            //Seteamos la clase
            $personData->setPersonclassId($class);
            //seteamos el nombre del DNI
-            $personData->setDni($fileName);
-            //Seteamos el id_direccion
-            $personData->setDirection($direction);
-            //Seteamos el user_id_direccion
-            $personData->setUsers($user);
+           $personData->setDni($fileName);
+           //Seteamos el id_direccion
+           $personData->setDirection($direction);
+           //Seteamos el user_id_direccion
+           $personData->setUsers($user);
 
-
-           //Seteamos los nuevos datos en las tablas
+            //Seteamos los nuevos datos en las tablas
            $em->persist($direction);
            $em->persist($personData);
            $em->flush();

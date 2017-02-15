@@ -15,27 +15,34 @@ class AreasController extends Controller
 {
     public function healthAction(Request $request)
     {
-        $healthData = new HealthArea();
+        $userId = $this->getUser()->getId();
+        $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
 
-        $form = $this->createForm(HealthAreaType::class,$healthData);
+        //Si no encuentra registro de que el usuario ya ha hecho el formulario
+        if ($healthData == null) {
+            $healthData = new HealthArea();
+         }
 
-        $form->handleRequest($request);
+          $form = $this->createForm(HealthAreaType::class,$healthData);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+          $form->handleRequest($request);
 
-            $healthData = $form->getData();
+          if ($form->isSubmitted() && $form->isValid()) {
 
-            $user = $this->getUser();
-            $healthData->setUserId($user);
+                $healthData = $form->getData();
 
-            /***TODO Controlar error**/
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($healthData);
-            $em->flush();
+                $user = $this->getUser();
+                $healthData->setUserId($user);
+                var_dump($user);
 
-            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+                /***TODO Controlar error**/
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($healthData);
+                $em->flush();
 
-        }
+                return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+                //return $this->redirectToRoute('test_room', array('status'=>'OK'));
+            }
 
         return $this->render('AppBundle:Areas:health.html.twig', array('form' => $form->createView()));
     }
@@ -53,7 +60,14 @@ class AreasController extends Controller
 
     public function familyAction(Request $request)
     {
-        $familyData = new FamilyArea();
+        //$familyData = new FamilyArea();
+        $userId = $this->getUser()->getId();
+        $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
+
+        //Si no encuentra registro de que el usuario ya ha hecho el formulario
+        if ($familyData == null) {
+            $familyData = new FamilyArea();
+         }else{
 
         $form = $this->createForm(FamilyAreaType::class,$familyData);
 
@@ -61,7 +75,6 @@ class AreasController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
-
 
             $familyData = $form->getData();
             $user = $this->getUser();
@@ -75,6 +88,7 @@ class AreasController extends Controller
             return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
 
         }
+      }
 
         return $this->render('AppBundle:Areas:family.html.twig', array('form' => $form->createView()));
     }

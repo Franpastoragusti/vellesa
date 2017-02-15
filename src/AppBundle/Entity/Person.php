@@ -23,9 +23,9 @@ class Person
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
-    private $user_id;
+    private $userId;
 
     /**
      * @var string
@@ -109,7 +109,7 @@ class Person
      */
     public function setUserId(\AppBundle\Entity\User $userId = null)
     {
-        $this->user_id = $userId;
+        $this->userId = $userId;
 
         return $this;
     }
@@ -121,6 +121,6 @@ class Person
      */
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 }

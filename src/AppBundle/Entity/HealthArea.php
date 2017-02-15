@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * healthArea
  *
  * @ORM\Table(name="health_area")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\healthAreaRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HealthAreaRepository")
  */
 class HealthArea
 {
@@ -23,10 +23,10 @@ class HealthArea
 
 
     /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="id")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
-    private $user_id;
+    private $userId;
 
 
     /**
@@ -204,7 +204,7 @@ class HealthArea
      */
     public function setUserId(\AppBundle\Entity\User $userId = null)
     {
-        $this->user_id = $userId;
+        $this->userId = $userId;
 
         return $this;
     }
@@ -216,6 +216,6 @@ class HealthArea
      */
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 }

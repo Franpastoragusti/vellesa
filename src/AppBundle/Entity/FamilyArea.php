@@ -23,9 +23,9 @@ class FamilyArea
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
-    private $user_id;
+    private $userId;
 
     /**
      * @var array
