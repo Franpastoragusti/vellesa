@@ -77,14 +77,7 @@ class PersonalData
 
     private $personclass_id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="houseNumber", type="integer")
-     * @Assert\NotBlank()
-     */
 
-    private $houseNumber;
 
     /**
      * @var string
@@ -182,55 +175,6 @@ class PersonalData
 
 
     /**
-     * Set cp
-     *
-     * @param integer $cp
-     *
-     * @return PersonalData
-     */
-    public function setCp($cp)
-    {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    /**
-     * Get cp
-     *
-     * @return int
-     */
-    public function getCp()
-    {
-        return $this->cp;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return PersonalData
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-
-    /**
      * Set phone
      *
      * @param integer $phone
@@ -278,30 +222,6 @@ class PersonalData
         return $this->dni;
     }
 
-
-    /**
-     * Set province
-     *
-     * @param string $province
-     *
-     * @return PersonalData
-     */
-    public function setProvince($province)
-    {
-        $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get province
-     *
-     * @return string
-     */
-    public function getProvince()
-    {
-        return $this->province;
-    }
 
     /**
      * Set users
@@ -366,30 +286,6 @@ class PersonalData
         return $this->direction;
     }
 
-
-    /**
-     * Set houseNumber
-     *
-     * @param integer $houseNumber
-     *
-     * @return PersonalData
-     */
-    public function setHouseNumber($houseNumber)
-    {
-        $this->houseNumber = $houseNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get houseNumber
-     *
-     * @return integer
-     */
-    public function getHouseNumber()
-    {
-        return $this->houseNumber;
-    }
 
     /**
      * Set personclassId

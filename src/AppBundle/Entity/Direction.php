@@ -58,6 +58,15 @@ class Direction
 
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="houseNumber", type="integer")
+     * @Assert\NotBlank()
+     */
+
+    private $houseNumber;
+
+    /**
      * Get id
      *
      * @return int
@@ -161,5 +170,29 @@ class Direction
     public function getRoute()
     {
         return $this->route;
+    }
+
+    /**
+     * Set houseNumber
+     *
+     * @param integer $houseNumber
+     *
+     * @return Direction
+     */
+    public function setHouseNumber($houseNumber)
+    {
+        $this->houseNumber = $houseNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get houseNumber
+     *
+     * @return integer
+     */
+    public function getHouseNumber()
+    {
+        return $this->houseNumber;
     }
 }

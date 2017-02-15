@@ -63,19 +63,14 @@
                 {{ form_errors(form.direction.route) }}
             </div>
             <div class="form-group col-md-4">
-                {{ form_label(form.personalData.houseNumber) }}
-                {{ form_widget(form.personalData.houseNumber, {'id': "street_number",'attr': {'class': 'form-control'}}) }}
-                {{ form_errors(form.personalData.houseNumber) }}
+                {{ form_label(form.direction.houseNumber) }}
+                {{ form_widget(form.direction.houseNumber, {'id': "street_number",'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.direction.houseNumber) }}
             </div>
 
 
     </fieldset>
 
-    <div class="form-group">
-
-        {{ form_widget(form.personalData.direction, {'id': "direction",'attr': {'class': 'form-control hidden'}}) }}
-
-    </div>
 
 
     <div class="col-md-8 col-md-offset-2 text-justify responsiveButton">
