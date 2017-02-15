@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
+{% endblock %}
 {% block main %}
     {% include './templates/steps.horizontal.html.twig'%}
     <div class="apartado text-center">
@@ -29,19 +32,35 @@
 
 
 
-        {{ form_start(form) }}
+        {#{{ form_start(form) }}#}
 
-        {{ form_widget(form.placetobe, {'id': "placetobe",'attr': {'class': 'form-control'}}) }}
-        {{ form_widget(form.expressLikes, {'id': "expressLikes",'attr': {'class': 'form-control'}}) }}
-        {{ form_widget(form.selfwill, {'id': "selfwill",'attr': {'class': 'form-control'}}) }}
-        {{ form_widget(form.farewell, {'id': "farewell",'attr': {'class': 'form-control'}}) }}
-        {{ form_widget(form.observations, {'id': "observations",'attr': {'class': 'form-control'}}) }}
-        
-        {{ form_end(form) }}
+        {#{{ form_widget(form.placetobe, {'id': "placetobe",'attr': {'class': 'form-control'}}) }}#}
+        {#{{ form_widget(form.expressLikes, {'id': "expressLikes",'attr': {'class': 'form-control'}}) }}#}
+        {#{{ form_widget(form.selfwill, {'id': "selfwill",'attr': {'class': 'form-control'}}) }}#}
+        {#{{ form_widget(form.farewell, {'id': "farewell",'attr': {'class': 'form-control'}}) }}#}
+        {#{{ form_widget(form.observations, {'id': "observations",'attr': {'class': 'form-control'}}) }}#}
+        {##}
+        {#{{ form_end(form) }}#}
 
 
 
     </div>
+    {% block javascripts %}
+
+
+        <script src="{{ asset('js/FormDecorator.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                FormDecorator.addIconForInfoLabels()
+                FormDecorator.setClassButtonSubmit()
+            })
+
+        </script>
+
+
+
+
+    {% endblock %}
 
 
 

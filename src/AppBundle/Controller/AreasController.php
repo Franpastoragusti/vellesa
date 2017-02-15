@@ -3,15 +3,41 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\FamilyArea;
+use AppBundle\Entity\Person;
+use AppBundle\Entity\HealthArea;
 use AppBundle\Form\FamilyAreaType;
+use AppBundle\Form\HealthAreaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class AreasController extends Controller
 {
-    public function healthAction()
+    public function healthAction(Request $request)
     {
-      return $this->render('AppBundle:Areas:health.html.twig');
+        $healthData = new HealthArea();
+
+        $form = $this->createForm(HealthAreaType::class,$healthData);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $healthData = $form->getData();
+
+            $user = $this->getUser();
+            $healthData->setUserId($user);
+
+            /***TODO Controlar error**/
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($healthData);
+            $em->flush();
+
+            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+
+        }
+
+        return $this->render('AppBundle:Areas:health.html.twig', array('form' => $form->createView()));
     }
 
     public function enviromentAction()
@@ -35,16 +61,19 @@ class AreasController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $empresa = $form->getData();
 
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
+
+            $familyData = $form->getData();
+            $user = $this->getUser();
+            $familyData->setUserId($user);
+
             $em = $this->getDoctrine()->getManager();
-            $em->persist($empresa);
+
+            $em->persist($familyData);
             $em->flush();
 
             return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+
         }
 
         return $this->render('AppBundle:Areas:family.html.twig', array('form' => $form->createView()));

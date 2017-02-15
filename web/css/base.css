@@ -79,6 +79,13 @@ h1{
   margin-left: 40px;
   margin-right: 40px;
 }
+.container-fluid{
+  margin-top:10px;
+}
+
+.container-fluid > div{
+  margin-right:10px;
+}
 
 button.start{
   font-size: 1.3em;
@@ -229,3 +236,19 @@ nav .toggle{
     width: 99%;
   }
 }
+
+
+
+
+/************FORMS****************/
+
+input[type="checkbox"] {
+
+  height: 18px;
+  width: 18px;
+  margin-top:10px;
+
+
+}
+
+input[type="submit"]

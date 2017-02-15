@@ -35,6 +35,8 @@ class PersonClass
      * Get id
      *
      * @return int
+     *
+     * @ORM\OneToMany(targetEntity="PersonalData", mappedBy="personclass_id")
      */
     public function getId()
     {
@@ -65,4 +67,3 @@ class PersonClass
         return $this->type;
     }
 }
-
