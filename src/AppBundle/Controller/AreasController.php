@@ -10,6 +10,7 @@ use AppBundle\Form\HealthAreaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class AreasController extends Controller
 {
     public function healthAction(Request $request)
@@ -47,7 +48,7 @@ class AreasController extends Controller
         return $this->render('AppBundle:Areas:personal.html.twig');
     }
 
-    public function familyAction(Request $request,UserInterface $user)
+    public function familyAction(Request $request)
     {
         $familyData = new FamilyArea();
 
@@ -58,7 +59,7 @@ class AreasController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
 
-
+            $user = $this->getUser();
             $familyData = $form->getData();
             $familyData->setUserId($user);
 

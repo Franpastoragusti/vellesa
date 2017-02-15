@@ -33,7 +33,6 @@
             </div>
 
 
-                {{ form_widget(form.profesionals, {'attr': {'class': 'form-control hidden', 'require':'false'}}) }}
 
         {{ form_end(form) }}
     </div>
@@ -63,9 +62,7 @@
                 prof1=true;
             }
         })
-
-
-
+        
         $('#appbundle_familyarea_instrumentActivities_1').click(function () {
             if (!prof2){
                 $('#appbundle_familyarea_instrumentActivities').append('<input type="text" id="appbundle_familyarea_profesionals" name="appbundle_familyarea[profesionals][]" class="form-control ">')
