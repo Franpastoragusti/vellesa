@@ -40,25 +40,33 @@ class BureaucracyController extends Controller
 
         $form = $this->createForm(PersonType::class);
 
+
         switch ($number) {
-            case 0:
+            case 1:
                 $title = "Tus Datos";
                 break;
-            case 1:
+            case 2:
                 $title = "Primer Testigo";
                 break;
-            case 2:
+            case 3:
                 $title = "Segundo Testigo";
                 break;
-            case 3:
+            case 4:
                 $title = "Tercer Testigo";
                 break;
-            case 4:
+            case 5:
                 $title = "Representante";
                 break;
             default;
                 $title = "No hay";
         }
+
+        //Adaptamos number al tipo de persona
+        if ($number > 1 && $number < 5 )
+            $number = 2;
+
+        if ($number == 5 )
+            $number = 3;
 
         $form->handleRequest($request);
 

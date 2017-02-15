@@ -36,7 +36,6 @@ class HealthAreaType extends AbstractType
                 ),
                 'expanded' => true,
                 'multiple'  => true,
-
             ))
 
             /*
@@ -46,8 +45,6 @@ class HealthAreaType extends AbstractType
             ->add('knowAll', ChoiceType::class, array(
                 'label' => 'Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.',
                 'choices' => array(
-                    'si' => true,
-                    'no' => false,
 
                 ),
 
@@ -61,8 +58,8 @@ class HealthAreaType extends AbstractType
                         return strtoupper($key);
                     }
 
-
-                },))
+                },
+            ))
 
 
             /*
@@ -87,17 +84,8 @@ class HealthAreaType extends AbstractType
                 ),
 
                 'expanded' => true,
-                'multiple'  => false,
+                'multiple'  => false
 
-                'choice_label' => function ($value, $key, $index) {
-                    if ($value == true) {
-                        return strtoupper($key);
-                    }else{
-                        return strtoupper($key);
-                    }
-
-
-                }
             ))
 
             /*
