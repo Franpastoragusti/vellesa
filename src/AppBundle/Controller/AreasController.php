@@ -67,25 +67,7 @@ class AreasController extends Controller
             $user = $this->getUser();
             $familyData->setUserId($user);
 
-
             $em = $this->getDoctrine()->getManager();
-
-//            insertando en tabla aparte
-//            $personNames = $familyData->getBeloved();
-//            foreach ($personNames as $personName) {
-//                if ($personName != ''){
-//                    $person = new Person();
-//                    $person->setName($personName);
-//                    $person->setType($familyData->getBasicActivities());
-//                    $person->setUserId($user);
-//                    $em->persist($person);
-//                    $em->flush();
-//                }
-//            }
-
-
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
 
             $em->persist($familyData);
             $em->flush();
