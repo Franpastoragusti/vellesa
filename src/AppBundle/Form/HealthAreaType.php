@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -45,7 +46,8 @@ class HealthAreaType extends AbstractType
             ->add('knowAll', ChoiceType::class, array(
                 'label' => 'Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.',
                 'choices' => array(
-
+                    'si' => true,
+                    'no' => false,
                 ),
 
                 'expanded' => true,
@@ -65,7 +67,7 @@ class HealthAreaType extends AbstractType
             /*
             * El usuario deberá completar un campo de texto
             */
-            ->add('personInCharge', TextareaType::class, array(
+            ->add('personInCharge', TextType::class, array(
                 'label'=>'Quiero que la persona encargada de mis asuntos de salud sea:'
             ))
 
@@ -92,7 +94,6 @@ class HealthAreaType extends AbstractType
             * El usuario deberá completar un campo de texto
             */
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('user_id')
             ->add('save', SubmitType::class, array(
                 'attr' => array(
                     'label' => 'Enviar'

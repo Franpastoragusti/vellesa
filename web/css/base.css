@@ -229,3 +229,19 @@ nav .toggle{
     width: 99%;
   }
 }
+
+
+
+
+/************FORMS****************/
+
+input[type="checkbox"] {
+
+  height: 18px;
+  width: 18px;
+  margin-top:10px;
+
+
+}
+
+

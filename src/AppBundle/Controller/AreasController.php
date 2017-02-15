@@ -25,6 +25,9 @@ class AreasController extends Controller
 
             $healthData = $form->getData();
 
+            $user = $this->getUser();
+            $healthData->setUserId($user);
+
             /***TODO Controlar error**/
             $em = $this->getDoctrine()->getManager();
             $em->persist($healthData);
@@ -59,7 +62,7 @@ class AreasController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
 
-            $user = $this->getUser();
+
             $familyData = $form->getData();
             $familyData->setUserId($user);
 

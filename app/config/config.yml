@@ -10,6 +10,7 @@ imports:
 parameters:
     locale: es
     dni_directory: '%kernel.root_dir%/../app/dni'
+    audio_directory: '%kernel.root_dir%/../app/audio'
 
 framework:
     translator: { fallbacks: [es] }
