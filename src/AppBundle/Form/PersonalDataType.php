@@ -20,7 +20,7 @@ class PersonalDataType extends AbstractType
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {  
         $builder
             ->add('name', TextType::class, array('label' => 'Nombre'))
             ->add('surname', TextType::class, array('label' => 'Apellidos'))

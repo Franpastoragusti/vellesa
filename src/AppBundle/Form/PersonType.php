@@ -24,6 +24,9 @@ class PersonType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+      $test = $options['data']->getName();
+      var_dump($test);
+
         $builder
             ->add('personalData', PersonalDataType::class, array(
                 'data_class' => PersonalData::class

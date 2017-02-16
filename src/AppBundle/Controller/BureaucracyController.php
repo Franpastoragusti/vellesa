@@ -36,17 +36,15 @@ class BureaucracyController extends Controller
     public function officialDataAction($number, Request $request)
     {
         $userId = $this->getUser()->getId();
-        $test = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneByusers($userId);
-
-        // $direction = $test->getDirection();
+        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneBy(array('personclassId' => $number));
         // var_dump($direction->getId());
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
-        if ($test == null) {
-            $test = new PersonalData();
+        if ($personalData == null) {
+            $personalData = new PersonalData();
          }
 
-         $form = $this->createForm(PersonType::class);
+         $form = $this->createForm(PersonType::class, $personalData);
 
         switch ($number) {
             case 1:
