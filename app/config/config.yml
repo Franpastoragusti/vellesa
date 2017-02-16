@@ -84,3 +84,5 @@ easy_admin:
     entities:
         - AppBundle\Entity\User
         - AppBundle\Entity\PersonalData
+    design:
+        color_scheme: 'light'

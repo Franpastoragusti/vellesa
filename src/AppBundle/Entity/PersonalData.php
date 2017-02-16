@@ -310,4 +310,9 @@ class PersonalData
     {
         return $this->personclass_id;
     }
+
+    public function __toString()
+    {
+        return $this->direction;
+    }
 }

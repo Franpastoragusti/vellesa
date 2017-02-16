@@ -195,4 +195,10 @@ class Direction
     {
         return $this->houseNumber;
     }
+
+    public function __toString()
+    {
+        return $this->city;
+    }
+
 }
