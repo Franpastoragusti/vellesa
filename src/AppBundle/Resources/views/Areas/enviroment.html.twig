@@ -28,23 +28,21 @@
 
     </div>
     <div>
-      {#formulario  de area#}
 
+        <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+            {{ form_start(form) }}
+            <div id="beloved">
 
-
-        {#{{ form_start(form) }}#}
-
-        {#{{ form_widget(form.placetobe, {'id': "placetobe",'attr': {'class': 'form-control'}}) }}#}
-        {#{{ form_widget(form.expressLikes, {'id': "expressLikes",'attr': {'class': 'form-control'}}) }}#}
-        {#{{ form_widget(form.selfwill, {'id': "selfwill",'attr': {'class': 'form-control'}}) }}#}
-        {#{{ form_widget(form.farewell, {'id': "farewell",'attr': {'class': 'form-control'}}) }}#}
-        {#{{ form_widget(form.observations, {'id': "observations",'attr': {'class': 'form-control'}}) }}#}
-        {##}
-        {#{{ form_end(form) }}#}
-
+            </div>
+            {{ form_end(form) }}
+        </div>
 
 
     </div>
+
+{% endblock %}
+
+
     {% block javascripts %}
 
 
@@ -64,7 +62,7 @@
 
 
 
-{% endblock %}
+
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
 {% endblock %}

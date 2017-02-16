@@ -22,6 +22,13 @@ class EnvironmentArea
     private $id;
 
     /**
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
+     */
+    private $userId;
+
+
+    /**
      * @var array
      *
      * @ORM\Column(name="placetobe", type="json_array")
@@ -185,6 +192,30 @@ class EnvironmentArea
     public function getObservations()
     {
         return $this->observations;
+    }
+
+    /**
+     * Set userId
+     *
+     * @param \AppBundle\Entity\User $userId
+     *
+     * @return EnvironmentArea
+     */
+    public function setUserId(\AppBundle\Entity\User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }
 

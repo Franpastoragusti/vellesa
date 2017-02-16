@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,12 +25,14 @@ class EnvironmentAreaType extends AbstractType
 
 
         $builder->add('placetobe', ChoiceType::class, array(
-
+            'label' => 'Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:',
             'choices'   => array(
-                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales:'   => 'casa',
-                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados' => 'Profesional',
-                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 'hopsbreve',
-                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 'irreversible',
+
+                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 0,
+                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados.' => 1,
+                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 2,
+                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 3,
+                'Deseo que se me derive al hospital ante cualquier descompensación de mi estado de salud.' => 4,
             ),
             'expanded' => true,
             'multiple'  => false,
@@ -41,7 +44,11 @@ class EnvironmentAreaType extends AbstractType
             * En este apartado el usuario seleccionará el icono de un menú y le aparecerá un textarea donde dará una respuesta breve
             */
 
-            ->add('expressLikes' ,TextareaType::class)
+            ->add('expressLikes' ,TextareaType::class, array(
+                'label' =>
+
+                    'Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:',
+                'attr' => array('rows' => 6)))
 
 
             /*
@@ -50,10 +57,10 @@ class EnvironmentAreaType extends AbstractType
 
 
             ->add('selfwill', ChoiceType::class, array(
-
+                'label' => 'Cuando llegue el momento final de mi vida, esta es mi voluntad:',
                 'choices'   => array(
-                    'Quiero donar mi cuerpo a la ciencia'   => 'donarCuerpo',
-                    'Quiero donar todos mis órganos y tejidos' => 'donrOrganos',
+                    'Quiero donar mi cuerpo a la ciencia'   => 0,
+                    'Quiero donar todos mis órganos y tejidos' => 1,
                 ),
                 'expanded' => true,
                 'multiple'  => true,
@@ -71,7 +78,15 @@ class EnvironmentAreaType extends AbstractType
             * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
             */
 
-            ->add('observations', TextareaType::class);
+            ->add('observations', TextareaType::class)
+
+
+                ->add('save', SubmitType::class, array(
+                    'attr' => array('label' => 'Enviar')
+
+
+            ));
+
 
     }
     
