@@ -19,20 +19,29 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 
 
 
-class FamilyAreaType extends AbstractType
+class FamilyAreaRenderType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $belovedTextArea="";
+        foreach ($options['data']->getBeloved() as $key => $value) {
+          if ($belovedTextArea != "") {
+            $belovedTextArea= $belovedTextArea.", ".$value;
+          }else{
+            $belovedTextArea=$value;
+          }
+
+        };
+        $options['data']->setBeloved($belovedTextArea);
 
         $builder
             ->add('beloved', TextAreaType::class, array(
                 'label' => 'Mis seres queridos más cercanos son:(ordenalos por preferencia)'
             ))
 
-            ->add('profesionals', HiddenType::class)
 
             ->add('basicActivities', ChoiceType::class, array(
                 'label' => ' Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:',

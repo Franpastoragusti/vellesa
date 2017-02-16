@@ -72,10 +72,10 @@ class PersonalData
 
     /**
      * @ORM\ManyToOne(targetEntity="PersonClass")
-     * @ORM\JoinColumn(name="personclass_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="personclassId", referencedColumnName="id")
      */
 
-    private $personclass_id;
+    private $personclassId;
 
 
 
@@ -296,7 +296,7 @@ class PersonalData
      */
     public function setPersonclassId(\AppBundle\Entity\PersonClass $personclassId = null)
     {
-        $this->personclass_id = $personclassId;
+        $this->personclassId = $personclassId;
 
         return $this;
     }
@@ -308,6 +308,6 @@ class PersonalData
      */
     public function getPersonclassId()
     {
-        return $this->personclass_id;
+        return $this->personclassId;
     }
 }

@@ -39,7 +39,7 @@ class FamilyArea
      *
      * @ORM\Column(name="profesionals", type="json_array")
      */
-    private $profesionals;
+    private $profesionals  = "[]";
 
     /**
      * @var int
@@ -96,6 +96,7 @@ class FamilyArea
      */
     public function setBeloved($beloved)
     {
+
         $this->beloved = $beloved;
 
         return $this;
@@ -241,7 +242,7 @@ class FamilyArea
      */
     public function setUserId(\AppBundle\Entity\User $userId = null)
     {
-        $this->user_id = $userId;
+        $this->userId = $userId;
 
         return $this;
     }
@@ -253,7 +254,7 @@ class FamilyArea
      */
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
     /**
