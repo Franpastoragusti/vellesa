@@ -22,6 +22,14 @@ class PersonalArea
     private $id;
 
     /**
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
+     */
+    private $userId;
+
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="importantDocuments", type="string", length=255)
@@ -185,6 +193,29 @@ class PersonalArea
     public function getObservations()
     {
         return $this->observations;
+    }
+    /**
+     * Set userId
+     *
+     * @param \AppBundle\Entity\User $userId
+     *
+     * @return PersonalArea
+     */
+    public function setUserId(\AppBundle\Entity\User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }
 
