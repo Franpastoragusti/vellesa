@@ -35,13 +35,16 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-        $users = $this->getUser()->getId();
-        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneByusers($users);
+        $userId = $this->getUser()->getId();
+        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneBy(array('personclassId' => $number));
+        // var_dump($direction->getId());
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
         if ($personalData == null) {
-            $form = $this->createForm(PersonType::class);
+            $personalData = new PersonalData();
          }
+
+         $form = $this->createForm(PersonType::class, $personalData);
 
         switch ($number) {
             case 1:
@@ -116,7 +119,4 @@ class BureaucracyController extends Controller
           ));
 
     }
-
-
-
 }

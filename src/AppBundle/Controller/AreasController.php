@@ -6,6 +6,7 @@ use AppBundle\Entity\FamilyArea;
 use AppBundle\Entity\Person;
 use AppBundle\Entity\HealthArea;
 use AppBundle\Form\FamilyAreaType;
+use AppBundle\Form\FamilyAreaRenderType;
 use AppBundle\Form\HealthAreaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,9 +34,7 @@ class AreasController extends Controller
 
                 $user = $this->getUser();
                 $healthData->setUserId($user);
-                var_dump($user);
 
-                /***TODO Controlar error**/
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($healthData);
                 $em->flush();
@@ -67,9 +66,12 @@ class AreasController extends Controller
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
         if ($familyData == null) {
             $familyData = new FamilyArea();
+            $form = $this->createForm(FamilyAreaType::class,$familyData);
          }else{
+             $form = $this->createForm(FamilyAreaRenderType::class,$familyData);
+         }
 
-        $form = $this->createForm(FamilyAreaType::class,$familyData);
+
 
         $form->handleRequest($request);
 
@@ -88,7 +90,7 @@ class AreasController extends Controller
             return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
 
         }
-      }
+
 
         return $this->render('AppBundle:Areas:family.html.twig', array('form' => $form->createView()));
     }

@@ -16,6 +16,26 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:chatRoom.html.twig');
     }
 
+    public function pdfAction()
+    {
+      $personal_data = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findBypersonclassId(1);
+      $witness_data = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findBypersonclassId(2);
+      $representant_data = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findBypersonclassId(3);
+
+      //$name = $personal_data->getName();
+      // $surname = $personal_data->getSurname();
+      // $sip = $personal_data->getSip();
+      // $phone = $personal_data->getPhone();
+      // $dni = $personal_data->getDni();
+
+
+        return $this->render('AppBundle:Default:pdf.html.twig', array(
+          "personal_data" => $personal_data,
+          "witness_data" => $witness_data,
+          "representant_data" => $representant_data
+        ));
+    }
+
     public function setCookiesAction($companion)
     {
 

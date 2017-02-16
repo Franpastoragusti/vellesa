@@ -32,13 +32,9 @@
     </div>
     <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
         {{ form_start(form) }}
+          <div id="beloved">
 
-            <div class="form-group" id="beloved">
-                {{ form_label(form.beloved) }}
-                {{ form_widget(form.beloved, {'attr': {'class': 'form-control'}}) }}
-                {{ form_errors(form.beloved) }}
-            </div>
-
+          </div>
         {{ form_end(form) }}
     </div>
 {% endblock %}
@@ -57,14 +53,33 @@
         var prof1 = false;
         var prof2 = false;
         $(document).ready(function(){
-            $('#beloved input').remove()
-            $('#beloved').append('<button type="text" id="appbundle_familyarea_beloved_button" onclick="addMoreFamily()">Añadir mas</button>')
-            $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control'>")
+            if (!$("#appbundle_familyarea_beloved").text()) {
+                $("#appbundle_familyarea_beloved").remove()
+                $('#beloved').insertAfter("label[for=appbundle_familyarea_beloved]")
+                $('#beloved').append('<input type="button" id="appbundle_familyarea_beloved_button" onclick="addMoreFamily()" value="Añadir más"/>')
+                $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control' novalidate>")
+            }else{
+              var belovedText =$("#appbundle_familyarea_beloved").text().split(",")
+              var length = belovedText.length;
+              $('#beloved').append('<input type="button" id="appbundle_familyarea_beloved_button" onclick="addMoreFamilyUpdate(length)" value="Añadir más"/>')
+              for (var i = 0; i < belovedText.length; i++) {
+                $('#beloved').insertAfter("label[for=appbundle_familyarea_beloved]")
+                $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+i+"' name='appbundle_familyarea[beloved]["+i+"]' class='form-control' value="+belovedText[i]+">");
+              }
+              $("#appbundle_familyarea_beloved").remove()
+              console.log(belovedText);
+            }
+
         })
         function addMoreFamily(){
             familiars++;
             $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control'>")
         }
+        function addMoreFamilyUpdate(id){
+            $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+id+"' name='appbundle_familyarea[beloved]["+id+"]' class='form-control'>")
+            id++;
+        }
+
 
         $('#appbundle_familyarea_basicActivities_1').click(function(){
             if (!prof1){
@@ -72,7 +87,7 @@
                 prof1=true;
             }
         })
-        
+
         $('#appbundle_familyarea_instrumentActivities_1').click(function () {
             if (!prof2){
                 $('#appbundle_familyarea_instrumentActivities').append('<input type="text" id="appbundle_familyarea_profesionals" name="appbundle_familyarea[profesionals][]" class="form-control ">')

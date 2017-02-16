@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+{% block main %}
+  <h3>Gracias por haber utilizado nuestra aplicacion</h3>
+
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>SIP</th>
+      <th>Telefono</th>
+      <th>DNI</th>
+    </tr>
+
+    {% for personal in personal_data %}
+          <tr>
+            <td>{{ personal.name }}</td>
+            <td>{{ personal.surname }}</td>
+            <td>{{ personal.sip }}</td>
+            <td>{{ personal.phone }}</td>
+            <!-- <td>{#{ witness.dni }#}</td> -->
+          </tr>
+        {% endfor %}
+        {% for witness in witness_data %}
+              <tr>
+
+                <td>{{ witness.name }}</td>
+                <td>{{ witness.surname }}</td>
+                <td>{{ witness.sip }}</td>
+                <td>{{ witness.phone }}</td>
+                <!-- <td>{#{ witness.dni }#}</td> -->
+              </tr>
+            {% endfor %}
+            {% for representant in representant_data %}
+                  <tr>
+
+                    <td>{{ representant.name }}</td>
+                    <td>{{ representant.surname }}</td>
+                    <td>{{ representant.sip }}</td>
+                    <td>{{ representant.phone }}</td>
+                    <!-- <td>{#{ witness.dni }#}</td> -->
+                  </tr>
+                {% endfor %}
+  </table>
+{% endblock %}
