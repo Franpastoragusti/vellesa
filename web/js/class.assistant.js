@@ -9,9 +9,38 @@ class Assistant {
         this.textoApp = $("#texto_app");
         this.textoUser = $("#texto_user");
         this.popupUser = $("#mensaje_user").css("display", "none");
-        //this.text = "";
         this.id = 1;
+        // this.texts = {
+        //     default:"Hola estas en this.route",
+        //     timeMessages:{
+        //       first:{
+        //         time:5,
+        //         message:"Han pasado 5 minutos"
+        //       },
+        //       second:{
+        //         time:10,
+        //         message:"Han pasado 10 minutos"
+        //       },
+        //       last:{
+        //         time:15,
+        //         message:"Han pasado 15 minutos"
+        //       }
+        //     },
+        //     areaText:{
+        //       family:"defect text"
+        //       health:"defecto salus"
+        //       personal:"defecto personal"
+        //       enviroment:""
+        //     }
+        // }
     }
+
+    getRoute(){
+      var posicion = window.location.href.indexOf("/app");
+      var pantalla = window.location.href.substring(posicion);
+      return pantalla;
+    }
+
 
     showAssistant() {
         $(function() {
@@ -59,57 +88,6 @@ class Assistant {
         });
     }
 
-    customAnswer() {
-        switch (this.pantalla) {
-            case "/app/testRoom":
-                //Escribir el texto de nuestro "bot"
-                this.text = "<p>Hola estas en chatRoom</p>";
-                break;
-            case "/app/areas/health":
-                //Escribir el texto de nuestro "bot"
-                this.text = "<p>Hola estoy en health</p>";
-                break;
-            case "/app/areas/personal":
-                //Escribir el texto de nuestro "bot"
-                this.text = "<p>Hola estoy en personal</p>";
-                break;
-            case "/app/areas/family":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en familia</p>");
-                break;
-            case "/app/bureaucracy":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en datos</p>");
-                break;
-            case "/app/bureaucracy/0":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en tus datos personales</p>");
-                break;
-            case "/app/bureaucracy/1":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en testigo 1</p>");
-                break;
-            case "/app/bureaucracy/2":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en testigo 2</p>");
-                break;
-            case "/app/bureaucracy/3":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en testigo 3</p>");
-                break;
-            case "/app/bureaucracy/4":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en representante</p>");
-                break;
-            case "/app/bureaucracy/instance":
-                //Escribir el texto de nuestro "bot"
-                this.text = ("<p>Hola estoy en instance</p>");
-                break;
-            default:
-        }
-
-
-    }
 
     appAnswer(text){
       this.textoApp.append(text);
