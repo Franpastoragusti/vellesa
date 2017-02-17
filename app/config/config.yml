@@ -87,10 +87,13 @@ easy_admin:
         PersonalData:
             class: AppBundle\Entity\PersonalData
             label: 'Datos personales'
+        PDF:
+            class: AppBundle\Entity\PDF
+            label: 'Procesos'
 
 
     design:
         color_scheme: 'light'
-        
+
 vich_uploader:
     db_driver: orm
