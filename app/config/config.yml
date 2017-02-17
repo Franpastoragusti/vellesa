@@ -90,8 +90,7 @@ easy_admin:
         PDF:
             class: AppBundle\Entity\PDF
             label: 'Procesos'
-
-
+          
     design:
         color_scheme: 'light'
 
