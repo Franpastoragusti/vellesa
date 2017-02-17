@@ -80,6 +80,10 @@ fos_user:
     user_class: AppBundle\Entity\User
 
 easy_admin:
+    list:
+        actions:
+            - { name: 'show', icon: 'search', label: '' }
+            - { name: 'edit', icon: 'pencil', label: '' }
     entities:
         User:
             class: AppBundle\Entity\User
@@ -88,8 +92,13 @@ easy_admin:
             class: AppBundle\Entity\PersonalData
             label: 'Datos personales'
         PDF:
+            list:
+                actions:
+                    ['pdf']
             class: AppBundle\Entity\PDF
+            actions: ['show']
             label: 'Procesos'
+
           
     design:
         color_scheme: 'light'
