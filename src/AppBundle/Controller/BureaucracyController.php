@@ -35,16 +35,33 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-        $userId = $this->getUser()->getId();
-        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findOneBy(array('personclassId' => $number));
-        // var_dump($direction->getId());
 
-        //Si no encuentra registro de que el usuario ya ha hecho el formulario
+
+
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p AS personalData, d AS direction
+            FROM AppBundle:PersonalData p, AppBundle:Direction d
+            WHERE p.userId = :userId
+            AND p.personclassId = :class
+            AND d.id = p.direction'
+        )->setParameter('userId' , $user)->setParameter('class' , $number);
+
+        $personalData=$query->getResult();
+
         if ($personalData == null) {
             $personalData = new PersonalData();
-         }
+            $direction = new Direction();
 
-         $form = $this->createForm(PersonType::class, $personalData);
+        }else{
+            $direction = $personalData[0]['personalData']->getDirection();
+            $personalData = $personalData[0]['personalData'];
+        }
+
+
+
+         $form = $this->createForm(PersonType::class, array('personalData' => $personalData, 'direction' =>$direction));
 
         switch ($number) {
             case 1:
@@ -66,12 +83,6 @@ class BureaucracyController extends Controller
                 $title = "No hay";
         }
 
-        //Adaptamos number al tipo de persona
-        if ($number > 1 && $number < 5 )
-            $number = 2;
-
-        if ($number == 5 )
-            $number = 3;
 
         $form->handleRequest($request);
 
@@ -102,7 +113,7 @@ class BureaucracyController extends Controller
            //Seteamos el id_direccion
            $personData->setDirection($direction);
            //Seteamos el user_id_direccion
-           $personData->setUsers($user);
+           $personData->setUserId($user);
 
             //Seteamos los nuevos datos en las tablas
            $em->persist($direction);

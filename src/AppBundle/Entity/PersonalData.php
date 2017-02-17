@@ -25,11 +25,11 @@ class PersonalData
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
-    private $users;
+    private $userId;
 
     /**
      * @ORM\ManyToOne(targetEntity="Direction")
-     * @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="directionId", referencedColumnName="id")
      */
     private $direction;
 
@@ -222,31 +222,6 @@ class PersonalData
         return $this->dni;
     }
 
-
-    /**
-     * Set users
-     *
-     * @param \AppBundle\Entity\User $users
-     *
-     * @return PersonalData
-     */
-    public function setUsers(\AppBundle\Entity\User $users = null)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
     /**
      * Set id
      *
@@ -314,5 +289,29 @@ class PersonalData
     public function __toString()
     {
         return $this->direction;
+    }
+
+    /**
+     * Set userId
+     *
+     * @param \AppBundle\Entity\User $userId
+     *
+     * @return PersonalData
+     */
+    public function setUserId(\AppBundle\Entity\User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }

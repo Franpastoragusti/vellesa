@@ -19,6 +19,7 @@ class PersonClass
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\OneToMany(targetEntity="PersonalData", mappedBy="personclass_id")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -36,7 +37,6 @@ class PersonClass
      *
      * @return int
      *
-     * @ORM\OneToMany(targetEntity="PersonalData", mappedBy="personclass_id")
      */
     public function getId()
     {
