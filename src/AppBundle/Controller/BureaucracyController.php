@@ -35,9 +35,7 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-
-
-
+        
         $user = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(

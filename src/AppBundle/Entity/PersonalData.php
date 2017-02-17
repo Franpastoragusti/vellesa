@@ -50,9 +50,9 @@ class PersonalData
     private $surname;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="sip", type="integer")
+     * @ORM\Column(name="sip", type="string", length=255)
      * @Assert\NotBlank()
      */
     private $sip;
