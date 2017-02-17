@@ -81,7 +81,16 @@ fos_user:
 
 easy_admin:
     entities:
-        - AppBundle\Entity\User
-        - AppBundle\Entity\PersonalData
+        User:
+            class: AppBundle\Entity\User
+            label: 'Usuarios'
+        PersonalData:
+            class: AppBundle\Entity\PersonalData
+            label: 'Datos personales'
+
+
     design:
         color_scheme: 'light'
+        
+vich_uploader:
+    db_driver: orm
