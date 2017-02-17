@@ -6,10 +6,12 @@ use AppBundle\Entity\EnvironmentArea;
 use AppBundle\Entity\FamilyArea;
 use AppBundle\Entity\Person;
 use AppBundle\Entity\HealthArea;
+use AppBundle\Entity\PersonalArea;
 use AppBundle\Form\EnvironmentAreaType;
 use AppBundle\Form\FamilyAreaType;
 use AppBundle\Form\FamilyAreaRenderType;
 use AppBundle\Form\HealthAreaType;
+use AppBundle\Form\PersonalAreaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -82,10 +84,40 @@ class AreasController extends Controller
 
     }
 
-    public function personalAction()
+    public function personalAction(Request $request)
     {
 
-        return $this->render('AppBundle:Areas:personal.html.twig');
+        $userId = $this->getUser()->getId();
+        $personalarea = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
+
+        //Si no encuentra registro de que el usuario ya ha hecho el formulario
+        if ($personalarea == null) {
+            $personalarea = new PersonalArea();
+        }
+
+        $form = $this->createForm(PersonalAreaType::class,$personalarea);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $personalarea = $form->getData();
+
+            $user = $this->getUser();
+            $personalarea->setUserId($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($personalarea);
+            $em->flush();
+
+            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+            //return $this->redirectToRoute('test_room', array('status'=>'OK'));
+        }
+
+        return $this->render('AppBundle:Areas:personal.html.twig', array('form' => $form->createView()));
+
+
+
     }
 
     public function familyAction(Request $request)
