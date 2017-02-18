@@ -81,8 +81,14 @@ class FamilyAreaType extends AbstractType
                     'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.' => 4,
 
                 )))
-            ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('Terminado', SubmitType::class, array(
+
+
+            ->add('observations', TextareaType::class, array(
+              'label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:',
+              'attr' => array('rows' => 4)
+            ))
+
+             ->add('Terminado', SubmitType::class, array(
                 'attr' => array('class' => 'btn-vellesa')
             ))
         ;

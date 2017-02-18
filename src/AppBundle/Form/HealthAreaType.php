@@ -28,10 +28,10 @@ class HealthAreaType extends AbstractType
                     'Para mi es fundamental la calidad, la dignidad de mi vida y el confort'   => 'calidad',
                     'Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.' => 'soportevital',
                     'Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.' => 'tratamientos',
-                    'Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo 
+                    'Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo
                     que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser. ' => 'independientemente',
                     'Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento. '   => 'calidad',
-                    'Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar 
+                    'Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar
                      mi estado. Gracias, pero no deseo que me sean aplicadas. '   => 'calidad',
 
                 ),
@@ -46,8 +46,8 @@ class HealthAreaType extends AbstractType
             ->add('knowAll', ChoiceType::class, array(
                 'label' => 'Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.',
                 'choices' => array(
-                    'si' => true,
-                    'no' => false,
+                    'Si' => true,
+                    'No' => false,
                 ),
 
                 'expanded' => true,
@@ -80,8 +80,8 @@ class HealthAreaType extends AbstractType
             ->add('beloved', ChoiceType::class, array(
                 'label' => 'Quiero que mis seres queridos más cercanos sepan todo sobre mi estado de salud y progreso.',
                 'choices' => array(
-                    'si' => true,
-                    'no' => false,
+                    'Si' => true,
+                    'No' => false,
 
                 ),
 
@@ -99,7 +99,7 @@ class HealthAreaType extends AbstractType
                 ))
             ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

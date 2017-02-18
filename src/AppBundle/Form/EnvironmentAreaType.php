@@ -27,15 +27,14 @@ class EnvironmentAreaType extends AbstractType
         $builder->add('placetobe', ChoiceType::class, array(
             'label' => 'Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:',
             'choices'   => array(
-
-                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 0,
-                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados.' => 1,
-                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 2,
-                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 3,
-                'Deseo que se me derive al hospital ante cualquier descompensación de mi estado de salud.' => 4,
+                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 'Deseo quedarme en casa',
+                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados.' => 'Trasladarme a un centro',
+                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 'Hospitalizacion durante el tiempo que necesario, valorando la hospitalizacion en el domicilio',
+                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 'Rechazo hospital',
+                'Deseo que se me derive al hospital ante cualquier descompensación de mi estado de salud.' => 'Deseo ir a un Hospital',
             ),
             'expanded' => true,
-            'multiple'  => false,
+            'multiple'  => true,
 
         ))
 
@@ -45,10 +44,9 @@ class EnvironmentAreaType extends AbstractType
             */
 
             ->add('expressLikes' ,TextareaType::class, array(
-                'label' =>
-
-                    'Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:',
-                'attr' => array('rows' => 6)))
+                'label' =>'Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:',
+                'attr' => array('rows' => 3)
+              ))
 
 
             /*
@@ -73,12 +71,18 @@ class EnvironmentAreaType extends AbstractType
            * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
            */
 
-            ->add('farewell' ,TextareaType::class)
+            ->add('farewell' ,TextareaType::class, array(
+                'label'=>'Así me gustaría que fuese mi despedida:',
+                'attr' => array('rows' => 3)
+            ))
             /*
             * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
             */
 
-            ->add('observations', TextareaType::class)
+            ->add('observations', TextareaType::class, array(
+                'label'=>'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:',
+                'attr' => array('rows' => 3)
+            ))
 
 
                 ->add('Terminado', SubmitType::class, array(
@@ -89,7 +93,7 @@ class EnvironmentAreaType extends AbstractType
 
 
     }
-    
+
     /**
      * {@inheritdoc}
      */
