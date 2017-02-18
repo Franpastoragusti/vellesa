@@ -143,20 +143,21 @@ h2{
 }
 
 /*******STEPS******/
-#wizard_verticle{
+#wizard{
+  max-width: 60vw;
   margin-top: 20px;
-  margin-left: 10px;
 }
-
 
 .wizard_steps li {
   position: relative;
 }
-
-#wizard_horizontal ul.wizard_steps li a.done:before, .wizard_verticle ul.wizard_steps li a.done .step_no {
-  background: rgb(128,185,82);
-  color: #fff;
+.step_descr{
+  font-size: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
+
 .step-title{
   position:absolute;
   left:45px;
@@ -173,9 +174,15 @@ h2{
   color: #666;
 }
 
-.wizard_verticle ul.wizard_steps li a.selected:before, .step_no{
-  background: rgb(248, 182, 103);
+ul.wizard_steps li a.selected:before, .step_no{
+  background: rgb(137,96,203);
+  width: 20px !important;
+  height: 20px !important;
 }
+.wizard_horizontal ul.wizard_steps li a:before {
+  top: 10px;
+}
+
 
 /*******PANELS*********/
 .panel-body{
@@ -187,10 +194,6 @@ button.warning{
 
 }
 
-/*****MENU TOGGLE******/
-nav .toggle{
-  display: none;
-}
 
 
 /*******RESPONSIVE*******/
@@ -213,9 +216,6 @@ nav .toggle{
   }
   body{
     overflow-x: hidden;
-  }
-  .page{
-    padding-left: 0px;
   }
 
   ul.nav-tabs li{
