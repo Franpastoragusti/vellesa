@@ -38,7 +38,7 @@ class EnvironmentArea
     /**
      * @var array
      *
-     * @ORM\Column(name="expressLikes", type="json_array")
+     * @ORM\Column(name="expressLikes", type="string", length=255)
      */
     private $expressLikes;
 
@@ -218,4 +218,3 @@ class EnvironmentArea
         return $this->userId;
     }
 }
-

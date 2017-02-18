@@ -45,10 +45,9 @@ class EnvironmentAreaType extends AbstractType
             */
 
             ->add('expressLikes' ,TextareaType::class, array(
-                'label' =>
-
-                    'Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:',
-                'attr' => array('rows' => 6)))
+                'label' =>'Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:',
+                'attr' => array('rows' => 3)
+              ))
 
 
             /*
@@ -73,12 +72,18 @@ class EnvironmentAreaType extends AbstractType
            * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
            */
 
-            ->add('farewell' ,TextareaType::class)
+            ->add('farewell' ,TextareaType::class, array(
+                'label'=>'Así me gustaría que fuese mi despedida:',
+                'attr' => array('rows' => 3)
+            ))
             /*
             * En este apartado el usuario simplemente deberá rellenar los campos con una respuesta breve
             */
 
-            ->add('observations', TextareaType::class)
+            ->add('observations', TextareaType::class, array(
+                'label'=>'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:',
+                'attr' => array('rows' => 3)
+            ))
 
 
                 ->add('save', SubmitType::class, array(
@@ -89,7 +94,7 @@ class EnvironmentAreaType extends AbstractType
 
 
     }
-    
+
     /**
      * {@inheritdoc}
      */
