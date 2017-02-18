@@ -144,19 +144,18 @@ h2{
 
 /*******STEPS******/
 #wizard{
-  max-width: 60vw;
   margin-top: 20px;
+
 }
 
 .wizard_steps li {
   position: relative;
+  width: 20vw;
 }
 .step_descr{
   font-size: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
+}
 
 .step-title{
   position:absolute;
