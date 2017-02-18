@@ -82,8 +82,8 @@ class FamilyAreaType extends AbstractType
 
                 )))
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('save', SubmitType::class, array(
-                'attr' => array('label' => 'Enviar')
+            ->add('Terminado', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa')
             ))
         ;
 
