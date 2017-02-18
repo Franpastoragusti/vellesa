@@ -11,8 +11,7 @@
 
 .component {
 	position: relative;
-	height: 15em;
-	background: rgba(0,0,0,0.05);
+	height: 18em;
 	font-family: Roboto, sans-serif !important;
 }
 
@@ -32,7 +31,7 @@
 
 .cn-button {
 	position: absolute;
-	top: 100%;
+	top: 80%;
 	left: 50%;
 	z-index: 11;
 	margin-top: -2.25em;
@@ -44,7 +43,7 @@
 	border-radius: 50%;
 	background: none;
 	background-color: #fff;
-	color: rgba(237,168,94,1);
+	color: rgba(137,96,203,1);
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -55,7 +54,7 @@
 
 .csstransforms .cn-wrapper {
 	position: absolute;
-	top: 100%;
+	top: 80%;
 	left: 50%;
 	z-index: 10;
 	margin-top: -13em;
@@ -137,10 +136,10 @@
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: rgba(237,168,94,1);
-	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: rgba(137,96,203,1);
+	background: -webkit-radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
+	background: radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -167,9 +166,9 @@
 .csstransforms .cn-wrapper li a:hover,
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: -webkit-radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
+	background: radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
 }
 .csstransforms .cn-wrapper li a:focus {
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
