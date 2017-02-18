@@ -27,15 +27,14 @@ class EnvironmentAreaType extends AbstractType
         $builder->add('placetobe', ChoiceType::class, array(
             'label' => 'Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:',
             'choices'   => array(
-
-                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 0,
-                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados.' => 1,
-                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 2,
-                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 3,
-                'Deseo que se me derive al hospital ante cualquier descompensación de mi estado de salud.' => 4,
+                'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 'Deseo quedarme en casa',
+                'Quiero trasladarme a un centro sociosanitario en la que me proporcionen cuidados profesionales especializados.' => 'Trasladarme a un centro',
+                'Quiero que el tiempo de hospitalización sea lo más breve posible, valorando el alta con la atención hospitalaria en el domicilio oportuna.' => 'Hospitalizacion durante el tiempo que necesario, valorando la hospitalizacion en el domicilio',
+                'Cuando mi estado de salud sea irreversible, rechazo la derivación a un hospital.' => 'Rechazo hospital',
+                'Deseo que se me derive al hospital ante cualquier descompensación de mi estado de salud.' => 'Deseo ir a un Hospital',
             ),
             'expanded' => true,
-            'multiple'  => false,
+            'multiple'  => true,
 
         ))
 
