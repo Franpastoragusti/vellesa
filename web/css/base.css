@@ -29,7 +29,7 @@ body{
 #userOptions{
   color: #ffffff;
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.55);
-  background-color: rgba(137,96,203, 0.5);
+  background-color: rgba(137,96,203, 1);
   border: none;
   margin-top: 20px;
 
@@ -126,7 +126,7 @@ h2{
   font-size: 3vw;
   cursor: pointer;
   border: none;
-  color: rgba(237,168,94,1);
+  color: rgba(137,96,203, 1);
   text-align: center;
 
 }
@@ -152,6 +152,8 @@ h2{
   position: relative;
   width: 20vw;
 }
+
+
 .step_descr{
   font-size: 10px;
 
@@ -187,10 +189,22 @@ ul.wizard_steps li a.selected:before, .step_no{
 .panel-body{
   height: auto;
 }
-/*******BUTTONS******/
-button.warning{
-  background: rgb(248, 182, 103);
 
+.video{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*******BUTTONS******/
+.btn-vellesa{
+  color: #FFFFFF;
+  background-color: rgba(137,96,203,0.7);
+  border-color: #adadad;
+}
+
+.btn-vellesa:hover{
+  color: #FFFFFF;
+  background-color: rgb(137,96,203);
+  border-color: #adadad;
 }
 
 
