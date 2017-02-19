@@ -60,6 +60,10 @@ chat_room:
 generate_pdf:
     path:     /pdf
     defaults: { _controller: AppBundle:Default:pdf }
+look_geo:
+    path:     /testRoom
+    defaults: { _controller: AppBundle:Default:index }
+
 #Set variables in session
 setCookies:
     path:     /setCookies/{companion}
