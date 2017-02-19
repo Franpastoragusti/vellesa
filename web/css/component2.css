@@ -51,7 +51,9 @@
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
 }
-
+#cn-button-fin{
+padding-top: 35px;
+}
 .csstransforms .cn-wrapper {
 	position: absolute;
 	top: 80%;
@@ -293,6 +295,9 @@
 
 	.cn-button {
 		font-size: 1em;
+	}
+	#cn-button-fin{
+		padding-top: 30px;
 	}
 }
 
