@@ -8,6 +8,7 @@ services:
     redirect.after.login:
         class: AppBundle\Redirection\AfterLoginRedirection
         arguments: ['@router']
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

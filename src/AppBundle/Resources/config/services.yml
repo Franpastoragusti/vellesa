@@ -1,4 +1,9 @@
 services:
+    redirect_register_user.registration.completed:
+        class: AppBundle\EventListener\RegistrationConfirmListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
 #    app.example:
 #        class: AppBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

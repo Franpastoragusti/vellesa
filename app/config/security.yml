@@ -29,12 +29,9 @@ security:
                 check_path: fos_user_security_check
                 csrf_token_generator: security.csrf.token_manager
                 success_handler: redirect.after.login
-
-
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
-            logout:       true
+            logout:
+                path: fos_user_security_logout
+                target: fos_user_security_login
             anonymous:    true
 
     access_control:
