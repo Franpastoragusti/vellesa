@@ -1,22 +1,26 @@
 {% trans_default_domain 'FOSUserBundle' %}
+{% extends '::base.html.twig' %}
+{% block body %}
+<body class="login">
 
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
+    <div class="login_wrapper">
 
-<div class="container-fluid">
-  <div class="row col-md-6 col-md-push-3">
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <h1 class="text-center">Registro</h1>
+        <div id="register" >
+            <section class="login_content">
+
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                <h1>Registro</h1>
+                    {{ form_widget(form) }}
+                    <input class="col-md-9 btn btn-vellesa" type="submit" value="{{ 'registration.submit'|trans }}" />
+                    <div class="clearfix"></div>
+                    <p>Ya tienes cuenta?<a href="/user/login"> Loguea</a></p>
+                {{ form_end(form) }}
+              </section>
         </div>
-        <div class="panel-body">
-          <div class="tab-content">
-              {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                  {{ form_widget(form) }}
-          </div>
-        </div>
-      </div>
-            <input class="col-md-12" type="submit" value="{{ 'registration.submit'|trans }}" />
-            <p class="col-md-7 col-md-offset-4">Ya tienes cuenta?<a href="/user/login"> Loguea</a></p>
-              {{ form_end(form) }}
-  </div><!--row end-->
-</div>
+
+    </div>
+
+
+</body><!--row end-->
+
+{% endblock %}

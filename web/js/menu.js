@@ -15,14 +15,10 @@
 
             classie.add(wrapper, 'opened-nav');
         }
-        else{
-
-            classie.remove(wrapper, 'opened-nav');
-        }
-        open = !open;
+        
     }
-    function closeWrapper(){
-        classie.remove(wrapper, 'opened-nav');
-    }
+    // function closeWrapper(){
+    //     classie.remove(wrapper, 'opened-nav');
+    // }
 
 })();
