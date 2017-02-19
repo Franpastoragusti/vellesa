@@ -10,29 +10,29 @@ class Assistant {
         this.textoUser = $("#texto_user");
         this.popupUser = $("#mensaje_user").css("display", "none");
         this.id = 1;
-        // this.texts = {
-        //     default:"Hola estas en this.route",
-        //     timeMessages:{
-        //       first:{
-        //         time:5,
-        //         message:"Han pasado 5 minutos"
-        //       },
-        //       second:{
-        //         time:10,
-        //         message:"Han pasado 10 minutos"
-        //       },
-        //       last:{
-        //         time:15,
-        //         message:"Han pasado 15 minutos"
-        //       }
-        //     },
-        //     areaText:{
-        //       family:"defect text"
-        //       health:"defecto salus"
-        //       personal:"defecto personal"
-        //       enviroment:""
-        //     }
-        // }
+        this.texts = {
+            default:"Hola",
+            timeMessages:{
+              first:{
+                time:50,
+                message:"Han pasado 5 minutos"
+              },
+              second:{
+                time:100,
+                message:"Han pasado 10 minutos"
+              },
+              last:{
+                time:150,
+                message:"Han pasado 15 minutos"
+              }
+            },
+            areaText:{
+              family:"Texto por defecto en familia",
+              health:"Texto por defecto en salud",
+              personal:"Texto por defecto en personal",
+              enviroment:"Texto por defecto en entorno"
+            }
+        };
     }
 
     getRoute(){
