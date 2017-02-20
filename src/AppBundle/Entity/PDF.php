@@ -34,7 +34,7 @@ class PDF
      *
      * @ORM\Column(name="dateFinished", type="string", length=255)
      */
-    private $dateFinished = null;
+    private $dateFinished = 'En proceso';
 
     /**
      * @var bool

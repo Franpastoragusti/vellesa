@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Direction;
+use AppBundle\Entity\PDF;
 use AppBundle\Entity\PersonalData;
 use AppBundle\Entity\PersonClass;
 use AppBundle\Form\DirectionType;
@@ -34,6 +35,15 @@ class BureaucracyController extends Controller
 
     public function instanceAction()
     {
+        $user = $this->getUser();
+        $pdf = new PDF();
+        $pdf->setUserId($user);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($pdf);
+        $em->flush();
+
+
+
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
     private function checkPersonData($number){

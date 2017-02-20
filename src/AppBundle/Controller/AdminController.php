@@ -50,11 +50,6 @@ class AdminController extends BaseAdminController
           ));
     }
 
-    public function googleMapsAction()
-    {
 
-
-
-    }
 
 }
