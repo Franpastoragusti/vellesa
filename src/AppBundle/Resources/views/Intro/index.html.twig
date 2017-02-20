@@ -1,12 +1,11 @@
-{% extends '::base.html.twig' %}
-{% block title %}Vellesa - Tú decides{% endblock %}
+
 {% block head %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="VellesaDaw">
-
+    <title>Tú Decides | Tu testamento vital</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -18,6 +17,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -60,12 +60,15 @@
                 <div class="fondoHeader">
                     <h1 id="homeHeading">Tú decides</h1>
                     <hr>
-                    <p>Un servicio online para hacer tu testamento vital, hazlo ahora y cuando no puedas decidirlo estará todo claro:</strong></p>
-                    <p class="min">Límites de los tratamientos médicos que deseas recibir.</p>
-                    <p class="min">Cómo y por quién quieres ser atendido/a.</p>
-                    <p class="min">Detalles personales de tu entorno, hábitos y gustos personales.</p>
+                    <p>Un servicio online para hacer tu testamento vital, hazlo ahora y cuando no puedas decidirlo estará todo claro:</p>
+                    <ul>
+                        <li class="min">Límites de los tratamientos médicos que deseas recibir.</li>
+                        <li class="min">Cómo y por quién quieres ser atendido/a.</li>
+                        <li class="min">Detalles personales de tu entorno, hábitos y gustos personales.</li>
+
+                    </ul>
                     <!--<a href="#contact" class="btn btn-primary btn-xl page-scroll">Conócenos</a>-->
-                    <a href="/app/companion" class="btn btn-primary btn-xl page-scroll">Empieza ahora</a>
+                    <a href="#price" class="btn btn-primary btn-xl page-scroll">Empieza ahora</a>
                 </div>
             </div>
         </div>
@@ -110,9 +113,10 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>DECIDE CÓMO QUIERES ENVEJECER</h2>
+                <h2>DECIDE CÓMO QUIERES VIVIR</h2>
                 <p>Dejar claros tus deseos será un gran alivio para ti y para los tuyos.</p>
             </div>
+            <img height="120" src="{{ asset('img/landing/icons/banner.png') }}">
         </div>
     </aside>
 
@@ -127,55 +131,57 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"> </i>
-                        <h3>Servicio online</h3>
-                        <p class="text-muted">Rápido y sencillo</p>
+                        <img class="img-circle" src="{{ asset('img/landing/icons/eli.jpg') }}">
+                        <h3>1. Elige tu acompañante</h3>
+                        <p class="text-muted">Conoce a todos nuestros profesionales y elige quién quieres que sea tu acompañante: la persona que te va a guiar, asesorar y apoyar durante todo el proceso.</p>
+                        <p class="text-muted">Tú decides.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"></i>
-                        <h3>Acompañamiento profesional</h3>
-                        <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"></i>
-                        <h3>Entorno Humano</h3>
-                        <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
+                        <img src="{{ asset('img/landing/icons/lapiz.jpg') }}">
+                        <h3>2. Reflexiona y Exprésate</h3>
+                        <p class="text-muted">Navega por las diferentes áreas, disfruta de los contenidos y de la experiencia que supone dejar claros tus deseos.</p>
+                        <p class="text-muted">Tú decides.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"></i>
-                        <h3>Servicio online</h3>
-                        <p class="text-muted">Rápido y sencillo</p>
+                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/registra_envia.jpg') }}">
+                        <h3>3. Registra y envía</h3>
+                        <p class="text-muted">¿Ya has completado todas las áreas? Te enviamos a casa tu testamento vital para que lo firmes. Nosotras nos ocupamos de registrarlo.</p>
+                        <p class="text-muted">Tú decides.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"></i>
-                        <h3>Acompañamiento profesional</h3>
-                        <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"></i>
-                        <h3>Entorno Humano</h3>
-                        <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
+                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/respira_disfruta.jpg') }}">
+                        <h3>4. Respira y Disfruta</h3>
+                        <p class="text-muted">Siente la sensación de calma y serenidad que produce dejar claros tus deseos y tener la seguridad de que serán respetados.</p>
+                        <p class="text-muted">Tú decides.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Team Section -->
-    <section id="team" class="bg-light-gray">
+
+    <section id="video_introduction" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hd-7oSLmluo"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Price Section -->
+    <section id="price" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -183,43 +189,55 @@
                     <hr class="primary">
                 </div>
             </div>
-            <div class="row text-center ">
+            <div class="row text-center col-xs-6 col-xs-offset-1 col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-4 col-sm-offset-3">
                 <div id="fdw-pricing-table">
                     <div class="plan plan1">
-                        <div class="header">Enterprise</div>
-                        <div class="price">$59</div>
-                        <div class="monthly">per month</div>
-                        <ul>
-                            <li><b>10GB</b> Disk Space</li>
-                            <li><b>100GB</b> Monthly Bandwidth</li>
-                            <li><b>20</b> Email Accounts</li>
-                            <li><b>Unlimited</b> subdomains</li>
+                        <div class="header">BÁSICO</div>
+                        <div class="price">59€</div>
+                        <div class="monthly">Pago Único</div>
+                        <ul id="prices_services">
+                            <li>Asesoramiento Personal <b>On-line</b></li>
+                            <li>Envío y Registro de <b>Testamento Vital</b></li>
                         </ul>
-                        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>
+                        <a class="signup" href="/app/companion">EMPEZAR</a>
                     </div>
                     <div class="plan plan2">
-                        <div class="header">Standard</div>
-                        <div class="price">$19</div>
-                        <div class="monthly">per month</div>
+                        <div class="header">PREMIUM</div>
+                        <div class="price">150€</div>
+                        <div class="monthly">Pago Mensual</div>
                         <ul>
-                            <li><b>3GB</b> Disk Space</li>
-                            <li><b>25GB</b> Monthly Bandwidth</li>
-                            <li><b>5</b> Email Accounts</li>
-                            <li><b>Unlimited</b> subdomains</li>
+                            <li>Asesoramiento Personal <b>A domicilio</b></li>
+                            <li>Registro de <b>Testamento Vital</b></li>
+                            <li>Revisión <b>Anual</b></li>
+                            <li>Representación</li>
                         </ul>
-                        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>
+                        <a class="signup" href="/app/companion">EMPEZAR</a>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="aviso">
-        <p>© 2016 Vellesa.es Todos los derechos reservados /<a href="#portfolioModal4" id="avisoLegal" data-toggle="modal"> Política de Privacidad</a></p>
+    <footer>
+        <div class="row">
+            <div class="col-lg-4">
+                <img width="300" src="{{ asset('img/landing/icons/logo.png') }}">
+            </div>
+
+            <div class="col-lg-4">
+                <img src="{{ asset('img/landing/icons/logonest.jpg') }}">
+            </div>
+
+            <div class="col-lg-4">
+                <img width="400" src="{{ asset('img/landing/icons/florida.png') }}">
+            </div>
+        </div>
+        <div class="row" id="copyrigth">
+            <p>© 2016 Vellesa.es Todos los derechos reservados /<a href="#portfolioModal1" id="avisoLegal" data-toggle="modal"> Política de Privacidad</a></p>
+        </div>
     </footer>
     <!-- Portfolio Modal 4 -->
-    <div class="modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
