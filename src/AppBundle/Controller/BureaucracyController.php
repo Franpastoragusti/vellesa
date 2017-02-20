@@ -23,12 +23,11 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
-
-        $applicant = 1;
-        $witness1 = 1;
-        $witness2 = 1;
-        $witness3 = 1;
-        $representant = 0;
+        $applicant = $this->checkPersonData(1);
+        $witness1 = $this->checkPersonData(2);
+        $witness2 = $this->checkPersonData(3);
+        $witness3 = $this->checkPersonData(4);
+        $representant = $this->checkPersonData(5);
 
         return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }
@@ -37,12 +36,26 @@ class BureaucracyController extends Controller
     {
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
+    private function checkPersonData($number){
+      $user = $this->getUser()->getId();
+      $em = $this->getDoctrine()->getManager();
+      $query = $em->createQuery(
+          'SELECT p AS personalData
+          FROM AppBundle:PersonalData p
+          WHERE p.userId = :userId
+          AND p.personclassId = :class'
+      )->setParameter('userId' , $user)->setParameter('class' , $number);
 
-
+      $personalData=$query->getResult();
+      if ($personalData) {
+        return 1;
+      }else {
+        return 0;
+      }
+    }
 
     public function officialDataAction($number, Request $request)
     {
-
         $user = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
@@ -62,9 +75,7 @@ class BureaucracyController extends Controller
         }else{
             $direction = $personalData[0]['personalData']->getDirection();
             $personalData = $personalData[0]['personalData'];
-        }$wittness = 1;
-
-
+        }
 
          $form = $this->createForm(PersonType::class, array('personalData' => $personalData, 'direction' =>$direction));
 
