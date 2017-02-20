@@ -8,7 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: es
-    dni_directory: '%kernel.root_dir%/../app/dni'
+    dni_directory: '%kernel.root_dir%/../web/dni'
     audio_directory: '%kernel.root_dir%/../app/audio'
 
 framework:
@@ -99,7 +99,7 @@ easy_admin:
             actions: ['show']
             label: 'Procesos'
 
-          
+
     design:
         color_scheme: 'light'
 

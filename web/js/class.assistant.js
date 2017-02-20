@@ -30,7 +30,7 @@ class Assistant {
               family:"Texto por defecto en familia",
               health:"Texto por defecto en salud",
               personal:"Texto por defecto en personal",
-              enviroment:"Texto por defecto en entorno"
+              environment:"Texto por defecto en entorno"
             }
         };
     }

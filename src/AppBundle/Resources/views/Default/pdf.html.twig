@@ -1,90 +1,95 @@
 {% extends '::base.html.twig' %}
 {% block main %}
+{{ dump(familyData) }}
     <h3>Gracias por haber utilizado nuestra aplicacion</h3>
-    <div id="PDF" class="">
       <h3>Solicitud de inscripción del Otorgamiento</h3>
       <p></p>
       <p style="border-bottom:1px solid black"></p>
 
-      <div class="applicant">
+    <div id="block1" hidden>
+      <div id="applicant">
         <h3>Datos del solicitante</h3>
         <p>Nombre: {{ applicant.name }}</p>
         <p>Apellidos: {{ applicant.surname }}</p>
-        <p>SIP: {{ applicant.sip }}</p>
         <p>Nº Teléfono: {{ applicant.phone }}</p>
-        <p>DNI:</p>
-        <img src="{{ asset('dni/' ~ applicant.dni) }}" alt="" width="150px" height="100px"/>
-        <h4>Direccion</h4>
         <p>Ciudad: {{directionAplicant.city}}</p>
         <p>Provincia: {{directionAplicant.province}}</p>
         <p>Calle: {{directionAplicant.route}}</p>
         <p>Portal: {{directionAplicant.houseNumber}}</p>
+        <p>SIP: {{ applicant.sip }}</p>
+        <p>DNI:</p>
       </div>
-
-      <div class="witness1">
+        <div><br><br><br><br><br><br><br></div>
+      <div id="witness1">
         <h3>Declaracion de los testigos</h3>
         <h4>Testigo 1</h4>
         <p>Nombre: {{ witness1.name }}</p>
         <p>Apellidos: {{ witness1.surname }}</p>
-        <p>SIP: {{ witness1.sip }}</p>
         <p>Nº Teléfono: {{ witness1.phone }}</p>
-        <p>DNI:</p>
-        <img src="{{ asset('dni/' ~ witness1.dni) }}" alt="" width="150px" height="100px"/>
-        <h4>Direccion</h4>
         <p>Ciudad: {{directionWitness1.city}}</p>
         <p>Provincia: {{directionWitness1.province}}</p>
         <p>Calle: {{directionWitness1.route}}</p>
         <p>Portal: {{directionWitness1.houseNumber}}</p>
+        <p>SIP: {{ witness1.sip }}</p>
+        <p>DNI:</p>
       </div>
+    </div>
 
-      <div class="witness2">
+    <div id="block2" hidden>
+      <div id="witness2">
         <h4>Testigo 2</h4>
         <p>Nombre: {{ witness2.name }}</p>
         <p>Apellidos: {{ witness2.surname }}</p>
-        <p>SIP: {{ witness2.sip }}</p>
         <p>Nº Teléfono: {{ witness2.phone }}</p>
-        <p>DNI:</p>
-        <img src="{{ asset('dni/' ~ witness2.dni) }}" alt="" width="150px" height="100px"/>
-        <h4>Direccion</h4>
         <p>Ciudad: {{directionWitness2.city}}</p>
         <p>Provincia: {{directionWitness2.province}}</p>
         <p>Calle: {{directionWitness2.route}}</p>
         <p>Portal: {{directionWitness2.houseNumber}}</p>
+        <p>SIP: {{ witness2.sip }}</p>
+        <p>DNI:</p>
       </div>
-
-      <div class="witness3">
+        <div><br><br><br><br><br><br><br></div>
+      <div id="witness3">
         <h4>Testigo 3</h4>
         <p>Nombre: {{ witness3.name }}</p>
         <p>Apellidos: {{ witness3.surname }}</p>
-        <p>SIP: {{ witness3.sip }}</p>
         <p>Nº Teléfono: {{ witness3.phone }}</p>
-        <p>DNI:</p>
-        <img src="{{ asset('dni/' ~ witness3.dni) }}" alt="" width="150px" height="100px"/>
-        <h4>Direccion</h4>
         <p>Ciudad: {{directionWitness3.city}}</p>
         <p>Provincia: {{directionWitness3.province}}</p>
         <p>Calle: {{directionWitness3.route}}</p>
         <p>Portal: {{directionWitness3.houseNumber}}</p>
+        <p>SIP: {{ witness3.sip }}</p>
+        <p>DNI:</p>
       </div>
+    </div>
 
-      <div class="representant">
+    <div id="block3" hidden>
+      <div id="representant">
         <h4>Nombramiento del representante</h4>
         <p>Nombre: {{ representant.name }}</p>
         <p>Apellidos: {{ representant.surname }}</p>
-        <p>SIP: {{ representant.sip }}</p>
         <p>Nº Teléfono: {{ representant.phone }}</p>
-        <p>DNI:</p>
-        <img src="{{ asset('dni/' ~ representant.dni) }}" alt="" width="150px" height="100px"/>
-        <h4>Direccion</h4>
         <p>Ciudad: {{directionRepresentant.city}}</p>
         <p>Provincia: {{directionRepresentant.province}}</p>
         <p>Calle: {{directionRepresentant.route}}</p>
         <p>Portal: {{directionRepresentant.houseNumber}}</p>
+        <p>SIP: {{ representant.sip }}</p>
+        <p>DNI:</p>
       </div>
-
-      <div class="healthData">
+      <div><br><br><br><br><br><br><br></div>
+      <div id="healthData">
         <h3>Mis deseos sobre mi salud</h3>
         <label>1. Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:</label>
+        <p>
+          <!-- Cojo el JSON array que me devuelve la consulta, lo recorro e imprimo los datos separados por una coma -->
+          {% for i in 0..healthData.decideMyself|length -1%}
+            {% set data = healthData.decideMyself[i] %}
+            {{data|capitalize}}
+            {% if i != healthData.decideMyself|length -1 %}
+            ,
+            {% endif %}
+          {% endfor %}
+        </p>
         <label>2. Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.</label>
         {% if healthData.knowAll  == 0 %}
             <p>Si</p>
@@ -102,22 +107,39 @@
         <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
         <p>{{healthData.observations}}</p>
       </div>
+    </div>
 
-      <div class="environmentData">
+    <div id="block4" hidden>
+      <div id="environmentData">
         <h3>Mis deseos sobre mi entorno</h3>
         <label>1. Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:</label>
-        <p>{#{environmentData.placetobe}#}</p>
+        <p>
+          {% for i in 0..environmentData.placetobe|length -1%}
+            {% set data = environmentData.placetobe[i] %}
+            {{data|capitalize}}
+            {% if i != environmentData.placetobe|length -1 %}
+            ,
+            {% endif %}
+          {% endfor %}
+        </p>
         <label>2. Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:</label>
         <p>{{environmentData.expressLikes}}</p>
         <label>3. Cuando llegue el momento final de mi vida, esta es mi voluntad</label>
-        <p></p>
+        <p>
+          {% for i in 0..environmentData.selfwill|length -1%}
+            {% set data = environmentData.selfwill[i] %}
+            {{data|capitalize}}
+            {% if i != environmentData.selfwill|length -1 %}
+            ,
+            {% endif %}
+          {% endfor %}
+        </p>
         <label>4. Así me gustaría que fuese mi despedida:</label>
         <p>{{environmentData.farewell}}</p>
         <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
         <p>{{environmentData.observations}}</p>
       </div>
-
-      <div class="personalData">
+      <div id="personalData">
         <h3>Mis deseos personales</h3>
         <label>1. Trámites pendientes y documentación importante:</label>
         <p>{{personalAreaData.importantDocuments}}</p>
@@ -130,11 +152,20 @@
         <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas.</label>
         <p>{{personalAreaData.observations}}</p>
       </div>
+    </div>
 
-      <div class="familyData">
+    <div id="familyData" hidden>
         <h3>Mis deseos sobre mi gente</h3>
         <label>1. Mis seres queridos más cercanos son:(ordenalos por preferencia)</label>
-        <p>{#{familyData.beloved}#}</p>
+        <p>
+          {% for i in 0..familyData.beloved|length -1%}
+            {% set data = familyData.beloved[i] %}
+            {{data|capitalize}}
+            {% if i != familyData.beloved|length -1 %}
+            ,
+            {% endif %}
+          {% endfor %}
+        </p>
         <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:</label>
         <p>{{familyData.profesionals}}</p>
         <label>3. Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:</label>
@@ -146,23 +177,51 @@
             <p>No</p>
         {% endif %}
         <label>5. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
-        <p>{#{familyData.visits}#}</p>
+        <p>
+          {% for i in 0..familyData.visits|length -1%}
+            {% set data = familyData.visits[i] %}
+            {{data|capitalize}}
+            {% if i != familyData.visits|length -1 %}
+            ,
+            {% endif %}
+          {% endfor %}
+        </p>
         <label>6. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
         <p>{{familyData.observations}}</p>
       </div>
 
-    </div>
-    <button type="button" onclick="generatePdf()">Generar pdf</button>
+    <button id="buttonPdf" type="button" onclick="generatePdf()" disabled>Generar pdf</button><p id="espera">Espere generando datos</p>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script>
+      var base64 = [];
+      var rutas = ["/dni/{{applicant.dni}}", "/dni/{{witness1.dni}}", "/dni/{{witness2.dni}}",
+      "/dni/{{witness3.dni}}", "/dni/{{representant.dni}}"];
+
+
+      for (var i = 0; i < rutas.length; i++) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", rutas[i], true);
+            xhr.responseType = "blob";
+            xhr.onload = function (e) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                      var res = event.target.result;
+                      base64.push(res);
+                      if (base64[0] != null && base64[1] != null && base64[2] != null && base64[3] != null && base64[4] != null) {
+                        $("#espera").attr("class", "hidden");
+                        $("#buttonPdf").removeAttr("disabled");
+                      }
+                    }
+                    var file = this.response;
+                    reader.readAsDataURL(file)
+            };
+            xhr.send()
+        }
+
         function generatePdf() {
-          var doc = new jsPDF(),
-              lines,
-              size,
-              margin = 0.5,
-              verticalOffset = margin;
+          var doc = new jsPDF(),lines, size,margin = 0.5,verticalOffset = margin;
 
           doc.setProperties({title: 'Datos{{applicant.name}}_{{applicant.surname}}.pdf'});
 
@@ -171,19 +230,34 @@
                 return true;
               }
             };
-            var source = window.document.getElementById("PDF");
-            doc.fromHTML(
-                source,
-                15,
-                15,
-                {
-                  'width': 180,'elementHandlers': elementHandler
-                });
+            var block1 = document.getElementById("block1");
+            var block2 = document.getElementById("block2");
+            var block3 = document.getElementById("block3");
+            var block4 = document.getElementById("block4");
+            var familyData = document.getElementById("familyData");
 
+            if(base64[0] != null && base64[1] != null && base64[2] != null && base64[3] != null && base64[4] != null){
+              doc.fromHTML(block1,15,15);
+              doc.addImage(base64[0],'JPEG',30,115,50,30);
+              doc.addImage(base64[1],'JPEG',30,250,50,30);
+
+              doc.addPage();
+
+              doc.fromHTML(block2,15,15);
+              doc.addImage(base64[2],'JPEG',30,115,50,30);
+              doc.addImage(base64[3],'JPEG',30,240,50,30);
+
+              doc.addPage();
+              doc.fromHTML(block3,15,15,{'width': 180});
+              doc.addImage(base64[3],'JPEG',30,115,50,30);
+
+              doc.addPage();
+              doc.fromHTML(block4,15,15,{'width': 180});
+
+              doc.addPage();
+              doc.fromHTML(familyData,15,15,{'width': 180});
+            }
             doc.output("dataurlnewwindow");
-
-
         }
     </script>
-
 {% endblock %}

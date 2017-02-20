@@ -35,7 +35,7 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
-        
+
         $user = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
@@ -93,6 +93,7 @@ class BureaucracyController extends Controller
             //Guardamos el nombre de la iamgen en BBDD y la imagen en una carpeta
             $file = $personData->getDni();
             $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
             $file->move(
                 $this->getParameter('dni_directory'),
                 $fileName
