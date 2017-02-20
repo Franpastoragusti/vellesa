@@ -11,11 +11,11 @@ class Assistant {
         this.popupUser = $("#mensaje_user").css("display", "none");
         this.id = 1;
         this.texts = {
-            default:"Hola",
+            default:"Hola, recuerda que cualquier duda puedes preguntarme a mi",
             timeMessages:{
               first:{
                 time:50,
-                message:"Han pasado 5 minutos"
+                message:"Estás teniendo alguna complicación? Dale al boton de contactar"
               },
               second:{
                 time:100,
@@ -27,7 +27,7 @@ class Assistant {
               }
             },
             areaText:{
-              family:"Texto por defecto en familia",
+              family:"Texto por defecto en famili",
               health:"Texto por defecto en salud",
               personal:"Texto por defecto en personal",
               environment:"Texto por defecto en entorno"
@@ -54,6 +54,7 @@ class Assistant {
         });
     }
 
+    //Funcion que clona el mensaje escrito por el usuario y lo añade al asistente
     answer() {
       var cloneCount = 1;
       var tiempo = new Date()
@@ -72,15 +73,12 @@ class Assistant {
                 if (responder == true) {
                   $("#tiempo_user").text("" + tiempo.getHours() + " : " + tiempo.getMinutes());
                   setTimeout(function(){
-                    $("#respuestaPuntos").attr("class", "pull-right").css("position", "absolute").css("margin-bottom", "15%").css("right", "5%");
-                  }, 3000);
-                  setTimeout(function(){
                     $("#respuestaPuntos").attr("class", "pull-right hidden");
                     $("#mensajeApp1").clone().attr('id', 'mensajeApp'+ ++cloneCount).insertBefore(".popup-messages-footer");
                     $("#mensajeApp"+cloneCount +" #texto_app").attr('id', 'texto_app'+ cloneCount).empty();
-                    $("#texto_app"+cloneCount).append("<p>En breves nos pondremos en contacto contigo</p>");
+                    $("#texto_app"+cloneCount).append("<p>Usa el botón de 'Iniciar' para empezar una llamada</p>");
                     this.cambiarHoraApp.append(this.hora_local);
-                  }, 10000);
+                  }, 5000);
                   responder = false;
                 }
 

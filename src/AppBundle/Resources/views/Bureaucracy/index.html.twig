@@ -76,10 +76,11 @@
         let number = getNumberByRoute();
         let representant = '{{ representant }}';
         let witness1 = '{{ witness1 }}';
-        let witness2 = '{{ witness1 }}';
-        let witness3 = '{{ witness1 }}';
+        let witness2 = '{{ witness2 }}';
+        let witness3 = '{{ witness3 }}';
         let applicant = '{{ applicant }}';
 
+        console.log();
         if (witness1 == 1){
             $('#witness1').children('a').addClass('completed');
         }
@@ -96,14 +97,14 @@
             $('#applicant').children('a').addClass('completed');
         }
         setInterval(function(){
-            var delay = 2000;
+
             if (applicant == 1 && representant == 1 && witness1 == 1 && witness2 == 1 && witness3 == 1){
                 $('#cn-wrapper').removeClass('opened-nav');
                 $('#cn-button').empty().text('FIN').addClass('completed');
-                setTimeout(function(){ window.location = '/app/bureaucracy/instance'; }, delay);
+                
             }
         }, 2000);
-        
+
         $(document).ready(function () {
             $(".cn-wrapper").addClass('opened-nav');
             stepAnimation(number);
