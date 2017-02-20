@@ -1,51 +1,52 @@
 {% trans_default_domain 'FOSUserBundle' %}
+{% extends '::base.html.twig' %}
+{% block body %}
+    <body class="login">
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
-
-<div class="container">
-    <div class="row col-md-6 col-md-push-3">
-        <div class="panel panel-warning">
-            <div class="panel-heading">
-                <h1 class="text-center">Login</h1>
-            </div>
-            <div class="panel-body">
-                <div class="tab-content">
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
                     <form action="{{ path("fos_user_security_check") }}" method="post">
+                        <h1>Login Form</h1>
                         {% if csrf_token %}
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                         {% endif %}
                         <div class="form-group">
-                          <label for="username">{{ 'security.login.username'|trans }}</label>
-                          <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
+                            <input class="form-control" placeholder="Username" type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
                         </div>
                         <div class="form-group">
-                          <label for="password">{{ 'security.login.password'|trans }}</label>
-                          <input class="form-control" type="password" id="password" name="_password" required="required"/>
+                            <input class="form-control" type="password" id="password" placeholder="Password" name="_password" required="required"/>
                         </div>
-                        <div class="form-group">
-                          <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-                          <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                        <div class="clearfix"></div>
+                        <p class="change_link">
+                            <input class="col-md-9 btn btn-vellesa" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        </p>
+                        <div class="clearfix"></div>
+                        <div class="form-group" >
+                            <p>Aún no tienes cuenta?<a href="/user/register" class="to_register">Registrate</a></p>
                         </div>
-                        <input class="col-md-12" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                        <p class="col-md-8 col-md-offset-3">Aún no tienes cuenta?<a href="/user/register"> Registrate</a></p>
+                        <div class="clearfix"></div>
                     </form>
-                </div>
+                </section>
             </div>
         </div>
-    </div>
-    <!--row end-->
-</div>
 
-<div>{#Boton entrar, con el "recuerdame" incorporado#}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-        |
-        <a style="color:white;" href="{{ path('fos_user_security_logout') }}">
-            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-        </a>
-    {% else %}
-        <a style="color:white;" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-    {% endif %}
-</div>
+        <div>{#Boton entrar, con el "recuerdame" incorporado#}
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                |
+                <a style="display: none;" href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a style="display: none;" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+    </body>
+{% endblock %}
+

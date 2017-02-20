@@ -2,41 +2,44 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
+    <style>
+        body{
+            background-image: url('/img/migente.jpg');
+        }
+    </style>
 {% endblock %}
 {% block main %}
-    {% include './templates/steps.horizontal.html.twig'%}
-    <div class="apartado text-center">
-        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>FAMILIA Y SERES QUERIDOS</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
 
-        <div class="container-fluid col-md-9 col-md-offset-2">
-
-            <div class="row col-md-5 text-justify">
-                <p>Como dice la canción: “Tres cosas hay en la vida: salud, dinero y amor…” y la salud no ocupa el primer lugar por casualidad. Gracias a los avances científicos en medicina se ha aumentado la esperanza de vida de las personas, pero el debate está servido: </br>
-                </p>
-            </div>
-
-            <div class="row col-md-5 ">
-                <iframe width="375" height="235" src="https://www.youtube.com/embed/aVKQQcaeGgo" frameborder="0" allowfullscreen></iframe>
-
+    <div class="apartado text-justify col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        {% include './templates/steps.horizontal.html.twig'%}
+        <h2>Mi Gente</h2>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hd-7oSLmluo"></iframe>
             </div>
         </div>
-
-		<div class="col-md-6 col-md-offset-3 responsiveButton">
-                <a href="">
-                    <button type="button" class="btn btn-warning start buttonNext">QUIERO SABER MÁS
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </button>
-                </a>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <p>Cuando nuestra madre, padre, hermano, hijo o amigo padece una enfermedad grave o terminal se produce una situación de crisis.
+                Emociones como el miedo, la tristeza, la ira, la culpa llenan todo el espacio y además es imprescindible tomar decisiones fundamentales sobre quién,
+                cómo y dónde se va a atender a nuestro ser querido. Se trata de situaciones muy delicadas en las que muchas veces se producen tensiones y conflictos.
+            </p>
+            <p>
+                Puedes evitar o al menos facilitar esas situaciones a tus familiares y amigos en esta fase de Tú decides, deja claras tus preferencias sobre cómo
+                y por quién quieres ser atendido para que nadie tenga que decidir por ti cuando ya no puedas hacerlo. Piensa en los tuyos, te lo agradecerán.
+                No olvides que siempre tienes a tu disposición a tu acompañante personal, que estará encantado de atenderte. Si has elegido el acompañamiento en
+                formato audio no olvides regular el sonido de tus altavoces.
+            </p>
         </div>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            {{ form_start(form) }}
+            <div id="beloved">
 
+            </div>
+            {{ form_end(form) }}
+            <input type="button" class="btn btn-vellesa col-md-6 col-md-offset-3" value="Atrás" onclick="history.back(-1)" />
+        </div>
     </div>
-    <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
-        {{ form_start(form) }}
-          <div id="beloved">
 
-          </div>
-        {{ form_end(form) }}
-    </div>
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
@@ -47,7 +50,9 @@
   </script>
 {% endblock %}
 {% block javascripts %}
+
     <script>
+
 
         var familiars = 0;
         var prof1 = false;
@@ -56,7 +61,7 @@
             if (!$("#appbundle_familyarea_beloved").text()) {
                 $("#appbundle_familyarea_beloved").remove()
                 $('#beloved').insertAfter("label[for=appbundle_familyarea_beloved]")
-                $('#beloved').append('<input type="button" id="appbundle_familyarea_beloved_button" onclick="addMoreFamily()" value="Añadir más"/>')
+                $('#beloved').append('<input type="button" id="appbundle_familyarea_beloved_button" class="btn btn-vellesa" onclick="addMoreFamily()" value="Añadir más"/>')
                 $('#beloved').append("<input type='text' id='appbundle_familyarea_beloved_"+familiars+"' name='appbundle_familyarea[beloved]["+familiars+"]' class='form-control' novalidate>")
             }else{
               var belovedText =$("#appbundle_familyarea_beloved").text().split(",")
@@ -99,12 +104,15 @@
 
 
     </script>
-
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
     <script src="{{ asset('js/FormDecorator.js') }}"></script>
     <script>
+        let number = getNumberByRoute();
+
         $(document).ready(function(){
             FormDecorator.addIconForInfoLabels()
             FormDecorator.setClassButtonSubmit()
+            stepAnimation(number)
         })
 
     </script>

@@ -23,7 +23,14 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
-            return $this->render('AppBundle:Bureaucracy:index.html.twig');
+
+        $applicant = 1;
+        $witness1 = 1;
+        $witness2 = 1;
+        $witness3 = 1;
+        $representant = 0;
+
+        return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }
 
     public function instanceAction()
@@ -55,7 +62,7 @@ class BureaucracyController extends Controller
         }else{
             $direction = $personalData[0]['personalData']->getDirection();
             $personalData = $personalData[0]['personalData'];
-        }
+        }$wittness = 1;
 
 
 

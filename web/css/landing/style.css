@@ -54,9 +54,8 @@ section.testamento_vital div#cta1{
 }
 
 .bg-dark{
-	background-color: rgba(240,182,103, 0.5);
+	background-color: rgba(137,96,203, 0.5);
 }
-
 img#vellesa{
 	height: 150px !important;
 	width: 200px;
@@ -127,15 +126,18 @@ button{
 h2 + a{
 	color: rgb(90, 90, 90) !important;
 }
-div.header-content-inner p.min{
+div.header-content-inner li.min{
 	font-size: 18px !important;
-	font-style: italic;
+	text-align: left;
+	color: rgb(90, 90, 90);
+	list-style: circle;
+	line-height: 30px;
 }
 h3{
 	line-height: 30px;
 	font-size: 22px !important;
 }
-
+/*rgba(137,96,203, 1)*/
 
 h3.section-subheading.text-muted{
 	font-style: normal;
@@ -236,7 +238,6 @@ div.fondoHeader{
 #fdw-pricing-table {
 		margin:0 auto;
 		text-align: center;
-		margin-left: 34%;
 		zoom: 1;
 	}
 
@@ -252,12 +253,11 @@ div.fondoHeader{
 	/* --------------- */
 
 	#fdw-pricing-table .plan {
-		font: 13px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
 		background: #fff;
 		border: 1px solid #ddd;
 		color: #333;
 		padding: 20px;
-		width: 180px;
+		width: 260px;
 		float: left;
 		_display: inline; /* IE6 double margin fix */
 		position: relative;
@@ -324,20 +324,13 @@ div.fondoHeader{
 	}
 
 	#fdw-pricing-table .plan1 .header{
-		border-bottom-color: #B3E03F;
+		border-bottom-color: rgba(137,96,203, 0.4);
 	}
 
 	#fdw-pricing-table .plan2 .header{
-		border-bottom-color: #7BD553;
+		border-bottom-color: rgba(137,96,203, 1);
 	}
 
-	#fdw-pricing-table .plan3 .header{
-		border-bottom-color: #3AD5A0;
-	}
-
-	#fdw-pricing-table .plan4 .header{
-		border-bottom-color: #45D0DA;
-	}
 
 	/* --------------- */
 
@@ -393,17 +386,32 @@ div.fondoHeader{
 	}
 
 	#fdw-pricing-table .plan1 .signup{
-		background: #B3E03F;
+		background: rgba(137,96,203, 0.4);
 	}
 
 	#fdw-pricing-table .plan2 .signup{
-		background: #7BD553;
+		background: rgba(137,96,203, 1);
 	}
 
-	#fdw-pricing-table .plan3 .signup{
-		background: #3AD5A0;
+
+	#fdw-pricing-table .plan1 li{
+		padding-bottom: 49px;
 	}
 
-	#fdw-pricing-table .plan4 .signup{
-		background: #45D0DA;
+
+	footer{
+		background-color: #333333;
+		margin-top: 60px;
+		padding-bottom: 0px;
+
+	}
+
+
+	footer p, footer a{
+		color: #FFFFFF !important;
+		font-size: 12px !important;
+	}
+
+	#portfolioModal4  div.boton > button {
+		color: #FFFFFF !important;
 	}

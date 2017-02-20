@@ -85,8 +85,8 @@ class EnvironmentAreaType extends AbstractType
             ))
 
 
-                ->add('save', SubmitType::class, array(
-                    'attr' => array('label' => 'Enviar')
+                ->add('Terminado', SubmitType::class, array(
+                    'attr' => array('class' => 'btn-vellesa')
 
 
             ));
