@@ -11,8 +11,7 @@
 
 .component {
 	position: relative;
-	height: 15em;
-	background: rgba(0,0,0,0.05);
+	height: 18em;
 	font-family: Roboto, sans-serif !important;
 }
 
@@ -32,7 +31,7 @@
 
 .cn-button {
 	position: absolute;
-	top: 100%;
+	top: 80%;
 	left: 50%;
 	z-index: 11;
 	margin-top: -2.25em;
@@ -44,7 +43,7 @@
 	border-radius: 50%;
 	background: none;
 	background-color: #fff;
-	color: rgba(237,168,94,1);
+	color: rgba(137,96,203,1);
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -52,10 +51,12 @@
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
 }
-
+#cn-button-fin{
+padding-top: 35px;
+}
 .csstransforms .cn-wrapper {
 	position: absolute;
-	top: 100%;
+	top: 80%;
 	left: 50%;
 	z-index: 10;
 	margin-top: -13em;
@@ -74,6 +75,9 @@
 	transform: scale(0.1);
 	pointer-events: none;
 	overflow: hidden;
+}
+.cn-wrapper a.completed {
+	background-color: rgba(137,96,203,0.5) !important;
 }
 
 /*cover to prevent extra space of anchors from being clickable*/
@@ -137,10 +141,10 @@
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: rgba(237,168,94,1);
-	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: rgba(137,96,203,1);
+	background: -webkit-radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
+	background: radial-gradient(transparent 35%, rgba(137,96,203,1) 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -167,9 +171,9 @@
 .csstransforms .cn-wrapper li a:hover,
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
-	background: -webkit-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: -moz-radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
-	background: radial-gradient(transparent 35%, rgba(237,168,94,1) 35%);
+	background: -webkit-radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
+	background: -moz-radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
+	background: radial-gradient(transparent 35%, rgba(137,96,203,0.7) 35%);
 }
 .csstransforms .cn-wrapper li a:focus {
     position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
@@ -185,43 +189,37 @@
 	-webkit-transform: rotate(-5deg) skew(60deg);
 	-moz-transform: rotate(-5deg) skew(60deg);
 	-ms-transform: rotate(-5deg) skew(60deg);
-	transform: rotate(-5deg) skew(60deg);
+	transform: rotate(11deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(2) {
 	-webkit-transform: rotate(27deg) skew(60deg);
 	-moz-transform: rotate(27deg) skew(60deg);
 	-ms-transform: rotate(27deg) skew(60deg);
-	transform: rotate(27deg) skew(60deg);
+	transform: rotate(43deg) skew(60deg);
 }
 
 .csstransforms .opened-nav  li:nth-child(3) {
 	-webkit-transform: rotate(59deg) skew(60deg);
 	-moz-transform: rotate(59deg) skew(60deg);
 	-ms-transform: rotate(59deg) skew(60deg);
-	transform: rotate(59deg) skew(60deg);
+	transform: rotate(75deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(4) {
 	-webkit-transform: rotate(92deg) skew(60deg);
 	-moz-transform: rotate(92deg) skew(60deg);
 	-ms-transform: rotate(92deg) skew(60deg);
-	transform: rotate(92deg) skew(60deg);
+	transform: rotate(107deg) skew(60deg);
 }
 
 .csstransforms .opened-nav li:nth-child(5) {
 	-webkit-transform: rotate(124deg) skew(60deg);
 	-moz-transform: rotate(124deg) skew(60deg);
 	-ms-transform: rotate(124deg) skew(60deg);
-	transform: rotate(124deg) skew(60deg);
+	transform: rotate(139deg) skew(60deg);
 }
 
-.csstransforms .opened-nav li:nth-child(6) {
-	-webkit-transform: rotate(156deg) skew(60deg);
-	-moz-transform: rotate(156deg) skew(60deg);
-	-ms-transform: rotate(156deg) skew(60deg);
-	transform: rotate(156deg) skew(60deg);
-}
 
 .no-csstransforms .cn-wrapper {
 	overflow: hidden;
@@ -300,6 +298,9 @@
 
 	.cn-button {
 		font-size: 1em;
+	}
+	#cn-button-fin{
+		padding-top: 30px;
 	}
 }
 

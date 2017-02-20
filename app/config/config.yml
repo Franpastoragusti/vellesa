@@ -89,6 +89,11 @@ easy_admin:
             class: AppBundle\Entity\User
             label: 'Usuarios'
         PersonalData:
+            list:
+                actions:
+                    - { name: 'look_geo', type: 'route', label: 'Geolocalizacion'}
+
+
             class: AppBundle\Entity\PersonalData
             label: 'Datos personales'
         PDF:
@@ -96,7 +101,6 @@ easy_admin:
                 actions:
                     ['pdf']
             class: AppBundle\Entity\PDF
-            actions: ['show']
             label: 'Procesos'
 
 

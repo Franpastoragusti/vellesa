@@ -46,10 +46,9 @@ class PersonalAreaType extends AbstractType
                 'attr' => array('rows' => 3)
               ))
 
-            ->add('save', SubmitType::class, array(
-                'attr' => array(
-                    'label' => 'Enviar'
-                )))
+            ->add('Terminado', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa start')
+                ))
         ;
     }
 

@@ -3,13 +3,6 @@
  */
 class FormDecorator {
 
-    static mostrarMensaje(mensaje){
-
-        console.log(mensaje);
-    }
-
-
-
     static addIconForInfoLabels(){
 
         $(".form-group").prepend('<i class="fa fa-info-circle fa-2x" onclick="FormDecorator.offerInfo(this, event)" aria-hidden="true"></i>')

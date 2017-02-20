@@ -112,12 +112,12 @@
 
 
 .popup-head img {
-    border: 3px solid #5A738E;
+    border: 3px solid rgba(137,96,203, 1);
     border-radius: 50%;
     width: 80px;
 }
 .popup-head span{
-  color: #5A738E;
+  color: rgba(137,96,203, 1);
 }
 .popup-messages-footer > textarea {
     border: 1px solid #b2b2b2 !important;
@@ -152,7 +152,7 @@
 }
 
 .popup-messages {
-    background: rgba(248, 182, 103, 0.6) none repeat scroll 0 0;
+    background: rgba(137,96,203, 0.7) none repeat scroll 0 0;
     height: 275px;
     overflow: auto;
 }
@@ -228,7 +228,7 @@
 	font-size: 15px;
 	font-weight: 600;
 	margin: 0 0 0 49px !important;
-	color: #5A738E;
+	color: #ffffff;
 	opacity: 0.9;
 }
 .popup-messages .direct-chat-info {
