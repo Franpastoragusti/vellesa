@@ -67,17 +67,16 @@ class Assistant {
                 $("#mensaje_user").clone().attr('id', 'mensaje_user'+ +cloneCount).insertBefore(".popup-messages-footer")
                 $("#mensaje_user" + cloneCount).css("display", "block");
                 $("#mensaje_user"+cloneCount + " #texto_user").attr('id', 'texto_user'+ +cloneCount);
-                $("#texto_user" + cloneCount).attr('class', 'direct-chat-text col-md-12 pull-left');
+                $("#texto_user" + cloneCount).attr('class', 'direct-chat-text pull-left').css("width", "80%");
                 $("#texto_user"+ cloneCount).append("<p>"+textAreaUser+"</p>");
                 $("#textoEscritoUser").val("");
+                $("#tiempo_user").text("" + tiempo.getHours() + " : " + tiempo.getMinutes());
                 if (responder == true) {
-                  $("#tiempo_user").text("" + tiempo.getHours() + " : " + tiempo.getMinutes());
                   setTimeout(function(){
-                    $("#respuestaPuntos").attr("class", "pull-right hidden");
                     $("#mensajeApp1").clone().attr('id', 'mensajeApp'+ ++cloneCount).insertBefore(".popup-messages-footer");
                     $("#mensajeApp"+cloneCount +" #texto_app").attr('id', 'texto_app'+ cloneCount).empty();
                     $("#texto_app"+cloneCount).append("<p>Usa el botón de 'Iniciar' para empezar una llamada</p>");
-                    this.cambiarHoraApp.append(this.hora_local);
+                    $("#tiempo_app").text("" + tiempo.getHours() + " : " + tiempo.getMinutes());
                   }, 5000);
                   responder = false;
                 }
@@ -86,10 +85,10 @@ class Assistant {
         });
     }
 
-
     appAnswer(text){
       this.textoApp.append(text);
       this.cambiarHoraApp.append(this.hora_local);
+      this.cambiarHoraUser.append(this.hora_local);
       this.answer();
     }
 
@@ -106,6 +105,7 @@ class Assistant {
         $("#mensajeApp1").clone().attr('id', 'mensajeApp'+ ++id).insertBefore(".popup-messages-footer");
         $("#mensajeApp"+id +" #texto_app").attr('id', 'texto_app'+ id).empty();
         $("#texto_app"+id).append("<p>"+text+"</p>");
+        this.cambiarHoraApp.append(this.hora_local);
       }, time*1000);
 
     }
