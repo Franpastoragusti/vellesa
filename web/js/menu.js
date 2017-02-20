@@ -8,7 +8,6 @@
 
     //open and close menu when the button is clicked
     var open = false;
-    button.addEventListener('click', handler, false);
 
     function handler(){
         if(!open){
@@ -17,8 +16,31 @@
         }
         
     }
-    // function closeWrapper(){
-    //     classie.remove(wrapper, 'opened-nav');
-    // }
 
 })();
+
+
+function checkCompleted(){
+    let representant = '{{ representant }}';
+    let witness1 = '{{ witness1 }}';
+    let witness2 = '{{ witness1 }}';
+    let witness3 = '{{ witness1 }}';
+    let applicant = '{{ applicant }}';
+
+    if (witness1 == 1){
+        $('#witness1').children('a').addClass('completed');
+    }
+    if (witness2 == 1){
+        $('#witness2').children('a').addClass('completed');
+    }
+    if (witness3 == 1){
+        $('#witness3').children('a').addClass('completed');
+    }
+    if (representant == 1){
+        $('#representant').children('a').addClass('completed');
+    }
+    if (applicant == 1){
+        $('#applicant').children('a').addClass('completed');
+    }
+}
+

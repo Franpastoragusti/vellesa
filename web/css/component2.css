@@ -76,6 +76,9 @@ padding-top: 35px;
 	pointer-events: none;
 	overflow: hidden;
 }
+.cn-wrapper a.completed {
+	background-color: rgba(137,96,203,0.5) !important;
+}
 
 /*cover to prevent extra space of anchors from being clickable*/
 .csstransforms .cn-wrapper:after{

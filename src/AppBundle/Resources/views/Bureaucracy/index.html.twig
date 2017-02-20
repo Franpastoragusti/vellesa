@@ -49,11 +49,11 @@
                 <button class="cn-button" id="cn-button">DATOS</button>
                 <div class="cn-wrapper" id="cn-wrapper">
                     <ul>
-                        <li><a href="1"><span>Tus datos</span></a></li>
-                        <li><a href="2"><span>Testigo 1</span></a></li>
-                        <li><a href="3"><span>Testigo 2</span></a></li>
-                        <li><a href="4"><span>Testigo 3</span></a></li>
-                        <li><a href="5"><span>Representante</span></a></li>
+                        <li id="applicant"><a href="1"><span>Tus datos</span></a></li>
+                        <li id="witness1"><a href="2"><span>Testigo 1</span></a></li>
+                        <li id="witness2"><a href="3"><span>Testigo 2</span></a></li>
+                        <li id="witness3"><a href="4"><span>Testigo 3</span></a></li>
+                        <li id="representant"><a href="5"><span>Representante</span></a></li>
                     </ul>
                 </div>
                 <!-- End of Nav Structure -->
@@ -74,7 +74,36 @@
 
     <script>
         let number = getNumberByRoute();
+        let representant = '{{ representant }}';
+        let witness1 = '{{ witness1 }}';
+        let witness2 = '{{ witness1 }}';
+        let witness3 = '{{ witness1 }}';
+        let applicant = '{{ applicant }}';
 
+        if (witness1 == 1){
+            $('#witness1').children('a').addClass('completed');
+        }
+        if (witness2 == 1){
+            $('#witness2').children('a').addClass('completed');
+        }
+        if (witness3 == 1){
+            $('#witness3').children('a').addClass('completed');
+        }
+        if (representant == 1){
+            $('#representant').children('a').addClass('completed');
+        }
+        if (applicant == 1){
+            $('#applicant').children('a').addClass('completed');
+        }
+        setInterval(function(){
+            var delay = 2000;
+            if (applicant == 1 && representant == 1 && witness1 == 1 && witness2 == 1 && witness3 == 1){
+                $('#cn-wrapper').removeClass('opened-nav');
+                $('#cn-button').empty().text('FIN').addClass('completed');
+                setTimeout(function(){ window.location = '/app/bureaucracy/instance'; }, delay);
+            }
+        }, 2000);
+        
         $(document).ready(function () {
             $(".cn-wrapper").addClass('opened-nav');
             stepAnimation(number);
