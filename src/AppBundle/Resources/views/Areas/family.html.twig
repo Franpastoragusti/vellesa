@@ -45,8 +45,8 @@
   {% include './templates/assistant.html.twig'%}
   <script type="text/javascript">
   var texto = "Hola esto es una prueba de familia"
-    assistant.appAnswer(texto);
-    assistant.showAppLongMessage("Esto es un mensaje laaargo", 15);
+  assistant.appAnswer(assistant.texts.areaText.family);
+  assistant.showAppLongMessage(assistant.texts.timeMessages.first.message, assistant.texts.timeMessages.first.time);
   </script>
 {% endblock %}
 {% block javascripts %}

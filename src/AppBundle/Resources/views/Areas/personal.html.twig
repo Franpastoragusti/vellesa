@@ -37,6 +37,10 @@
 {% endblock %}
 {% block assistantContent %}
   {% include './templates/assistant.html.twig'%}
+  <script type="text/javascript">
+  assistant.appAnswer(assistant.texts.areaText.personal);
+  assistant.showAppLongMessage(assistant.texts.timeMessages.first.message, assistant.texts.timeMessages.first.time);
+  </script>
 {% endblock %}
 {% block javascripts %}
 
