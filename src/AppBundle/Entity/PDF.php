@@ -28,12 +28,6 @@ class PDF
     private $userId;
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="urlpdf", type="string", length=255)
-     */
-    private $urlpdf;
 
     /**
      * @var string
@@ -74,29 +68,9 @@ class PDF
         return $this->id;
     }
 
-    /**
-     * Set urlpdf
-     *
-     * @param string $urlpdf
-     *
-     * @return PDF
-     */
-    public function setUrlpdf($urlpdf)
-    {
-        $this->urlpdf = $urlpdf;
 
-        return $this;
-    }
 
-    /**
-     * Get urlpdf
-     *
-     * @return string
-     */
-    public function getUrlpdf()
-    {
-        return $this->urlpdf;
-    }
+   
 
     /**
      * Set printed
