@@ -91,8 +91,7 @@ easy_admin:
         PersonalData:
             list:
                 actions:
-                    - { name: 'look_geo', type: 'route', label: 'Geolocalizacion'}
-
+                    ['googleMaps']
 
             class: AppBundle\Entity\PersonalData
             label: 'Datos personales'
@@ -102,6 +101,7 @@ easy_admin:
                     ['pdf']
             class: AppBundle\Entity\PDF
             label: 'Procesos'
+
 
 
     design:

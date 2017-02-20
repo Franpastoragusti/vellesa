@@ -17,35 +17,26 @@ class AdminController extends BaseAdminController
     {
 
 
-        /*
 
-        // controllers extending the base AdminController can access to the
-        // following variables:
-        //   $this->request, stores the current request
-        //   $this->em, stores the Entity Manager for this Doctrine entity
 
-        // change the properties of the given entity and save the changes
         $id = $this->request->query->get('id');
-        $entity = $this->em->getRepository('AppBundle:Product')->find($id);
-        $entity->setStock(100 + $entity->getStock());
+        $entity = $this->em->getRepository('AppBundle:PDF')->find($id);
+        $urlpdf= $entity ->getUrlpdf();
         $this->em->flush();
 
-        // redirect to the 'list' view of the given entity
-        return $this->redirectToRoute('easyadmin', array(
-            'action' => 'list',
+
+        return $this->render('AppBundle:Default:testRoom.html.twig', array(
+            'id' => $id,  // IDUSUARIO
+            'urlpdf' => $urlpdf,  //URL DE LA IMAGEN EN BASE DATOS TABLA PDF
             'entity' => $this->request->query->get('entity'),
         ));
 
-        // redirect to the 'edit' view of the given entity item
-        return $this->redirectToRoute('easyadmin', array(
-            'action' => 'edit',
-            'id' => $id,
-            'entity' => $this->request->query->get('entity'),
-        ));
+    }
 
-        */
+    public function googleMapsAction()
+    {
 
-        return $this->render('AppBundle:Default:testRoom.html.twig');
+     
 
     }
 
