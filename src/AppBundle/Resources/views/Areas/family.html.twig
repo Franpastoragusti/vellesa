@@ -50,7 +50,9 @@
   </script>
 {% endblock %}
 {% block javascripts %}
+
     <script>
+
 
         var familiars = 0;
         var prof1 = false;
@@ -102,12 +104,15 @@
 
 
     </script>
-
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
     <script src="{{ asset('js/FormDecorator.js') }}"></script>
     <script>
+        let number = getNumberByRoute();
+
         $(document).ready(function(){
             FormDecorator.addIconForInfoLabels()
             FormDecorator.setClassButtonSubmit()
+            stepAnimation(number)
         })
 
     </script>

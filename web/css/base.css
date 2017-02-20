@@ -152,7 +152,7 @@ h2{
 }
 
 .apartado{
-  background-color: rgba(250,250,250,0.8);
+  background-color: rgba(250,250,250,0.9);
   border-radius: 10px;
 }
 
@@ -187,6 +187,7 @@ i.fa-info-circle.fa-2x.pull-right{
 .wizard_steps li {
   position: relative;
   width: 20vw;
+  height: 30px;
 }
 
 
@@ -212,11 +213,25 @@ i.fa-info-circle.fa-2x.pull-right{
 
 ul.wizard_steps li a.selected:before, .step_no{
   background: rgb(137,96,203);
-  width: 20px !important;
-  height: 20px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+ul.wizard_steps li:not(.selected){
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+ul.wizard_steps li a.selected:before, .step_no.selected{
+  background: rgb(137,96,203);
+  width: 40px !important;
+  height: 40px !important;
+}
+ul.wizard_steps li a.selected:before, .step_descr.selected{
+  font-size: 12px;
 }
 .wizard_horizontal ul.wizard_steps li a:before {
-  top: 10px;
+  top: 20px;
 }
 
 

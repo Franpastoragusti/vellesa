@@ -29,6 +29,7 @@
                 Si has elegido el acompañamiento en formato audio no olvides regular el sonido de tus altavoces.</p>
         </div>
 
+        {{ app.request.requesturi }}
         <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             {{ form_start(form) }}
             {{ form_end(form) }}
@@ -50,10 +51,19 @@
 
 
     <script src="{{ asset('js/FormDecorator.js') }}"></script>
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
+
     <script>
+        let number = getNumberByRoute();
+        console.log(number)
         $(document).ready(function(){
-            FormDecorator.addIconForInfoLabels()
+            FormDecorator.addIconForInfoLabels();
+            stepAnimation(number)
+
         })
+
+
+
     </script>
 
 {% endblock %}

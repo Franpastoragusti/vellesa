@@ -42,14 +42,17 @@
 
 
     <script src="{{ asset('js/FormDecorator.js') }}"></script>
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
+
     <script>
+        let number = getNumberByRoute();
+        console.log(number)
         $(document).ready(function(){
-            FormDecorator.addIconForInfoLabels()
+            FormDecorator.addIconForInfoLabels();
+            stepAnimation(number)
 
         })
-
     </script>
-
 
 
 

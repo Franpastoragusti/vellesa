@@ -70,10 +70,14 @@
 {% block javascripts %}
     <script src="{{ asset('js/polyfills.js') }}"></script>
     <script src="{{ asset('js/menu.js') }}"></script>
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
 
     <script>
+        let number = getNumberByRoute();
+
         $(document).ready(function () {
             $(".cn-wrapper").addClass('opened-nav');
+            stepAnimation(number);
         });
     </script>
 {% endblock %}
