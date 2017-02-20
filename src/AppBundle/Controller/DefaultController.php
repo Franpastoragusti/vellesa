@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -10,6 +11,33 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:testRoom.html.twig');
     }
+
+    public function geoAction(Request $request)
+    {
+        // change the properties of the given entity and save the changes
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Direction');
+
+        $id = $request->query->get('id');
+        $entity = $repository->find($id);
+        $entity->setStock(100 + $entity->getStock());
+        $em->flush();
+
+        // redirect to the 'list' view of the given entity
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => $this->request->query->get('entity'),
+        ));
+
+        // redirect to the 'edit' view of the given entity item
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'edit',
+            'id' => $id,
+            'entity' => $this->request->query->get('entity'),
+        ));
+
+    }
+
 
     public function chatAction()
     {
