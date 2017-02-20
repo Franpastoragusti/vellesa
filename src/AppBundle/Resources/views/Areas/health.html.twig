@@ -3,41 +3,38 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
+    <style>
+        body{
+            background-image: url('/img/salud.jpg');
+        }
+    </style>
 {% endblock %}
 {% block main %}
-    {% include './templates/steps.horizontal.html.twig'%}
-    <div class="apartado text-center">
-        <img src="{{ asset('img/ornament_left.png') }}" alt="" /><h2>SALUD</h2><img src="{{ asset('img/ornament_right.png') }}" alt="" />
-
-        <div class="container-fluid col-md-9 col-md-offset-2">
-
-        	<div class="row col-md-5 text-justify">
-		        <p>Como dice la canción: “Tres cosas hay en la vida: salud, dinero y amor…” y la salud no ocupa el primer lugar por casualidad. Gracias a los avances científicos en medicina se ha aumentado la esperanza de vida de las personas, pero el debate está servido: </br>
-				</p>
-			</div>
-
-			<div class="row col-md-5 ">
-		        <iframe width="375" height="235" src="https://www.youtube.com/embed/aVKQQcaeGgo" frameborder="0" allowfullscreen></iframe>
-
-			</div>
-		</div>
-
-		<div class="col-md-6 col-md-offset-3 responsiveButton">
-                <a href="">
-                    <button type="button" class="btn btn-warning start buttonNext">QUIERO SABER MÁS
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </button>
-                </a>
+    <div class="apartado text-justify col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        {% include './templates/steps.horizontal.html.twig'%}
+        <h2>Mi Salud</h2>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hd-7oSLmluo"></iframe>
+            </div>
         </div>
-    </div>
-    <div>
-        <div class="col-lg-6 col-lg-offset-3 col-xl-6 col-xl-offset-3 col-xs-6 col-xs-offset-2 col-md-6 col-md-offset-2">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <p>Como dice la canción: “Tres cosas hay en la vida: salud, dinero y amor…” y la salud no ocupa el primer lugar por casualidad.
+                Gracias a los avances científicos en medicina se ha aumentado la esperanza de vida de las personas, pero el debate está servido:</p>
+            <p>¿Ha mejorado la calidad de vida? Cada día somos más personas las que pensamos que no es tan importante cuántos años vivimos, sino la calidad de vida con la que lo hacemos.</p>
+            <p>Esta es la primera fase de Tú decides: dejar claro qué cuidados médicos quieres recibir y cómo quieres recibirlos.
+                Cuando ya no puedas expresar tus deseos por ti mismo por motivos de salud, se respetará lo que conste en este testamento vital,
+                y nadie tendrá que tomar las decisiones por ti, lo cual será un gran alivio para todos. Tómate tu tiempo y recuerda que en todo momento
+                cuentas con tu acompañante para dudas, consultas o simplemente que te escuche.
+                Si has elegido el acompañamiento en formato audio no olvides regular el sonido de tus altavoces.</p>
+        </div>
+
+        {{ app.request.requesturi }}
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             {{ form_start(form) }}
-
-
             {{ form_end(form) }}
+            <input type="button" class="btn btn-vellesa col-md-6 col-md-offset-3" value="Atrás" onclick="history.back(-1)" />
         </div>
-
     </div>
 
 {% endblock %}
@@ -54,15 +51,19 @@
 
 
     <script src="{{ asset('js/FormDecorator.js') }}"></script>
+    <script src="{{ asset('js/StepsManager.js') }}"></script>
+
     <script>
+        let number = getNumberByRoute();
+        console.log(number)
         $(document).ready(function(){
-            FormDecorator.addIconForInfoLabels()
+            FormDecorator.addIconForInfoLabels();
+            stepAnimation(number)
 
         })
 
+
+
     </script>
-
-
-
 
 {% endblock %}

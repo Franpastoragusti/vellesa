@@ -28,7 +28,7 @@ class FamilyAreaType extends AbstractType
     {
 
         $builder
-            ->add('beloved', TextType::class, array(
+            ->add('beloved', TextAreaType::class, array(
                 'label' => 'Mis seres queridos más cercanos son:(ordenalos por preferencia)'
             ))
 
@@ -81,9 +81,15 @@ class FamilyAreaType extends AbstractType
                     'No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.' => 4,
 
                 )))
-            ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('save', SubmitType::class, array(
-                'attr' => array('label' => 'Enviar')
+
+
+            ->add('observations', TextareaType::class, array(
+              'label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:',
+              'attr' => array('rows' => 4)
+            ))
+
+             ->add('Terminado', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa')
             ))
         ;
 

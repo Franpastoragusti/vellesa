@@ -23,10 +23,15 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
-            return $this->render('AppBundle:Bureaucracy:index.html.twig');
+
+        $applicant = 1;
+        $witness1 = 1;
+        $witness2 = 1;
+        $witness3 = 1;
+        $representant = 0;
+
+        return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }
-
-
 
     public function instanceAction()
     {
@@ -37,9 +42,31 @@ class BureaucracyController extends Controller
 
     public function officialDataAction($number, Request $request)
     {
+        
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p AS personalData, d AS direction
+            FROM AppBundle:PersonalData p, AppBundle:Direction d
+            WHERE p.userId = :userId
+            AND p.personclassId = :class
+            AND d.id = p.direction'
+        )->setParameter('userId' , $user)->setParameter('class' , $number);
 
-        $form = $this->createForm(PersonType::class);
+        $personalData=$query->getResult();
 
+        if ($personalData == null) {
+            $personalData = new PersonalData();
+            $direction = new Direction();
+
+        }else{
+            $direction = $personalData[0]['personalData']->getDirection();
+            $personalData = $personalData[0]['personalData'];
+        }$wittness = 1;
+
+
+
+         $form = $this->createForm(PersonType::class, array('personalData' => $personalData, 'direction' =>$direction));
 
         switch ($number) {
             case 1:
@@ -61,12 +88,6 @@ class BureaucracyController extends Controller
                 $title = "No hay";
         }
 
-        //Adaptamos number al tipo de persona
-        if ($number > 1 && $number < 5 )
-            $number = 2;
-
-        if ($number == 5 )
-            $number = 3;
 
         $form->handleRequest($request);
 
@@ -84,26 +105,22 @@ class BureaucracyController extends Controller
                 $fileName
             );
 
-
-
-
            $em = $this->getDoctrine()->getManager();
            //Obtenemos el usuario
-            $user = $this->getUser();
+           $user = $this->getUser();
            //obtenemos la referencia de la clase
            $class = $em->getReference('AppBundle\Entity\PersonClass', $number);
 
            //Seteamos la clase
            $personData->setPersonclassId($class);
            //seteamos el nombre del DNI
-            $personData->setDni($fileName);
-            //Seteamos el id_direccion
-            $personData->setDirection($direction);
-            //Seteamos el user_id_direccion
-            $personData->setUsers($user);
+           $personData->setDni($fileName);
+           //Seteamos el id_direccion
+           $personData->setDirection($direction);
+           //Seteamos el user_id_direccion
+           $personData->setUserId($user);
 
-
-           //Seteamos los nuevos datos en las tablas
+            //Seteamos los nuevos datos en las tablas
            $em->persist($direction);
            $em->persist($personData);
            $em->flush();
@@ -118,7 +135,4 @@ class BureaucracyController extends Controller
           ));
 
     }
-
-
-
 }

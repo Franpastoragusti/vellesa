@@ -24,6 +24,7 @@ class PersonType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('personalData', PersonalDataType::class, array(
                 'data_class' => PersonalData::class
@@ -31,8 +32,8 @@ class PersonType extends AbstractType
             ->add('direction', DirectionType::class, array(
                 'data_class' => Direction::class
             ))
-            ->add('save', SubmitType::class, array(
-                'attr' => array('label' => 'Enviar')
+            ->add('Terminado', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa start')
             ))
         ;
 

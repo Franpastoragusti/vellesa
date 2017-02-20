@@ -3,8 +3,8 @@
   /* cambia estos dos valores para definir el tamaño de tu círculo */
     height: 18vw;
     width: 18vw;
-    min-width: 150px;
-    min-height: 150px;
+    min-width: 110px;
+    min-height: 110px;
     /* los siguientes valores son independientes del tamaño del círculo */
     background-position: 50%;
     border-radius: 50%;
@@ -59,7 +59,7 @@ h3 {
     text-transform: uppercase;
     font-weight: 900;
     color: #FFFFFF;
-    margin-top: 40%;
+    margin-top: 70%;
 }
 .modal-footer{
     text-align: center;
@@ -73,7 +73,7 @@ h4{
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 900;
-    color: #f0ad4e;
+    color: rgba(137,96,203, 1)  ;
 }
 
 .modal-header{

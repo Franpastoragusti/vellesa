@@ -3,7 +3,6 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AppBundle/Resources/config/services.yml" }
-    - { resource: "@AdminBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -79,3 +78,34 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: AppBundle\Entity\User
+
+easy_admin:
+    list:
+        actions:
+            - { name: 'show', icon: 'search', label: '' }
+            - { name: 'edit', icon: 'pencil', label: '' }
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            label: 'Usuarios'
+        PersonalData:
+            list:
+                actions:
+                    - { name: 'look_geo', type: 'route', label: 'Geolocalizacion'}
+
+
+            class: AppBundle\Entity\PersonalData
+            label: 'Datos personales'
+        PDF:
+            list:
+                actions:
+                    ['pdf']
+            class: AppBundle\Entity\PDF
+            label: 'Procesos'
+
+          
+    design:
+        color_scheme: 'light'
+
+vich_uploader:
+    db_driver: orm

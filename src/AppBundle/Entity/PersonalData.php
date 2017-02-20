@@ -23,13 +23,13 @@ class PersonalData
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
-    private $users;
+    private $userId;
 
     /**
      * @ORM\ManyToOne(targetEntity="Direction")
-     * @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="directionId", referencedColumnName="id")
      */
     private $direction;
 
@@ -72,10 +72,10 @@ class PersonalData
 
     /**
      * @ORM\ManyToOne(targetEntity="PersonClass")
-     * @ORM\JoinColumn(name="personclass_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="personclassId", referencedColumnName="id")
      */
 
-    private $personclass_id;
+    private $personclassId;
 
 
 
@@ -222,31 +222,6 @@ class PersonalData
         return $this->dni;
     }
 
-
-    /**
-     * Set users
-     *
-     * @param \AppBundle\Entity\User $users
-     *
-     * @return PersonalData
-     */
-    public function setUsers(\AppBundle\Entity\User $users = null)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
     /**
      * Set id
      *
@@ -296,7 +271,7 @@ class PersonalData
      */
     public function setPersonclassId(\AppBundle\Entity\PersonClass $personclassId = null)
     {
-        $this->personclass_id = $personclassId;
+        $this->personclassId = $personclassId;
 
         return $this;
     }
@@ -308,6 +283,35 @@ class PersonalData
      */
     public function getPersonclassId()
     {
-        return $this->personclass_id;
+        return $this->personclassId;
+    }
+
+    public function __toString()
+    {
+        return $this->direction;
+    }
+
+    /**
+     * Set userId
+     *
+     * @param \AppBundle\Entity\User $userId
+     *
+     * @return PersonalData
+     */
+    public function setUserId(\AppBundle\Entity\User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }

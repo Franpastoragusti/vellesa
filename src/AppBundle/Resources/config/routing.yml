@@ -46,6 +46,7 @@ Bureaucracy_official_data:
     defaults: { _controller: AppBundle:Bureaucracy:officialData }
 
 
+
 #Default
 
 test_room:
@@ -55,6 +56,13 @@ test_room:
 chat_room:
     path:     /chatRoom
     defaults: { _controller: AppBundle:Default:chat }
+
+generate_pdf:
+    path:     /pdf
+    defaults: { _controller: AppBundle:Default:pdf }
+look_geo:
+    path:     /testRoom
+    defaults: { _controller: AppBundle:Default:index }
 
 #Set variables in session
 setCookies:
