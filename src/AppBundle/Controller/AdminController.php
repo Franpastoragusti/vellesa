@@ -15,38 +15,38 @@ class AdminController extends BaseAdminController
 
     public function pdfAction()
     {
-
-
-        /*
-
-        // controllers extending the base AdminController can access to the
-        // following variables:
-        //   $this->request, stores the current request
-        //   $this->em, stores the Entity Manager for this Doctrine entity
-
-        // change the properties of the given entity and save the changes
         $id = $this->request->query->get('id');
-        $entity = $this->em->getRepository('AppBundle:Product')->find($id);
-        $entity->setStock(100 + $entity->getStock());
-        $this->em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p AS personalData, d AS direction
+            FROM AppBundle:PersonalData p, AppBundle:Direction d
+            WHERE p.userId = :userId
+            AND d.id = p.direction'
+        )->setParameter('userId' , $id);
 
-        // redirect to the 'list' view of the given entity
-        return $this->redirectToRoute('easyadmin', array(
-            'action' => 'list',
-            'entity' => $this->request->query->get('entity'),
-        ));
+        $data=$query->getResult();
+        $directionAplicant = $data[0]['personalData']->getDirection();
+        $directionWitness1 = $data[2]['personalData']->getDirection();
+        $directionWitness2 = $data[4]['personalData']->getDirection();
+        $directionWitness3 = $data[6]['personalData']->getDirection();
+        $directionRepresentant = $data[8]['personalData']->getDirection();
 
-        // redirect to the 'edit' view of the given entity item
-        return $this->redirectToRoute('easyadmin', array(
-            'action' => 'edit',
-            'id' => $id,
-            'entity' => $this->request->query->get('entity'),
-        ));
+        $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($id);
+        $environmentData = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($id);
+        $personalAreaData = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($id);
+        $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($id);
 
-        */
-
-        return $this->render('AppBundle:Default:testRoom.html.twig');
-
+          return $this->render('AppBundle:Default:pdf.html.twig', array(
+            "applicant" => $data[0]['personalData'], 'directionAplicant' => $directionAplicant,
+            "witness1" => $data[2]['personalData'], 'directionWitness1' => $directionWitness1,
+            "witness2" => $data[4]['personalData'], 'directionWitness2' => $directionWitness2,
+            "witness3" => $data[6]['personalData'], 'directionWitness3' => $directionWitness3,
+            "representant" => $data[8]['personalData'], 'directionRepresentant' => $directionRepresentant,
+            "healthData" => $healthData, 'environmentData' => $environmentData,
+            "personalAreaData" => $personalAreaData, 'familyData' => $familyData
+          ));
     }
+
+
 
 }

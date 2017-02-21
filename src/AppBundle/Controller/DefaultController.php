@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -10,6 +11,7 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:testRoom.html.twig');
     }
+
 
     public function chatAction()
     {

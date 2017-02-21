@@ -76,7 +76,7 @@
         let number = getNumberByRoute();
         let representant = '{{ representant }}';
         let witness1 = '{{ witness1 }}';
-        let witness2 = '{{ witness1 }}';
+        let witness2 = '{{ witness2 }}';
         let witness3 = '{{ witness3 }}';
         let applicant = '{{ applicant }}';
 
@@ -95,6 +95,7 @@
         if (applicant == 1){
             $('#applicant').children('a').addClass('completed');
         }
+
         var flag = true;
         var check = parseInt(applicant) + parseInt(representant) + parseInt(witness1) + parseInt(witness2) + parseInt(witness3);
         if (check == 4 && flag) {
@@ -112,6 +113,7 @@
                 var finishingProces = setTimeout(function () {
                   window.location = '/app/bureaucracy/instance';
                 }, delay);
+
 
             }
 

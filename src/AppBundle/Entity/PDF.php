@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,19 +29,13 @@ class PDF
     private $userId;
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="urlpdf", type="string", length=255)
-     */
-    private $urlpdf;
 
     /**
-     * @var string
+     * @var DateTime
      *
-     * @ORM\Column(name="dateFinished", type="string", length=255)
+     * @ORM\Column(name="dateFinished", type="datetime", length=255)
      */
-    private $dateFinished = null;
+    private $dateFinished ;
 
     /**
      * @var bool
@@ -74,29 +69,9 @@ class PDF
         return $this->id;
     }
 
-    /**
-     * Set urlpdf
-     *
-     * @param string $urlpdf
-     *
-     * @return PDF
-     */
-    public function setUrlpdf($urlpdf)
-    {
-        $this->urlpdf = $urlpdf;
 
-        return $this;
-    }
 
-    /**
-     * Get urlpdf
-     *
-     * @return string
-     */
-    public function getUrlpdf()
-    {
-        return $this->urlpdf;
-    }
+   
 
     /**
      * Set printed
@@ -198,15 +173,16 @@ class PDF
     /**
      * Set dateFinished
      *
-     * @param string $dateFinished
+     * @param DateTime $dateFinished
      *
      * @return PDF
      */
     public function setDateFinished($dateFinished)
     {
-        $this->dateFinished = $dateFinished;
+        $this->dateFinished =$dateFinished;
 
         return $this;
+
     }
 
     /**
@@ -217,5 +193,10 @@ class PDF
     public function getDateFinished()
     {
         return $this->dateFinished;
+    }
+
+    public function __construct()
+    {
+        $this->dateFinished = new \DateTime('now');
     }
 }

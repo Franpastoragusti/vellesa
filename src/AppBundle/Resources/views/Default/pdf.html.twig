@@ -1,22 +1,275 @@
 {% extends '::base.html.twig' %}
 {% block main %}
-    <h3>Gracias por haber utilizado nuestra aplicacion</h3>
-    {{ dump(personalAreaData) }}
-    <div id="PDF" class="hidden">
-      <h3>Datos Personales</h3>
-      <p>Nombre:{{ applicant.name }}</p>
+    <div id="block1" hidden>
+      <div id="applicant">
+        <h3>Datos del solicitante</h3>
+        <p>Nombre: {{ applicant.name }}</p>
+        <p>Apellidos: {{ applicant.surname }}</p>
+        <p>Nº Teléfono: {{ applicant.phone }}</p>
+        <p>Ciudad: {{directionAplicant.city}}</p>
+        <p>Provincia: {{directionAplicant.province}}</p>
+        <p>Calle: {{directionAplicant.route}}</p>
+        <p>Portal: {{directionAplicant.houseNumber}}</p>
+        <p>SIP: {{ applicant.sip }}</p>
+        <p>DNI:</p>
+      </div>
+        <br><br><br><br><br><br><br><br><br>
+      <div id="witness1">
+        <h3>Testigo 1</h3>
+        <p>Nombre: {{ witness1.name }}</p>
+        <p>Apellidos: {{ witness1.surname }}</p>
+        <p>Nº Teléfono: {{ witness1.phone }}</p>
+        <p>Ciudad: {{directionWitness1.city}}</p>
+        <p>Provincia: {{directionWitness1.province}}</p>
+        <p>Calle: {{directionWitness1.route}}</p>
+        <p>Portal: {{directionWitness1.houseNumber}}</p>
+        <p>SIP: {{ witness1.sip }}</p>
+        <p>DNI:</p>
+      </div>
     </div>
-    <button type="button" onclick="generatePdf()">Generar pdf</button>
+
+    <div id="block2" hidden>
+      <div id="witness2">
+        <h3>Testigo 2</h3>
+        <p>Nombre: {{ witness2.name }}</p>
+        <p>Apellidos: {{ witness2.surname }}</p>
+        <p>Nº Teléfono: {{ witness2.phone }}</p>
+        <p>Ciudad: {{directionWitness2.city}}</p>
+        <p>Provincia: {{directionWitness2.province}}</p>
+        <p>Calle: {{directionWitness2.route}}</p>
+        <p>Portal: {{directionWitness2.houseNumber}}</p>
+        <p>SIP: {{ witness2.sip }}</p>
+        <p>DNI:</p>
+      </div>
+        <div><br><br><br><br><br><br><br></div>
+      <div id="witness3">
+        <h3>Testigo 3</h3>
+        <p>Nombre: {{ witness3.name }}</p>
+        <p>Apellidos: {{ witness3.surname }}</p>
+        <p>Nº Teléfono: {{ witness3.phone }}</p>
+        <p>Ciudad: {{directionWitness3.city}}</p>
+        <p>Provincia: {{directionWitness3.province}}</p>
+        <p>Calle: {{directionWitness3.route}}</p>
+        <p>Portal: {{directionWitness3.houseNumber}}</p>
+        <p>SIP: {{ witness3.sip }}</p>
+        <p>DNI:</p>
+      </div>
+    </div>
+
+    <div id="representant" hidden>
+        <h3>Nombramiento del representante</h3>
+        <p>Nombre: {{ representant.name }}</p>
+        <p>Apellidos: {{ representant.surname }}</p>
+        <p>Nº Teléfono: {{ representant.phone }}</p>
+        <p>Ciudad: {{directionRepresentant.city}}</p>
+        <p>Provincia: {{directionRepresentant.province}}</p>
+        <p>Calle: {{directionRepresentant.route}}</p>
+        <p>Portal: {{directionRepresentant.houseNumber}}</p>
+        <p>SIP: {{ representant.sip }}</p>
+        <p>DNI:</p>
+      </div>
+    <br><br><br><br><br><br><br><br>
+
+    <div id="areas" hidden>
+      <div id="healthData">
+        <h3>Mis deseos sobre mi salud</h3>
+        <label>1. Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:</label>
+          <!-- Cojo el JSON array que me devuelve la consulta, lo recorro e imprimo los datos separados por una coma -->
+          <p class="respuesta">
+          {% for i in 0..healthData.decideMyself|length -1%}
+            {% set data = healthData.decideMyself[i] %}
+              {% if data == 0 %}
+                Para mi es fundamental la calidad, la dignidad de mi vida y el confort.
+              {% endif %}
+
+              {% if data == 1  %}
+                Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.
+              {% endif %}
+
+              {% if data == 2  %}
+                Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.
+              {% endif %}
+
+              {% if data == 3  %}
+                Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser.
+              {% endif %}
+
+              {% if data == 4  %}
+                Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento.
+              {% endif %}
+
+              {% if data == 5  %}
+                Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar mi estado. Gracias, pero no deseo que me sean aplicadas.
+              {% endif %}
+              {% if i != environmentData.placetobe|length -1 %}
+              <br>
+              {% endif %}
+          {% endfor %}
+        </p>
+        <label>2. Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.</label>
+        <p class="respuesta">
+        {% if healthData.knowAll  == 0 %}
+            Si
+          {% else %}
+            No
+        {% endif %}
+        </p>
+        <label>3. Quiero que la persona encargada de mis asuntos de salud sea:</label>
+        <p class="respuesta">{{healthData.personInCharge}}</p>
+        <label>4. Quiero que mis seres queridos más cercanos sepan todo sobre mi estado de salud y progreso.</label>
+        <p class="respuesta">
+        {% if healthData.beloved  == 0 %}
+            Si
+          {% else %}
+            No
+        {% endif %}
+        </p>
+        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+        <p class="respuesta">{{healthData.observations}}</p>
+      </div>
+
+      <div id="environmentData">
+        <h3>Mis deseos sobre mi entorno</h3>
+        <label>1. Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:</label>
+          <p class="respuesta">
+          {% for i in 0..environmentData.placetobe|length -1%}
+            {% set data = environmentData.placetobe[i] %}
+            {{data|capitalize}}
+            {% if i != environmentData.placetobe|length -1 %}
+            <br>
+            {% endif %}
+          {% endfor %}
+        </p>
+        <label>2. Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:</label>
+        <p class="respuesta">{{environmentData.expressLikes}}</p>
+        <label>3. Cuando llegue el momento final de mi vida, esta es mi voluntad</label>
+        <p class="respuesta">
+          {% for i in 0..environmentData.selfwill|length -1%}
+            {% set data = environmentData.selfwill[i] %}
+              {% if data == 0 %}
+                Quiero donar mi cuerpo a la ciencia
+              {% endif %}
+              {% if data == 1 %}
+                Quiero donar todos mis órganos y tejidos
+              {% endif %}
+            {% if i != environmentData.selfwill|length -1 %}
+            <br>
+            {% endif %}
+          {% endfor %}
+        </p>
+        <label>4. Así me gustaría que fuese mi despedida:</label>
+        <p class="respuesta">{{environmentData.farewell}}</p>
+        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+        <p class="respuesta">{{environmentData.observations}}</p>
+      </div>
+
+      <div id="personalData">
+        <h3>Mis deseos personales</h3>
+        <label>1. Trámites pendientes y documentación importante:</label>
+        <p class="respuesta">{{personalAreaData.importantDocuments}}</p>
+        <label>2. Quiero que comuniquéis a estas personas lo siguiente:</label>
+        <p class="respuesta">{{personalAreaData.comunicateTo}}</p>
+        <label>3.He dejado preparado mi legado emocional, para acceder a él debéis:</label>
+        <p class="respuesta">{{personalAreaData.emotionalLegacy}}</p>
+        <label>4. He realizado mi testamento digital, para acceder a él debéis:</label>
+        <p class="respuesta">{{personalAreaData.perfomDigitalTestament}}</p>
+        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas.</label>
+        <p class="respuesta">{{personalAreaData.observations}}</p>
+      </div>
+
+      <div id="familyData">
+          <h3>Mis deseos sobre mi gente</h3>
+          <label>1. Mis seres queridos más cercanos son:(ordenalos por preferencia)</label>
+          <p class="respuesta">
+            {% for i in 0..familyData.beloved|length -1%}
+              {% set data = familyData.beloved[i] %}
+                {{data|capitalize}}
+                {% if i != environmentData.placetobe|length -1 %}
+                <br>
+                {% endif %}
+            {% endfor %}
+            </p>
+          <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:</label>
+          <p class="respuesta">{{familyData.profesionals}}</p>
+          <label>3. Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:</label>
+          <p class="respuesta">{{familyData.basicActivities}}</p>
+          <label>4. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
+          {% if familyData.mentalFaculty == 0 %}
+              <p class="respuesta">Si</p>
+            {% else %}
+              <p class="respuesta">No</p>
+          {% endif %}
+          <label>5. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
+          <p class="respuesta">
+            <!-- No dejaba hacer switch -->
+            {% for i in 0..familyData.visits|length -1%}
+              {% set data = familyData.visits[i] %}
+              {% if data == 0 %}
+                Agradezco todo tipo de visitas de forma libre.
+              {% endif %}
+
+              {% if data == 1  %}
+                Todas las visitas deben avisar antes a las personas que me atienden o a mis seres queridos más cercanos, para asegurar que se cumplen mis deseos. Si no lo hacen, no deseo recibirlas.
+              {% endif %}
+
+              {% if data == 2  %}
+                Deseo que se respete mi intimidad, no quiero tener visitas de ningún tipo mientras como, duermo o realizo tareas relacionadas con el aseo personal.
+              {% endif %}
+
+              {% if data == 3  %}
+                No deseo recibir visitas más allá de mis seres queridos más cercanos.
+              {% endif %}
+
+              {% if data == 4  %}
+                No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.
+              {% endif %}
+              {% if i != environmentData.placetobe|length -1 %}
+              <br>
+              {% endif %}
+            {% endfor %}
+          </p>
+          <label>6. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+          <p class="respuesta">{{familyData.observations}}</p>
+        </div>
+    </div>
+
+    <div id="signHere" hidden>
+      <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+      <br><br><br>
+      <p>Firme aquí _____________________________</p>
+    </div>
+
+    <button id="buttonPdf" type="button" onclick="generatePdf()" disabled>Generar pdf</button><p id="espera">Espere generando datos</p>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script>
+      var base64 = [];
+      var rutas = ["/img/landing/icons/logo.png", "/dni/{{applicant.dni}}", "/dni/{{witness1.dni}}", "/dni/{{witness2.dni}}",
+      "/dni/{{witness3.dni}}", "/dni/{{representant.dni}}"];
+
+      for (var i = 0; i < rutas.length; i++) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", rutas[i], true);
+            xhr.responseType = "blob";
+            xhr.onload = function (e) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                      var res = event.target.result;
+                      base64.push(res);
+                      if (base64[0] != null && base64[1] != null && base64[2] != null && base64[3] != null && base64[4] != null && base64[4] != null) {
+                        $("#espera").attr("class", "hidden");
+                        $("#buttonPdf").removeAttr("disabled");
+                      }
+                    }
+                    var file = this.response;
+                    reader.readAsDataURL(file)
+            };
+            xhr.send()
+        }
+
         function generatePdf() {
-          var doc = new jsPDF(),
-              lines,
-              size,
-              margin = 0.5,
-              verticalOffset = margin;
+          var doc = new jsPDF(),lines, size,margin = 0.5,verticalOffset = margin;
 
           doc.setProperties({title: 'Datos{{applicant.name}}_{{applicant.surname}}.pdf'});
 
@@ -25,159 +278,64 @@
                 return true;
               }
             };
-            var source = window.document.getElementById("PDF");
-            doc.fromHTML(
-                source,
-                15,
-                15,
-                {
-                  'width': 180,'elementHandlers': elementHandler
-                });
+            var block1 = document.getElementById("block1");
+            var block2 = document.getElementById("block2");
+            var representant = document.getElementById("representant");
+            var healthData = document.getElementById("healthData");
+            var environmentData = document.getElementById("environmentData");
+            var personalData = document.getElementById("personalData");
+            var familyData = document.getElementById("familyData");
+            var signHere = document.getElementById("signHere");
 
+            if(base64[0] != null && base64[1] != null && base64[2] != null && base64[3] != null && base64[4] != null && base64[5] != null){
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(signHere,85,115);
+
+              //Block 1 (applicant and witness 1)
+              doc.fromHTML(block1,15,15);
+              doc.addImage(base64[5],'JPEG',30,115,50,30);
+              doc.fromHTML(signHere,85,115);
+              doc.addImage(base64[1],'JPEG',30,250,50,30);
+              doc.fromHTML(signHere,85,250);
+
+              //Block 2 (witness 2 and witness 3)
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(block2,15,15);
+              doc.addImage(base64[2],'JPEG',30,115,50,30);
+              doc.fromHTML(signHere,85,115);
+              doc.addImage(base64[3],'JPEG',30,240,50,30);
+              doc.fromHTML(signHere,85,250);
+
+              //Representante
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(representant,15,15,{'width': 180});
+              doc.fromHTML(signHere,85,115);
+              doc.addImage(base64[4],'JPEG',30,115,50,30);
+
+              //healthData
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(healthData,15,15,{'width': 180});
+
+              //environmentData
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(environmentData,15,15,{'width': 180});
+
+              //personalData
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(personalData,15,15,{'width': 180});
+
+              //familyData
+              doc.addPage();
+              doc.addImage(base64[0],'JPEG',180,5,25,15);
+              doc.fromHTML(familyData,15,15,{'width': 180});
+            }
             doc.output("dataurlnewwindow");
-            //
-            // //Applicant
-            // doc.text(90, 20, 'Datos Personales');
-            // doc.text(20, 30, 'Nombre: {{ applicant.name }}');
-            // doc.text(20, 40, 'Apellidos: {{ applicant.surname }}');
-            // doc.text(20, 50, 'SIP: {{ applicant.sip }}');
-            // doc.text(20, 60, 'Nº Teléfono: {{ applicant.phone }}');
-            // doc.text(20, 70, 'DNI: {{ applicant.dni }}');
-            // doc.text(20, 80, 'Direccion:');
-            // doc.text(20, 90, 'Ciudad: {{directionAplicant.city}}');
-            // doc.text(20, 100, 'Provincia: {{directionAplicant.province}}');
-            // doc.text(20, 110, 'Calle: {{directionAplicant.route}}');
-            // doc.text(20, 120, 'Portal: {{directionAplicant.houseNumber}}');
-            //
-            // //witness1
-            // doc.text(90, 130, 'Testigo 1');
-            // doc.text(20, 140, 'Nombre: {{ witness1.name }}');
-            // doc.text(20, 150, 'Apellidos: {{ witness1.surname }}');
-            // doc.text(20, 160, 'SIP: {{ witness1.sip }}');
-            // doc.text(20, 170, 'Nº Teléfono: {{ witness1.phone }}');
-            // doc.text(20, 180, 'DNI: {{ witness1.dni }}');
-            // doc.text(20, 190, 'Direccion:');
-            // doc.text(20, 200, 'Ciudad: {{directionWitness1.city}}');
-            // doc.text(20, 210, 'Provincia: {{directionWitness1.province}}');
-            // doc.text(20, 220, 'Calle: {{directionWitness1.route}}');
-            // doc.text(20, 230, 'Portal: {{directionWitness1.houseNumber}}');
-            //
-            // doc.addPage()
-            //
-            // //Witness2
-            // doc.text(90, 20, 'Testigo 2');
-            // doc.text(20, 30, 'Nombre: {{ witness2.name }}');
-            // doc.text(20, 40, 'Apellidos: {{ witness2.surname }}');
-            // doc.text(20, 50, 'SIP: {{ witness2.sip }}');
-            // doc.text(20, 60, 'Nº Teléfono: {{ witness2.phone }}');
-            // doc.text(20, 70, 'DNI: {{ witness2.dni }}');
-            // doc.text(20, 80, 'Direccion:');
-            // doc.text(20, 90, 'Ciudad: {{directionWitness2.city}}');
-            // doc.text(20, 100, 'Provincia: {{directionWitness2.province}}');
-            // doc.text(20, 110, 'Calle: {{directionWitness2.route}}');
-            // doc.text(20, 120, 'Portal: {{directionWitness2.houseNumber}}');
-            //
-            // //Witness3
-            // doc.text(90, 130, 'Testigo 3');
-            // doc.text(20, 140, 'Nombre: {{ witness3.name }}');
-            // doc.text(20, 150, 'Apellidos: {{ witness3.surname }}');
-            // doc.text(20, 160, 'SIP: {{ witness3.sip }}');
-            // doc.text(20, 170, 'Nº Teléfono: {{ witness3.phone }}');
-            // doc.text(20, 180, 'DNI: {{ witness3.dni }}');
-            // doc.text(20, 190, 'Direccion:');
-            // doc.text(20, 200, 'Ciudad: {{directionWitness3.city}}');
-            // doc.text(20, 210, 'Provincia: {{directionWitness3.province}}');
-            // doc.text(20, 220, 'Calle: {{directionWitness3.route}}');
-            // doc.text(20, 230, 'Portal: {{directionWitness3.houseNumber}}');
-            //
-            // doc.addPage()
-            //
-            // //Representant
-            // doc.text(90, 20, 'Representante');
-            // doc.text(20, 30, 'Nombre: {{ representant.name }}');
-            // doc.text(20, 40, 'Apellidos: {{ representant.surname }}');
-            // doc.text(20, 50, 'SIP: {{ representant.sip }}');
-            // doc.text(20, 60, 'Nº Teléfono: {{ representant.phone }}');
-            // doc.text(20, 70, 'DNI: {{ representant.dni }}');
-            // doc.text(20, 80, 'Direccion:');
-            // doc.text(20, 90, 'Ciudad: {{directionRepresentant.city}}');
-            // doc.text(20, 100, 'Provincia: {{directionRepresentant.province}}');
-            // doc.text(20, 110, 'Calle: {{directionRepresentant.route}}');
-            // doc.text(20, 120, 'Portal: {{directionRepresentant.houseNumber}}');
-            //
-            // doc.addPage()
-            //
-            // //Areas_health
-            // doc.text(90, 20, 'Salud');
-            // doc.text(20, 30, '1. Cuando mi salud no me permita decidir por mi mismo, quiero hacer \n constar que:');
-            //
-            // doc.text(20, 50, '2. Quiero conocer, sea cual sea mi situación, todos los datos e información \n disponible sobre mi estado de salud y progreso.');
-            // if ({{healthData.knowAll}} + "" == "1") {
-            //     doc.text(30, 70, '-Si');
-            // } else {
-            //     doc.text(30, 70, '-No');
-            // }
-            // doc.text(20, 80, '3. Quiero que la persona encargada de mis asuntos de salud sea:');
-            // doc.text(30, 90, '-{{healthData.personInCharge}}');
-            // doc.text(20, 100, '4. Quiero que mis seres queridos más cercanos sepan todo sobre mi \n estado de salud y progreso.');
-            // if ({{healthData.beloved}} + "" == "1") {
-            //     doc.text(30, 120, '-Si');
-            // } else {
-            //     doc.text(30, 120, '-No');
-            // }
-            // doc.text(20, 130, '5. Añade las observaciones, detalles y puntualizaciones que consideres \n oportunas:');
-            // doc.text(30, 150, '-{{healthData.observations}}');
-            // //End health
-            //
-            // doc.addPage()
-            //
-            // //Areas_environment
-            // doc.text(90, 20, 'Entorno');
-            // doc.text(20, 30, '1. Con respecto al lugar en el que deseo estar, quiero hacer constar lo \n siguiente:');
-            // switch ({{environmentData.placetobe}}) {
-            //     case 0:
-            //         doc.text(30, 50, '-Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias \n personales.');
-            //         break;
-            //     case 1:
-            //         doc.text(30, 50, '-Quiero trasladarme a un centro sociosanitario en la que me \n proporcionen cuidados profesionales especializados.');
-            //         break;
-            //     case 2:
-            //         doc.text(30, 50, '-Quiero que el tiempo de hospitalización sea lo más breve posible,\n valorando el alta con la atención hospitalaria en el domicilio oportuna.');
-            //         break;
-            //     case 3:
-            //         doc.text(30, 50, '-Cuando mi estado de salud sea irreversible, rechazo la derivación \n a un hospital.');
-            //         break;
-            //     case 4:
-            //         doc.text(30, 50, '-Deseo que se me derive al hospital ante cualquier descompensación de \n mi estado de salud.');
-            //         break;
-            //     default:
-            // }
-            // doc.text(20, 70, '2. Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en \n cuenta:');
-            // doc.text(30, 90, '-{{environmentData.expressLikes}}');
-            // doc.text(20, 100, '3. Cuando llegue el momento final de mi vida, esta es mi voluntad');
-            // doc.text(20, 110, '4. Farewell');
-            // doc.text(30, 120, '-{{environmentData.farewell}}');
-            // doc.text(20, 130, '5. Observaciones');
-            // doc.text(30, 140, '-{{environmentData.observations}}');
-            //
-            // doc.addPage()
-            //
-            // //Areas_personal
-            // doc.text(90, 20, 'Personal');
-            // doc.text(20, 30, '1. Trámites pendientes y documentación importante:');
-            // doc.text(30, 40, "<p>-{{personalAreaData.importantDocuments}}</p>");
-            // doc.text(20, 50, '2. Quiero que comuniquéis a estas personas lo siguiente:');
-            // // doc.text(30, 60, <p>'-{#{personalAreaData.comunicateTo}#}'</p>);
-            // doc.text(20, 70, '3. He dejado preparado mi legado emocional, para acceder a él debéis:');
-            // doc.text(30, 80, '-{{personalAreaData.emotionalLegacy}}');
-            // doc.text(20, 90, '4. He realizado mi testamento digital, para acceder a él debéis:');
-            // doc.text(30, 100, '-{{personalAreaData.perfomDigitalTestament}}');
-            // doc.text(20, 110, '5. Añade las observaciones, detalles y puntualizaciones que consideres \n oportunas.');
-            // doc.text(30, 130, '-{{personalAreaData.observations}}');
-            //
-            // //Areas_family
-
+            // doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf')
         }
     </script>
-
 {% endblock %}

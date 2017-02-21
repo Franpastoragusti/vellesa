@@ -12,6 +12,7 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
+
 home:
     path:     /
     defaults: { _controller: AppBundle:Intro:index }

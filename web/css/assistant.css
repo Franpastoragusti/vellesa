@@ -1,7 +1,3 @@
-#div_tiempo_user{
-  margin-right: 21%;
-}
-
 #assistant_body{
   position: fixed;
   right: 3%;
@@ -153,7 +149,7 @@
 
 .popup-messages {
     background: rgba(137,96,203, 0.7) none repeat scroll 0 0;
-    height: 275px;
+    height: 44%;
     overflow: auto;
 }
 .direct-chat-messages {
