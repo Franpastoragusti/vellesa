@@ -25,6 +25,7 @@ use Doctrine\ORM\Mapping as ORM;
     {
         parent::__construct();
         // your own logic
+        $this->roles = array('ROLE_USER');
     }
 
 

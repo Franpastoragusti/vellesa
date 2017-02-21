@@ -46,14 +46,14 @@
         <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <div class="component">
                 <!-- Start Nav Structure -->
-                <button class="cn-button" id="cn-button">DATOS</button>
-                <div class="cn-wrapper" id="cn-wrapper">
-                    <ul>
-                        <li id="applicant"><a href="1"><span>Tus datos</span></a></li>
-                        <li id="witness1"><a href="2"><span>Testigo 1</span></a></li>
-                        <li id="witness2"><a href="3"><span>Testigo 2</span></a></li>
-                        <li id="witness3"><a href="4"><span>Testigo 3</span></a></li>
-                        <li id="representant"><a href="5"><span>Representante</span></a></li>
+                <button class="cn-button" id="cn-button" role="button" >DATOS</button>
+                <div class="cn-wrapper" id="cn-wrapper" >
+                    <ul role="list">
+                        <li id="applicant"><a  href="1" role="button"><span>Tus datos</span></a></li>
+                        <li id="witness1"><a href="2" role="button"><span>Testigo 1</span></a></li>
+                        <li id="witness2"><a href="3" role="button"><span>Testigo 2</span></a></li>
+                        <li id="witness3"><a href="4" role="button"><span>Testigo 3</span></a></li>
+                        <li id="representant"><a href="5" role="button"><span>Representante</span></a></li>
                     </ul>
                 </div>
                 <!-- End of Nav Structure -->
@@ -80,7 +80,6 @@
         let witness3 = '{{ witness3 }}';
         let applicant = '{{ applicant }}';
 
-        console.log();
         if (witness1 == 1){
             $('#witness1').children('a').addClass('completed');
         }
@@ -96,18 +95,36 @@
         if (applicant == 1){
             $('#applicant').children('a').addClass('completed');
         }
-        setInterval(function(){
 
-            if (applicant == 1 && representant == 1 && witness1 == 1 && witness2 == 1 && witness3 == 1){
+        var flag = true;
+        var check = parseInt(applicant) + parseInt(representant) + parseInt(witness1) + parseInt(witness2) + parseInt(witness3);
+        if (check == 4 && flag) {
+            alert("Este es el ultimo formulario no podras modificar nada una vez terminado")
+            flag = false;
+        }
+        var checkingProcces = setInterval(function () {
+            var delay = 2000;
+            console.log(check)
+
+            if (check == 5) {
                 $('#cn-wrapper').removeClass('opened-nav');
                 $('#cn-button').empty().text('FIN').addClass('completed');
-                
+
+                var finishingProces = setTimeout(function () {
+                  window.location = '/app/bureaucracy/instance';
+                }, delay);
+
+
             }
+
+
         }, 2000);
 
         $(document).ready(function () {
             $(".cn-wrapper").addClass('opened-nav');
             stepAnimation(number);
         });
+
+
     </script>
 {% endblock %}

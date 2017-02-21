@@ -6,16 +6,12 @@ use Symfony\Component\Form\AbstractType;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
+
 
 
 
@@ -88,8 +84,12 @@ class FamilyAreaType extends AbstractType
               'attr' => array('rows' => 4)
             ))
 
-             ->add('Terminado', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa')
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-dm-offset-2 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+             ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 ')
             ))
         ;
 
