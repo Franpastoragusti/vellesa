@@ -6,6 +6,10 @@ use AppBundle\Entity\Direction;
 use AppBundle\Entity\PDF;
 use AppBundle\Entity\PersonalData;
 use AppBundle\Entity\PersonClass;
+use AppBundle\Entity\HealthArea;
+use AppBundle\Entity\EnvironmentArea;
+use AppBundle\Entity\PersonalArea;
+use AppBundle\Entity\FamilyArea;
 use AppBundle\Entity\User;
 use AppBundle\Form\DirectionType;
 use AppBundle\Form\PersonalDataType;
@@ -23,29 +27,40 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
-
         $applicant = $this->checkPersonData(1);
         $witness1 = $this->checkPersonData(2);
         $witness2 = $this->checkPersonData(3);
         $witness3 = $this->checkPersonData(4);
         $representant = $this->checkPersonData(5);
 
-
         return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }
 
     public function instanceAction()
     {
+      $em = $this->getDoctrine()->getManager();
 
-        $em = $this->getDoctrine()->getManager();
+      $user = $this->getUser();
+      $pdf = new PDF();
+      $pdf->setUserId($user);
 
-        $user = $this->getUser();
-        $pdf = new PDF();
-        $pdf->setUserId($user);
+      $userId = $this->getUser()->getId();
 
-        $userId = $this->getUser()->getId();
+      $fos_user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
 
-        $fos_user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
+      $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
+      $enviromentData = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($userId);
+      $personalAreaData = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
+      $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
+      $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findByuserId($userId);
+      $long = count($personalData);
+
+      if (!$healthData || !$enviromentData || !$personalAreaData || !$familyData || $long < 5) {
+        throw $this->createNotFoundException(
+            'Lo sentimos pero te faltan rellenar datos'
+        );
+      }
+
 
         if ($fos_user == null) {
             $fos_user = new User();
@@ -56,7 +71,6 @@ class BureaucracyController extends Controller
         $em->persist($pdf);
         $em->persist($fos_user);
         $em->flush();
-
 
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
