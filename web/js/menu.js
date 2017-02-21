@@ -14,7 +14,7 @@
 
             classie.add(wrapper, 'opened-nav');
         }
-        
+
     }
 
 })();
@@ -43,7 +43,9 @@ function checkProcessToChangeMenuDisplay(witness1, witness2, witness3, represent
 function checkingProcessToFinish(witness1, witness2, witness3, representant, applicant) {
     var checkingProcces = setInterval(function () {
         var delay = 2000;
-        if (applicant == 1 && representant == 1 && witness1 == 1 && witness2 == 1 && witness3 == 1) {
+        var check = applicant + representant + witness1 + witness2 + witness3;
+        var flag = true;
+        if (check == 5) {
             $('#cn-wrapper').removeClass('opened-nav');
             $('#cn-button').empty().text('FIN').addClass('completed');
 
@@ -51,11 +53,14 @@ function checkingProcessToFinish(witness1, witness2, witness3, representant, app
                 var finish = confirm("Este es el ultimo paso, tras acceptar no podrás hacer cambios, ¿estas seguro que quieres terminar?");
                 if (finish) {
                     window.location = '/app/bureaucracy/instance';
-                } else {
-                    clearInterval(checkingProcces)
                 }
             }, delay);
 
         }
+        if (check == 4 && flag) {
+            $(".component").append('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span>Enter a valid email address</div>')
+            flag = false;
+        }
+
     }, 2000);
 }
