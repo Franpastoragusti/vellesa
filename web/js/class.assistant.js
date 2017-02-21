@@ -11,19 +11,15 @@ class Assistant {
         this.popupUser = $("#mensaje_user").css("display", "none");
         this.id = 1;
         this.texts = {
-            default:"Hola, recuerda que cualquier duda puedes preguntarme a mi",
+            default:"Hola, recuerda que tienes al asistente durante todo el proceso para ayudarte",
             timeMessages:{
               first:{
-                time:50,
-                message:"Estás teniendo alguna complicación? Dale al boton de contactar"
+                time:300,
+                message:"Estás teniendo alguna complicación? Recuerda que abajo tienes un boton para iniciar videollamada"
               },
               second:{
-                time:100,
-                message:"Han pasado 10 minutos"
-              },
-              last:{
-                time:150,
-                message:"Han pasado 15 minutos"
+                time:30,
+                message:"Estás teniendo alguna complicación? Recuerda que abajo tienes un boton para iniciar videollamada"
               }
             },
             areaText:{
@@ -75,7 +71,7 @@ class Assistant {
                   setTimeout(function(){
                     $("#mensajeApp1").clone().attr('id', 'mensajeApp'+ ++cloneCount).insertBefore(".popup-messages-footer");
                     $("#mensajeApp"+cloneCount +" #texto_app").attr('id', 'texto_app'+ cloneCount).empty();
-                    $("#texto_app"+cloneCount).append("<p>Usa el botón de 'Iniciar' para empezar una llamada</p>");
+                    $("#texto_app"+cloneCount).append("<p>Utiliza el boton de abajo para iniciar una videollamada</p>");
                     $("#tiempo_app").text("" + tiempo.getHours() + " : " + tiempo.getMinutes());
                   }, 5000);
                   responder = false;
