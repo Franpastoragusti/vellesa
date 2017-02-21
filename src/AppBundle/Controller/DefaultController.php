@@ -27,10 +27,13 @@ class DefaultController extends Controller
           'SELECT p AS personalData, d AS direction
           FROM AppBundle:PersonalData p, AppBundle:Direction d
           WHERE p.userId = :userId
-          AND d.id = p.direction'
+          AND d.id = p.direction
+          ORDER BY p.personclassId'
       )->setParameter('userId' , $user);
 
+
       $data=$query->getResult();
+      var_dump($data[6]['personalData']->getName());
       $directionAplicant = $data[0]['personalData']->getDirection();
       $directionWitness1 = $data[2]['personalData']->getDirection();
       $directionWitness2 = $data[4]['personalData']->getDirection();
