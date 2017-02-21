@@ -105,7 +105,6 @@ class Assistant {
         $("#mensajeApp1").clone().attr('id', 'mensajeApp'+ ++id).insertBefore(".popup-messages-footer");
         $("#mensajeApp"+id +" #texto_app").attr('id', 'texto_app'+ id).empty();
         $("#texto_app"+id).append("<p>"+text+"</p>");
-        this.cambiarHoraApp.append(this.hora_local);
       }, time*1000);
 
     }
