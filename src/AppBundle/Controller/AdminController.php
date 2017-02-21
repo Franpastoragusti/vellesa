@@ -16,9 +16,6 @@ class AdminController extends BaseAdminController
     public function pdfAction()
     {
         $id = $this->request->query->get('id');
-        $entity = $this->em->getRepository('AppBundle:PDF')->find($id);
-        $urlpdf= $entity ->getUrlpdf();
-
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
             'SELECT p AS personalData, d AS direction
