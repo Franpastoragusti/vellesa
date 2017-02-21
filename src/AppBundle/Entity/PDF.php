@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,11 +31,11 @@ class PDF
 
 
     /**
-     * @var string
+     * @var DateTime
      *
-     * @ORM\Column(name="dateFinished", type="string", length=255)
+     * @ORM\Column(name="dateFinished", type="datetime", length=255)
      */
-    private $dateFinished = 'En proceso';
+    private $dateFinished ;
 
     /**
      * @var bool
@@ -172,15 +173,16 @@ class PDF
     /**
      * Set dateFinished
      *
-     * @param string $dateFinished
+     * @param DateTime $dateFinished
      *
      * @return PDF
      */
     public function setDateFinished($dateFinished)
     {
-        $this->dateFinished = $dateFinished;
+        $this->dateFinished =$dateFinished;
 
         return $this;
+
     }
 
     /**
@@ -191,5 +193,10 @@ class PDF
     public function getDateFinished()
     {
         return $this->dateFinished;
+    }
+
+    public function __construct()
+    {
+        $this->dateFinished = new \DateTime('now');
     }
 }

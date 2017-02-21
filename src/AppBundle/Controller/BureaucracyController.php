@@ -20,8 +20,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class BureaucracyController extends Controller
 {
 
-
-
     public function indexAction()
     {
         $applicant = $this->checkPersonData(1);
