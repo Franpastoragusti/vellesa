@@ -5,16 +5,10 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Direction;
 use AppBundle\Entity\PersonalData;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 
 class PersonType extends AbstractType
@@ -32,8 +26,12 @@ class PersonType extends AbstractType
             ->add('direction', DirectionType::class, array(
                 'data_class' => Direction::class
             ))
-            ->add('Terminado', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa start')
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
             ))
         ;
 

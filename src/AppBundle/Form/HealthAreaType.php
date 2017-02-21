@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 class HealthAreaType extends AbstractType
 {
@@ -94,8 +95,12 @@ class HealthAreaType extends AbstractType
             * El usuario deberá completar un campo de texto
             */
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('Terminado', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa start')
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
                 ))
             ;
     }

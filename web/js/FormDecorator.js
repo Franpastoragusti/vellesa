@@ -8,7 +8,8 @@ class FormDecorator {
         $(".form-group").prepend('<i class="fa fa-info-circle fa-2x" onclick="FormDecorator.offerInfo(this, event)" aria-hidden="true"></i>')
         $("label.control-label").width('95%').css('padding-bottom', '10px')
         $("div.form-group i").css('color','#5A738E').css('opacity','0.9').addClass('pull-right').width('2%').css('data-toggle','collapse').css('z-index','999')
-        $("form > div:last > i").css('display', 'none')
+        $(".form-group:last").children('i').remove()
+        $(".form-group:last").prev().children('i').remove()
 
     }
 
@@ -50,3 +51,8 @@ class FormDecorator {
 
 
 }
+
+
+$(".form-group:last").prev(function(){
+  conosole.log($this.next())
+})

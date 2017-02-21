@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -84,12 +85,17 @@ class EnvironmentAreaType extends AbstractType
                 'attr' => array('rows' => 3)
             ))
 
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
 
-                ->add('Terminado', SubmitType::class, array(
-                    'attr' => array('class' => 'btn-vellesa')
+            ))
 
-
+            ->add('Siguiente', SubmitType::class, array(
+                    'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3')
             ));
+
+
+
 
 
     }
