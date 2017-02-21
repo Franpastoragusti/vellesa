@@ -28,7 +28,7 @@ class BureaucracyController extends Controller
         $witness1 = 1;
         $witness2 = 1;
         $witness3 = 1;
-        $representant = 0;
+        $representant = 1;
 
         return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }

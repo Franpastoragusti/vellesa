@@ -210,6 +210,7 @@ ul.wizard_steps li a.selected:before, .step_no{
   background: rgb(137,96,203);
   width: 22px !important;
   height: 22px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 ul.wizard_steps li:not(.selected){
