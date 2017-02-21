@@ -23,11 +23,13 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
+
         $applicant = $this->checkPersonData(1);
         $witness1 = $this->checkPersonData(2);
         $witness2 = $this->checkPersonData(3);
         $witness3 = $this->checkPersonData(4);
         $representant = $this->checkPersonData(5);
+
 
         return $this->render('AppBundle:Bureaucracy:index.html.twig', array('applicant' => $applicant, 'witness1' =>$witness1, 'witness2' =>$witness2, 'witness3' =>$witness3, 'representant' =>$representant));
     }

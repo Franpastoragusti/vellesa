@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 class PersonalAreaType extends AbstractType
 {
@@ -45,9 +46,13 @@ class PersonalAreaType extends AbstractType
                 'label' =>'Añade las observaciones, detalles y puntualizaciones que consideres oportunas.',
                 'attr' => array('rows' => 3)
               ))
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
 
-            ->add('Terminado', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa start')
+            ))
+
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
                 ))
         ;
     }
