@@ -239,34 +239,17 @@
       <p>Firme aquí _____________________________</p>
     </div>
 
-    <button id="buttonPdf" type="button" onclick="generatePdf()" disabled>Generar pdf</button><p id="espera">Espere generando datos</p>
+    <button id="buttonPdf" type="button" onclick="generatePdf()">Generar pdf</button>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script type="text/javascript" src="{{ asset('js/getImageAsync.js') }}"></script>
     <script>
-      var base64 = [];
-      var rutas = ["/img/landing/icons/logo.png", "/dni/{{applicant.dni}}", "/dni/{{witness1.dni}}", "/dni/{{witness2.dni}}",
-      "/dni/{{witness3.dni}}", "/dni/{{representant.dni}}"];
+        var base64 = [];
+        var rutas = ["/img/landing/icons/logo.png", "/dni/{{applicant.dni}}", "/dni/{{witness1.dni}}", "/dni/{{witness2.dni}}",
+        "/dni/{{witness3.dni}}", "/dni/{{representant.dni}}"];
 
-      for (var i = 0; i < rutas.length; i++) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", rutas[i], true);
-            xhr.responseType = "blob";
-            xhr.onload = function (e) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                      var res = event.target.result;
-                      base64.push(res);
-                      if (base64[0] != null && base64[1] != null && base64[2] != null && base64[3] != null && base64[4] != null && base64[4] != null) {
-                        $("#espera").attr("class", "hidden");
-                        $("#buttonPdf").removeAttr("disabled");
-                      }
-                    }
-                    var file = this.response;
-                    reader.readAsDataURL(file)
-            };
-            xhr.send()
-        }
+        getImageAsync(rutas, base64);
 
         function generatePdf() {
           var doc = new jsPDF(),lines, size,margin = 0.5,verticalOffset = margin;
@@ -292,7 +275,7 @@
               doc.fromHTML(signHere,85,115);
 
               //Block 1 (applicant and witness 1)
-              doc.fromHTML(block1,15,15);
+              doc.fromHTML(block1,15,15, {'width': 180});
               doc.addImage(base64[5],'JPEG',30,115,50,30);
               doc.fromHTML(signHere,85,115);
               doc.addImage(base64[1],'JPEG',30,250,50,30);
@@ -301,7 +284,7 @@
               //Block 2 (witness 2 and witness 3)
               doc.addPage();
               doc.addImage(base64[0],'JPEG',180,5,25,15);
-              doc.fromHTML(block2,15,15);
+              doc.fromHTML(block2,15,15, {'width': 180});
               doc.addImage(base64[2],'JPEG',30,115,50,30);
               doc.fromHTML(signHere,85,115);
               doc.addImage(base64[3],'JPEG',30,240,50,30);
@@ -310,7 +293,7 @@
               //Representante
               doc.addPage();
               doc.addImage(base64[0],'JPEG',180,5,25,15);
-              doc.fromHTML(representant,15,15,{'width': 180});
+              doc.fromHTML(representant,15,15, {'width': 180});
               doc.fromHTML(signHere,85,115);
               doc.addImage(base64[4],'JPEG',30,115,50,30);
 
