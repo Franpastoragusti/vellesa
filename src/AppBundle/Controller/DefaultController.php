@@ -70,4 +70,8 @@ class DefaultController extends Controller
 
     return $this->redirectToRoute('Areas_health');
     }
+
+
+
+
 }

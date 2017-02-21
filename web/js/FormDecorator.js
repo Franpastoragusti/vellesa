@@ -47,10 +47,24 @@ class FormDecorator {
         }
     }
 
+    static decorateMenu(representant, witness1, witness2, witness3, applicant){
 
+        if (witness1 == 1){
+            $('#witness1').children('a').addClass('completed');
+        }
+        if (witness2 == 1){
+            $('#witness2').children('a').addClass('completed');
+        }
+        if (witness3 == 1){
+            $('#witness3').children('a').addClass('completed');
+        }
+        if (representant == 1){
+            $('#representant').children('a').addClass('completed');
+        }
+        if (applicant == 1){
+            $('#applicant').children('a').addClass('completed');
+        }
+    }
 }
 
 
-$(".form-group:last").prev(function(){
-  conosole.log($this.next())
-})
