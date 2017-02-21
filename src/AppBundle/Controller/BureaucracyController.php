@@ -6,6 +6,7 @@ use AppBundle\Entity\Direction;
 use AppBundle\Entity\PDF;
 use AppBundle\Entity\PersonalData;
 use AppBundle\Entity\PersonClass;
+use AppBundle\Entity\User;
 use AppBundle\Form\DirectionType;
 use AppBundle\Form\PersonalDataType;
 use AppBundle\Form\PersonType;
@@ -33,13 +34,26 @@ class BureaucracyController extends Controller
 
     public function instanceAction()
     {
+
+        $em = $this->getDoctrine()->getManager();
+
         $user = $this->getUser();
         $pdf = new PDF();
         $pdf->setUserId($user);
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($pdf);
-        $em->flush();
 
+        $userId = $this->getUser()->getId();
+
+        $fos_user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
+
+        if ($fos_user == null) {
+            $fos_user = new User();
+        }
+
+        $fos_user->setRoles(array("ROLE_FINISHED"));
+
+        $em->persist($pdf);
+        $em->persist($fos_user);
+        $em->flush();
 
 
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
