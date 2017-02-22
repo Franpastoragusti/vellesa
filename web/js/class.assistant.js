@@ -42,10 +42,12 @@ class Assistant {
         $(function() {
             $("#addClass").click(function() {
                 $('#qnimate').addClass('popup-box-on');
+                $("#addClass").css('display', 'none');
             });
 
             $("#removeClass").click(function() {
                 $('#qnimate').removeClass('popup-box-on');
+                $("#addClass").css('display', 'block');
             });
         });
     }

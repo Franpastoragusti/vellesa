@@ -5,6 +5,10 @@
   z-index: 999;
 }
 
+#addClass{
+  display: none;
+}
+
 #imgPrueba{
   border: 1px solid #fff;
   background: #3f9684  none repeat scroll 0 0;
@@ -19,12 +23,9 @@
     height: 75px;
     width: 75px;
     /* los siguientes valores son independientes del tamaño del círculo */
-    background-image: url('/img/merce.jpg');
-    background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;
-    background-size: 100% auto;
-
+    background-size: cover;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);

@@ -15,8 +15,24 @@ class AdminController extends BaseAdminController
 
     public function pdfAction()
     {
-        $id = $this->request->query->get('id');
-        var_dump($id);
+
+      $id = $this->request->query->get('id');
+
+      $pdf = $this->getDoctrine()->getRepository('AppBundle:PDF')->findOneByid($id);
+
+      if ($pdf == null) {
+          $pdf = new PDF();
+      }
+
+      $userId = $pdf->getUserId();
+
+      $FosUser = $this->getDoctrine()->getRepository('AppBundle:User')->findOneByid($userId);
+
+      if ($FosUser == null) {
+          $FosUser = new User();
+      }
+
+      $id= $FosUser->getId();
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
