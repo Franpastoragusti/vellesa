@@ -190,7 +190,20 @@
             {% endfor %}
             </p>
           <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:</label>
-          <p class="respuesta">{{familyData.profesionals}}</p>
+          <p class="respuesta">
+            {% if familyData.profesionals != "[]" %}
+              {% for i in 0..familyData.beloved|length -1%}
+                {% set data = familyData.profesionals[i] %}
+                    {{data|capitalize}}
+                  {% if i != familyData.profesionals|length -1 %}
+                  <br>
+                  {% endif %}
+              {% endfor %}
+              {% else %}
+                Ninguno
+            {% endif %}
+
+          </p>
           <label>3. Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:</label>
           <p class="respuesta">{{familyData.basicActivities}}</p>
           <label>4. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
@@ -317,8 +330,9 @@
               doc.addImage(base64[0],'JPEG',180,5,25,15);
               doc.fromHTML(familyData,15,15,{'width': 180});
             }
-            
-            doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf')
+
+            doc.output("dataurlnewwindow");
+            //doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf')
         }
     </script>
 

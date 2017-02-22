@@ -33,7 +33,7 @@ class DefaultController extends Controller
 
 
       $data=$query->getResult();
-      var_dump($data[6]['personalData']->getName());
+      
       $directionAplicant = $data[0]['personalData']->getDirection();
       $directionWitness1 = $data[2]['personalData']->getDirection();
       $directionWitness2 = $data[4]['personalData']->getDirection();
