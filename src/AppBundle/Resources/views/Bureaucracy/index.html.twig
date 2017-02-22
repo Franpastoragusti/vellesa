@@ -71,6 +71,8 @@
     <script src="{{ asset('js/polyfills.js') }}"></script>
     <script src="{{ asset('js/menu.js') }}"></script>
     <script src="{{ asset('js/StepsManager.js') }}"></script>
+    <script src="{{ asset('js/FormDecorator.js') }}"></script>
+
 
     <script>
         let number = getNumberByRoute();
@@ -80,48 +82,10 @@
         let witness3 = '{{ witness3 }}';
         let applicant = '{{ applicant }}';
 
-        if (witness1 == 1){
-            $('#witness1').children('a').addClass('completed');
-        }
-        if (witness2 == 1){
-            $('#witness2').children('a').addClass('completed');
-        }
-        if (witness3 == 1){
-            $('#witness3').children('a').addClass('completed');
-        }
-        if (representant == 1){
-            $('#representant').children('a').addClass('completed');
-        }
-        if (applicant == 1){
-            $('#applicant').children('a').addClass('completed');
-        }
-
-        var flag = true;
-        var check = parseInt(applicant) + parseInt(representant) + parseInt(witness1) + parseInt(witness2) + parseInt(witness3);
-        if (check == 4 && flag) {
-            alert("Este es el ultimo formulario no podras modificar nada una vez terminado")
-            flag = false;
-        }
-        var checkingProcces = setInterval(function () {
-            var delay = 2000;
-            console.log(check)
-
-            if (check == 5) {
-                $('#cn-wrapper').removeClass('opened-nav');
-                $('#cn-button').empty().text('FIN').addClass('completed');
-
-                var finishingProces = setTimeout(function () {
-                  window.location = '/app/bureaucracy/instance';
-                }, delay);
-
-
-            }
-
-
-        }, 2000);
 
         $(document).ready(function () {
             $(".cn-wrapper").addClass('opened-nav');
+            FormDecorator.decorateMenu(representant, witness1, witness2, witness3, applicant);
             stepAnimation(number);
         });
 

@@ -27,6 +27,13 @@ class BureaucracyController extends Controller
 
     public function indexAction()
     {
+
+        $userId = $this->getUser()->getId();
+        $completed = $this->checkProgress($userId);
+
+        if ($completed)
+            return $this->redirectToRoute('Bureaucracy_instance');
+
         $applicant = $this->checkPersonData(1);
         $witness1 = $this->checkPersonData(2);
         $witness2 = $this->checkPersonData(3);
@@ -46,20 +53,9 @@ class BureaucracyController extends Controller
 
       $userId = $this->getUser()->getId();
 
+      $this->checkProgress($userId);
+
       $fos_user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
-
-      $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
-      $enviromentData = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($userId);
-      $personalAreaData = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
-      $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
-      $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findByuserId($userId);
-      $long = count($personalData);
-
-      if (!$healthData || !$enviromentData || !$personalAreaData || !$familyData || $long < 5) {
-        throw $this->createNotFoundException(
-            'Lo sentimos pero te faltan rellenar datos'
-        );
-      }
 
 
         if ($fos_user == null) {
@@ -74,6 +70,7 @@ class BureaucracyController extends Controller
 
       return $this->render('AppBundle:Bureaucracy:instance.html.twig');
     }
+
     private function checkPersonData($number){
       $user = $this->getUser()->getId();
       $em = $this->getDoctrine()->getManager();
@@ -185,4 +182,28 @@ class BureaucracyController extends Controller
           ));
 
     }
+
+    public function checkProgress($userId)
+    {
+
+
+        $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
+        $enviromentData = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($userId);
+        $personalAreaData = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
+        $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
+        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findByuserId($userId);
+        $long = count($personalData);
+
+        if (!$healthData || !$enviromentData || !$personalAreaData || !$familyData || $long < 5) {
+
+            return false;
+//            throw $this->createNotFoundException(
+//                'Lo sentimos pero te faltan rellenar datos'
+//            );
+        }else{
+            return true;
+        }
+
+    }
+
 }

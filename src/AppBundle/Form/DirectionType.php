@@ -24,7 +24,7 @@ class DirectionType extends AbstractType
             ->add('route', TextType::class, array('label' => 'Calle'))
             ->add('cp', IntegerType::class, array('label' => 'Código Postal'))
             ->add('city', TextType::class, array('label' => 'Ciudad'))
-            ->add('province', TextType::class, array('attr' => array('label' => 'Provincia')))
+            ->add('province', TextType::class, array('label' => 'Provincia'))
             ->add('houseNumber', IntegerType::class, array('label' => 'Puerta'))
         ;
 
