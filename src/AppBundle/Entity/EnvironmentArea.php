@@ -36,7 +36,7 @@ class EnvironmentArea
     private $placetobe;
 
     /**
-     * @var array
+     * @var string
      *
      * @ORM\Column(name="expressLikes", type="string", length=255)
      */

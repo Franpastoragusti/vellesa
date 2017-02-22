@@ -25,7 +25,7 @@ class FamilyAreaType extends AbstractType
 
         $builder
             ->add('beloved', TextAreaType::class, array(
-                'label' => 'Mis seres queridos más cercanos son:(ordenalos por preferencia)'
+                'label' => 'Mis seres queridos más cercanos son:'
             ))
 
             ->add('profesionals', HiddenType::class)
