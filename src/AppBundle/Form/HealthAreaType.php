@@ -95,14 +95,21 @@ class HealthAreaType extends AbstractType
             * El usuario deberá completar un campo de texto
             */
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
+
             ->add('Atrás', ButtonType::class, array(
                 'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
 
             ))
+
             ->add('Siguiente', SubmitType::class, array(
                 'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
-                ))
-            ;
+            ))
+
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+        ;
     }
 
     /**

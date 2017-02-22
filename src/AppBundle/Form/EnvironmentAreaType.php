@@ -25,7 +25,8 @@ class EnvironmentAreaType extends AbstractType
            */
 
 
-        $builder->add('placetobe', ChoiceType::class, array(
+        $builder
+            ->add('placetobe', ChoiceType::class, array(
             'label' => 'Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:',
             'choices'   => array(
                 'Deseo permanecer en mi hogar, rodeado de mi entorno y pertenencias personales.'   => 'Deseo quedarme en casa',
@@ -85,14 +86,15 @@ class EnvironmentAreaType extends AbstractType
                 'attr' => array('rows' => 3)
             ))
 
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
+            ))
+
             ->add('Atrás', ButtonType::class, array(
                 'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
 
             ))
-
-            ->add('Siguiente', SubmitType::class, array(
-                    'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3')
-            ));
+            ;
 
 
 

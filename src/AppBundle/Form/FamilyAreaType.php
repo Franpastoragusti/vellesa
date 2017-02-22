@@ -84,12 +84,13 @@ class FamilyAreaType extends AbstractType
               'attr' => array('rows' => 4)
             ))
 
-            ->add('Atrás', ButtonType::class, array(
-                'attr' => array('class' => 'btn-vellesa  col-md-6 col-dm-offset-2 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
-
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
             ))
-             ->add('Siguiente', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 ')
+
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
             ))
         ;
 
