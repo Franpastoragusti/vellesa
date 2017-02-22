@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 class HealthAreaType extends AbstractType
 {
@@ -25,14 +26,14 @@ class HealthAreaType extends AbstractType
             ->add('decideMyself', ChoiceType::class, array(
                 'label' => 'Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:',
                 'choices'   => array(
-                    'Para mi es fundamental la calidad, la dignidad de mi vida y el confort'   => 'calidad',
-                    'Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.' => 'soportevital',
-                    'Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.' => 'tratamientos',
+                    'Para mi es fundamental la calidad, la dignidad de mi vida y el confort'   => 0,
+                    'Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.' => 1,
+                    'Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.' => 2,
                     'Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo
-                    que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser. ' => 'independientemente',
-                    'Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento. '   => 'calidad',
+                    que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser. ' => 3,
+                    'Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento. '   => 4,
                     'Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar
-                     mi estado. Gracias, pero no deseo que me sean aplicadas. '   => 'calidad',
+                     mi estado. Gracias, pero no deseo que me sean aplicadas. '   => 5,
 
                 ),
                 'expanded' => true,
@@ -94,10 +95,21 @@ class HealthAreaType extends AbstractType
             * El usuario deberá completar un campo de texto
             */
             ->add('observations', TextareaType::class, array('label' => 'Añade las observaciones, detalles y puntualizaciones que consideres oportunas:', 'attr' => array('rows' => 8)))
-            ->add('Terminado', SubmitType::class, array(
-                'attr' => array('class' => 'btn-vellesa start')
-                ))
-            ;
+
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+
+            ->add('Siguiente', SubmitType::class, array(
+                'attr' => array('class' => 'btn-vellesa col-md-6 col-md-offset-3 start')
+            ))
+
+            ->add('Atrás', ButtonType::class, array(
+                'attr' => array('class' => 'btn-vellesa  col-md-6 col-md-offset-3 start', 'value' => 'Atrás', 'onclick' =>'history.back(-1)')
+
+            ))
+        ;
     }
 
     /**

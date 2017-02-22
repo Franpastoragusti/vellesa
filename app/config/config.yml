@@ -8,7 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: es
-    dni_directory: '%kernel.root_dir%/../app/dni'
+    dni_directory: '%kernel.root_dir%/../web/dni'
     audio_directory: '%kernel.root_dir%/../app/audio'
 
 framework:
@@ -91,8 +91,7 @@ easy_admin:
         PersonalData:
             list:
                 actions:
-                    - { name: 'look_geo', type: 'route', label: 'Geolocalizacion'}
-
+                    ['googleMaps']
 
             class: AppBundle\Entity\PersonalData
             label: 'Datos personales'
@@ -103,7 +102,8 @@ easy_admin:
             class: AppBundle\Entity\PDF
             label: 'Procesos'
 
-          
+
+
     design:
         color_scheme: 'light'
 

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="pull-right">
-            <a href="#" id="addClass">
+            <a href="#" role="button" id="addClass">
                 <div class="assistant_img" style="background-image: url({{companion_img}})"></div>
             </a>
         </div>
@@ -14,12 +14,12 @@
 <div class="popup-box chat-popup popup-box-on" id="qnimate">
     <div class="popup-head">
         <div class="popup-head-right pull-right">
-            <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button">
-                <i class="glyphicon glyphicon-remove"></i>
+            <button data-widget="remove" role="button" id="removeClass" class="chat-header-button pull-right" type="button">
+                <i role="img" class="glyphicon glyphicon-remove"></i>
             </button>
         </div>
         <div class="popup-head"><img src="{{ companion_img }}" alt="iamgurdeeposahan"></div>
-        <span>{{ companion_name }}</span>
+        <span role="button">{{ companion_name }}</span>
 
     </div>
 
@@ -27,7 +27,7 @@
         <div class="direct-chat-text" id="texto_user">
         </div>
         <div class="direct-chat-info clearfix" id="div_tiempo_user">
-          <span class="direct-chat-timestamp pull-right" id="tiempo_user"></span>
+          <span class="direct-chat-timestamp pull-right" role="button" id="tiempo_user"></span>
         </div>
     </div>
 
@@ -35,28 +35,28 @@
         <div class="direct-chat-messages" id="mensajeApp1">
             <!-- Message. Default to the left -->
             <div class="direct-chat-info clearfix">
-                <span class="direct-chat-name pull-left">{{ companion_name }}</span>
+                <span class="direct-chat-name pull-left" role="button">{{ companion_name }}</span>
             </div>
             <!-- /.direct-chat-info -->
-            <img alt="" src="{{ companion_img }}" class="direct-chat-img">
+            <img alt="foto de tu acompañante" src="{{ companion_img }}" class="direct-chat-img">
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text" id="texto_app">
                 <!--Añadir texto con js-->
             </div>
             <div class="direct-chat-info clearfix">
-                <span class="direct-chat-timestamp pull-right" id="tiempo_app"></span>
+                <span class="direct-chat-timestamp pull-right" role="button" id="tiempo_app"></span>
             </div>
         </div>
             <!-- /.direct-chat-msg -->
 
         <div id="respuestaPuntos" class="pull-right hidden">
             <p class="col-md-3">...</p>
-            <img alt="" src="{{ companion_img }}" id="imgPrueba">
+            <img alt="foto de tu acompañante" src="{{ companion_img }}" id="imgPrueba">
         </div>
         <div class="popup-messages-footer">
-            <textarea placeholder="Escribe tu mensaje" rows="20" cols="40" name="message" id="textoEscritoUser"></textarea>
+            <textarea placeholder="Escribe tu mensaje" role="textbox" rows="20" cols="40" name="message" id="textoEscritoUser"></textarea>
             <div class="btn-footer text-center">
-                <g:hangout render="createhangout" invites="[{ id : 'sergioparau26@gmail.com', invite_type : 'EMAIL' }]"></g:hangout>
+                <g:hangout render="createhangout" invites="[{ id : 'andreaalfonsoo@gmail.com', invite_type : 'EMAIL' }]"></g:hangout>
             </div>
         </div>
     </div>

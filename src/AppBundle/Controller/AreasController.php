@@ -21,6 +21,13 @@ class AreasController extends Controller
     public function healthAction(Request $request)
     {
         $userId = $this->getUser()->getId();
+
+        $completed = $this->checkProgress($userId);
+
+        if ($completed)
+            return $this->redirectToRoute('Bureaucracy_instance');
+
+
         $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
@@ -43,8 +50,8 @@ class AreasController extends Controller
                 $em->persist($healthData);
                 $em->flush();
 
-                return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
-                //return $this->redirectToRoute('test_room', array('status'=>'OK'));
+                return $this->redirectToRoute('Areas_enviroment');
+
             }
 
         return $this->render('AppBundle:Areas:health.html.twig', array('form' => $form->createView()));
@@ -54,6 +61,13 @@ class AreasController extends Controller
     {
 
         $userId = $this->getUser()->getId();
+
+
+        $completed = $this->checkProgress($userId);
+
+        if ($completed)
+            return $this->redirectToRoute('Bureaucracy_instance');
+
         $environmentarea = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($userId);
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
@@ -76,8 +90,8 @@ class AreasController extends Controller
             $em->persist($environmentarea);
             $em->flush();
 
-            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
-            //return $this->redirectToRoute('test_room', array('status'=>'OK'));
+            return $this->redirectToRoute('Areas_personal');
+
         }
 
         return $this->render('AppBundle:Areas:enviroment.html.twig', array('form' => $form->createView()));
@@ -88,6 +102,13 @@ class AreasController extends Controller
     {
 
         $userId = $this->getUser()->getId();
+
+
+        $completed = $this->checkProgress($userId);
+
+        if ($completed)
+            return $this->redirectToRoute('Bureaucracy_instance');
+
         $personalarea = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
@@ -110,8 +131,7 @@ class AreasController extends Controller
             $em->persist($personalarea);
             $em->flush();
 
-            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
-            //return $this->redirectToRoute('test_room', array('status'=>'OK'));
+            return $this->redirectToRoute('Areas_family');
         }
 
         return $this->render('AppBundle:Areas:personal.html.twig', array('form' => $form->createView()));
@@ -124,6 +144,14 @@ class AreasController extends Controller
     {
         //$familyData = new FamilyArea();
         $userId = $this->getUser()->getId();
+
+
+        $completed = $this->checkProgress($userId);
+
+        if ($completed)
+            return $this->redirectToRoute('Bureaucracy_instance');
+
+
         $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
 
         //Si no encuentra registro de que el usuario ya ha hecho el formulario
@@ -150,7 +178,7 @@ class AreasController extends Controller
             $em->persist($familyData);
             $em->flush();
 
-            return $this->redirectToRoute('Bureaucracy_menu', array('status'=>'OK'));
+            return $this->redirectToRoute('Bureaucracy_menu');
 
         }
 
@@ -158,4 +186,27 @@ class AreasController extends Controller
         return $this->render('AppBundle:Areas:family.html.twig', array('form' => $form->createView()));
     }
 
+
+    public function checkProgress($userId)
+    {
+
+        $healthData = $this->getDoctrine()->getRepository('AppBundle:HealthArea')->findOneByuserId($userId);
+        $enviromentData = $this->getDoctrine()->getRepository('AppBundle:EnvironmentArea')->findOneByuserId($userId);
+        $personalAreaData = $this->getDoctrine()->getRepository('AppBundle:PersonalArea')->findOneByuserId($userId);
+        $familyData = $this->getDoctrine()->getRepository('AppBundle:FamilyArea')->findOneByuserId($userId);
+        $personalData = $this->getDoctrine()->getRepository('AppBundle:PersonalData')->findByuserId($userId);
+        $long = count($personalData);
+
+        if (!$healthData || !$enviromentData || !$personalAreaData || !$familyData || $long < 5) {
+
+            return false;
+//            throw $this->createNotFoundException(
+//                'Lo sentimos pero te faltan rellenar datos'
+//            );
+        }else{
+
+            return $this->redirectToRoute('Bureaucracy_instance');
+        }
+
+    }
 }

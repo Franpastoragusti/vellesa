@@ -12,6 +12,7 @@
     <link href="{{ asset('css/landing/agency.css') }}" rel="stylesheet">
     <link href="{{ asset('css/landing/creative.css') }}" rel="stylesheet">
     <link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,9 +47,9 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    <span class="sr-only" role="button">Toggle navigation</span> Menu <i role="img" class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"> <img id="logo" src="{{ asset('img/landing/vellesa/logo.png') }}" alt="" /> </a>
+                <a class="navbar-brand page-scroll" href="#page-top" role="button"> <img id="logo" src="{{ asset('img/landing/vellesa/logo.png') }}" alt="logo Vellesa" /> </a>
             </div>
         </div>
         <!-- /.container-fluid -->
@@ -58,17 +59,17 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="fondoHeader">
-                    <h1 id="homeHeading">Tú decides</h1>
+                    <h1 id="homeHeading" role="heading">Tú decides</h1>
                     <hr>
                     <p>Un servicio online para hacer tu testamento vital, hazlo ahora y cuando no puedas decidirlo estará todo claro:</p>
-                    <ul>
+                    <ul role="list">
                         <li class="min">Límites de los tratamientos médicos que deseas recibir.</li>
                         <li class="min">Cómo y por quién quieres ser atendido/a.</li>
                         <li class="min">Detalles personales de tu entorno, hábitos y gustos personales.</li>
 
                     </ul>
                     <!--<a href="#contact" class="btn btn-primary btn-xl page-scroll">Conócenos</a>-->
-                    <a href="#price" class="btn btn-primary btn-xl page-scroll">Empieza ahora</a>
+                    <a href="#price" class="btn btn-primary btn-xl page-scroll" role="button">Empieza ahora</a>
                 </div>
             </div>
         </div>
@@ -86,21 +87,21 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/lap.PNG') }}"> </i>
+                        <i class="fa fa-4x text-primary sr-icons" role="img"><img src="{{ asset('img/landing/icons/lap.PNG') }}" alt="icono de un portátil con un corazón en al pantalla"> </i>
                         <h3>Servicio online</h3>
                         <p class="text-muted">Rápido y sencillo</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/126382.png') }}"> </i>
+                        <i class="fa fa-4x text-primary sr-icons" role="img"><img src="{{ asset('img/landing/icons/126382.png') }}" alt="un icono de color naranja de mujer rodeada y relacionada con otros iconos verdes de gente"> </i>
                         <h3>Acompañamiento profesional</h3>
                         <p class="text-muted">Psicólogas/os y trabajadoras /es sociales te acompañamos para darte la tranquilidad, confianza y serenidad necesarias</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x text-primary sr-icons"><img src="{{ asset('img/landing/icons/Captura.PNG') }}"> </i>
+                        <i class="fa fa-4x text-primary sr-icons" role="img"><img src="{{ asset('img/landing/icons/Captura.PNG') }}" alt="icono de un chico y una chica uno enfrente de otro"> </i>
                         <h3>Entorno Humano</h3>
                         <p class="text-muted">Espacio personal pensado para facilitar tu experiencia en este proceso</p>
                     </div>
@@ -116,7 +117,7 @@
                 <h2>DECIDE CÓMO QUIERES VIVIR</h2>
                 <p>Dejar claros tus deseos será un gran alivio para ti y para los tuyos.</p>
             </div>
-            <img height="120" src="{{ asset('img/landing/icons/banner.png') }}">
+            <img height="120" src="{{ asset('img/landing/icons/banner.png') }}" alt="Disponible en la comunidad valenciana">
         </div>
     </aside>
 
@@ -133,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="img-circle" src="{{ asset('img/landing/icons/eli.jpg') }}">
+                        <img class="img-circle" src="{{ asset('img/landing/icons/eli.jpg') }}" alt="imagen de una chica">
                         <h3>1. Elige tu acompañante</h3>
                         <p class="text-muted">Conoce a todos nuestros profesionales y elige quién quieres que sea tu acompañante: la persona que te va a guiar, asesorar y apoyar durante todo el proceso.</p>
                         <p class="text-muted">Tú decides.</p>
@@ -141,7 +142,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <img src="{{ asset('img/landing/icons/lapiz.jpg') }}">
+                        <img src="{{ asset('img/landing/icons/lapiz.jpg') }}" alt="imagen de un lápiz con un bocadiilo de cómic donde hay un corazón">
                         <h3>2. Reflexiona y Exprésate</h3>
                         <p class="text-muted">Navega por las diferentes áreas, disfruta de los contenidos y de la experiencia que supone dejar claros tus deseos.</p>
                         <p class="text-muted">Tú decides.</p>
@@ -151,7 +152,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/registra_envia.jpg') }}">
+                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/registra_envia.jpg') }}" alt="imagen de unos folios y una pluma para escribir">
                         <h3>3. Registra y envía</h3>
                         <p class="text-muted">¿Ya has completado todas las áreas? Te enviamos a casa tu testamento vital para que lo firmes. Nosotras nos ocupamos de registrarlo.</p>
                         <p class="text-muted">Tú decides.</p>
@@ -159,7 +160,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/respira_disfruta.jpg') }}">
+                        <img class="img-circle" height="80" src="{{ asset('img/landing/icons/respira_disfruta.jpg') }}" alt="imagen de una persona sentada en el césped tomando el aire fresco">
                         <h3>4. Respira y Disfruta</h3>
                         <p class="text-muted">Siente la sensación de calma y serenidad que produce dejar claros tus deseos y tener la seguridad de que serán respetados.</p>
                         <p class="text-muted">Tú decides.</p>
@@ -195,23 +196,23 @@
                         <div class="header">BÁSICO</div>
                         <div class="price">59€</div>
                         <div class="monthly">Pago Único</div>
-                        <ul id="prices_services">
+                        <ul id="prices_services" role="list">
                             <li>Asesoramiento Personal <b>On-line</b></li>
                             <li>Envío y Registro de <b>Testamento Vital</b></li>
                         </ul>
-                        <a class="signup" href="/app/companion">EMPEZAR</a>
+                        <a class="signup" href="/app/companion" role="button">EMPEZAR</a>
                     </div>
                     <div class="plan plan2">
                         <div class="header">PREMIUM</div>
                         <div class="price">150€</div>
-                        <div class="monthly">Pago Mensual</div>
-                        <ul>
+                        <div class="monthly">Pago ANUAL</div>
+                        <ul role="list">
                             <li>Asesoramiento Personal <b>A domicilio</b></li>
                             <li>Registro de <b>Testamento Vital</b></li>
                             <li>Revisión <b>Anual</b></li>
                             <li>Representación</li>
                         </ul>
-                        <a class="signup" href="/app/companion">EMPEZAR</a>
+                        <a class="signup" href="/app/companion" role="button">EMPEZAR</a>
                     </div>
                 </div>
             </div>
@@ -220,20 +221,40 @@
 
     <footer>
         <div class="row">
-            <div class="col-lg-4">
-                <img width="300" src="{{ asset('img/landing/icons/logo.png') }}">
+            <div class="col-lg-4 text-center">
+                <img width="300" src="{{ asset('img/landing/icons/logo.png') }}" alt="logo Vellesa">
+                <p><b>Email:</b>info@vellesa.es</p>
+                <p><b>Tlfn:</b> 654429409 </p>
             </div>
 
             <div class="col-lg-4">
-                <img src="{{ asset('img/landing/icons/logonest.jpg') }}">
+                <img src="{{ asset('img/landing/icons/logonest.jpg') }}" alt="logo Nest">
             </div>
 
             <div class="col-lg-4">
-                <img width="400" src="{{ asset('img/landing/icons/florida.png') }}">
+                <img width="400" src="{{ asset('img/landing/icons/florida.png') }}" alt="logo Florida">
             </div>
         </div>
+        <div class="row" >
+            <a href="http://www.w3.org/WAI/WCAG1A-Conformance"
+               title="Explicación del Nivel A de Conformidad">
+                <img height="32" width="88"
+                     src="http://www.w3.org/WAI/wcag1A"
+                     alt="Icono de conformidad con el Nivel A,
+	de las Directrices de Accesibilidad para
+	el Contenido Web 1.0 del W3C-WAI"></a>
+
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss"
+                     alt="¡CSS Válido!" />
+            </a>
+            <a href="http://validator.w3.org/check?uri=referer"><img
+                        src="http://www.w3.org/Icons/valid-xhtml10"
+                        alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+        </div>
         <div class="row" id="copyrigth">
-            <p>© 2016 Vellesa.es Todos los derechos reservados /<a href="#portfolioModal1" id="avisoLegal" data-toggle="modal"> Política de Privacidad</a></p>
+            <p>© 2016 Vellesa.es Todos los derechos reservados /<a href="#portfolioModal1" id="avisoLegal" data-toggle="modal" role="button"> Política de Privacidad</a></p>
         </div>
     </footer>
     <!-- Portfolio Modal 4 -->
@@ -258,7 +279,7 @@
                                     <p>Asimismo, vellesa.es informa que da cumplimiento a la Ley 34/2002 de 11 de julio, de Servicios de la Sociedad de la Información y el Comercio Electrónico y le solicitará su consentimiento al tratamiento de su correo electrónico con fines comerciales en cada momento.</p>
                                 </div>
                                 <div class="boton">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times" role="img"></i> Cerrar</button>
                                 </div>
 
                             </div>

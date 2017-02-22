@@ -2,40 +2,72 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/formDecorator.css') }}">
     <style>
-        body{
+        body {
             background-image: url('/img/cereales_vellesa.jpg');
         }
+
     </style>
 {% endblock %}
 {% block main %}
+<div id="textoJustificante" hidden>
+  <p>En unos días recibirás en tu casa tu testamento vital impreso, sólo deberás firmarlo y enviárnoslo para que Vellesa lo registre. En el mismo sobre encontrarás nuestra encuesta de satisfacción.</p>
+  <br>
+  <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+  <br><br><br>
+  <p>Firme aquí _____________________________</p>
+</div>
     <div class="apartado text-center col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
-        <h2>HAS TERMINADO</h2>
+        <h2 role="heading">HAS TERMINADO</h2>
         <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <p>GRACIAS, SE ESTÁ GENERANDO EL COMPROBANTE DE QUE HAS FINALIZADO EL PROCESO, PUEDES IMPRIMIRLO Y/O GUARDARLO COMO JUSTIFICANTE DE COMPRA</p>
-            <p>EN UN PLAZO DE XXX DÍAS RECIBIRÁS EN TU CASA TU TESTAMENTO VITAL IMPRESO, SÓLO DEBERÁS FIRMARLO Y ENVIÁRNOSLO PARA QUE VELLESA LO REGISTRE.
-                EN EL MISMO SOBRE ENCONTRARÁS NUESTRA ENCUESTA DE SATISFACCIÓN, LO MÁS IMPORTANTE PARA VELLESA.</p>
+            <p>EN UN PLAZO DE XXX DÍAS RECIBIRÁS EN TU CASA TU TESTAMENTO VITAL IMPRESO, SÓLO DEBERÁS FIRMARLO Y ENVIÁRNOSLO PARA QUE VELLESA LO REGISTRE. EN EL MISMO SOBRE ENCONTRARÁS NUESTRA ENCUESTA DE SATISFACCIÓN, LO MÁS IMPORTANTE PARA VELLESA.</p>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hd-7oSLmluo"></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hd-7oSLmluo" role="img"></iframe>
             </div>
         </div>
+
         <div class="col-md-12">
             <div class="col-md-5 col-md-offset-1 responsiveButton">
-                <a href="../pdfs/modelo_general.pdf" download="Instancia">
-                    <button type="button" class="btn btn-vellesa start">Justificante
-                        <span class="glyphicon glyphicon-download-alt"> </span>
-                    </button>
-                </a>
+                <button type="button" onclick="creaPDF()" role="button" class="btn btn-vellesa start">Justificante
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                </button>
             </div>
             <div class="col-md-5  responsiveButton">
-                <a href="/logout">
-                    <button type="button" class="btn btn-vellesa start">Terminar
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                <a href="/logout" role="link">
+                    <button type="button" role="button" class="btn btn-vellesa start">Terminar
+                        <span role="img" class="glyphicon glyphicon-chevron-right"></span>
                     </button>
                 </a>
             </div>
         </div>
-    </div>
 
-{% endblock %}
+
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+        <script type="text/javascript" src="{{ asset('js/getImageAsync.js') }}"></script>
+
+        <script type="text/javascript">
+          var base64 = [];
+          var rutas = ["/img/landing/icons/logo.png"];
+
+          var textoJustificante = document.getElementById("textoJustificante");
+
+          getImageAsync(rutas, base64);
+            function creaPDF() {
+
+                var doc = new jsPDF();
+
+                doc.addImage(base64[0], 'PNG', 180,5,25,15);
+
+                doc.setFontSize(16);
+
+                doc.fromHTML(textoJustificante, 15, 25, {'width': 180});
+
+                doc.save("justificante.pdf");
+            }
+        </script>
+    {% endblock %}

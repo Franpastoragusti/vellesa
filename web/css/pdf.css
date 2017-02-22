@@ -1,0 +1,17 @@
+p.respuesta{
+  color: blue;
+}
+
+label{
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 26px;
+  color: grey;
+  text-decoration: none;
+  font-weight: bold;
+}

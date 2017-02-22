@@ -45,7 +45,8 @@ div.header-content-inner p{
 /*********Seccción testamento_vital*****/
 
 section.testamento_vital img{
-	width: 80px;
+	width: 120px;
+	height: 120px;
 }
 
 section.testamento_vital div#cta1{
@@ -162,6 +163,9 @@ div.modal p{
 	text-align: justify;
 
 }
+.img-circle{
+	border: solid rgba(137,96,203, 0.8);
+}
 
 /*************Arreglos para responsive*************************/
 
@@ -169,7 +173,8 @@ div.modal p{
 @media (min-width: 250px) {
 
     header {
-        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
+        background-image: url('../../img/landing/vellesa/portada.jpg');
+		background-size: cover;
     }
     .timeline:before{
     	height: 700px;
@@ -188,9 +193,7 @@ div.modal p{
 		}
 }
 @media (min-width: 480px) {
-    header {
-        background-image: url('../../img/landing/vellesa/cereales_vellesa480.jpg');
-    }
+
     .timeline:before{
     	height: 400px;
     }
@@ -201,9 +204,7 @@ div.modal p{
 
 /* Imagen utilizada en pantallas de anchura 768 px y superior */
 @media (min-width: 768px) {
-    header {
-        background-image: url('../../img/landing/vellesa/cereales_vellesa768.jpg');
-    }
+
     .timeline:before{
     	height: 600px;
     }
@@ -214,12 +215,10 @@ div.modal p{
 
 /* Imagen utilizada en pantallas de anchura 1200 px y superior */
 @media (min-width: 1200px) {
-    header {
-        background-image: url('../../img/landing/vellesa/cereales_vellesa1200.jpg');
-    }
-		.header-content-inner p{
-			font-size: 22px !important;
-		}
+
+	.header-content-inner p{
+		font-size: 22px !important;
+	}
 
 }
 
@@ -407,11 +406,17 @@ div.fondoHeader{
 	}
 
 
-	footer p, footer a{
+	footer p{
 		color: #FFFFFF !important;
-		font-size: 12px !important;
+		font-size: 18px !important;
+		padding-top: 10px;
 	}
 
 	#portfolioModal4  div.boton > button {
 		color: #FFFFFF !important;
+	}
+
+	footer div#copyrigth p, footer div#copyrigth a{
+		color: #FFFFFF !important;
+		font-size: 12px !important;
 	}
