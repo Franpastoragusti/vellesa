@@ -24,7 +24,7 @@ Requerimientos de Symfony:
 Requerimientos de BBDD:
 
    ```sql
-    INSERT INTO `person_class` (`id`, `type`) VALUES (NULL, 'assistant'), (NULL, 'witness'), (NULL, 'representant');
+    INSERT INTO `person_class` (`id`, `type`) VALUES (NULL, 'assistant'), (NULL, 'witness1'), (NULL, 'witness2'), (NULL, 'witness3'), (NULL, 'representant');
     
    ```
   
