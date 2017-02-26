@@ -192,10 +192,10 @@
                 {% endif %}
             {% endfor %}
             </p>
-          <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por:</label>
+          <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por</label>
           <p class="respuesta">
             {% if familyData.profesionals != "[]" %}
-              {% for i in 0..familyData.beloved|length -1%}
+              {% for i in 0..familyData.profesionals|length -1%}
                 {% set data = familyData.profesionals[i] %}
                     {{data|capitalize}}
                   {% if i != familyData.profesionals|length -1 %}
@@ -203,19 +203,17 @@
                   {% endif %}
               {% endfor %}
               {% else %}
-                Ninguno
+                Un familiar
             {% endif %}
 
           </p>
-          <label>3. Si necesito ayuda para las actividades instrumentales y avanzadas de la vida diaria quiero que me sea proporcionada por:</label>
-          <p class="respuesta">{{familyData.basicActivities}}</p>
-          <label>4. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
+          <label>3. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
           {% if familyData.mentalFaculty == 0 %}
               <p class="respuesta">Si</p>
             {% else %}
               <p class="respuesta">No</p>
           {% endif %}
-          <label>5. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
+          <label>4. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
           <p class="respuesta">
             <!-- No dejaba hacer switch -->
             {% for i in 0..familyData.visits|length -1%}
@@ -244,7 +242,7 @@
               {% endif %}
             {% endfor %}
           </p>
-          <label>6. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+          <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
           <p class="respuesta">{{familyData.observations}}</p>
         </div>
     </div>
@@ -350,6 +348,7 @@
               doc.fromHTML(familyData,15,15,{'width': 180});
 
             doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf')
+            window.location.replace("http://127.0.0.1:8000/admin/?entity=PDF&action=list&menuIndex=2&submenuIndex=-1")
         }
     </script>
 
