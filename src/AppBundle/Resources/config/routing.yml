@@ -9,9 +9,6 @@ Intro_instance:
     path:     /payment
     defaults: { _controller: AppBundle:Intro:payment }
 
-
-
-
 #Areas
 
 Areas_health:
@@ -66,5 +63,5 @@ look_geo:
 
 #Set variables in session
 setCookies:
-    path:     /setCookies/{companion}
+    path:     /setCookies/{companion}/{help}
     defaults: { _controller: AppBundle:Default:setCookies }

@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% set companion = app.session.get('companion') %}
+{% set companion_help = companion['companion_help'] %}
+
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block stylesheets %}

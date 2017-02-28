@@ -66,6 +66,8 @@
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/js/class.assistant.js') }}"></script>
         <script type="text/javascript">
+        $('#qnimate').removeClass('popup-box-on');
+        $("#addClass").css('display', 'block');
           var assistant = new Assistant();
           assistant.showAssistant();
           //assistant.customAnswer();
