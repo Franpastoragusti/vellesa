@@ -55,20 +55,30 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:chatRoom.html.twig');
     }
 
-    public function setCookiesAction($companion)
+    public function setCookiesAction($companion, $help)
     {
-
       if ($companion == 0) {
         $companion_name = "Eli";
         $companion_img = "/img/eli.jpg";
+        if ($help == 0) {
+          $companion_help = "texto";
+        }else {
+          $companion_help = "audio";
+        }
       }else {
         $companion_name = "Merce";
         $companion_img = "/img/merce.jpg";
+        if ($help == 0) {
+          $companion_help = "texto";
+        }else {
+          $companion_help = "audio";
+        }
       }
 
       $session = $this->get('session');
 
-      $session->set('companion', array('companion_name' => $companion_name, 'companion_img' => $companion_img));
+      $session->set('companion', array('companion_name' => $companion_name, 'companion_img' => $companion_img,
+      'companion_help' => $companion_help));
 
     return $this->redirectToRoute('Areas_health');
     }
