@@ -3,255 +3,271 @@
   <link href="{{ asset('css/pdf.css') }}" rel="stylesheet" />
 {% endblock %}
 {% block main %}
-    <div id="block1" hidden>
+    <div id="PersonalData" hidden>
       <div id="applicant">
-        <h3>Datos del solicitante</h3>
-        <p>Nombre: {{ applicant.name }}</p>
-        <p>Apellidos: {{ applicant.surname }}</p>
-        <p>Nº Teléfono: {{ applicant.phone }}</p>
-        <p>Ciudad: {{directionAplicant.city}}</p>
-        <p>Provincia: {{directionAplicant.province}}</p>
-        <p>Calle: {{directionAplicant.route}}</p>
-        <p>Portal: {{directionAplicant.houseNumber}}</p>
-        <p>SIP: {{ applicant.sip }}</p>
-        <p>DNI:</p>
-      </div>
-        <br><br><br><br><br><br><br><br><br>
+          <h3>Datos del solicitante</h3>
+          <p>Nombre: {{ applicant.name }}</p>
+          <p>Apellidos: {{ applicant.surname }}</p>
+          <p>Nº Teléfono: {{ applicant.phone }}</p>
+          <p>Ciudad: {{directionAplicant.city}}</p>
+          <p>Provincia: {{directionAplicant.province}}</p>
+          <p>Calle: {{directionAplicant.route}}</p>
+          <p>Portal: {{directionAplicant.houseNumber}}</p>
+          <p>SIP: {{ applicant.sip }}</p>
+          <p>DNI:</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div>
+            <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+            <br><br><br>
+            <p>Firme aquí _____________________________</p>
+          </div>
+        </div>
       <div id="witness1">
-        <h3>Testigo 1</h3>
-        <p>Nombre: {{ witness1.name }}</p>
-        <p>Apellidos: {{ witness1.surname }}</p>
-        <p>Nº Teléfono: {{ witness1.phone }}</p>
-        <p>Ciudad: {{directionWitness1.city}}</p>
-        <p>Provincia: {{directionWitness1.province}}</p>
-        <p>Calle: {{directionWitness1.route}}</p>
-        <p>Portal: {{directionWitness1.houseNumber}}</p>
-        <p>SIP: {{ witness1.sip }}</p>
-        <p>DNI:</p>
-      </div>
-    </div>
-
-    <div id="block2" hidden>
+          <h3>Testigo 1</h3>
+          <p>Nombre: {{ witness1.name }}</p>
+          <p>Apellidos: {{ witness1.surname }}</p>
+          <p>Nº Teléfono: {{ witness1.phone }}</p>
+          <p>Ciudad: {{directionWitness1.city}}</p>
+          <p>Provincia: {{directionWitness1.province}}</p>
+          <p>Calle: {{directionWitness1.route}}</p>
+          <p>Portal: {{directionWitness1.houseNumber}}</p>
+          <p>SIP: {{ witness1.sip }}</p>
+          <p>DNI:</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div>
+            <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+            <br><br><br>
+            <p>Firme aquí _____________________________</p>
+          </div>
+        </div>
       <div id="witness2">
-        <h3>Testigo 2</h3>
-        <p>Nombre: {{ witness2.name }}</p>
-        <p>Apellidos: {{ witness2.surname }}</p>
-        <p>Nº Teléfono: {{ witness2.phone }}</p>
-        <p>Ciudad: {{directionWitness2.city}}</p>
-        <p>Provincia: {{directionWitness2.province}}</p>
-        <p>Calle: {{directionWitness2.route}}</p>
-        <p>Portal: {{directionWitness2.houseNumber}}</p>
-        <p>SIP: {{ witness2.sip }}</p>
-        <p>DNI:</p>
-      </div>
-        <div><br><br><br><br><br><br><br></div>
+          <h3>Testigo 2</h3>
+          <p>Nombre: {{ witness2.name }}</p>
+          <p>Apellidos: {{ witness2.surname }}</p>
+          <p>Nº Teléfono: {{ witness2.phone }}</p>
+          <p>Ciudad: {{directionWitness2.city}}</p>
+          <p>Provincia: {{directionWitness2.province}}</p>
+          <p>Calle: {{directionWitness2.route}}</p>
+          <p>Portal: {{directionWitness2.houseNumber}}</p>
+          <p>SIP: {{ witness2.sip }}</p>
+          <p>DNI:</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div>
+            <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+            <br><br><br>
+            <p>Firme aquí _____________________________</p>
+          </div>
+        </div>
       <div id="witness3">
-        <h3>Testigo 3</h3>
-        <p>Nombre: {{ witness3.name }}</p>
-        <p>Apellidos: {{ witness3.surname }}</p>
-        <p>Nº Teléfono: {{ witness3.phone }}</p>
-        <p>Ciudad: {{directionWitness3.city}}</p>
-        <p>Provincia: {{directionWitness3.province}}</p>
-        <p>Calle: {{directionWitness3.route}}</p>
-        <p>Portal: {{directionWitness3.houseNumber}}</p>
-        <p>SIP: {{ witness3.sip }}</p>
-        <p>DNI:</p>
-      </div>
+          <h3>Testigo 3</h3>
+          <p>Nombre: {{ witness3.name }}</p>
+          <p>Apellidos: {{ witness3.surname }}</p>
+          <p>Nº Teléfono: {{ witness3.phone }}</p>
+          <p>Ciudad: {{directionWitness3.city}}</p>
+          <p>Provincia: {{directionWitness3.province}}</p>
+          <p>Calle: {{directionWitness3.route}}</p>
+          <p>Portal: {{directionWitness3.houseNumber}}</p>
+          <p>SIP: {{ witness3.sip }}</p>
+          <p>DNI:</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div>
+            <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+            <br><br><br>
+            <p>Firme aquí _____________________________</p>
+          </div>
+        </div>
+      <div id="representant">
+          <h3>Nombramiento del representante</h3>
+          <p>Nombre: {{ representant.name }}</p>
+          <p>Apellidos: {{ representant.surname }}</p>
+          <p>Nº Teléfono: {{ representant.phone }}</p>
+          <p>Ciudad: {{directionRepresentant.city}}</p>
+          <p>Provincia: {{directionRepresentant.province}}</p>
+          <p>Calle: {{directionRepresentant.route}}</p>
+          <p>Portal: {{directionRepresentant.houseNumber}}</p>
+          <p>SIP: {{ representant.sip }}</p>
+          <p>DNI:</p>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div>
+            <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
+            <br><br><br>
+            <p>Firme aquí _____________________________</p>
+          </div>
+        </div>
     </div>
-
-    <div id="representant" hidden>
-        <h3>Nombramiento del representante</h3>
-        <p>Nombre: {{ representant.name }}</p>
-        <p>Apellidos: {{ representant.surname }}</p>
-        <p>Nº Teléfono: {{ representant.phone }}</p>
-        <p>Ciudad: {{directionRepresentant.city}}</p>
-        <p>Provincia: {{directionRepresentant.province}}</p>
-        <p>Calle: {{directionRepresentant.route}}</p>
-        <p>Portal: {{directionRepresentant.houseNumber}}</p>
-        <p>SIP: {{ representant.sip }}</p>
-        <p>DNI:</p>
-      </div>
-    <br><br><br><br><br><br><br><br>
-
     <div id="areas" hidden>
-      <div id="healthData">
-        <h3>Mis deseos sobre mi salud</h3>
-        <label>1. Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:</label>
-          <!-- Cojo el JSON array que me devuelve la consulta, lo recorro e imprimo los datos separados por una coma -->
-          <p class="respuesta">
-          {% for i in 0..healthData.decideMyself|length -1%}
-            {% set data = healthData.decideMyself[i] %}
-              {% if data == 0 %}
-                Para mi es fundamental la calidad, la dignidad de mi vida y el confort.
-              {% endif %}
+        <div id="healthData">
+          <h3>Mis deseos sobre mi salud</h3>
+          <label>1. Cuando mi salud no me permita decidir por mi mismo, quiero hacer constar que:</label>
+            <!-- Cojo el JSON array que me devuelve la consulta, lo recorro e imprimo los datos separados por una coma -->
+            <p class="respuesta">
+            {% for i in 0..healthData.decideMyself|length -1%}
+              {% set data = healthData.decideMyself[i] %}
+                {% if data == 0 %}
+                  Para mi es fundamental la calidad, la dignidad de mi vida y el confort.
+                {% endif %}
 
-              {% if data == 1  %}
-                Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.
-              {% endif %}
+                {% if data == 1  %}
+                  Entiendo que existen medidas de soporte vital para alargar mi vida, pero no deseo que me sean aplicadas.
+                {% endif %}
 
-              {% if data == 2  %}
-                Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.
-              {% endif %}
+                {% if data == 2  %}
+                  Para mí es importante que cuando se apliquen los tratamientos necesarios para mi curación no se prolonguen de manera innecesaria en el tiempo.
+                {% endif %}
 
-              {% if data == 3  %}
-                Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser.
-              {% endif %}
+                {% if data == 3  %}
+                  Deseo que se me apliquen los tratamientos y/o terapias necesarias para mantener mi estado de salud, independientemente del tiempo que sea necesario aplicarlos y de lo agresivo que pueda llegar a ser.
+                {% endif %}
 
-              {% if data == 4  %}
-                Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento.
-              {% endif %}
+                {% if data == 4  %}
+                  Deseo que se controle el posible dolor con los métodos que sean necesarios, quiero evitar el sufrimiento.
+                {% endif %}
 
-              {% if data == 5  %}
-                Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar mi estado. Gracias, pero no deseo que me sean aplicadas.
-              {% endif %}
-              {% if i != environmentData.placetobe|length -1 %}
-              <br>
-              {% endif %}
-          {% endfor %}
-        </p>
-        <label>2. Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.</label>
-        <p class="respuesta">
-        {% if healthData.knowAll  == 0 %}
-            Si
-          {% else %}
-            No
-        {% endif %}
-        </p>
-        <label>3. Quiero que la persona encargada de mis asuntos de salud sea:</label>
-        <p class="respuesta">{{healthData.personInCharge}}</p>
-        <label>4. Quiero que mis seres queridos más cercanos sepan todo sobre mi estado de salud y progreso.</label>
-        <p class="respuesta">
-        {% if healthData.beloved  == 0 %}
-            Si
-          {% else %}
-            No
-        {% endif %}
-        </p>
-        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
-        <p class="respuesta">{{healthData.observations}}</p>
-      </div>
-
-      <div id="environmentData">
-        <h3>Mis deseos sobre mi entorno</h3>
-        <label>1. Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:</label>
-          <p class="respuesta">
-          {% for i in 0..environmentData.placetobe|length -1%}
-            {% set data = environmentData.placetobe[i] %}
-            {{data|capitalize}}
-            {% if i != environmentData.placetobe|length -1 %}
-            <br>
-            {% endif %}
-          {% endfor %}
-        </p>
-        <label>2. Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:</label>
-        <p class="respuesta">{{environmentData.expressLikes}}</p>
-        <label>3. Cuando llegue el momento final de mi vida, esta es mi voluntad</label>
-        <p class="respuesta">
-          {% for i in 0..environmentData.selfwill|length -1%}
-            {% set data = environmentData.selfwill[i] %}
-              {% if data == 0 %}
-                Quiero donar mi cuerpo a la ciencia
-              {% endif %}
-              {% if data == 1 %}
-                Quiero donar todos mis órganos y tejidos
-              {% endif %}
-            {% if i != environmentData.selfwill|length -1 %}
-            <br>
-            {% endif %}
-          {% endfor %}
-        </p>
-        <label>4. Así me gustaría que fuese mi despedida:</label>
-        <p class="respuesta">{{environmentData.farewell}}</p>
-        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
-        <p class="respuesta">{{environmentData.observations}}</p>
-      </div>
-
-      <div id="personalData">
-        <h3>Mis deseos personales</h3>
-        <label>1. Trámites pendientes y documentación importante:</label>
-        <p class="respuesta">{{personalAreaData.importantDocuments}}</p>
-        <label>2. Quiero que comuniquéis a estas personas lo siguiente:</label>
-        <p class="respuesta">{{personalAreaData.comunicateTo}}</p>
-        <label>3.He dejado preparado mi legado emocional, para acceder a él debéis:</label>
-        <p class="respuesta">{{personalAreaData.emotionalLegacy}}</p>
-        <label>4. He realizado mi testamento digital, para acceder a él debéis:</label>
-        <p class="respuesta">{{personalAreaData.perfomDigitalTestament}}</p>
-        <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas.</label>
-        <p class="respuesta">{{personalAreaData.observations}}</p>
-      </div>
-
-      <div id="familyData">
-          <h3>Mis deseos sobre mi gente</h3>
-          <label>1. Mis seres queridos más cercanos son:(ordenalos por preferencia)</label>
-          <p class="respuesta">
-            {% for i in 0..familyData.beloved|length -1%}
-              {% set data = familyData.beloved[i] %}
-                {{data|capitalize}}
+                {% if data == 5  %}
+                  Es posible que existan tratamientos o terapias no contrastadas y/o que no se demuestre que consigan curar mi estado. Gracias, pero no deseo que me sean aplicadas.
+                {% endif %}
                 {% if i != environmentData.placetobe|length -1 %}
                 <br>
                 {% endif %}
             {% endfor %}
-            </p>
-          <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por</label>
-          <p class="respuesta">
-            {% if familyData.profesionals != "[]" %}
-              {% for i in 0..familyData.profesionals|length -1%}
-                {% set data = familyData.profesionals[i] %}
-                    {{data|capitalize}}
-                  {% if i != familyData.profesionals|length -1 %}
-                  <br>
-                  {% endif %}
-              {% endfor %}
-              {% else %}
-                Un familiar
-            {% endif %}
-
           </p>
-          <label>3. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
-          {% if familyData.mentalFaculty == 0 %}
-              <p class="respuesta">Si</p>
-            {% else %}
-              <p class="respuesta">No</p>
-          {% endif %}
-          <label>4. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
+          <label>2. Quiero conocer, sea cual sea mi situación, todos los datos e información disponible sobre mi estado de salud y progreso.</label>
           <p class="respuesta">
-            <!-- No dejaba hacer switch -->
-            {% for i in 0..familyData.visits|length -1%}
-              {% set data = familyData.visits[i] %}
-              {% if data == 0 %}
-                Agradezco todo tipo de visitas de forma libre.
-              {% endif %}
+          {% if healthData.knowAll  == 0 %}
+              Si
+            {% else %}
+              No
+          {% endif %}
+          </p>
+          <label>3. Quiero que la persona encargada de mis asuntos de salud sea:</label>
+          <p class="respuesta">{{healthData.personInCharge}}</p>
+          <label>4. Quiero que mis seres queridos más cercanos sepan todo sobre mi estado de salud y progreso.</label>
+          <p class="respuesta">
+          {% if healthData.beloved  == 0 %}
+              Si
+            {% else %}
+              No
+          {% endif %}
+          </p>
+          <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+          <p class="respuesta">{{healthData.observations}}</p>
+        </div>
 
-              {% if data == 1  %}
-                Todas las visitas deben avisar antes a las personas que me atienden o a mis seres queridos más cercanos, para asegurar que se cumplen mis deseos. Si no lo hacen, no deseo recibirlas.
-              {% endif %}
-
-              {% if data == 2  %}
-                Deseo que se respete mi intimidad, no quiero tener visitas de ningún tipo mientras como, duermo o realizo tareas relacionadas con el aseo personal.
-              {% endif %}
-
-              {% if data == 3  %}
-                No deseo recibir visitas más allá de mis seres queridos más cercanos.
-              {% endif %}
-
-              {% if data == 4  %}
-                No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.
-              {% endif %}
+        <div id="environmentData">
+          <h3>Mis deseos sobre mi entorno</h3>
+          <label>1. Con respecto al lugar en el que deseo estar, quiero hacer constar lo siguiente:</label>
+            <p class="respuesta">
+            {% for i in 0..environmentData.placetobe|length -1%}
+              {% set data = environmentData.placetobe[i] %}
+              {{data|capitalize}}
               {% if i != environmentData.placetobe|length -1 %}
               <br>
               {% endif %}
             {% endfor %}
           </p>
+          <label>2. Cuando ya no pueda decidir o expresar mis gustos, quiero que se tengan en cuenta:</label>
+          <p class="respuesta">{{environmentData.expressLikes}}</p>
+          <label>3. Cuando llegue el momento final de mi vida, esta es mi voluntad</label>
+          <p class="respuesta">
+            {% for i in 0..environmentData.selfwill|length -1%}
+              {% set data = environmentData.selfwill[i] %}
+                {% if data == 0 %}
+                  Quiero donar mi cuerpo a la ciencia
+                {% endif %}
+                {% if data == 1 %}
+                  Quiero donar todos mis órganos y tejidos
+                {% endif %}
+              {% if i != environmentData.selfwill|length -1 %}
+              <br>
+              {% endif %}
+            {% endfor %}
+          </p>
+          <label>4. Así me gustaría que fuese mi despedida:</label>
+          <p class="respuesta">{{environmentData.farewell}}</p>
           <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
-          <p class="respuesta">{{familyData.observations}}</p>
+          <p class="respuesta">{{environmentData.observations}}</p>
         </div>
-    </div>
 
-    <div id="signHere" hidden>
-      <p>Fecha: {{ "now"|date("d/m/Y") }}</p>
-      <br><br><br>
-      <p>Firme aquí _____________________________</p>
-    </div>
+        <div id="personalData">
+          <h3>Mis deseos personales</h3>
+          <label>1. Trámites pendientes y documentación importante:</label>
+          <p class="respuesta">{{personalAreaData.importantDocuments}}</p>
+          <label>2. Quiero que comuniquéis a estas personas lo siguiente:</label>
+          <p class="respuesta">{{personalAreaData.comunicateTo}}</p>
+          <label>3.He dejado preparado mi legado emocional, para acceder a él debéis:</label>
+          <p class="respuesta">{{personalAreaData.emotionalLegacy}}</p>
+          <label>4. He realizado mi testamento digital, para acceder a él debéis:</label>
+          <p class="respuesta">{{personalAreaData.perfomDigitalTestament}}</p>
+          <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas.</label>
+          <p class="respuesta">{{personalAreaData.observations}}</p>
+        </div>
+
+        <div id="familyData">
+            <h3>Mis deseos sobre mi gente</h3>
+            <label>1. Mis seres queridos más cercanos son:(ordenalos por preferencia)</label>
+            <p class="respuesta">
+              {% for i in 0..familyData.beloved|length -1%}
+                {% set data = familyData.beloved[i] %}
+                  {{data|capitalize}}
+                  {% if i != environmentData.placetobe|length -1 %}
+                  <br>
+                  {% endif %}
+              {% endfor %}
+              </p>
+            <label>2. Si necesito ayuda para las actividades básicas de la vida diaria quiero que me sea proporcionada por</label>
+            <p class="respuesta">
+              {% if familyData.profesionals != "[]" %}
+                {% for i in 0..familyData.profesionals|length -1%}
+                  {% set data = familyData.profesionals[i] %}
+                      {{data|capitalize}}
+                    {% if i != familyData.profesionals|length -1 %}
+                    <br>
+                    {% endif %}
+                {% endfor %}
+                {% else %}
+                  Un familiar
+              {% endif %}
+
+            </p>
+            <label>3. En el caso de que estén afectadas mis facultades mentales, quiero que se tramiten las medidas de protección legales existentes para evitar abusos y conflictos.</label>
+            {% if familyData.mentalFaculty == 0 %}
+                <p class="respuesta">Si</p>
+              {% else %}
+                <p class="respuesta">No</p>
+            {% endif %}
+            <label>4. En cuanto a las visitas que voy a recibir, quiero dejar claro:</label>
+            <p class="respuesta">
+              <!-- No dejaba hacer switch -->
+              {% for i in 0..familyData.visits|length -1%}
+                {% set data = familyData.visits[i] %}
+                {% if data == 0 %}
+                  Agradezco todo tipo de visitas de forma libre.
+                {% endif %}
+
+                {% if data == 1  %}
+                  Todas las visitas deben avisar antes a las personas que me atienden o a mis seres queridos más cercanos, para asegurar que se cumplen mis deseos. Si no lo hacen, no deseo recibirlas.
+                {% endif %}
+
+                {% if data == 2  %}
+                  Deseo que se respete mi intimidad, no quiero tener visitas de ningún tipo mientras como, duermo o realizo tareas relacionadas con el aseo personal.
+                {% endif %}
+
+                {% if data == 3  %}
+                  No deseo recibir visitas más allá de mis seres queridos más cercanos.
+                {% endif %}
+
+                {% if data == 4  %}
+                  No se dará información personal sobre mi a personas ajenas a mis seres queridos más cercanos.
+                {% endif %}
+                {% if i != environmentData.placetobe|length -1 %}
+                <br>
+                {% endif %}
+              {% endfor %}
+            </p>
+            <label>5. Añade las observaciones, detalles y puntualizaciones que consideres oportunas:</label>
+            <p class="respuesta">{{familyData.observations}}</p>
+          </div>
+      </div>
 
     <h2 id="generando">Generando PDF</h2>
     <div id="loader"></div>
@@ -261,6 +277,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script type="text/javascript" src="{{ asset('js/getImageAsync.js') }}"></script>
     <script>
+
+        var imagenes = [];
 
         var imgLogo = [];
         var img_applicant = [];
@@ -279,8 +297,17 @@
         setTimeout(function () {
                 document.getElementById("generando").style.display = "none";
                 document.getElementById("loader").style.display = "none";
-                generatePdf();
-              }, 4000);
+                imagenes.push(imgLogo[0]);
+                imagenes.push(img_applicant[0]);
+                imagenes.push(img_witness1[0]);
+                imagenes.push(img_witness2[0]);
+                imagenes.push(img_witness3[0]);
+                imagenes.push(img_representant[0]);
+                if (imagenes.length == 6) {
+                  generatePdf();
+                  console.log(imagenes);
+                }
+              }, 8000);
 
         function generatePdf() {
           var doc = new jsPDF(),lines, size,margin = 0.5,verticalOffset = margin;
@@ -292,39 +319,40 @@
                 return true;
               }
             };
-            var block1 = document.getElementById("block1");
-            var block2 = document.getElementById("block2");
+
+            var applicant = document.getElementById("applicant");
+            var witness1 = document.getElementById("witness1");
+            var witness2 = document.getElementById("witness2");
+            var witness3 = document.getElementById("witness3");
             var representant = document.getElementById("representant");
+
             var healthData = document.getElementById("healthData");
             var environmentData = document.getElementById("environmentData");
             var personalData = document.getElementById("personalData");
             var familyData = document.getElementById("familyData");
-            var signHere = document.getElementById("signHere");
 
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
-              doc.fromHTML(signHere,85,115);
-
-              //Block 1 (applicant and witness 1)
-              doc.fromHTML(block1,15,15, {'width': 180});
+              doc.fromHTML(applicant,15,15);
               doc.addImage(img_applicant[0],'JPEG',30,115,50,30);
-              doc.fromHTML(signHere,85,115);
-              doc.addImage(img_witness1[0],'JPEG',30,250,50,30);
-              doc.fromHTML(signHere,85,250);
 
-              //Block 2 (witness 2 and witness 3)
               doc.addPage();
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
-              doc.fromHTML(block2,15,15, {'width': 180});
+              doc.fromHTML(witness1,15,15);
+              doc.addImage(img_witness1[0],'JPEG',30,115,50,30);
+
+              doc.addPage();
+              doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
+              doc.fromHTML(witness2,15,15);
               doc.addImage(img_witness2[0],'JPEG',30,115,50,30);
-              doc.fromHTML(signHere,85,115);
-              doc.addImage(img_witness3[0],'JPEG',30,250,50,30);
-              doc.fromHTML(signHere,85,250);
 
-              //Representante
               doc.addPage();
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
-              doc.fromHTML(representant,15,15, {'width': 180});
-              doc.fromHTML(signHere,85,115);
+              doc.fromHTML(witness3,15,15);
+              doc.addImage(img_witness3[0],'JPEG',30,115,50,30);
+
+              doc.addPage();
+              doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
+              doc.fromHTML(representant,15,15);
               doc.addImage(img_representant[0],'JPEG',30,115,50,30);
 
               //healthData
@@ -347,8 +375,9 @@
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
               doc.fromHTML(familyData,15,15,{'width': 180});
 
-            doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf')
-            window.location.replace("http://127.0.0.1:8000/admin/?entity=PDF&action=list&menuIndex=2&submenuIndex=-1")
+            // doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf');
+            doc.output('dataurlnewwindow');
+            // window.location.replace("http://127.0.0.1:8000/admin/?entity=PDF&action=list&menuIndex=2&submenuIndex=-1")
         }
     </script>
 
