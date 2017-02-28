@@ -9,16 +9,17 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
+                    <img id="logo" src="{{ asset('img/landing/vellesa/logo.png') }}" alt="logo Vellesa" />
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <h1>Iniciar Sesión</h1>
                         {% if csrf_token %}
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                         {% endif %}
                         <div class="form-group">
-                            <input class="form-control" placeholder="Username" type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
+                            <input class="form-control" placeholder="Usuario" type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="password" id="password" placeholder="Password" name="_password" required="required"/>
+                            <input class="form-control" type="password" id="password" placeholder="Contraseña" name="_password" required="required"/>
                         </div>
                         <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                         <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
@@ -28,7 +29,10 @@
                         </p>
                         <div class="clearfix"></div>
                         <div class="form-group" >
-                            <p>Aún no tienes cuenta?<a href="/user/register" class="to_register">Registrate</a></p>
+                            <p>¿Aún no tienes cuenta?<a href="/user/register" class="to_register">Registrate</a></p>
+                        </div>
+                        <div class="form-group" >
+                            <p style="font-size: 14px;">He olvidado mi contraseña<a href="#" class="to_register"> Recuperar</a></p>
                         </div>
                         <div class="clearfix"></div>
                     </form>
