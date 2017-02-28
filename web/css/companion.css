@@ -56,10 +56,10 @@ h3, h5 {
     letter-spacing: 1px;
 }
 h3 {
-    text-transform: uppercase;
-    font-weight: 900;
+    font-size: 2vw;
+    font-weight: 400;
     color: #FFFFFF;
-    margin-top: 70%;
+    margin-top: 65%;
 }
 .modal-footer{
     text-align: center;
@@ -71,7 +71,6 @@ h3 {
 h4{
     font-size: 2em;
     letter-spacing: 1px;
-    text-transform: uppercase;
     font-weight: 900;
     color: rgba(137,96,203, 1)  ;
 }
