@@ -41,8 +41,8 @@ class Assistant {
     showAssistant() {
         $(function() {
             $("#addClass").click(function() {
-                $('#qnimate').addClass('popup-box-on');
-                $("#addClass").css('display', 'none');
+              $('#qnimate').addClass('popup-box-on');
+              $("#addClass").css('display', 'none');
             });
 
             $("#removeClass").click(function() {

@@ -15,7 +15,7 @@
     // Highlight the top nav as scrolling occurs
     $('body').scrollspy({
         target: '.navbar-fixed-top',
-        offset: 51
+        offset: 51,
     });
 
     // Closes the Responsive Menu on Menu Item Click
@@ -30,4 +30,21 @@
         }
     })
 
+
+
+
 })(jQuery); // End of use strict
+
+
+jQuery(function(){
+    jQuery(window).scroll(function(){
+        if(jQuery(this).scrollTop() > 140) {
+            jQuery('#logo')
+                .attr('src','/img/landing/vellesa/logo.png')
+        }
+        if(jQuery(this).scrollTop() < 140) {
+            jQuery('#logo')
+                .attr('src','/img/landing/vellesa/logo2.png')
+        }
+    });
+});

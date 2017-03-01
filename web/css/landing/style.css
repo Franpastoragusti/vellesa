@@ -33,7 +33,7 @@ div.header-content-inner div.fondoHeader hr{
 	margin-top: 10px ;
 }
 #homeHeading{
-	padding-top: 10px;
+	padding-top: 30px;
 
 }
 div.header-content-inner p{
@@ -128,11 +128,11 @@ h2 + a{
 	color: rgb(90, 90, 90) !important;
 }
 div.header-content-inner li.min{
-	font-size: 18px !important;
+	font-size: 19px !important;
 	text-align: left;
 	color: rgb(90, 90, 90);
-	list-style: circle;
 	line-height: 30px;
+	list-style-type: circle;
 }
 h3{
 	line-height: 30px;
@@ -225,11 +225,15 @@ div.modal p{
 
 div.fondoHeader{
 	background-color: rgba(260,260,260,0.6);
-	height: 500px;
+	height: 550px;
 	max-width: 600px;
 	font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 	margin-top: 100px;
 	margin-left: 14vw;
+}
+
+.fondoHeader a{
+	margin-top: 20px;
 }
 
 /***********Tablas de precios************/

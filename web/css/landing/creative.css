@@ -1,4 +1,4 @@
-/*!
+  /*!
  * Start Bootstrap - Creative v3.3.7+1 (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
@@ -196,7 +196,6 @@ header .header-content .header-content-inner p {
   header .header-content .header-content-inner {
     max-width: 1000px;
     margin-left: auto;
-    margin-right: auto;
   }
   header .header-content .header-content-inner h1 {
     font-size: 50px;
