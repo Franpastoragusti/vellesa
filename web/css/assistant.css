@@ -1,7 +1,7 @@
 #assistant_body{
   position: fixed;
   right: 3%;
-  bottom: 3%;
+  bottom: 40%;
   z-index: 999;
 }
 
@@ -20,8 +20,8 @@
 
 .assistant_img{
   /* cambia estos dos valores para definir el tamaño de tu círculo */
-    height: 75px;
-    width: 75px;
+    height: 105px;
+    width: 105px;
     /* los siguientes valores son independientes del tamaño del círculo */
     background-position: 50%;
     border-radius: 50%;
