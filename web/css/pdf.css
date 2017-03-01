@@ -19,7 +19,7 @@ h3{
 #loader {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 200px;
   z-index: 1;
   width: 150px;
   height: 150px;

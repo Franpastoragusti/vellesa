@@ -337,6 +337,11 @@
 
               doc.addPage();
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
+              doc.fromHTML(representant,15,15);
+              doc.addImage(img_representant[0],'JPEG',30,115,50,30);
+
+              doc.addPage();
+              doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
               doc.fromHTML(witness1,15,15);
               doc.addImage(img_witness1[0],'JPEG',30,115,50,30);
 
@@ -350,10 +355,7 @@
               doc.fromHTML(witness3,15,15);
               doc.addImage(img_witness3[0],'JPEG',30,115,50,30);
 
-              doc.addPage();
-              doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
-              doc.fromHTML(representant,15,15);
-              //doc.addImage(img_representant[0],'JPEG',30,115,50,30);
+
 
               //healthData
               doc.addPage();
@@ -375,9 +377,10 @@
               doc.addImage(imgLogo[0],'JPEG',180,5,25,15);
               doc.fromHTML(familyData,15,15,{'width': 180});
 
-            // doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf');
-            doc.output('dataurlnewwindow');
-            // window.location.replace("http://127.0.0.1:8000/admin/?entity=PDF&action=list&menuIndex=2&submenuIndex=-1")
+
+            doc.save('Datos{{applicant.name}}_{{applicant.surname}}.pdf');
+
+            window.location.replace("http://127.0.0.1:8000/admin/?entity=PDF&action=list&menuIndex=2&submenuIndex=-1")
         }
     </script>
 
